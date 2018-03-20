@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <drawable name="transparent">#00000000</drawable>
+
+    <!-- 用户头像颜色值 -->
+    <array name="hi_color">
+        <item>#f56b6b</item>
+        <item>#9a89b9</item>
+        <item>#33cc99</item>
+        <item>#179ffa</item>
+        <item>#f29518</item>
+        <item>#66cccc</item>
+        <item>#ff99cc</item>
+        <item>#6ab4fd</item>
+        <item>#f5c51d</item>
+        <item>#a3adde</item>
+        <item>#fa8585</item>
+        <item>#94c33a</item>
+        <item>#4ccfe1</item>
+    </array>
+    <color name="colorTransparent">#00000000</color>
+    <color name="colorLightTranslucentBlack">#30000000</color>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorExtremeLightGray">#f4f4f4</color>
+    <color name="colorLightGray">#cecece</color>
+    <color name="colorGray">#a6a6a6</color>
+    <color name="colorDeepGray">#606060</color>
+    <color name="colorNaviSvPre">#46a2ff</color>
+    <color name="colorNaviSvCurrent">#494949</color>
+    <color name="white">#FFF</color>
+    <color name="context_bg_grey">#F2F2F2</color>
+    <color name="side_bar_text">#4A4A4A</color>
+    <color name="red">#ff0000</color>
+    <color name="guest_draw_line_error_coloe">#ea6f6f</color>
+
+    <!--主色调-->
+    <color name="blue_theme">#1cccdd</color>
+    <color name="deep_blue_theme">#1cb3dd</color>
+    <color name="deepest_blue_theme">#ff159cea</color>
+    <color name="lightblue_theme">#97e2ea</color>
+
+    <!--TabBar-->
+    <color name="tabBar_colorOriginal">#cacacb</color>
+    <color name="tabBar_colorGradient">#159cea</color>
+
+    <!--WelcomeActivity-->
+    <color name="welcomeactivity_statusbar_bg">#2188AF</color>
+
+    <!--RecentContactsItemView-->
+    <color name="recentcontactsitemview_bg">#e6e6e6</color>
+    <color name="recentcontactsitemview_top_bg">#f5f5f5</color>
+    <color name="recentcontactsitemview_colorLightGray">#bababa</color>
+    <color name="recentcontactsitemview_colorBlack">#4d4d4d</color>
+
+    <!--ChatActivity-->
+    <color name="chatactivity_srrvchatarea_bg">#f5f5f5</color>
+
+    <!--FilePreviewActivity-->
+    <color name="filepreviewactivity_filename_textcolor">#030303</color>
+    <color name="filepreviewactivity_filesize_textcolor">#98a1a8</color>
+    <color name="filepreviewactivity_fileopenbtn_press_bgcolor">#19bccc</color>
+    <color name="filepreviewactivity_progresstips_textcolor">#98a1a8</color>
+
+    <!--BaseChatItemView-->
+    <color name="basechatitemview_select_stroke">#999999</color>
+    <color name="basechatitemview_select_bg">#34e100</color>
+    <color name="basechatitemview_time_bg">#20000000</color>
+
+    <!--TextChatItemView-->
+    <color name="textchatitemview_text_black">#303030</color>
+
+    <!--FileChatItemView-->
+    <color name="filechatitemview_progress_bgcolor">#c3eff4</color>
+
+    <!--TempTipsItemView-->
+    <color name="temptipsitemview_line_color">#a6a6a6</color>
+
+    <!--NewsChatItemView-->
+    <color name="newschatitemview_gray_color">#999999</color>
+
+    <!--ChatInputBar-->
+    <color name="chatinputbar_sendvoice_textcolor">#6e6e6e</color>
+    <color name="chatinputbar_functionitem_textcolor">#505050</color>
+    <color name="chatinputbar_sendtext_cursorcolor">#8b8b8b</color>
+
+    <!--ProgressRoundImageView-->
+    <color name="progressroundimageview_loading_bg">#60000000</color>
+
+    <!--最近消息页右上角更多按钮弹出窗口背景颜色-->
+    <color name="recentcontacts_popwindow_bg">#d2000000</color>
+
+    <!--断网提示背景颜色-->
+    <color name="no_network_bg">#fffcb1</color>
+
+    <!--登录界面-->
+    <color name="login_edittext_txt">#979797</color>
+    <color name="common_bt_unable_bgcolor">#6fc0cb</color>
+    <color name="common_bt_unable_text_color">#f3f3f3</color>
+    <color name="transparent">#00000000</color>
+    <color name="context_bg_blue">#30d0df</color>
+    <color name="common_bt_enable_press_color">#7ab0b8</color>
+    <color name="common_bt_enable_normal_color">#10bdcc</color>
+
+    <!--应用中心-->
+    <color name="top_bar_text_color_white">#FFFFFF</color>
+    <color name="halftransparent">#aa000000</color>
+    <color name="tab_my_signtrue_gray">#797979</color>
+
+    <color name="common_hint_color">#AEAEAE</color>
+
+    <color name="common_title_color">#4F5158</color>
+    <!-- 分割线颜色  灰色-->
+    <color name="spacing_line_color">#cecfda</color>
+    <!-- 分割线颜色  灰色-->
+    <!-- 搜索基于灰色背景下仍可见的灰色颜色，全局用到的地方也多 -->
+    <color name="search_content_hint_textcolor">#AEAEAE</color>
+    <color name="person_message_link">#11a6de</color>
+
+    <!--个人信息页-->
+    <color name="button_personinfo_Orange">#FF6600</color>
+    <color name="personmessge_layout_blue">#09A3Dc</color>
+
+    <!--文件管理器-->
+    <color name="tab_my_expendgroup_bg">#e0e0e0</color>
+    <color name="register_bt_next_step">#10bdcc</color>
+    <color name="fileexplorer_selected">#e9e9e9</color>
+    <color name="text_gray">#ff777777</color>
+    <!--文件管理器-->
+    <color name="right_tv_green">#1ECC95</color>
+
+    <!--我的界面-->
+    <color name="my_info_hint">#979797</color>
+ <color name="black">#000</color>
+
+    <color name="gray_color">#fff0f0f0</color>
+    <!-- 透明玻璃黑 -->
+    <color name="transparent_glass_black">#66000000</color>
+    <color name="transparent_deep_black">#a8000000</color>
+    <color name="dialogColor">#f0ffffff</color>
+    <color name="listpop_item_bg_color">#22292c</color>
+    <color name="listpop_item_bg_select_color">#1d2325</color>
+
+    <color name="pinlistview_gray_color">#fff0f0f0</color>
+    <color name="listview_divider_color">#DCDCDC</color>
+
+    <color name="top_bar_title_color_easy_target">#6B6B6B</color>
+    <color name="top_bar_txt_color_easy_target">#6B6B6B</color>
+
+    <!-- 子Fragment内部背景颜色值 -->
+    <color name="f_memu_bg_color">#F8F8F8</color>
+
+    <color name="sway">#60000000</color>
+
+    <!--MessageItemVIew-->
+    <!-- lisview item 默认点击效果 -->
+    <color name="common_item_pressed_color">#F8F8F8</color>
+    <color name="personmessge_txtview_color">#8c8c8c</color>
+
+    <!--MessageItemLayout-->
+   <color name="common_hint_gray">#ff777777</color>
+    <!-- 注册界面颜色 -->
+    <color name="register_industry_blue">#529ef0</color>
+    <color name="register_industry_brown">#f3901b</color>
+    <color name="register_industry_green">#6eb92b</color>
+    <color name="register_industry_skeyblue">#6cb0f1</color>
+    <color name="register_industry_goodsblue">#a79fda</color>
+    <color name="register_industry_other">#7092ae</color>
+    <color name="register_verfycode_line">#30d0df</color>
+    <color name="register_hint">#979797</color>
+    <color name="register_job">#979797</color>
+    <color name="register_more_job_select">#c1bfcd</color>
+    <color name="common_text_green_color">#7ab0b8</color>
+    <drawable name="common_bt_unable_bgcolor">#99c2eb</drawable>
+
+    <color name="common_bt_enable_normel_color">#10bdcc</color>
+    <color name="common_blue">#288BDD</color>
+</resources>

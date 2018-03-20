@@ -1,0 +1,50 @@
+package com.business;
+
+import java.io.IOException;
+
+import com.business.bean.ResponseMsg;
+
+import okhttp3.Call;
+import okhttp3.Response;
+
+public class ServiceCallBack {
+	boolean isSucess=false;
+	Call call;
+	Response response;
+	Exception except;
+	ResponseMsg responseMsg ;
+	public boolean isSucess() {
+		return isSucess;
+	}
+	public void setSucess(boolean isSucess) {
+		this.isSucess = isSucess;
+	}
+	public Call getCall() {
+		return call;
+	}
+	public void setCall(Call call) {
+		this.call = call;
+	}
+	public Response getResponse() {
+		return response;
+	}
+	public void setResponse(Response response) {
+		this.response = response;
+	}
+	
+	public ResponseMsg getResponseMsg() {
+		return responseMsg;
+	}
+	public void setResponseMsg(ResponseMsg responseMsg) {
+		this.responseMsg = responseMsg;
+	}
+	public Exception getExcept() {
+		return except;
+	}
+	public void setExcept(Exception except) {
+		this.except = except;
+	}
+	
+	
+	
+}
