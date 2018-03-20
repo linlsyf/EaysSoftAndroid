@@ -1,6 +1,5 @@
 package com.ui;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,12 +9,10 @@ import com.core.CoreApplication;
 import com.core.base.BasicActivity;
 import com.core.utils.StringUtils;
 import com.easysoft.costumes.R;
-import com.robot.tuling.ui.NewsActivity;
-import com.robot.tuling.ui.TulingActivity;
 import com.ui.car.ShopOrderListFragment;
 import com.ui.login.LoginActivity;
 import com.ui.message.add.AddFragment;
-import com.ui.other.TabFragmentOther;
+import com.ui.other.TabOtherFragment;
 import com.ui.setting.SettingFragment;
 import com.view.tabview.adapter.MainViewAdapter;
 import com.view.tabview.listener.OnTabSelectedListener;
@@ -34,9 +31,9 @@ public class HomeActivity extends BasicActivity {
          tabContainerView = (TabContainerView) findViewById(R.id.tab_container);
 
         MainViewAdapter mainViewAdapter=new MainViewAdapter(getSupportFragmentManager(),
-                new Fragment[] {new AddFragment(),  new ShopOrderListFragment(),new TabFragmentOther(),new SettingFragment()});
+                new Fragment[] {new AddFragment(),  new ShopOrderListFragment(),new TabOtherFragment(),new SettingFragment()});
 //        MainViewAdapter mainViewAdapter=new MainViewAdapter(getSupportFragmentManager(),
-//                new Fragment[] {new AddFragment(),  new ShopOrderListFragment(),new TabFragmentOther(),new SettingFragment()});
+//                new Fragment[] {new AddFragment(),  new ShopOrderListFragment(),new TabOtherFragment(),new SettingFragment()});
         mainViewAdapter.setHasMsgIndex(1);
         tabContainerView.setAdapter(mainViewAdapter);
         tabContainerView.setOnTabSelectedListener(new OnTabSelectedListener() {
@@ -50,7 +47,7 @@ public class HomeActivity extends BasicActivity {
 //		Intent dbIntent=new Intent(this, LoginActivity.class);
 //		 startActivity(dbIntent);
 //		sendCode(this);
-//		Intent intent = new Intent(this, TulingActivity.class);
+//		Intent intent = new Intent(this, TulingFragemnt.class);
 //		startActivity(intent);
     }
 

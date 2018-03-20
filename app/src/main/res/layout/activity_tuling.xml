@@ -4,7 +4,11 @@
     android:layout_height="match_parent"
     android:background="@drawable/weather_bg"
     android:orientation="vertical">
-
+    <com.view.toolbar.NavigationBar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        ></com.view.toolbar.NavigationBar>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -56,6 +60,7 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center_vertical"
                     android:background="@color/white"
+                    android:imeOptions="actionSearch"
                     android:hint="输入您的问题"
                     android:maxLength="100"
                     android:maxLines="4"

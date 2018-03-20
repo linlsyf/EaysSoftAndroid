@@ -1,8 +1,10 @@
 package com.robot.tuling.ui;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -13,6 +15,8 @@ import com.alibaba.fastjson.JSON;
 import com.business.ServiceCallBack;
 import com.business.bean.ResponseMsgData;
 import com.business.bean.ShopRecorder;
+import com.core.base.BaseFragment;
+import com.core.utils.FragmentHelper;
 import com.easysoft.costumes.R;
 import com.robot.tuling.adapter.ChatMessageAdapter;
 import com.robot.tuling.constant.TulingParams;
@@ -23,6 +27,9 @@ import com.robot.tuling.util.KeyBoardUtil;
 import com.robot.tuling.util.TimeUtil;
 import com.ui.HttpService;
 import com.ui.car.MyCallback;
+import com.view.toolbar.NavigationBar;
+import com.view.toolbar.NavigationBarListener;
+import com.view.toolbar.TopBarBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,55 +38,70 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 
-public class TulingActivity extends BaseActivity {
+public class TulingFragemnt extends BaseFragment {
 
-//    @Bind(R.id.toolbar)
-//    Toolbar toolbar;
+
     @Bind(R.id.lv_message)
     ListView lvMessage;
     @Bind(R.id.iv_send_msg)
     ImageView ivSendMsg;
     @Bind(R.id.et_msg)
     EditText etMsg;
-    @Bind(R.id.rl_msg)
-    RelativeLayout rlMsg;
+
 
     private List<MessageEntity> msgList = new ArrayList<>();
     private ChatMessageAdapter msgAdapter;
+    private NavigationBar toolbar;
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        View rootView=inflater.inflate(R.layout.activity_tuling, null);
+
+        setRootView(rootView);
+        return rootView;
+
+    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tuling);
-        ButterKnife.bind(this);
-
-//        new FirUpdater(this, "3c57fb226edf7facf821501e4eba08d2", "5704953c00fc74127000000a").checkVersion();
-
-        initData();
+    public void initFragment() {
+        ButterKnife.bind(getActivity());
         initView();
+        initData();
         initListener();
         requestApiByRetrofit_RxJava("新闻");
     }
 
-    private void initData() {
+    public void initData() {
         if (msgList.size() == 0) {
             MessageEntity entity = new MessageEntity(ChatMessageAdapter.TYPE_LEFT, TimeUtil.getCurrentTimeMillis());
             entity.setText("你好！俺是图灵机器人！\n咱俩聊点什么呢？\n你有什么要问的么？");
             msgList.add(entity);
         }
-        msgAdapter = new ChatMessageAdapter(this, msgList);
+        msgAdapter = new ChatMessageAdapter(getActivity(), msgList);
         lvMessage.setAdapter(msgAdapter);
         lvMessage.setSelection(msgAdapter.getCount());
     }
 
     private void initView() {
-//        toolbar.setTitle(getString(R.string.app_name));
-//        setSupportActionBar(toolbar);
+        lvMessage=getViewById(R.id.lv_message);
+        toolbar=getViewById(R.id.toolbar);
+        ivSendMsg=getViewById(R.id.iv_send_msg);
+        etMsg=getViewById(R.id.et_msg);
+        TopBarBuilder.buildCenterTextTitle(toolbar, getActivity(), "小Q", 0);
+        toolbar.setNavigationBarListener(new NavigationBarListener() {
+
+            @Override
+            public void onClick(ViewGroup containView, NavigationBar.Location location) {
+                if (location== NavigationBar.Location.LEFT_FIRST) {
+                    FragmentHelper.popBackFragment(getActivity());
+                }
+
+            }
+        });
     }
 
-    private void initListener() {
-//        ivSendMsg.setOnClickListener(v -> sendMessage());
-//        ivSendMsg.setOnClickListener(v -> funcDemo());
+    public void initListener() {
+
          ivSendMsg.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View view) {
@@ -90,7 +112,7 @@ public class TulingActivity extends BaseActivity {
         lvMessage.setOnScrollListener(new AbsListView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(AbsListView view, int scrollState) {
-                KeyBoardUtil.hideKeyboard(mActivity);
+                KeyBoardUtil.hideKeyboard(getActivity());
             }
 
             @Override
@@ -100,23 +122,11 @@ public class TulingActivity extends BaseActivity {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        super.onCreateOptionsMenu(menu);
-//        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
+    public void getBroadcastReceiverMessage(String type, Object mode) {
+
     }
 
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        super.onOptionsItemSelected(item);
-//        switch (item.getItemId()) {
-//            case R.id.action_about:
-//                NavigateManager.gotoAboutActivity(mContext);
-//                return true;
-//            default:
-//                return false;
-//        }
-//    }
+
 
     // 给Turing发送问题
     public void sendMessage() {
@@ -128,10 +138,7 @@ public class TulingActivity extends BaseActivity {
             msgAdapter.notifyDataSetChanged();
             etMsg.setText("");
 
-            // 仅使用 Retrofit 请求接口
-//            requestApiByRetrofit(msg);
 
-            // 使用 Retrofit 和 RxJava 请求接口
             requestApiByRetrofit_RxJava(msg);
         }
     }
@@ -139,9 +146,7 @@ public class TulingActivity extends BaseActivity {
 
     // 请求图灵API接口，获得问答信息
     private void requestApiByRetrofit_RxJava(final String info) {
-
         HttpService 		service=new HttpService();
-
         final String url = TulingParams.TULING_URL+"?key="+TulingParams.TULING_KEY+"&info="+info;
         service.request( url , "",new MyCallback(new MyCallback.IResponse() {
             @Override
@@ -154,15 +159,13 @@ public class TulingActivity extends BaseActivity {
                     ResponseMsgData data =JSON.parseObject(serviceCallBack.getResponseMsg().getData().toString(),
                             ResponseMsgData.class);
                     List<NewsEntity> orderList =  JSON.parseArray(data.getList().toString(), NewsEntity.class) ;
-//                    List<NewsEntity> orderList =  JSON.parseArray(data.getData()
-//                            .toString(), NewsEntity.class);
+
                     final MessageEntity  messageEntity=new MessageEntity();
                     messageEntity.setCode(data.getCode());
-//                    messageEntity.setCode(TulingParams.TulingCode.NEWS);
-//                    messageEntity.setType(TulingParams.TulingCode.NEWS);
+
                     messageEntity.setText(info);
                     messageEntity.setList(orderList);
-                    TulingActivity.this.runOnUiThread(new Runnable() {
+                   getActivity().runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
                             handleResponseMessage(messageEntity);
@@ -171,7 +174,6 @@ public class TulingActivity extends BaseActivity {
                     });
                 }
 
-//                ilogInView.showToast("登录成功");
             }
         }).setOutside(true));
     }

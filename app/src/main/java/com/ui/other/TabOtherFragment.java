@@ -12,18 +12,22 @@ import com.alipay.sdk.pay.demo.PayDemoActivity;
 import com.core.base.BaseFragment;
 import com.core.recycleview.item.AddressItemBean;
 import com.core.recycleview.sectionview.Section;
+import com.core.utils.FragmentHelper;
 import com.easysoft.costumes.R;
-import com.robot.tuling.ui.TulingActivity;
+import com.robot.tuling.ui.TulingFragemnt;
+import com.ui.message.add.AddFragment;
 import com.ui.other.view.OtherContentView;
 import com.view.toolbar.NavigationBar;
 import com.view.toolbar.TopBarBuilder;
+
+import java.io.Serializable;
 
 import butterknife.ButterKnife;
 
 /**
  * Created by chengxi on 17/4/26.
  */
-public class TabFragmentOther extends BaseFragment implements IOtherView{
+public class TabOtherFragment extends BaseFragment implements IOtherView{
     OtherPresenter presenter;
     OtherContentView recycleView;
     protected Context mContext;
@@ -98,7 +102,16 @@ public class TabFragmentOther extends BaseFragment implements IOtherView{
 
     @Override
     public void showNews() {
-        getActivity().startActivity(new Intent(getActivity(),TulingActivity.class));
+        getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+
+                Bundle bundle=new Bundle();
+
+                FragmentHelper.showFrag(getActivity(), R.id.container_framelayout, new TulingFragemnt(), bundle);
+
+            }
+        });
     }
 
     @Override

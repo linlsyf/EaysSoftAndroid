@@ -60,6 +60,7 @@ public class OtherPresenter   {
 	private String KEY_USER_INFO="userInfo";
 	private String SECTION_WEATHER="weather";
 	private String SECTION_APAY="apay";
+	private String SECTION_NEW="new";
 
 	public OtherPresenter(IOtherView IOtherView) {
     	this.iOtherView=IOtherView;
@@ -83,6 +84,7 @@ public class OtherPresenter   {
 
 					 }
 				  Section  weatherSection=new Section(SECTION_WEATHER);
+				  weatherSection.setPosition(0);
 				  weatherSection.setName("天气");
 				  List<AddressItemBean>  weartherSectionList=new ArrayList<AddressItemBean>();
 				  for (WeatherMsg itemBean:futureWeatherList) {
@@ -153,7 +155,9 @@ public class OtherPresenter   {
 
 		  apaySection.setDataMaps(paySectionList);
 
-		  Section  newSection=new Section(SECTION_APAY);
+		  Section  newSection=new Section(SECTION_NEW);
+		  newSection.setPosition(0);
+
 		  newSection.setName("新闻");
 		  List<AddressItemBean>  newSectionList=new ArrayList<AddressItemBean>();
 
