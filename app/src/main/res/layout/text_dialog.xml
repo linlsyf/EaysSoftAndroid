@@ -26,7 +26,7 @@
             android:layout_height="100dip"
             android:layout_below="@+id/tv"
             android:adjustViewBounds="true"
-            android:src="@drawable/bg_exit_dialog" />
+           />
 
         <LinearLayout
             android:id="@+id/i3"

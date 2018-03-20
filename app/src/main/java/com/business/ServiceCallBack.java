@@ -13,6 +13,7 @@ public class ServiceCallBack {
 	Response response;
 	Exception except;
 	ResponseMsg responseMsg ;
+	String    msg;
 	public boolean isSucess() {
 		return isSucess;
 	}

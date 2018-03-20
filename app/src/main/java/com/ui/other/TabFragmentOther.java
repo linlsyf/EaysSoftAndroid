@@ -13,6 +13,7 @@ import com.core.base.BaseFragment;
 import com.core.recycleview.item.AddressItemBean;
 import com.core.recycleview.sectionview.Section;
 import com.easysoft.costumes.R;
+import com.robot.tuling.ui.TulingActivity;
 import com.ui.other.view.OtherContentView;
 import com.view.toolbar.NavigationBar;
 import com.view.toolbar.TopBarBuilder;
@@ -97,7 +98,7 @@ public class TabFragmentOther extends BaseFragment implements IOtherView{
 
     @Override
     public void showNews() {
-//        getActivity().startActivity(new Intent(getActivity(),NewActivity.class));
+        getActivity().startActivity(new Intent(getActivity(),TulingActivity.class));
     }
 
     @Override

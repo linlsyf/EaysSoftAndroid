@@ -158,7 +158,7 @@ public class OtherPresenter   {
 		  List<AddressItemBean>  newSectionList=new ArrayList<AddressItemBean>();
 
 		  AddressItemBean newItemBean=new AddressItemBean();
-		  newItemBean.setTitle("查看新闻");
+		  newItemBean.setTitle("助手小Q");
 		  newItemBean.setOnItemListener(new IItemView.onItemClick() {
 			  @Override
 			  public void onItemClick(IItemView.ClickTypeEnum typeEnum, AddressItemBean bean) {

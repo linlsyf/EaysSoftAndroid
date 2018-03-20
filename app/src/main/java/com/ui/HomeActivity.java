@@ -10,6 +10,8 @@ import com.core.CoreApplication;
 import com.core.base.BasicActivity;
 import com.core.utils.StringUtils;
 import com.easysoft.costumes.R;
+import com.robot.tuling.ui.NewsActivity;
+import com.robot.tuling.ui.TulingActivity;
 import com.ui.car.ShopOrderListFragment;
 import com.ui.login.LoginActivity;
 import com.ui.message.add.AddFragment;
@@ -48,7 +50,8 @@ public class HomeActivity extends BasicActivity {
 //		Intent dbIntent=new Intent(this, LoginActivity.class);
 //		 startActivity(dbIntent);
 //		sendCode(this);
-
+//		Intent intent = new Intent(this, TulingActivity.class);
+//		startActivity(intent);
     }
 
 	@Override

@@ -34,12 +34,11 @@ public class OkHttpUtils {
 	 }
 	
 	public void post(String url, String json,  Callback callBack)  {
-			url=url+"?msg="+json;
-//           try{
-//			   json= URLEncoder.encode(json ,  "utf-8");
-//		   }catch ( Exception e){
-//
-//		   }
+		  if (!url.contains("?")){
+			  url=url+"?msg="+json;
+
+		  }
+
 
 		RequestBody body = RequestBody.create(JSON, json);
 	   
@@ -47,7 +46,6 @@ public class OkHttpUtils {
 	      .url(url)
 	      .post(body)
 	      .build();
-	    String result="";
 		try {
 			 Call call = client.newCall(request);
 			 call.enqueue(callBack);

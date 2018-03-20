@@ -15,9 +15,14 @@ public   class MyCallback implements Callback{
 	ServiceCallBack  serviceCallBack=new ServiceCallBack();
 
 	IResponse  iResponse;
-	
-	
-	
+	boolean outside=false;
+
+
+	public MyCallback setOutside(boolean outside) {
+		this.outside = outside;
+		return this;
+	}
+
 	public MyCallback(IResponse iResponse) {
 		super();
 		this.iResponse = iResponse;
@@ -38,13 +43,21 @@ public   class MyCallback implements Callback{
 			ResponseBody body = response.body();
 			String msg = body.string();
 
+			  if (!outside){
+				  ObjectMapper mapper = new ObjectMapper();
+
+				  ResponseMsg responseMsg = mapper.readValue(msg,
+						  ResponseMsg.class);
+
+				  serviceCallBack.setResponseMsg(responseMsg);
+			  }else{
+				  ResponseMsg responseMsg=new ResponseMsg();
+				  responseMsg.setData(msg);
+				  serviceCallBack.setResponseMsg(responseMsg);
+
+			  }
 			
-			ObjectMapper mapper = new ObjectMapper();
-			
-			ResponseMsg responseMsg = mapper.readValue(msg,
-					ResponseMsg.class);
-			
-			serviceCallBack.setResponseMsg(responseMsg);
+
 	    }
 		serviceCallBack.setCall(call);
 		serviceCallBack.setResponse(response);
