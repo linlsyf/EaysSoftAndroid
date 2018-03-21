@@ -89,7 +89,7 @@ public  class ShopOrderListFragment extends BaseFragment implements IShopOrderLi
 
 	@Override
 	public void getBroadcastReceiverMessage(String type, Object mode) {
-		if(type.equals(BusinessBroadcastUtils.TYPE_SHOPCAR_LIST)){
+		if(type.equals(BusinessBroadcastUtils.TYPE_SHOPCAR_LIST)|type.equals(BusinessBroadcastUtils.TYPE_RELOGIN_SUCESS)){
 			persenter.list();
 		}
 		

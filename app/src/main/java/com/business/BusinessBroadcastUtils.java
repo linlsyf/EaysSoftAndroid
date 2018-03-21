@@ -45,8 +45,10 @@ public class BusinessBroadcastUtils {
 		BroadcastUtils.sendBroadCast(context, GlobalConstants.getInstance().getBroadCastReceiverActionName(), 
 								BaseUiInterface.MSG_TYPE, BaseUiInterface.MSG_MODE, type, obj);
 	}
-	/**保存pdf 批注 发送过来的广播*/
+	/**刷新订单信息*/
 	public static String  TYPE_SHOPCAR_LIST="com.ui.car.TabFragment4.list";
+	/**刷新订单信息*/
+	public static String  TYPE_RELOGIN_SUCESS="HomeActivity.relogin.sucess";
 
 	
 	//========平板主界面======

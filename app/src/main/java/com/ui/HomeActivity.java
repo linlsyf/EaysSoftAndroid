@@ -108,7 +108,7 @@ public class HomeActivity extends BasicActivity implements IlogInView {
 			@Override
 			public void run() {
 //				persenter.list();
-				BusinessBroadcastUtils.sendBroadcast(getContext(), BusinessBroadcastUtils.TYPE_SHOPCAR_LIST, null);
+				BusinessBroadcastUtils.sendBroadcast(getContext(), BusinessBroadcastUtils.TYPE_RELOGIN_SUCESS, null);
 
 			}
 		});

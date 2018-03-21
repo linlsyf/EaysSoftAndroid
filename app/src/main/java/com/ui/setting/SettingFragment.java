@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.business.BusinessBroadcastUtils;
 import com.core.base.BaseFragment;
 import com.core.recycleview.item.AddressItemBean;
 import com.core.recycleview.sectionview.Section;
@@ -60,7 +61,9 @@ public class SettingFragment extends BaseFragment implements ISafeSettingView{
     }
 	@Override
 	public void getBroadcastReceiverMessage(String type, Object mode) {
-		// TODO Auto-generated method stub
+        if(type.equals(BusinessBroadcastUtils.TYPE_RELOGIN_SUCESS)){
+            presenter.updateUserInfo();
+        }
 		
 	}
 	@Override

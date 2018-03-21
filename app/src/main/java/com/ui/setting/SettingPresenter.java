@@ -58,7 +58,11 @@ public class SettingPresenter   {
 		  List<AddressItemBean> settingMaps=new ArrayList<>();
 		    infoCardBean=new InfoCardBean();
 		    infoCardBean.setId(KEY_USER_INFO);
-		    infoCardBean.setUserName("用户");
+		  String loginName="用户";
+		   if (BusinessBroadcastUtils.loginUser!=null){
+			   loginName=BusinessBroadcastUtils.loginUser.getName();
+		   }
+		    infoCardBean.setUserName(loginName);
 		    infoCardBean.setViewType(IItemView.ViewTypeEnum.INFO_CARD_VIEW.value());
 		    dataMaps.add(infoCardBean);
 		    
@@ -99,7 +103,7 @@ public class SettingPresenter   {
     	  iSafeSettingView.initUI(nextSection);
     	  iSafeSettingView.initUI(settingSection);
     	  initJpush();
-		  getLoginUserMsg();
+//		  getLoginUserMsg();
       }
 	  public void getLoginUserMsg(){
 		  if(StringUtils.isNotEmpty(BusinessBroadcastUtils.USER_VALUE_USER_ID)){{
@@ -135,24 +139,7 @@ public class SettingPresenter   {
 			  }));
 		  }}
 	  }
-	// 请求验证码，其中country表示国家代码，如“86”；phone表示手机号码，如“13800138000”
-	public void sendCode(String country, String phone) {
-		// 注册一个事件回调，用于处理发送验证码操作的结果
-		SMSSDK.registerEventHandler(new EventHandler() {
-			public void afterEvent(int event, int result, Object data) {
-				if (result == SMSSDK.RESULT_COMPLETE) {
-					// TODO 处理成功得到验证码的结果
-					// 请注意，此时只是完成了发送验证码的请求，验证码短信还需要几秒钟之后才送达
-					iSafeSettingView.showToast("已发送");
-				} else{
-					iSafeSettingView.showToast("发送失败");
-				}
 
-			}
-		});
-		// 触发操作
-		SMSSDK.getVerificationCode(country, phone);
-	}
 
     public void initJpush(){
 //    	JPushInterface.setAlias(CoreApplication.getAppContext(), 0, "ldh");
@@ -175,4 +162,10 @@ public class SettingPresenter   {
 		SpUtils.clear(iSafeSettingView.getContext(), BusinessBroadcastUtils.STRING_LOGIN_ID);
 		iSafeSettingView.logOut();
     }
+
+	public void updateUserInfo() {
+		infoCardBean.setId(BusinessBroadcastUtils.loginUser.getId());
+		infoCardBean.setUserName(BusinessBroadcastUtils.loginUser.getName());
+		iSafeSettingView.updateItem(infoCardBean);
+	}
 }
