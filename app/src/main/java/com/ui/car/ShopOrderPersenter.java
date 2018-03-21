@@ -4,12 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.alibaba.fastjson.JSON;
+import com.business.BusinessBroadcastUtils;
 import com.business.ServiceCallBack;
 import com.business.bean.Goods;
 import com.business.bean.ResponseMsgData;
 import com.business.bean.ShopOrder;
 import com.business.bean.ShopOrderMsg;
 import com.business.bean.ShopRecorder;
+import com.business.login.User;
 import com.core.CoreApplication;
 import com.core.ServerUrl;
 import com.core.recycleview.item.AddressItemBean;
@@ -106,14 +108,14 @@ public class ShopOrderPersenter  {
 	
 	public void list(){
 		
-		String url = ServerUrl.baseUrl+ServerUrl.LIST_ORDERED;
-		ShopOrder order = new ShopOrder();
+		String url = ServerUrl.baseUrl+ServerUrl.LIST_MY_ORDERED;
+		User user = BusinessBroadcastUtils.loginUser;
 
 		
 		 ObjectMapper mapper = new ObjectMapper();
 	        String json = null;
 			try {
-				json = mapper.writeValueAsString(order);
+				json = mapper.writeValueAsString(user);
 			} catch (JsonProcessingException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

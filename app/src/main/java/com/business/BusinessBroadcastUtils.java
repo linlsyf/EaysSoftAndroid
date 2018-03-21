@@ -3,6 +3,7 @@ package com.business;
 
 import android.content.Context;
 
+import com.business.login.User;
 import com.core.base.BaseUiInterface;
 import com.core.base.GlobalConstants;
 import com.core.utils.system.BroadcastUtils;
@@ -22,13 +23,15 @@ public class BusinessBroadcastUtils {
 	public static final String HTTP_ERROR ="http_error" ;
 	public static String TYPE_LOCAL_REGISTER="local_register";
 	public static String TYPE_LOCAL_REGISTER_SUCCESS_AUTOLOGIN="register_sucess_autologin";
-
+    /**登录id*/
 	public static String USER_VALUE_LOGIN_ID;
 	public static String USER_VALUE_PWD;
+	/**用户id*/
 	public static String USER_VALUE_USER_ID;
 	public static String STRING_LOGIN_USER_ID="login_user_id";
 	public static String STRING_LOGIN_USER_PWD="login_user_pwd";
 	public static String STRING_LOGIN_ID="login_login_id";
+	public static User loginUser;
 
 	/**
 	 * <br>创建者：ldh

@@ -44,6 +44,7 @@ public class LoginPresenter {
                      BusinessBroadcastUtils.USER_VALUE_LOGIN_ID =logInId ;
                      BusinessBroadcastUtils.USER_VALUE_PWD 	   =pwd;
                      BusinessBroadcastUtils.USER_VALUE_USER_ID  =serverUser.getId() ;
+                     BusinessBroadcastUtils.loginUser=serverUser;
 
                      SpUtils.putString(ilogInView.getContext(),BusinessBroadcastUtils.STRING_LOGIN_USER_ID,serverUser.getId());
                      SpUtils.putString(ilogInView.getContext(),BusinessBroadcastUtils.STRING_LOGIN_USER_PWD,serverUser.getPwd());

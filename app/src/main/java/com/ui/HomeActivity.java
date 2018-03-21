@@ -1,5 +1,6 @@
 package com.ui;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,10 +9,13 @@ import com.business.BusinessBroadcastUtils;
 import com.core.CoreApplication;
 import com.core.base.BasicActivity;
 import com.core.utils.StringUtils;
+import com.core.utils.ToastUtils;
 import com.easysoft.costumes.R;
 import com.tencent.bugly.crashreport.CrashReport;
 import com.ui.car.ShopOrderListFragment;
+import com.ui.login.IlogInView;
 import com.ui.login.LoginActivity;
+import com.ui.login.LoginPresenter;
 import com.ui.message.add.AddFragment;
 import com.ui.other.TabOtherFragment;
 import com.ui.setting.SettingFragment;
@@ -21,9 +25,11 @@ import com.view.tabview.widget.Tab;
 import com.view.tabview.widget.TabContainerView;
 
 
-public class HomeActivity extends BasicActivity {
+public class HomeActivity extends BasicActivity implements IlogInView {
 	TabContainerView tabContainerView;
-    @Override
+	LoginPresenter loginPresenter;
+
+	@Override
     protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_container);
@@ -64,12 +70,17 @@ public class HomeActivity extends BasicActivity {
 	protected void onResume() {
 		super.onResume();
 
-		 if (CoreApplication.getInstance().isDubug){
-//		      gotoMainOrloginUI(wellComeActivity);
-		 }else if(StringUtils.isEmpty(BusinessBroadcastUtils.USER_VALUE_LOGIN_ID)){
+//		 if (CoreApplication.getInstance().isDubug){
+////		      gotoMainOrloginUI(wellComeActivity);
+//		 }else
+		 if(StringUtils.isEmpty(BusinessBroadcastUtils.USER_VALUE_LOGIN_ID)){
 
 			 Intent  homeIntent=new Intent(this,LoginActivity.class);
 			 startActivity(homeIntent);
+		 }else{
+			 loginPresenter=new LoginPresenter(this);
+			 loginPresenter.login(BusinessBroadcastUtils.USER_VALUE_LOGIN_ID,BusinessBroadcastUtils.USER_VALUE_PWD);
+
 		 }
 	}
 
@@ -91,6 +102,17 @@ public class HomeActivity extends BasicActivity {
 		
 	}
 
+	@Override
+	public void loginSucess() {
+		runOnUiThread(new Runnable() {
+			@Override
+			public void run() {
+//				persenter.list();
+				BusinessBroadcastUtils.sendBroadcast(getContext(), BusinessBroadcastUtils.TYPE_SHOPCAR_LIST, null);
+
+			}
+		});
+	}
 
 	@Override
 	public void getBroadcastReceiverMessage(String type, Object mode) {
@@ -98,5 +120,21 @@ public class HomeActivity extends BasicActivity {
 			tabContainerView.getViewPager().setCurrentItem((int)mode);
 		}
 		
+	}
+
+	@Override
+	public Context getContext() {
+		return this;
+	}
+
+	@Override
+	public void showToast(final String text) {
+		runOnUiThread(new Runnable() {
+			@Override
+			public void run() {
+				ToastUtils.show(HomeActivity.this,text);
+
+			}
+		});
 	}
 }

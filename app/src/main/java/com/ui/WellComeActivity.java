@@ -44,9 +44,9 @@ public class WellComeActivity extends BasicActivity    {
 			@Override
 			public void run() {
 
-				BusinessBroadcastUtils.USER_VALUE_LOGIN_ID = SpUtils.getString(WellComeActivity.this, BusinessBroadcastUtils.STRING_LOGIN_USER_ID,"");
+				BusinessBroadcastUtils.USER_VALUE_LOGIN_ID = SpUtils.getString(WellComeActivity.this, BusinessBroadcastUtils.STRING_LOGIN_ID,"");
 				BusinessBroadcastUtils.USER_VALUE_PWD 	   = SpUtils.getString(WellComeActivity.this, BusinessBroadcastUtils.STRING_LOGIN_USER_PWD,"");
-				BusinessBroadcastUtils.USER_VALUE_USER_ID  = SpUtils.getString(WellComeActivity.this, BusinessBroadcastUtils.STRING_LOGIN_ID,"");
+				BusinessBroadcastUtils.USER_VALUE_USER_ID  = SpUtils.getString(WellComeActivity.this, BusinessBroadcastUtils.STRING_LOGIN_USER_ID,"");
 
 				String ip = SpUtils.getString(WellComeActivity.this, ServerUrl.list_server_iP);
 				String port = SpUtils.getString(WellComeActivity.this,ServerUrl.list_server_port);

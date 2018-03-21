@@ -25,6 +25,7 @@ public class ServerUrl {
 
 	public static String ORDER_LIST="/api/v1/order/list";
 	public static String LIST_ORDERED ="/api/v1/order/listOrdered";
+	public static String LIST_MY_ORDERED ="/api/v1/order/getMyOrder";
 	public static String ORDER_GET="/api/v1/order/get";
 	public static String ORDER_REMOVE="/api/v1/order/remove";
 	//商品

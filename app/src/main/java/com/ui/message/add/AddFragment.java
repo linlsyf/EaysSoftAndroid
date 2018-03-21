@@ -112,12 +112,17 @@ public class AddFragment extends BaseFragment implements IShopOrderItemView{
 						 return;
 					 }
 					 editOrder.setType(2);
-					 persenter.add(editOrder,editGoods);
+				 editOrder.setCreatorId(BusinessBroadcastUtils.loginUser.getId() );
+				 editOrder.setCreator(BusinessBroadcastUtils.loginUser.getName() );
+
+				 persenter.add(editOrder,editGoods);
 			 }
 		 });
 		 buyBtn.setOnClickListener(new View.OnClickListener() {
 			 @Override
 			 public void onClick(View view) {
+				 editOrder.setCreatorId(BusinessBroadcastUtils.loginUser.getId() );
+				 editOrder.setCreator(BusinessBroadcastUtils.loginUser.getName() );
 
 					 editOrder.setType(1);
 

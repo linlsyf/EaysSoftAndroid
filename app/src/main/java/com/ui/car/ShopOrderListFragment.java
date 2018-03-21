@@ -16,6 +16,8 @@ import com.core.recycleview.AddressRecycleView;
 import com.core.recycleview.sectionview.Section;
 import com.core.utils.FragmentHelper;
 import com.easysoft.costumes.R;
+import com.ui.login.IlogInView;
+import com.ui.login.LoginPresenter;
 import com.ui.message.add.AddFragment;
 import com.view.toolbar.NavigationBar;
 import com.view.toolbar.TopBarBuilder;
@@ -24,7 +26,7 @@ import com.view.toolbar.NavigationBar.Location;
 /**
  * Created by chengxi on 17/4/26.
  */
-public  class ShopOrderListFragment extends BaseFragment implements IShopOrderListView{
+public  class ShopOrderListFragment extends BaseFragment implements IShopOrderListView {
 	Section nextSection = new Section("");
 	ShopOrderPersenter persenter;
 	AddressRecycleView recycleView;
@@ -56,8 +58,13 @@ public  class ShopOrderListFragment extends BaseFragment implements IShopOrderLi
 			
 			@Override
 			public void run() {
-				persenter.list();
-				
+
+				if (BusinessBroadcastUtils.loginUser!=null){
+
+
+					persenter.list();
+				}
+
 			}
 		}, 500);
 		
@@ -68,7 +75,7 @@ public  class ShopOrderListFragment extends BaseFragment implements IShopOrderLi
 	public void onResume() {
 		super.onResume();
 		persenter=new ShopOrderPersenter((IShopOrderListView)this);
-		persenter.list();
+//		persenter.list();
 	}
 
 	@Override
