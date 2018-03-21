@@ -19,6 +19,7 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.core.CoreApplication;
 import com.core.threadpool.ThreadFactory;
+import com.easysoft.costumes.R;
 
 public class ImageUtils {
 	
@@ -32,37 +33,34 @@ public class ImageUtils {
 	 }
 	
 	public void load(String url,ImageView myImageView){
-//		  url="http://img.my.csdn.net/uploads/201309/01/1378037235_7476.jpg";
-//		url="http://192.168.155.1:8090/api/v1/file/down?type=2&name=48cead4a-7ba1-41bb-8cb1-5da76d144dd9";
+
 		Glide.with(CoreApplication.getAppContext())
         .load(url)
-
-
+				.dontAnimate()
+				.placeholder(R.drawable.empty_photo)//图片加载出来前，显示的图片
         .into(myImageView);
 
 	}
 	public void loadPath(final String path, final ImageView myImageView){
-
-
 				Glide.with(CoreApplication.getAppContext())
+
+
 						.load(new File(path))
+						.dontAnimate()
+						.placeholder(R.drawable.empty_photo)//图片加载出来前，显示的图片
 						.into(myImageView);
-
-
-		
 	}
 	public void loadResourceId(int id,ImageView myImageView){
 		Glide.with(CoreApplication.getAppContext())
 		.load(id)
+				.dontAnimate()
+				.placeholder(R.drawable.empty_photo)//图片加载出来前，显示的图片
 		.into(myImageView);
 		
 	}
 	  public static class BitmapUtil {
 
-	        /**
-	         * 鍥剧墖缂╂斁
-	         * @param bitmap 闇€瑕佺缉鏀剧殑鍥剧墖
-	         * @param scale 缂╂斁鐜?         * @return 缂╂斁鍚庡浘鐗?         */
+
 	        public static Bitmap zoomBitmap(Bitmap bitmap, float scale) {
 	            int width = bitmap.getWidth();// 鑾峰彇鍘熷浘鐨勫
 	            int height = bitmap.getHeight();// 鑾峰彇鍘熷浘鐨勯珮

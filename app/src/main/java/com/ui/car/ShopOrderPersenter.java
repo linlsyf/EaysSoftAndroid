@@ -203,24 +203,23 @@ public class ShopOrderPersenter  {
 	}
 	public void remove(String url ,String json){
 		
-		
 service.request(url, json, new MyCallback(new IResponse() {
 			
 			@Override
 			public void onResponse(ServiceCallBack callBack) {
 				if(callBack.isSucess()){
-					ToastUtils.show(CoreApplication.getInstance(), "删除数据成功");
+					iShopOrderListView.showToast( "删除数据成功");
 				  list();
 				
 				}else{
-					ToastUtils.show(CoreApplication.getInstance(), "服务器响应失败");
+					iShopOrderListView.showToast("服务器响应失败");
 				}
 			
 			}
 			
 			@Override
 			public void onFailure(ServiceCallBack serviceCallBack) {
-				ToastUtils.show(CoreApplication.getInstance(), "服务器响应失败");
+				iShopOrderListView.showToast( "服务器响应失败");
 				
 			}
 		}));

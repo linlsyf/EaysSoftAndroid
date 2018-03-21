@@ -110,7 +110,11 @@ public  class ShopOrderListFragment extends BaseFragment implements IShopOrderLi
 		bundle.putSerializable("goods", (Serializable) goods);
 		bundle.putSerializable("type", "show");
 		 FragmentHelper.showFrag(getActivity(), R.id.container_framelayout, new AddFragment(), bundle);
-		
+	}
+
+	@Override
+	public void showToast(String text) {
+		super.showToast(text);
 	}
 
 	@Override
