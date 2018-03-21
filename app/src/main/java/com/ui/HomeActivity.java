@@ -9,6 +9,7 @@ import com.core.CoreApplication;
 import com.core.base.BasicActivity;
 import com.core.utils.StringUtils;
 import com.easysoft.costumes.R;
+import com.tencent.bugly.crashreport.CrashReport;
 import com.ui.car.ShopOrderListFragment;
 import com.ui.login.LoginActivity;
 import com.ui.message.add.AddFragment;
@@ -49,7 +50,9 @@ public class HomeActivity extends BasicActivity {
 //		sendCode(this);
 //		Intent intent = new Intent(this, TulingFragemnt.class);
 //		startActivity(intent);
-    }
+//		CrashReport.testJavaCrash();
+
+	}
 
 	@Override
 	protected void onDestroy() {

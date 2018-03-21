@@ -8,6 +8,7 @@ import com.core.base.GlobalConstants;
 import com.core.db.greenDao.gen.DaoMaster;
 import com.core.db.greenDao.gen.DaoSession;
 import com.mob.MobSDK;
+import com.tencent.bugly.crashreport.CrashReport;
 
 import cn.jpush.android.api.JPushInterface;
 /**
@@ -86,13 +87,13 @@ public class CoreApplication extends Application {
 		handler.init(getApplicationContext());
 
 //		SpeechUtility.createUtility(getApplicationContext(), "appid="+getString(R.string.app_id));
-		initNews();
-	
-	}
 
-	private void initNews() {
+//		CrashReport.initCrashReport(getApplicationContext(), "注册时申请的APPID", ReleaseUtils.debug);
+		CrashReport.initCrashReport(getApplicationContext(), "5efad75bba", true);
 
 	}
+
+
 
 
 	private void setDatabase() {
