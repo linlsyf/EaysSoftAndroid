@@ -31,6 +31,7 @@ import com.ui.common.setting.SettingActivity;
 import com.utils.AppInfo;
 import com.view.dialog.CustomDialog;
 import com.view.edittextview.BoundEditText;
+import com.view.process.ProgressHUD;
 import com.view.statusview.SoftKeyBoardSatusView;
 
 import butterknife.Bind;
@@ -97,8 +98,10 @@ public class LoginActivity extends BasicActivity implements IlogInView,
 
 //     public static String KEY_WELLCOM="from";
     /*进度提示框*/
-    private CustomDialog mDialog;
+    private ProgressHUD mDialog;
     LoginPresenter  loginPresenter;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -107,8 +110,7 @@ public class LoginActivity extends BasicActivity implements IlogInView,
 
         initData();
 
-//        CheckUserExitFragment accountValidateFragment=new CheckUserExitFragment();
-//        FragmentHelper.showFrag(this, R.id.flyt,accountValidateFragment,null);
+
 
         mStatusView.init(mScreenHeight,mLayoutLogin,mBtnLogin);
         mStatusView.setSoftKeyBoardListener(this);
@@ -150,7 +152,6 @@ public class LoginActivity extends BasicActivity implements IlogInView,
 
             @Override
             public void afterTextChanged(Editable s) {
-//                afterInputChanged(mEtUsername.getText(), s);
                 judgeFillLoginParams();
             }
         });
@@ -166,7 +167,6 @@ public class LoginActivity extends BasicActivity implements IlogInView,
                 return false;
             }
         });
-//        afterInputChanged(mEtUsername.getText(), mEtpwd.getText());
 
         mEtUsername.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -180,6 +180,12 @@ public class LoginActivity extends BasicActivity implements IlogInView,
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 KeyboardUtils.openKeybord(LoginActivity.this,mEtpwd);
                 return false;
+            }
+        });
+        mLayoutChangeShow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onPasswordShowClick(view);
             }
         });
 
@@ -205,15 +211,9 @@ public class LoginActivity extends BasicActivity implements IlogInView,
 
 
     public void initData() {
-
         loginPresenter=new LoginPresenter(this);
-
         mScreenHeight = getWindowManager().getDefaultDisplay().getHeight();
-
-//        getIPresenter().loadRecentLoginPassUserList(1, 1);
-
         OperaCursorLocation();
-
         Intent intent = getIntent();
         if (intent != null) {
             String mShowDiaLogMessage = intent.getStringExtra(SHOW_DIALOG_MSG);
@@ -221,16 +221,10 @@ public class LoginActivity extends BasicActivity implements IlogInView,
                 showMsg(mShowDiaLogMessage);
             }
         }
-
         String version = "v" + AppInfo.getAppLocalizedVerion(this);
         mTvVersion.setText(version);
-
         setForgetPwdVisible();
-
-//        afterInputChanged(mEtUsername.getText(), mEtpwd.getText());
         judgeFillLoginParams();
-
-//        mIvUserIcon.setShadow(DensityUtil.dip2pxInt(this, 6));
     }
 
     @Override
@@ -367,6 +361,8 @@ public class LoginActivity extends BasicActivity implements IlogInView,
     }
     
    public void login(){
+       mDialog=new ProgressHUD(this);
+       mDialog.show(getContext(),"",true,true,null,null);
        loginPresenter.login(mEtUsername.getText().toString().trim(),mEtpwd.getText().toString().trim());
 
        KeyboardUtils.closeKeybord(this);
@@ -395,6 +391,8 @@ public class LoginActivity extends BasicActivity implements IlogInView,
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
+                mDialog.dismiss();
+
                 ToastUtils.show(LoginActivity.this,text);
 
             }
@@ -403,6 +401,16 @@ public class LoginActivity extends BasicActivity implements IlogInView,
 
     @Override
     public void loginSucess() {
-         finish();
+
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                mDialog.dismiss();
+                finish();
+
+            }
+        });
+
+
     }
 }

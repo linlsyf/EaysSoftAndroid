@@ -118,11 +118,15 @@ public class SettingPresenter   {
 					  if (serviceCallBack.isSucess()){
 						  ResponseMsg msg=   serviceCallBack.getResponseMsg();
 						  ResponseMsgData serverUserResponseMsgData= JSONObject.parseObject(msg.getMsg(), ResponseMsgData.class);
-						  User  serverUser=JSONObject.parseObject(serverUserResponseMsgData.getData().toString(), User.class);
 
-						   infoCardBean.setId(serverUser.getId());
-						   infoCardBean.setUserName(serverUser.getName());
-						  iSafeSettingView.updateItem(infoCardBean);
+						  if (StringUtils.isNotEmpty(serverUserResponseMsgData.getData().toString())){
+							  User  serverUser=JSONObject.parseObject(serverUserResponseMsgData.getData().toString(), User.class);
+
+							  infoCardBean.setId(serverUser.getId());
+							  infoCardBean.setUserName(serverUser.getName());
+							  iSafeSettingView.updateItem(infoCardBean);
+						  }
+
 
 					  }
 
