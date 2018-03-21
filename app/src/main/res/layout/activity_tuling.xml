@@ -2,7 +2,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/weather_bg"
     android:orientation="vertical">
     <com.view.toolbar.NavigationBar
         android:id="@+id/toolbar"
@@ -11,6 +10,8 @@
         ></com.view.toolbar.NavigationBar>
 
     <RelativeLayout
+        android:background="@drawable/weather_bg"
+
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -45,7 +46,6 @@
                 android:layout_marginRight="10dp"/>
 
             <LinearLayout
-                android:id="@+id/ll_msg"
                 android:layout_width="match_parent"
                 android:layout_height="32dp"
                 android:layout_centerVertical="true"

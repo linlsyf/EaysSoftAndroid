@@ -107,21 +107,19 @@ public class AddFragment extends BaseFragment implements IShopOrderItemView{
 		 addToChartBtn.setOnClickListener(new View.OnClickListener() {
 			 @Override
 			 public void onClick(View view) {
-
 					 if(StringUtils.isEmpty(editGoods.getImageId())){
 						 ToastUtils.show(getActivity(), "图片路径为空");
 						 return;
 					 }
-					 editOrder.setType(1);
+					 editOrder.setType(2);
 					 persenter.add(editOrder,editGoods);
-
 			 }
 		 });
 		 buyBtn.setOnClickListener(new View.OnClickListener() {
 			 @Override
 			 public void onClick(View view) {
 
-					 editOrder.setType(2);
+					 editOrder.setType(1);
 
 					 if(StringUtils.isEmpty(editGoods.getImageId())){
 						 ToastUtils.show(getActivity(), "图片路径为空");

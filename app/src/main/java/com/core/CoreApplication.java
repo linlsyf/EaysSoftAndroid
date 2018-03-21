@@ -36,20 +36,14 @@ public class CoreApplication extends Application {
 	public boolean isDubug=false;
 	@Override
 	public void onCreate() {
-
 		super.onCreate();
-
 		instance = this;
-		
 		  JPushInterface.setDebugMode(true); 	// 设置开启日志,发布时请关闭日志
 	         JPushInterface.init(this);     		// 初始化 JPush
 	      // 是否为平板
 			 initGlobalConstants();
 			init();
 	}
-
-
-
 
 	/**
 	 * 
@@ -59,38 +53,11 @@ public class CoreApplication extends Application {
 	 */
 	private void init() {
 
-		// 初始化log检测
-		String appId = "900010130"; // 上Bugly(bugly.qq.com)注册产品获取的AppId
-
-		boolean isDebug = false; // true代表App处于调试阶段，false代表App发布阶段
-		// // 是否开启调试模式，调试模式下会输出'CrashReport'tag的logcat日志
-
-		// 初始化jpush 用于接收推送以及杀死后会出现执行onCreate 的删除方法
-		// JPushInterface.setDebugMode(true); // 设置开启日志,发布时请关闭日志
-		// JPushInterface.init(this); // 初始化 JPush
-
-		// initGlobalConstants 方法以及设置好临时文件存放位置
-		String TempAttachSaveFullPath = GlobalConstants.getInstance().getAppDocumentHomePath() + GlobalConstants.temp;
-//		fileIOManager.DeleteDirectory(TempAttachSaveFullPath);
-
-
-//		DevOpenHelper helper = new DevOpenHelper(this, ENCRYPTED ? "notes-db-encrypted" : "notes-db");
-//		Database db = ENCRYPTED ? helper.getEncryptedWritableDb("super-secret") : helper.getWritableDb();
-//		daoSession = new DaoMaster(db).newSession();
-
 		 setDatabase();
 		MobSDK.init(this,"2433f5d8b5a48","33927e698b643937655aa60604f7686e");
-
-//		MobAPI.initSDK(this, "2433f5d8b5a48");
-//		SMSSDK.initSDK(this, "11b137e3a5e00", "632f0c9cf1cd683806146758ef8784e3");
 		CrashHandler handler = CrashHandler.getInstance();
 		handler.init(getApplicationContext());
-
-//		SpeechUtility.createUtility(getApplicationContext(), "appid="+getString(R.string.app_id));
-
-//		CrashReport.initCrashReport(getApplicationContext(), "注册时申请的APPID", ReleaseUtils.debug);
 		CrashReport.initCrashReport(getApplicationContext(), "5efad75bba", true);
-
 	}
 
 

@@ -1,659 +1,137 @@
 
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation" >
     <string name="app_name">易商城</string>
-    <string name="remove">移除</string>
-    <string name="stop">停止</string>
-    <string name="start">开始下载</string>
-    <string name="test_download_url">http://dl.bintray.com/wyouflf/maven/org/xutils/xutils/3.3.36/xutils-3.3.36.aar</string>
 
     <!--TabTitle-->
-    <string name="recentcontacts">消息</string>
-    <string name="contact">通讯录</string>
-    <string name="company_address">企业通讯录</string>
-    <string name="appcenter">应用</string>
-    <string name="circle">圈子</string>
-    <string name="mine">我的</string>
-    <string name="myfriend">我的好友</string>
-    <string name="scan">扫一扫</string>
-    <string name="assistant">工作助手</string>
-    <string name="crop_oA">OA</string>
 
     <!--NavigationBar-->
-    <string name="back">返回</string>
-    <string name="save">保存</string>
-    <string name="message">消息</string>
 
     <!--RecentContactsItemView-->
-    <string name="target_image">目标头像</string>
-    <string name="tag_image">标签图片</string>
 
     <!--HeadLoadingView-->
-    <string name="last_query_time">上一次查询时间：</string>
-    <string name="loading">加载中…</string>
-    <string name="pull_down_to_refresh">下拉加载</string>
-    <string name="release_to_refresh">释放加载</string>
-    <string name="refresh_complete">加载完成</string>
 
     <!--BaseChatItemView-->
 
     <!--FileChatItemView-->
-    <string name="file_type_icon">文件类型图标</string>
 
     <!--ShakeChatItemView-->
-    <string name="display_shake">屏幕抖动</string>
 
     <!--NewsChatItemView-->
-    <string name="click_to_see_details">点击查看详情</string>
 
     <!--ChatInputBar-->
-    <string name="voice_message">音频消息</string>
-    <string name="more">更多</string>
-    <string name="expression">表情</string>
-    <string name="edittext_hint">请输入内容发送…</string>
-    <string name="press_record_voice">按住说话</string>
-    <string name="send">发送</string>
-    <string name="image_you_maybe_send">你可能要发送的照片：</string>
-    <string name="no_permission_to_send_message_to_current_user">您无权限向当前用户发送消息</string>
 
     <!--FunctionBar-->
-    <string name="picture">图片</string>
-    <string name="take_photo">拍照</string>
-    <string name="file">文件</string>
-    <string name="location">位置</string>
-    <string name="video_chat">视频聊天</string>
-    <string name="shake_shake">抖一抖</string>
-    <string name="small_video">小视频</string>
-    <string name="receipt_mode">回执模式</string>
 
     <!--VoiceChatHolder-->
-    <string name="voice_loading">音频加载中</string>
-    <string name="voice_downloading">音频下载中</string>
-    <string name="voice_damage">音频已损坏</string>
 
     <!--VoiceRecordButton-->
-    <string name="wipe_up_to_cancel">手指上滑，取消发送</string>
-    <string name="release_to_cancel">松开手指，取消发送</string>
 
     <!--登录界面-->
     <string name="login_confireuser">请填写账号</string>
     <string name="input_password">请输入密码</string>
     <string name="login">登录</string>
     <string name="inserting_coil_notification">下线通知</string>
-    <string name="isLogining">正在登录…</string>
-    <string name="register">注册新企业</string>
 
     <!-- 注册界面-->
-    <string name="pwd_format">6–18位新密码(数字/字母/符号中的两种)</string>
     <string name="next_step">下一步</string>
     <string name="new_account_register">新用户注册</string>
     <string name="verify_code_hassend">验证码已发送至</string>
     <string name="plus_please_check_receive">,请查收</string>
-    <string name="login_input_pwd_format">登录密码(6–18位至少为数字/字母/符号中2种组合)</string>
     <string name="login_pwd">登录密码</string>
     <string name="register_sucess">注册成功</string>
-    <string name="verify_code_can_no_empyt">验证码不能为空</string>
-    <string name="new_pwd_cannot_null"> "新密码不能为空！"</string>
-    <string name="pwd_must_contain_error">密码必须是6–18位,包含字母和数字</string>
-    <string name="validate_code_six_less">请输入完整验证码</string>
-    <string name="input_6_to_16_pwd">请输入6–16位</string>
     <string name="you_have_no_compny">您暂无企业</string>
-    <string name="account_has_exit">用户已存在</string>
     <string name="phone_mail_cant_not_null">手机号码或者邮箱不能为空</string>
     <string name="phone_mail_format_error">当前手机号码或者邮箱格式不正确</string>
-    <string name="format_error">格式不正确</string>
-    <string name="has_send_validatecode">已经发送验证码到您的手机或者邮箱，请注意查收</string>
-    <string name="send_validatecode_failed">获取验证码失败</string>
     <string name="cannot_receive_sms">收不到短信验证码?</string>
     <string name="resend_sms">重发短信</string>
-    <string name="postion_null">无</string>
     <string name="get_validatecode">获取验证码</string>
-    <string name="register_and_agree">注册账号即表示您同意遵守%1$s的</string>
-    <string name="apply_format">申请加入%1$s</string>
-    <string name="im_apply_company_foramat">我是%1$s,申请加入%2$s</string>
-    <string name="privacy_clause">隐私条款</string>
-    <string name="industry_fomat">%1$s\n%2$s</string>
-    <string name="user_agreement">用户协议</string>
-    <string name="and">和</string>
     <string name="check_no_input">请检查未填项</string>
-    <string name="content_cannot_null">输入不能为空</string>
     <string name="pwd_format_is_error">密码格式错误,长度为6–18位,必须包含字母、数字、符号中的两种</string>
     <string name="verify_code_no_complete">验证码位数不正确</string>
-    <string name="getback_pwd">找回密码</string>
-    <string name="getback_pwd_notice">找回密码将停用你当前的密码,请在验证身份后设置新的密码</string>
-    <string name="getback_set_new_pwd">请输入手机号和验证码,并设置新的登录密码</string>
-    <string name="fifty_below">50以下</string>
-    <string name="fifty_to_hundred">50~100</string>
-    <string name="over_hundred">100以上</string>
-    <string name="five_hundred_to_thousand">500~100</string>
-    <string name="login_failed_common">登录失败</string>
 
     <!--聊天界面-->
-    <string name="new_message">新消息</string>
-    <string name="chat_unread_count">还有%d条新消息</string>
-    <string name="no_chat_unread_count">没有新消息了</string>
-    <string name="pull_down_to_load_histroy">下拉加载更多历史消息</string>
-    <string name="release_to_load_histroy">释放加载更多历史消息</string>
-    <string name="copy_to_clipboard_complete">已复制到粘贴板</string>
 
     <!--转发主界面-->
-    <string name="recent_contacts_message">最近消息</string>
-    <string name="create_new_chat">创建新聊天</string>
 
     <!--文件预览界面-->
-    <string name="open">打开</string>
-    <string name="cancel_download">取消下载</string>
-    <string name="cancel_download_tips">文件下载还未完成，确定要取消下载吗？</string>
 
     <!--群共享文件界面-->
-    <string name="group_file_share">群共享文件</string>
-    <string name="upload_first_file">上传此群的第一个文件</string>
-    <string name="browse">查看</string>
-    <string name="from">来自</string>
-    <string name="is_downloading">正在下载:</string>
-    <string name="is_uploading">正在上传:</string>
-    <string name="is_deleting">正在删除文件，请稍后..</string>
-    <string name="is_forwarding">正在转发，请稍后..</string>
-    <string name="forward_success">转发成功</string>
 
     <!--通讯录界面 -->
-    <string name="address_new_friend">新的好友</string>
-    <string name="chatgroup">群组</string>
-    <string name="friendly_enterprise">友好企业</string>
-    <string name="group_enterprise">企业群</string>
-    <string name="please_select_data_first">请先选择数据</string>
-    <string name="no_moredates">没有更多数据</string>
-    <string name="no_audio_record_permission">"没有录音权限，如需发送录音信息，请把录音权限设为允许"</string>
     <!--通讯录界面 -->
     <!--服务器设置界面-->
-    <string name="register_server">注册服务器:</string>
     <string name="message_server">消息服务器</string>
-    <string name="app_server">应用服务器</string>
-    <string name="server">地址</string>
     <string name="port">端口号</string>
-    <string name="input_server">请输入服务器地址</string>
-    <string name="input_port">请输入端口号</string>
-    <string name="server_set">服务器设置</string>
-    <string name="vpn_manufacterer">VPN厂商</string>
-    <string name="vpn_host">VPN地址</string>
-    <string name="vpn_port">VPN端口号</string>
-    <string name="vpn_name">VPN账号</string>
-    <string name="vpn_pwd">VPN密码</string>
 
     <!--应用中心界面-->
-    <string name="image">图片</string>
     <string name="notice">提示</string>
-    <string name="appcenter_toast">  为了您能够使用到功能更为完善的版本，我们正奋力对应用模块进行内部压力测试,开放时间暂未确定,请耐心等候! 详情请留意目标易系统消息。</string>
 
     <!--我的界面-->
-    <string name="user_icon">用户头像</string>
     <string name="name">姓名</string>
-    <string name="sex">性别</string>
-    <string name="unset">未设置</string>
-    <string name="unbind">未绑定</string>
-    <string name="binded">已绑定</string>
-    <string name="unopened">未开启</string>
-    <string name="opened">已开启</string>
-    <string name="signture_empty">您还未设置个性签名</string>
-    <string name="exit_login">退出登录</string>
-    <string name="draft_box">草稿箱</string>
-    <string name="my_rencent">我的动态</string>
-    <string name="my_attention">我的关注</string>
-    <string name="my_settting">我的设置</string>
-    <string name="my_favorite">收藏夹</string>
-    <string name="my_localtion">我的位置</string>
-    <string name="my_info">我的资料</string>
-    <string name="safe_setting">安全设置</string>
-    <string name="zhengxin_service">政信客服</string>
-    <string name="online_service">在线客服</string>
-    <string name="about_app">关于%s</string>
-    <string name="contact_us">联系我们</string>
-    <string name="about">关于</string>
     <string name="setting">设置</string>
 
     <!-- 通讯录界面 -->
-    <string name="search_bar_content_hint">搜索更多内容</string>
-    <string name="search_no_recorde">搜索不到记录</string>
-    <string name="manger">管理</string>
-    <string name="add">添加</string>
-    <string name="first_pager">首页</string>
-    <string name="sure">确定</string>
-    <string name="address_manger">管理</string>
-    <string name="address">通讯录</string>
-    <string name="initiateChat">发起聊天</string>
-    <string name="transfer">"转发"</string>
-    <string name="selectDepartment">"选择部门"</string>
-    <string name="selectuser">"选择人员"</string>
-    <string name="select">"选择"</string>
-    <string name="add_childdepartment">"添加子部门"</string>
-    <string name="set_department">"设置部门"</string>
-    <string name="search">"搜索"</string>
-    <string name="action_sucess">"操作成功"</string>
-    <string name="addnewfirend">"添加好友"</string>
-    <string name="addstaff">"添加员工"</string>
-    <string name="edit_staff">"编辑员工"</string>
-    <string name="addpostion">"添加职位"</string>
-    <string name="edit_postion">"编辑职位"</string>
-    <string name="deletepostion">"删除职位"</string>
     <string name="delete">"删除"</string>
-    <string name="addchilddepartment">"添加子部门"</string>
-    <string name="department_setting">"部门设置"</string>
-    <string name="postion_manger">"职位管理"</string>
-    <string name="corprotion_setting">"企业设置"</string>
-    <string name="submit">"提交"</string>
-    <string name="multi_select">"多选"</string>
-    <string name="new_friend">"新的好友"</string>
-    <string name="group">"群组"</string>
-    <string name="group_introduction">"群简介"</string>
-    <string name="group_share">"群共享"</string>
-    <string name="group_name">"群组名"</string>
-    <string name="exit_group">退出群组</string>
-    <string name="disolve_group">解散群组</string>
-    <string name="group_intro_not_set">群简介未设置</string>
-    <string name="no_development_function">暂未开放功能</string>
 
-    <string name="group_name_title">"群组名称"</string>
-    <string name="group_member_list">"群组成员列表"</string>
-    <string name="group_member">"群成员"</string>
-    <string name="select_at_person">"选择@人员"</string>
-    <string name="group_list">"群组列表"</string>
-    <string name="group_setting">群组设置</string>
-    <string name="fix_show_top">置顶显示</string>
-    <string name="not_disurb">消息免打扰</string>
-    <string name="set_fixed_group">设为固定群组</string>
-    <string name="chat_history_img">聊天图片</string>
-    <string name="chat_recorder">聊天记录</string>
-    <string name="clean_chat_recorder">清除聊天记录</string>
-    <string name="clean_chat_recorder_success">清除聊天记录成功</string>
-    <string name="address_add_personnel">添加员工</string>
-    <string name="address_add_department">添加子部门</string>
-    <string name="address_department_setting">部门设置</string>
-    <string name="postion_setting">职位管理</string>
-    <string name="frienddly_enterprise">"友好企业"</string>
-    <string name="friend_apply">"好友申请"</string>
-    <string name="corporation_setting">企业设置</string>
-    <string name="enterprise_group">"企业群"</string>
     <string name="resend_validate_code">重新获取验证码</string>
-    <string name="is_single_select_department">只能选择一个部门</string>
-    <string name="is_single_select_person">只能选择一个人员</string>
-    <string name="count_contact">位联系人</string>
-    <string name="head">这里是HeadView</string>
-    <string name="pull_to_refresh">下拉刷新</string>
-    <string name="refreshing">正在刷新…</string>
-    <string name="refresh_succeed">刷新成功</string>
-    <string name="refresh_fail">刷新失败</string>
-    <string name="pullup_to_load">上拉加载更多</string>
-    <string name="release_to_load">释放立即加载</string>
-    <string name="load_succeed">加载成功</string>
-    <string name="load_fail">加载失败</string>
-    <string name="load_permission_fail">加载权限失败</string>
-    <string name="pelease_input_postion_name">请输入职位名称</string>
-    <string name="corporate_group">企业群</string>
-    <string name="add_member">添加成员</string>
-    <string name="addfriend_hint_format">我是%1$s,申请添加您为好友</string>
-    <string name="refuse">拒绝</string>
-    <string name="hase_refuse_this_apply">已拒绝该请求</string>
-    <string name="agree">同意</string>
-    <string name="has_refuse">已拒绝</string>
-    <string name="has_add">已添加</string>
-    <string name="has_agree">已同意</string>
-    <string name="wait_operation">待处理</string>
-    <string name="wait_validate">等待验证</string>
-    <string name="extra_msg">附加信息:</string>
-    <string name="operation_failed">操作失败</string>
-    <string name="request_failed">请求失败</string>
-    <string name="operation_sucess">操作成功</string>
-    <string name="fix_top_chat">置顶聊天</string>
-    <string name="none_images_show">暂无图片显示</string>
-    <string name="add_to_my_friend">加为我的好友</string>
-    <string name="server_msg_recorder">漫游聊天记录</string>
-    <string name="query_msg_recorder">查找聊天记录</string>
-    <string name="can_input">%1$s/%2$s</string>
 
 
     <!-- 通讯录相关 -->
-    <string name="department_name">部门名称</string>
-    <string name="superior_department">上级部门</string>
-    <string name="release_to_load_member">释放加载更多成员</string>
-    <string name="is_disolution_group">是否解散群组?</string>
-    <string name="is_exit_group">是否退出群组?</string>
-    <string name="center">中间</string>
 
-    <string name="required_input">必填</string>
-    <string name="select_input">选填</string>
-    <string name="single_select">单选</string>
-    <string name="mobile_n">手机号</string>
-    <string name="tele">固话</string>
-    <string name="e_email">Email</string>
-    <string name="remove_selected_departemnt">移除已选择部门</string>
-    <string name="corporatesetting">企业设置</string>
-    <string name="corporate_logo">企业log</string>
-    <string name="corporate_name">企业名称</string>
-    <string name="corporate_tele">企业电话</string>
-    <string name="corporate_email">企业邮箱</string>
-    <string name="corporate_website">企业网址</string>
-    <string name="corporate_scope">企业规模</string>
-    <string name="struct_level">组织架构</string>
     <string name="no_data_show">没有数据显示</string>
     <string name="data_loading">列表加载中…</string>
     <string name="data_loading_error">点击重新加载</string>
-    <string name="not_set">未设置</string>
-    <string name="not_set_corporation">未设置企业</string>
-    <string name="not_set_postion">未设置职位</string>
-    <string name="not_set_email">未设置邮箱</string>
-    <string name="corporate_loaction">企业地区</string>
-    <string name="corporate_belong_industry">所属行业</string>
-    <string name="admin">管理员</string>
-    <string name="add_admin">添加管理员</string>
-    <string name="add_more_postion">添加更多岗位</string>
-    <string name="set_admin">设置管理员</string>
-    <string name="create_group">创建群组</string>
-    <string name="create_chat">发起聊天</string>
-    <string name="loadding">正在加载…</string>
-    <string name="person">人</string>
-    <string name="chat_setting">聊天设置</string>
-    <string name="group_exit_notice">是否转让你的管理员身份给其他群成员</string>
-    <string name="dissolution_imediately">直接解散</string>
-    <string name="manger_transfer">转让</string>
-    <string name="please_input_department">请输入部门名称</string>
-    <string name="please_select_department">请选择部门</string>
-    <string name="please_input_postion">请输入职位</string>
 
 
     <!--企业界面-->
-    <string name="corporations">企业</string>
-    <string name="corporation_tips">政信成就卓越，协同缔造奇迹</string>
-    <string name="corporation_function">打造企业工作管理与社交协作生态圈</string>
-    <string name="create_company">创建企业</string>
-    <string name="join_company">加入企业</string>
-    <string name="check_apply_recorder">查看申请记录</string>
-    <string name="create_newcompany">创建新企业</string>
-    <string name="necessary_input_company_name">必填,请输入企业名称</string>
-    <string name="necessary_select_belong_industry">必选,请选择所属行业</string>
-    <string name="select_company_locality">选择企业所在地区</string>
-    <string name="select_industry_and_direction">选择行业/方向</string>
-    <string name="select_location">选择地点</string>
-    <string name="corporation_name_can_not_be_null">企业名不能为空</string>
-    <string name="please_select_industry">请选择行业</string>
-    <string name="Please_select_location">请选择地区</string>
-    <string name="search_company_hint">请输入企业名称/企业编号查看企业</string>
-    <string name="input_reason_for_apply">填写申请说明</string>
-    <string name="is_applying_to_join">正在申请加入</string>
 
     <!--个人信息页-->
-    <string name="personal_information">个人名片</string>
-    <string name="corporation">所属企业</string>
-    <string name="department">部门</string>
-    <string name="position">职位</string>
-    <string name="posts">岗位</string>
-    <string name="telephone">固定电话</string>
-    <string name="mobile_num">手机号码</string>
-    <string name="email">电子邮箱</string>
-    <string name="qq">QQ</string>
-    <string name="wechat">微信</string>
-    <string name="idNumber">身份证号</string>
-    <string name="room">房间号</string>
-    <string name="birthday">生日</string>
-    <string name="signature">个人签名</string>
-    <string name="belong">直属上级</string>
-    <string name="no_signature">暂无个性签名</string>
-    <string name="add_to_friend">加为好友</string>
-    <string name="send_message">发送消息</string>
-    <string name="send_sms">发送短信</string>
-    <string name="system_call">系统拨号(自费)</string>
-    <string name="copy">复制</string>
-    <string name="save_to_adress">保存到通讯录</string>
-    <string name="is_uploading_headeicon">正在上传头像..</string>
-    <string name="no_user_icon">没有用户头像</string>
 
 
     <!--文件选择器-->
-    <string name="title_filepicker">文件选择</string>
-    <string name="all">全部</string>
-    <string name="audio_video">影音</string>
-    <string name="document">文档</string>
-    <string name="application">应用</string>
-    <string name="other">其他</string>
-    <string name="audio">音频</string>
-    <string name="video">视频</string>
-    <string name="in_day">一天内</string>
-    <string name="in_week">一周内</string>
-    <string name="out_week">一周前</string>
-    <string name="out_month">一个月前</string>
-    <string name="out_two_month">两个月前</string>
-
-    <string name="doc">DOC</string>
-    <string name="excel">EXCEL</string>
-    <string name="ppt">PPT</string>
-    <string name="pdf">PDF</string>
-    <string name="installed">已安装</string>
-    <string name="all_apks">所有应用</string>
-    <string name="electronicbook">电子书</string>
-    <string name="zip">压缩文件</string>
-    <string name="bxfile_sdcard">SD卡内存</string>
-    <string name="fileSend">发送</string>
-    <string name="localfile">本地文件</string>
-    <string name="hasselect_leng_format">已选%1$s</string>
-    <string name="hasselect_count">已选择(%1$d)个文件</string>
-    <string name="file_choosedCnt">发送(%1$s)</string>
-    <string name="bxfile_ram">手机内存</string>
-    <string name="curDirNoChilds">当前文件夹没有文件</string>
-    <string name="no_recent_files">没有最近文件记录</string>
-    <string name="please_selectFile_todo">请至少选择一个文件</string>
-
-    <string name="male">男</string>
-    <string name="female">女</string>
-    <string name="complete">完成</string>
 
     <!--最近消息断网提示-->
-    <string name="no_network_tips">网络连接不可用</string>
 
     <!--圈子界面-->
-    <string name="is_locating">正在定位中…</string>
-    <string name="check_has_opened_location">定位失败，请检查应用定位权限是否开启！</string>
-    <string name="is_making_file">正在生成临时文件，请稍候…</string>
-    <string name="save_image">保存图片</string>
-    <string name="send_to_friend">发送给朋友</string>
-    <string name="recognise_QR_code">识别图中二维码</string>
 
     <!--用户被踢下线提示...-->
-    <string name="kick_user" formatted="false">你的账号于：%s 在另一台设备：%s 登陆。\n
-        若非本人操作，你的登录密码可能已经泄漏，请及时更改。紧急情况可联系管理员冻结帐号!!!
-    </string>
-    <string name="add_group_member_tips" formatted="false">%s邀请了\"%s\"加入了群聊!</string>
-    <string name="remove_group_member_tips" formatted="false">%s将\"%s\"移出了群聊!</string>
-    <string name="add_group_admin_tips" formatted="false">%s将\"%s\"设置为管理员!</string>
-    <string name="remove_group_admin_tips" formatted="false">%s将\"%s\"从管理员中移除!</string>
-    <string name="quit_group_tips" formatted="false">%s%s退出了群聊!</string>
-    <string name="update_group_name" formatted="false">%s%s更新了群聊名称!</string>
-    <string name="update_group_intro" formatted="false">%s%s更新了群简介!</string>
-    <string name="update_group" formatted="false">%s%s更新了群聊信息!</string>
-    <string name="receive_accept_friend_tips">我们是好友啦！</string>
-    <string name="accept_friend_tips">你将对方添加到好友列表！</string>
-    <string name="receive_remove_friend_tips">对方将你从好友列表删除!</string>
-    <string name="remove_friend_tips">你将对方从你的好友列表中删除</string>
     <!--二维码界面-->
-    <string name="is_openurl">是否打开链接</string>
 
     <!--设置界面-->
-    <string name="account_manage">账号管理</string>
-    <string name="alter_password">修改密码</string>
-    <string name="gesture_password">手势密码</string>
-    <string name="finger_print">指纹解锁</string>
-    <string name="new_message_notify">新消息通知</string>
-    <string name="chat">聊天</string>
-    <string name="common">通用</string>
-    <string name="logout">退出登录</string>
-    <string name="logout_success">退出登录成功</string>
-    <string name="logout_fail">退出登录失败</string>
-    <string name="verify_original_pwd">验证原密码</string>
-    <string name="verify_pwd_tips">为保障你的数据安全,修改密码前请填写原密码。</string>
-    <string name="pwd_wrong">密码错误！</string>
-    <string name="new_password">新密码:</string>
-    <string name="confirm_password">确认密码:</string>
-    <string name="change_pwd_error">确认密码与新密码不一致，请重新输入！</string>
-    <string name="change_pwd_success">修改密码成功！</string>
-    <string name="change_pwd_fail">修改密码失败！</string>
-    <string name="new_password_tips">6-18位(数字/字母/符号中的两种)</string>
-    <string name="input_password_again">再次输入密码</string>
-    <string name="password_length_is_short">请输入6-16位密码</string>
-    <string name="is_logoutting">正在退出登录..</string>
 
     <!--输入个人信息界面-->
-    <string name="save_success">保存成功</string>
-    <string name="save_fail">保存失败</string>
 
     <!--关于政信界面-->
-    <string name="guide_usage">使用指导</string>
-    <string name="check_new_version">检查新版本</string>
-    <string name="share_to_friend">分享给朋友</string>
-    <string name="app_qr_code">%s二维码</string>
-    <string name="is_new_version">当前已是最新版本</string>
-    <string name="find_new_version">发现新版本</string>
-    <string name="has_dowanloaded_new_version">版本更新提示</string>
-    <string name="update_now">马上更新</string>
-    <string name="remind_me_later">以后再说</string>
-    <string name="share_content">分享一个工作APP：%s–关注企业工作管理与社交协作，还挺好用的。。</string>
-    <string name="share_title">%s，新一代的团队沟通方式！</string>
-    <string name="is_checking_newversion">正在检查新版本...</string>
-    <string name="auto_upgrade_ready">新版本已下载到本地，是否立即更新？</string>
 
     <!--联系我们界面-->
-    <string name="service_hone">客服电话</string>
-    <string name="mail">电子邮箱</string>
-    <string name="privacy">隐私条款</string>
-    <string name="protocol">用户协议</string>
-    <string name="copyright_tips_contactus">广州美络信息科技有限公司     版权所有</string>
 
 
     <!--截取头像界面-->
-    <string name="clip_image">图片截取</string>
 
 
     <!--账号管理界面-->
-    <string name="login_account">登录账号</string>
-    <string name="input_login_pwd">请输入登录密码</string>
-    <string name="to_bind_phone">绑定手机</string>
-    <string name="to_bind_mail">绑定邮箱</string>
-    <string name="please_input_mobile_num">请输入手机号码</string>
-    <string name="please_input_mail">请输入邮箱</string>
-    <string name="bind_phone_val_pwd">绑定手机号需验证登录密码</string>
-    <string name="bind_mail_val_pwd">绑定邮箱前需验证登录密码</string>
-    <string name="change_bind_phone_val_pwd">换绑手机号需验证登录密码</string>
-    <string name="change_bind_mail_val_pwd">换绑邮箱前需验证登录密码</string>
-    <string name="you_need_val_to_bind_phone">你需要通过验证，才能绑定该手机号作为登录号</string>
-    <string name="you_need_val_to_bind_mail">你需要通过邮箱验证，才能绑定该邮箱作为登录号</string>
-    <string name="you_need_val_to_unbind_phone">你需要通过验证，解绑该手机号</string>
-    <string name="you_need_val_to_unbind_mail">你需要通过邮箱验证，才能解绑该邮箱</string>
-    <string name="bind_success">绑定成功！</string>
-    <string name="unbind_sucess">解绑成功!</string>
-    <string name="bind_fail">绑定失败！</string>
-    <string name="select_is_un_bind">选择解绑或者绑定</string>
-    <string name="change_bind">换绑</string>
-    <string name="to_unbind">解绑</string>
-    <string name="unbind_phone_val_pwd">解绑手机号需验证登录密码</string>
-    <string name="unbind_mail_val_pwd">解绑邮箱前需验证登录密码</string>
-    <string name="unbind_email">解绑邮箱</string>
-    <string name="unbind_phone_num">解绑手机号</string>
-    <string name="change_bind_mail">换绑邮箱</string>
-    <string name="change_bind_phone">换绑手机</string>
-    <string name="after_un_bind_canlogin_canyou_sure">解绑后将不能通过该账号登录,你还舍得吗?</string>
-    <string name="ruthles_unbing">无情解绑</string>
-    <string name="giveup_unbing">不解了</string>
 
 
     <!--手势密码设置界面-->
-    <string name="creat_grsture_notify">你可以创建一个%1$s解图案，这样他人在借用你的手机时,将无法打开%2$s</string>
-    <string name="creat_gesture_psw">创建手势密码</string>
-    <string name="getsture_setting">手势密码设置</string>
-    <string name="manully_lock_device">手动锁屏</string>
-    <string name="manully_lock_device_explantion">上推首页界面导航栏,锁定屏幕</string>
-    <string name="auto_lock_device">自动锁屏</string>
-    <string name="auto_lock_device_explantion">退出%s后,程序自动锁定屏幕</string>
-    <string name="set_gesture_pattern">绘制解锁图案</string>
-    <string name="set_gesture_pattern_reason">设置手势密码，防止他人未经授权查看</string>
-    <string name="reset_gesture_code">重新设置手势密码</string>
-    <string name="confirm_gesture_pattern">确认解锁图案</string>
-    <string name="forget_gesture_code">忘记手势密码</string>
 
     <!--账号与安全界面-->
-    <string name="account_and_safe">账号与安全</string>
-    <string name="huawei_phone_setting">华为手机新消息通知设置</string>
-    <string name="phone_setting">手机新消息通知设置</string>
-    <string name="adjust_mobile_type">机型适配</string>
-    <string name="adjust_huawei_mobile_type_tips">由于华为手机系统的限制，导致政信在后台有时无法及时接收新消息，通过设置来提高接收新消息的及时性。</string>
-    <string name="adjust_mobile_type_tips">由于您的手机系统的限制，导致政信在后台有时无法及时接收新消息，通过设置来提高接收新消息的及时性。</string>
 
 
     <!--新消息提醒界面-->
-    <string name="new_message_notice">新消息提醒</string>
-    <string name="accept_new_message_notice">接收新消息通知</string>
-    <string name="notice_show_detail">通知显示消息详情</string>
-    <string name="voice">声音</string>
-    <string name="shock">震动</string>
-    <string name="notice_show_detail_tips">若关闭，当收到消息时，通知提示将不显示发信人和内容摘要</string>
-    <string name="show_assistant_in_recent_contacts_list">在最近消息列表显示“工作助手”</string>
 
     <!--设置聊天界面-->
-    <string name="play_for_telephone_receiver">使用听筒播放声音</string>
-    <string name="enter_to_send">回车键发送消息</string>
-    <string name="clear_chat_history">清空聊天记录</string>
 
     <!--通用界面-->
-    <string name="open_change_direction_mode">开启横屏模式</string>
-    <string name="font_size">字体大小</string>
-    <string name="photo_video">照片和视频</string>
-    <string name="flow_statistics">流量统计</string>
-    <string name="clear_cache">清理缓存</string>
 
     <!--权限不足提示部分-->
-    <string name="permission_prompt_title">权限不足</string>
-    <string name="permission_prompt">当前应用缺少必要的权限，前往设置！</string>
-    <string name="data_migration">应用升级中，请勿退出...</string>
-    <string name="data_migration_fail">应用升级失败</string>
-    <string name="data_migration_success">应用升级成功</string>
     <!--traffic stats-->
-    <string name="traffic_stats_start" formatted="false">自%s起</string>
-    <string name="traffic_stats_mobile">移动网络消耗的流量</string>
-    <string name="traffic_stats_wifi">无线局域网消耗的流量</string>
-    <string name="traffic_stats_days" formatted="false">最近%d天统计</string>
-    <string name="traffic_stats">流量统计</string>
-    <string name="clear_traffic_stats_tips">所有的流量统计数据将被清空，并且无法找回。确定要清空么?</string>
-    <string name="clear_traffic_stats_title">清空流量统计信息</string>
-    <string name="clear">清空</string>
-    <string name="can_not_open_implicit_intent">找不到可以打开的应用</string>
-    <string name="traffic_stats_rx_desc">接收 :</string>
-    <string name="traffic_stats_tx_desc">发送 :</string>
-    <string name="traffic_stats_all">总流量</string>
     <!--clear cache-->
-    <string name="clear_cache_success">清除缓存成功!</string>
-    <string name="clear_cache_failed">清除缓存失败!</string>
-    <string name="clear_chat_records_success">清除聊天记录成功!</string>
-    <string name="clear_chat_records_failed">清除聊天记录失败!</string>
 
     <!--储存清理界面-->
-    <string name="clear_storage_space">清理存储空间</string>
-    <string name="all_select">全选</string>
-    <string name="releasable_space">可释放空间：%s</string>
- <!--TakePhoto-->
-    <string name="tip_type_not_image">选择的不是图片</string>
-    <string name="tip_no_camera">没有相机</string>
-    <string name="tip_tips">提示</string>
-    <string name="tip_compress">正在压缩照片...</string>
-    <string name="tip_compress_failed">"%1$s 图片压缩失败:%2$s picturePath:%3$s"</string>
-    <string name="msg_crop_failed">"有裁切失败的图片"</string>
-    <string name="msg_compress_failed">"有压缩失败的图片"</string>
-    <string name="msg_crop_canceled">" 取消裁切"</string>
-    <string name="msg_operation_canceled">"操作被取消"</string>
-    <string name="tip_permission_camera">没有使用相机的权限，请在权限管理中开启</string>
-    <string name="tip_permission_storage">没有使用SD卡的权限，请在权限管理中开启</string>
-    <string name="tip_permission_camera_storage">没有使用相机和SD卡的权限，请在权限管理中开启</string>
+    <!--TakePhoto-->
 
     <!--custom multipleimageselect -->
-    <string name="album_view">选择图片</string>
-    <string name="image_view">单击选择</string>
 
-    <string name="selected">已选</string>
-    <string name="limit_exceeded">最多能选 %d 张</string>
     <string name="navigationbarbean_titletext_textsize">18</string>
     <string name="navigationbarbean_arrowtext_padding">5</string>
     <string name="navigationbarbean_buttontext_textsize">18</string>
@@ -665,143 +143,37 @@
     <string name="get_identifying_code">获取验证码</string>
     <string name="input_phone_mail">输入手机号码\\邮箱</string>
     <string name="register_newuser">新用户注册</string>
-    <string name="complete_info">完善信息</string>
-    <string name="input_verification_code">填写验证码</string>
     <string name="use_immediately">立即使用</string>
-    <string name="create_immediately">立即创建</string>
-    <string name="join_company_fail">加入企业失败</string>
-    <string name="create_company_fail">创建企业失败</string>
-    <string name="un_selected">待选</string>
-    <string name="join">加入</string>
-    <string name="register_sucess_areyou_login">注册成功,是否直接登录</string>
-    <string name="send_sucess_areyou_login">发送 成功,是否直接登录</string>
 
 
-
-    <string name="you_have_register_sucess">你已成功注册！</string>
-    <string name="has_validate">已验证</string>
-
-    <string name="connect_server_timeout">请求服务器超时！</string>
     <string name="register_complete">注册完成</string>
-    <string name="register_select_industry">选择行业/方向</string>
-    <string name="select_province_city">选择省份城市</string>
-    <string name="register_sucess_company">你已成功注册为***公司人员</string>
-    <string name="recommend_to_friend">推荐好友使用</string>
-    <string name="verify_code_check">,请查收</string>
-    <string name="please_select_scope_cannot_null">请先选择,规模不能为空</string>
-    <string name="mail_format_error">邮箱格式错误</string>
-    <string name="mail_cannot_null">邮箱不能为空</string>
-    <string name="mobile_cannot_null">电话不能为空</string>
-    <string name="necessary_input_mail">请输入邮箱地址</string>
-    <string name="select_input_mail">选填,请输入邮箱地址</string>
-    <string name="necessary_input_mobile">请输入手机号码</string>
-    <string name="necessary_input_pwd">必填,6-18位密码(数字/字母/符号中两种)</string>
     <string name="login_input_pwd">登录密码(6-18位至少为数字/字母/符号中2种组合)</string>
 
-    <string name="set_chat_group_admin">设置管理员</string>
 
-
-    <string name="parse_server_msg_error">解析服务器返回数据出错</string>
-    <string name="pwd_hsd_err">密码有误</string>
     <string name="username_has_exit">用户名已经存在！</string>
     <string name="username_cannot_null">姓名不能为空！</string>
-    <string name="user_not_exit">该用户不存在！</string>
 
-    <string name="server_respsone_error">服务器返回数据失败</string>
-    <string name="changepwd_format">6-18位(数字/字母/符号中的两种)</string>
-    <string name="mobileCamera">手机相册</string>
-    <string name="connet_timeout_check_network">连接超时，请检查网络是否正常！</string>
-    <string name="connet_error">请求出错</string>
     <string name="connet_server_error">请求服务器响应失败</string>
-    <string name="connet_error_check_network_fine">请求出错，请检查网络是否正常</string>
-    <string name="connet_error_check_server_network_fine">请求出错，请检查配置注册信息，网络是否正常</string>
-
 
 
     <string name="confirm">确定</string>
-    <string name="select_admin">选择管理员</string>
 
 
     <!--主窗口-->
-    <string name="tv_main_top_tag" >有米</string >
-    <string name="tv_main_version_info" >AOS SDK V</string >
-    <string name="btn_main_show_spot_ad" >插屏广告演示</string >
-    <string name="btn_main_show_slideable_spot_ad" >轮播插屏广告演示</string >
-    <string name="btn_main_show_native_spot_ad" >原生插屏广告演示</string >
-    <string name="btn_main_show_video_ad" >视频广告演示</string >
-    <string name="btn_main_show_native_video_ad" >原生视频广告演示</string >
-    <string name="btn_main_check_ad_settings" >检查广告配置</string >
 
     <!--各种广告形式窗口展示按钮-->
-    <string name="btn_show_spot_ad" >展示插屏广告</string >
-    <string name="btn_show_slideable_spot_ad" >展示轮播插屏广告</string >
-    <string name="btn_show_native_spot_ad" >展示原生插屏广告</string >
-    <string name="btn_show_video_ad" >展示视频广告</string >
-    <string name="btn_show_native_video_ad" >展示原生视频广告</string >
-    <string name="hello_world">Hello world!</string>
-    <string name="app_id">53ed5edd</string>
 
-    <string name="button_text_read">语音播报</string>
-    <string name="button_text_reload">重新连接</string>
-    <string name="tip_text_data_loading">数据获取中...</string>
-    <string name="tip_text_data_fail">数据获取失败，点击再次获取！</string>
-    <string name="tip_speak_not_installed">无法朗读，请安装讯飞语音！</string>
-    <string name="tip_speak_error">阅读错误！</string>
-
-    <string name="exit_title">确认</string>
-    <string name="exit_tip">是否退出？</string>
-    <string name="exit_submit">确定</string>
-    <string name="exit_cancel">取消</string>
-    <string name="ignore_words_1">浏览原图</string>
-    <string name="ignore_words_2">视频下载</string>
-
-    <integer-array name="channel_ids">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-    </integer-array>
-
-    <string-array name="channel_names">
-        <item>头条</item>
-        <item>国内</item>
-        <item>国际</item>
-        <item>财经</item>
-        <item>科技</item>
-        <item>社会</item>
-        <item>体育</item>
-    </string-array>
-
-    <string-array name="ignore_words">
-        <item>浏览原图</item>
-        <item>视频下载</item>
-    </string-array>
-    <string name="app_version">版本 1.2</string>
-    <string name="app_copyright">Copyright©2016 孙福生 版权所有</string>
-
-    <string name="ok">确认</string>
     <string name="cancel">取消</string>
-    <string name="exit">退出</string>
-    <string name="action_settings">设置</string>
-
-    <string name="please_choose">请选择</string>
-    <string name="copy_message">复制</string>
-    <string name="delete_message">删除</string>
 
     <string name="just_now">刚刚</string>
     <string name="minuites_ago">分钟前</string>
     <string name="hours_ago">小时前</string>
     <string name="yestoday">昨天</string>
     <string name="the_day_before_yestoday">前天</string>
-    <string name="days_ago">天前</string>
 
     <string name="xlistview_header_hint_normal">下拉刷新</string>
     <string name="xlistview_header_hint_ready">松开刷新数据</string>
     <string name="xlistview_header_hint_loading">正在加载...</string>
-    <string name="xlistview_header_last_time">上次更新时间：</string>
     <string name="xlistview_footer_hint_normal">查看更多</string>
     <string name="xlistview_footer_hint_ready">松开载入更多</string>
 

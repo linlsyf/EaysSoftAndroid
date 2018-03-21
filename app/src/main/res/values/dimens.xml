@@ -1,6 +1,5 @@
 <resources>
     <!-- 注册界面 -->
-    <dimen name="icon_margin_login_slide">8dp</dimen>
     <dimen name="margin_login_slide">5dp</dimen>
     <dimen name="margin_register_vali_left_right">13dp</dimen>
 
@@ -9,146 +8,39 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
  
     <dimen name="wode_title_text_size_17sp">17sp</dimen>
-    <dimen name="text_size_14dp">14dp</dimen>
     <!--RecyclerView-->
-    <dimen name="recyclerview_divider_height">0.2dp</dimen>
     <!--NavigationBar-->
-    <dimen name="navigationbar_height">40dp</dimen>
-    <dimen name="navigationbar_textdrawable_padding">5dp</dimen>
     <!--HeadLoadingView-->
-    <dimen name="headloadingview_circle_strokewidth">3dp</dimen>
     <!--LoadingDialog-->
-    <dimen name="loadingdialog_circle_strokewidth">3.5dp</dimen>
     <!--RecentContactsItemView-->
-    <dimen name="recentcontactsitemview_unreadnum_textsize">13sp</dimen>
-    <dimen name="recentcontactsitemview_lastmessageitem_textsize">14sp</dimen>
-    <dimen name="recentcontactsitemview_targetname_textsize">17sp</dimen>
-    <dimen name="recentcontactsitemview_lastmessagecontent_textsize">15sp</dimen>
     <!--BaseChatItemView-->
-    <dimen name="basechatitemview_rootview_horizontal_padding">10dp</dimen>
-    <dimen name="basechatitemview_rootview_vertical_padding">15dp</dimen>
-    <dimen name="basechatitemview_time_padding">3dp</dimen>
-    <dimen name="basechatitemview_time_textsize">12sp</dimen>
-    <dimen name="basechatitemview_time_marginbottom">15dp</dimen>
-    <dimen name="basechatitemview_select_sidelength">18dp</dimen>
-    <dimen name="basechatitemview_targetname_textsize">12sp</dimen>
-    <dimen name="basechatitemview_targetname_leftmargin">12dp</dimen>
-    <dimen name="basechatitemview_targetname_bottommargin">2dp</dimen>
-    <dimen name="basechatitemview_targetimage_sidelength">42dp</dimen>
-    <dimen name="baeschatitemview_messagecontent_margin">5dp</dimen>
-    <dimen name="basechatitemview_messagestate_sidelength">30dp</dimen>
-    <dimen name="basechatitemview_messagestate_margin">3dp</dimen>
-    <dimen name="basechatitemview_messagestate_padding">5dp</dimen>
-    <dimen name="basechatitemview_source_topmargin">5dp</dimen>
-    <dimen name="basechatitemview_countdown_sidelength">20dp</dimen>
-    <dimen name="basechatitemview_burnreading_icon_side">30dp</dimen>
-    <dimen name="basechatitemview_burnreading_margin">5dp</dimen>
-    <dimen name="basechatitemview_burnreading_textsize">16sp</dimen>
     <!--TextChatItemView-->
-    <dimen name="textchatitemview_textsize">16sp</dimen>
-    <dimen name="textchatitemview_padding">6dp</dimen>
-    <dimen name="textchatitemview_maxwidth">220dp</dimen>
     <!--ImageChatItemView-->
-    <dimen name="imagechatitemview_maxwidth">130dp</dimen>
-    <dimen name="imagechatitemview_maxheight">130dp</dimen>
-    <dimen name="imagechatitemview_circle_radius">10dp</dimen>
-    <dimen name="imagechatitemview_circle_width">3dp</dimen>
-    <dimen name="imagechatitemview_round">5dp</dimen>
     <!--VoiceChatItemView-->
-    <dimen name="voicechatitemview_maxwidth">100dp</dimen>
-    <dimen name="voicechatitemview_minwidth">80dp</dimen>
-    <dimen name="voicechatitemview_iv_sidelength">20dp</dimen>
-    <dimen name="voicechatitemview_padding">3dp</dimen>
-    <dimen name="voicechatitemview_margin">8dp</dimen>
-    <dimen name="voicechatitemview_tv_textsize">15sp</dimen>
-    <dimen name="voicechatitemview_unreadpoint_side">8dp</dimen>
     <!--FileChatItemView-->
-    <dimen name="filechatitemview_width">185dp</dimen>
-    <dimen name="filechatitemview_height">80dp</dimen>
-    <dimen name="filechatitemview_padding">6dp</dimen>
-    <dimen name="filechatitemview_margin">6dp</dimen>
-    <dimen name="filechatitemview_iv_sidelength">55dp</dimen>
-    <dimen name="filechatitemview_tv_textsize">13sp</dimen>
-    <dimen name="filechatitemview_pbar_height">3dp</dimen>
-    <dimen name="filechatitemview_pbar_radius">1.5dp</dimen>
     <!--ShakeChatItemView-->
-    <dimen name="shakechatitemview_padding">5dp</dimen>
     <!--VideoChatItemView-->
-    <dimen name="videochatitemview_failtips_textsize">15sp</dimen>
-    <dimen name="videochatitemview_state_textsize">8sp</dimen>
-    <dimen name="videochatitemview_pbar_radius">2dp</dimen>
-    <dimen name="videochatitemview_pbar_bg_padding">2dp</dimen>
-    <dimen name="videochatitemview_pbar_bg_radius">4dp</dimen>
-    <dimen name="videochatitemview_pbar_bg_height">8dp</dimen>
-    <dimen name="videochatitemview_pbar_bg_margin">3dp</dimen>
-    <dimen name="videochatitemview_state_margin">5dp</dimen>
-    <dimen name="voicechatitemview_loadingtips_radius">5dp</dimen>
     <!--FunctionItemView-->
-    <dimen name="functionitemview_padding">8dp</dimen>
-    <dimen name="functionitemview_image_sidelength">45dp</dimen>
-    <dimen name="functionitemview_text_size">15sp</dimen>
-    <dimen name="functionitemview_text_margin">8dp</dimen>
     <!--LocationItemView-->
-    <dimen name="locationitemview_priv_circle_radius">10dp</dimen>
-    <dimen name="locationitemview_priv_circle_width">3dp</dimen>
-    <dimen name="locationitemview_priv_round">5dp</dimen>
     <!--NewsChatItemView-->
-    <dimen name="newschatitemview_title_text_size">18sp</dimen>
-    <dimen name="newschatitemview_content_text_size">15sp</dimen>
-    <dimen name="newschatitemview_tips_text_size">14sp</dimen>
-    <dimen name="newschatitemview_time_text_size">14sp</dimen>
     <!--ExpressionBar-->
-    <dimen name="expressionbar_srrv_padding">8dp</dimen>
-    <dimen name="expressionbar_iv_padding">7dp</dimen>
     <!--UnderLineEditText-->
-    <dimen name="underlineedittext_underline_strokewidth">1dp</dimen>
     <!--BaseExtensionBar-->
-    <dimen name="baseextensionbar_lltabbar_height">36dp</dimen>
-    <dimen name="baseextensionbar_lindicator_bottommargin">10dp</dimen>
-    <dimen name="baseextensionbar_point_sidelength">8dp</dimen>
-    <dimen name="baseextensionbar_point_margin">3dp</dimen>
     <!--BaseDialog-->
-    <dimen name="basedialog_item_textsize">5.2sp</dimen>
-    <dimen name="basedialog_item_padding">13dp</dimen>
     <!--<dimen name="common_navigationbar_hight">50dp</dimen>-->
     <!--ChatInputBar-->
-    <dimen name="chatinputbar_extensionbar_height_portrait">200dp</dimen>
-    <dimen name="chatinputbar_extensionbar_height_landscape">120dp</dimen>
     <!--ChatActivity-->
-    <dimen name="chatactivity_newmessage_textsize">15sp</dimen>
-    <dimen name="chatactivity_newmessage_padding_ver">5dp</dimen>
-    <dimen name="chatactivity_newmessage_padding_hor">8dp</dimen>
-    <dimen name="chatactivity_newmessage_margin">3dp</dimen>
     <!--address -->
-    <dimen name="arrow_radius">15dp</dimen>
-    <dimen name="common_head_radius">35dp</dimen>
-    <dimen name="common_right_into_radius">15dp</dimen>
-    <dimen name="common_space_item_hight">30dp</dimen>
-    <dimen name="sp20">20sp</dimen>
-    <dimen name="dp3">3dp</dimen>
     <!--Listview item 需要用到的尺寸-->
-    <dimen name="leftImg_height">35dp</dimen>
-    <dimen name="leftImg_width">35dp</dimen>
-    <dimen name="rihtImg_height">25dp</dimen>
-    <dimen name="rightImg_width">25dp</dimen>
-    <dimen name="titleSize">20sp</dimen>
-    <dimen name="contentSize">15sp</dimen>
-
-
 
 
     <!--sidebarListview需要用到的尺寸-->
-    <dimen name="common_divider_hight">1px</dimen>
 
     <!-- 个人名片缩放图片需要用到的尺寸 -->
-    <dimen name="parallax_height">160dp</dimen>
 
     <!--TopNavigationBarView-->
-    <dimen name="top_bar_left_right_marging">5dp</dimen>
 
     <!--MessageItemVIew-->
-    <dimen name="common_margin_left">10dip</dimen>
-    <color name="tab_my_message_item_view_msg">#8c8c8c</color>
 
     <!--MessageItemViewLayout-->
 
