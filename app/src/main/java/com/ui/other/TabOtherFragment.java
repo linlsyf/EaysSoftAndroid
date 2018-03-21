@@ -14,13 +14,10 @@ import com.core.recycleview.item.AddressItemBean;
 import com.core.recycleview.sectionview.Section;
 import com.core.utils.FragmentHelper;
 import com.easysoft.costumes.R;
-import com.robot.tuling.ui.TulingFragemnt;
-import com.ui.message.add.AddFragment;
+import com.ui.other.tuling.TulingFragemnt;
 import com.ui.other.view.OtherContentView;
 import com.view.toolbar.NavigationBar;
 import com.view.toolbar.TopBarBuilder;
-
-import java.io.Serializable;
 
 import butterknife.ButterKnife;
 

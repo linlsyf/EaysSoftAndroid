@@ -3,11 +3,18 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/weather_bg"
     >
+    <com.view.toolbar.NavigationBar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        ></com.view.toolbar.NavigationBar>
 
 
 
-    <com.robot.tuling.widget.refreshswipemenulistview.XListView
+    <com.view.refreshswipemenulistview.XListView
+        android:background="@color/context_bg_grey"
         android:id="@+id/xlv_listView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
