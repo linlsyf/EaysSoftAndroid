@@ -1,5 +1,6 @@
 package com.ui.message.add;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +18,7 @@ import com.business.bean.ShopOrderMsg;
 import com.business.login.User;
 import com.core.CoreApplication;
 import com.core.ServerUrl;
+import com.core.base.GlobalConstants;
 import com.core.http.OkHttpUtils;
 import com.core.recycleview.item.AddressItemBean;
 import com.core.recycleview.item.IItemView;
@@ -28,6 +30,7 @@ import com.core.recycleview.sectionview.Section;
 import com.core.utils.DensityUtil;
 import com.core.utils.StringUtils;
 import com.core.utils.ToastUtils;
+import com.core.utils.system.AndroidUtil;
 import com.easysoft.costumes.R;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -42,6 +45,8 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
+import top.zibin.luban.Luban;
+import top.zibin.luban.OnCompressListener;
 
 public class OrderDetailPersenter {
 	private HttpService service;
@@ -233,14 +238,41 @@ public class OrderDetailPersenter {
 		iShopOrderItemView.updateItem(imgBean);
 	}
 
+
+	 public void getCompressPath(final String url, final String chooseImgPath){
+		 Luban.with(iShopOrderItemView.getContext())
+				 .load(chooseImgPath)                                   // 传人要压缩的图片列表
+				 .ignoreBy(100)                                  // 忽略不压缩图片的大小
+				 .setTargetDir(GlobalConstants.getInstance().getAppDocumentHomePath())                        // 设置压缩后文件存储位置
+				 .setCompressListener(new OnCompressListener() { //设置回调
+					 @Override
+					 public void onStart() {
+						 // TODO 压缩开始前调用，可以在方法内启动 loading UI
+					 }
+
+					 @Override
+					 public void onSuccess(File file) {
+						 // TODO 压缩成功后调用，返回压缩后的图片文件
+						 upLoadImg( url, file.getAbsolutePath());
+					 }
+
+					 @Override
+					 public void onError(Throwable e) {
+						 iShopOrderItemView.showToast("获取压缩图片失败");
+					 }
+				 }).launch();    //启动压缩
+	 }
+
+
 	public void upLoadImg(String url, final String chooseImgPath) {
+
+
 		OkHttpUtils.getInStance().uploadFile(url, chooseImgPath,"", new Callback() {
 
 			@Override
 			public void onResponse(Call call, Response response) throws IOException {
 
 				if (response.isSuccessful()) {
-
 					ResponseBody body=response.body();
 					String  msg=body.string();
 					ResponseMsgData responseMsg= JSON.parseObject(msg,ResponseMsgData.class);
@@ -293,6 +325,7 @@ public class OrderDetailPersenter {
 
 					ResponseMsg responseMsg = JSON.parseObject(callBack.getResponseMsg().getMsg(), ResponseMsg.class);
 					if (responseMsg.isSuccess()) {
+						iShopOrderItemView.addSucess();
 						BusinessBroadcastUtils.sendBroadcast(iShopOrderItemView.getContext(), BusinessBroadcastUtils.TYPE_SHOPCAR_LIST, null);
 						BusinessBroadcastUtils.sendBroadcast(iShopOrderItemView.getContext(), BusinessBroadcastUtils.Type_Local_HOME_PAGE_CHANGE, 1);
 					}
@@ -312,32 +345,4 @@ public class OrderDetailPersenter {
 
 	}
 
-	public void test(){
-//		final String url = ServerUrl.baseUrl+ ServerUrl.REGISTER_UserUrl;
-//		User loginUser=new User();
-//		loginUser.setLoginId("15217636758");
-//		loginUser.setName(registerUserName);
-//		loginUser.setPwd(registerPwd);
-//		final String json= JSON.toJSONString(loginUser);
-//
-//
-//		service.request( url , json,new MyCallback(new MyCallback.IResponse() {
-//			@Override
-//			public void onFailure(ServiceCallBack serviceCallBack) {
-//				iregisterView.showToast("连接服务器错误，注册失败");
-//			}
-//
-//			@Override
-//			public void onResponse(ServiceCallBack serviceCallBack) {
-//				if (serviceCallBack.isSucess()){
-////                         ResponseMsg msg=   serviceCallBack.getResponseMsg();
-//					iregisterView.register(true);
-//				}else{
-//					iregisterView.showToast("连接服务器错误，注册失败");
-//				}
-//
-////                ilogInView.showToast("登录成功");
-//			}
-//		}));
-	}
 }

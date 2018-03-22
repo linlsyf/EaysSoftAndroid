@@ -12,11 +12,13 @@ import com.easysoft.costumes.R;
 import com.ui.message.add.AddFragment;
 import com.ui.message.view.GoodsView;
 import com.view.toolbar.NavigationBar;
+import com.view.toolbar.NavigationBarListener;
 import com.view.toolbar.TopBarBuilder;
 
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
@@ -56,18 +58,23 @@ public class GoodsFragment extends BaseFragment implements IGoodsView{
         recycleView = getViewById(R.id.recycleView);
         toolbar=getViewById(R.id.toolbar);
         TopBarBuilder.buildCenterTextTitle(toolbar, getActivity(), "商品列表", 0);
-        recycleView.postDelayed(new Runnable() {
+        TopBarBuilder.buildOnlyText(toolbar, getActivity(), NavigationBar.Location.RIGHT_FIRST, "新加", 0);
+//        if (BusinessBroadcastUtils.loginUser!=null){
+            recycleView.postDelayed(new Runnable() {
 
-            @Override
-            public void run() {
-                persenter.list();
+                @Override
+                public void run() {
+                    persenter.list();
 
-            }
-        }, 500);
+                }
+            }, 500);
+//        }
+
 
 //        swipeRefreshLayout = (SwipeRefreshLayout) getViewById(R.id.swipeRefreshLayout);
 //        recyclerView = (RecyclerView) getViewById(R.id.recyclerView);
-        recycleView.getSectionAdapterHelper().initLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+        recycleView.getSectionAdapterHelper().initLayoutManager(new GridLayoutManager(getActivity(),2));
+//        recycleView.getSectionAdapterHelper().initLayoutManager(new StaggerGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
         //设置瀑布流Item
         SpacesItemDecoration decoration = new SpacesItemDecoration(20);
         recycleView.getSectionAdapterHelper().addItemDecoration(decoration);
@@ -92,7 +99,22 @@ public class GoodsFragment extends BaseFragment implements IGoodsView{
     }
     @Override
     public void initListener() {
+        toolbar.setNavigationBarListener(new NavigationBarListener() {
 
+            @Override
+            public void onClick(ViewGroup containView, NavigationBar.Location location) {
+                if (location== NavigationBar.Location.RIGHT_FIRST) {
+                    Bundle bundle=new Bundle();
+//                    bundle.putSerializable("goods", (Serializable) goods);
+                    bundle.putSerializable("type",AddFragment.TYPE_ADD);
+                    FragmentHelper.showFrag(getActivity(), R.id.container_framelayout, new AddFragment(), bundle);
+
+
+
+                }
+
+            }
+        });
     }
 
 	@Override

@@ -61,15 +61,9 @@ public class GoodInfoView extends LinearLayout implements IItemView {
 
     @Override
     public void initData(final AddressItemBean map) {
-
 //        final InfoCardBean cardBean=(InfoCardBean)map;
         mNameTv.setText(map.getTitle());
         ImageUtils.getInStance().load(map.getHeadImgeSettings().getHeadImgUrl(),mImg);
-//        mNameTv.setText(cardBean.getUserName());
-
-
-//        String name = cardBean.getHeadImgeSettings().getHeadImgUserName();
-
 
         LinearLayout.LayoutParams mHeadParams = (LinearLayout.LayoutParams) mImg.getLayoutParams();
 //        if (cardBean.getHeadImgeSettings().getHeadImgRadius() != 0) {
@@ -77,18 +71,10 @@ public class GoodInfoView extends LinearLayout implements IItemView {
 //            mHeadParams.height = cardBean.getHeadImgeSettings().getHeadImgRadius();
 //            mImg.setLayoutParams(mHeadParams);
 //        }
-
-         Random random = new Random();
-
-
-            mHeadParams.width = DensityUtil.dip2px(getContext(),230);
-            mHeadParams.height = random.nextInt(250) + 250;
-            mImg.setLayoutParams(mHeadParams);
-
-
-//            ImageUtils.getInStance().loadResourceId(R.drawable.empty_photo, mImg);
-
-
+//         Random random = new Random();
+//            mHeadParams.width = DensityUtil.dip2px(getContext(),230);
+//            mHeadParams.height = DensityUtil.dip2px(getContext(),230);
+//            mImg.setLayoutParams(mHeadParams);
         setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {

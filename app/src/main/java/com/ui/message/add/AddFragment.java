@@ -61,6 +61,9 @@ public class AddFragment extends BaseFragment implements IShopOrderItemView{
 	private OrderDetailPersenter persenter;
 	Button buyBtn;
 	Button addToChartBtn;
+	public final static String TYPE_SHOW="show";
+	public final static String TYPE_ADD="add";
+	public final static String TYPE_EDIT="edit";
 
     @Override
     public View onCreateView(LayoutInflater inflater,  ViewGroup container,  Bundle savedInstanceState) {
@@ -139,7 +142,6 @@ public class AddFragment extends BaseFragment implements IShopOrderItemView{
     @Override
     public void initData() {
   	  persenter=new OrderDetailPersenter(this);
-		persenter.test();
   	editOrder = new ShopOrder();
     Bundle bundle=	getArguments();
     boolean isShow=false;
@@ -190,7 +192,7 @@ public class AddFragment extends BaseFragment implements IShopOrderItemView{
 		 if(data != null ){//有数据返回直接使用返回的图片地址
 			 chooseImgPath= data.getStringExtra(ChooseFragmentActivity.key_path);
            String url=ServerUrl.baseUrl+ServerUrl.UPLOAD_URL;
-          persenter.upLoadImg(url,chooseImgPath);
+          persenter.getCompressPath(url,chooseImgPath);
 
 		 }
 		}
@@ -226,6 +228,11 @@ public class AddFragment extends BaseFragment implements IShopOrderItemView{
 	@Override
 	public void getImgeDbId(String id) {
 		editGoods.setImageId(id);
+	}
+
+	@Override
+	public void addSucess() {
+		FragmentHelper.popBackFragment(getActivity());
 	}
 
 	@Override

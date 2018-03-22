@@ -62,4 +62,5 @@ dependencies {
     //其中latest.release指代最新Bugly NDK版本号，也可以指定明确的版本号，例如3.0
     compile 'com.android.support:recyclerview-v7:25.0.0'
     compile 'com.android.support:support-v4:25.3.1'
+    compile 'top.zibin:Luban:1.1.3'
 }

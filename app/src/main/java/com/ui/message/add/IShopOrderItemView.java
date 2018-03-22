@@ -17,5 +17,5 @@ public interface IShopOrderItemView extends IBaseView{
 	void getImgeDbId(String id);
 
 
-
+	void addSucess();
 }

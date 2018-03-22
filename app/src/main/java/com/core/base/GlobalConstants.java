@@ -72,7 +72,7 @@ public class GlobalConstants {
 //	/**用于记录设置的信息以及登录信息*/
 //	private SharedPreferences share;
 
-	String APPHomeDocFolder = "MiracleOA";
+	String APPHomeDocFolder = "EasySoft";
 	String APPTempDocFolder = "temp";
 	/**是否显示双列*/
 	public  boolean istabandTwoClomnstyle = false;
