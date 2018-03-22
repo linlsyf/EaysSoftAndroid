@@ -94,7 +94,6 @@ public class GoodsPersenter {
 					}
 					iGoodsView.toOrder(goods);
 //					get(getUrl, json);
-
 				}
 
 
@@ -102,7 +101,7 @@ public class GoodsPersenter {
 		});
 
 //			ShopOrder order=orderList.get(i);
-
+		itembean.setViewType(IItemView.ViewTypeEnum.INFO_CARD_VIEW.value());
 
 		itembean.setTitle(goods.getName());
 		itembean.setId(goods.getId());
@@ -149,13 +148,13 @@ public class GoodsPersenter {
 							AddressItemBean itembean=getAddressItemBean(order);
 
 							dataMaps.add(itembean);
-							if (i != orderList.size()-1) {
-								AddressItemBean itembeanSpace = new AddressItemBean();
-								itembeanSpace.setViewType(IItemView.ViewTypeEnum.SPLITE
-										.value());
-								dataMaps.add(itembeanSpace);
-
-							}
+//							if (i != orderList.size()-1) {
+//								AddressItemBean itembeanSpace = new AddressItemBean();
+//								itembeanSpace.setViewType(IItemView.ViewTypeEnum.SPLITE
+//										.value());
+//								dataMaps.add(itembeanSpace);
+//
+//							}
 
 						}
 						nextSection.setDataMaps(dataMaps);

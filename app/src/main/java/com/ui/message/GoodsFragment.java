@@ -1,6 +1,7 @@
 package com.ui.message;
 
 
+import com.business.BusinessBroadcastUtils;
 import com.business.bean.Goods;
 import com.core.base.BaseFragment;
 import com.core.recycleview.AddressRecycleView;
@@ -9,15 +10,21 @@ import com.core.recycleview.sectionview.Section;
 import com.core.utils.FragmentHelper;
 import com.easysoft.costumes.R;
 import com.ui.message.add.AddFragment;
+import com.ui.message.view.GoodsView;
 import com.view.toolbar.NavigationBar;
 import com.view.toolbar.TopBarBuilder;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  * 展示商品
@@ -25,11 +32,11 @@ import java.io.Serializable;
 
 public class GoodsFragment extends BaseFragment implements IGoodsView{
     GoodsPersenter persenter;
-
-
-    AddressRecycleView recycleView;
-
+    GoodsView recycleView;
     private NavigationBar toolbar;
+    SwipeRefreshLayout swipeRefreshLayout;
+    int sum = 0;
+
     @Override
     public View onCreateView(LayoutInflater inflater,  ViewGroup container,  Bundle savedInstanceState) {
 
@@ -58,7 +65,30 @@ public class GoodsFragment extends BaseFragment implements IGoodsView{
             }
         }, 500);
 
+//        swipeRefreshLayout = (SwipeRefreshLayout) getViewById(R.id.swipeRefreshLayout);
+//        recyclerView = (RecyclerView) getViewById(R.id.recyclerView);
+        recycleView.getSectionAdapterHelper().initLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+        //设置瀑布流Item
+        SpacesItemDecoration decoration = new SpacesItemDecoration(20);
+        recycleView.getSectionAdapterHelper().addItemDecoration(decoration);
 
+
+//        /**
+//         * 下拉刷新
+//         * */
+//        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+//            @Override
+//            public void onRefresh() {
+//                new Handler().postDelayed(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        list.remove(sum);
+//                        swipeRefreshLayout.setRefreshing(false);
+//                        myAdapter.notifyDataSetChanged();
+//                    }
+//                }, 2000);
+//            }
+//        });
     }
     @Override
     public void initListener() {
@@ -67,8 +97,9 @@ public class GoodsFragment extends BaseFragment implements IGoodsView{
 
 	@Override
 	public void getBroadcastReceiverMessage(String type, Object mode) {
-		// TODO Auto-generated method stub
-		
+        if(type.equals(BusinessBroadcastUtils.TYPE_RELOGIN_SUCESS)){
+           persenter.list();
+        }
 	}
 
     @Override

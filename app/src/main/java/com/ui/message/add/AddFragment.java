@@ -146,6 +146,9 @@ public class AddFragment extends BaseFragment implements IShopOrderItemView{
      if (bundle!=null&&bundle.containsKey("type")) {
 		String type=bundle.getString("type");
 		if (type.equals("show")) {
+			isShow=true;
+
+		}
 			if (bundle.containsKey("order")){
 
 				editOrder=(ShopOrder)bundle.getSerializable("order");
@@ -154,8 +157,7 @@ public class AddFragment extends BaseFragment implements IShopOrderItemView{
 
 				editGoods=(Goods)bundle.getSerializable("goods");
 			}
-			 isShow=true;
-		}
+
 
 	}
      
@@ -167,6 +169,7 @@ public class AddFragment extends BaseFragment implements IShopOrderItemView{
          addToChartBtn.setVisibility(View.GONE);
      }else{
          TopBarBuilder.buildCenterTextTitle(toolbar, getActivity(), "添加订单", 0);
+		 TopBarBuilder.buildLeftArrowText(toolbar, getActivity(),  "返回", 0);
 
 //  	   TopBarBuilder.buildOnlyText(toolbar, getActivity(),Location.RIGHT_SECOND, "加入", 0);
 //  	   TopBarBuilder.buildOnlyText(toolbar, getActivity(),Location.RIGHT_FIRST, "结算", 0);

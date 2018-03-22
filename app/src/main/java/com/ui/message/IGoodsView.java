@@ -11,7 +11,4 @@ public interface IGoodsView extends IBaseView{
 	void showItem(AddressItemBean imgBean);
 	void toOrder(Goods goods);
 
-
-
-
 }

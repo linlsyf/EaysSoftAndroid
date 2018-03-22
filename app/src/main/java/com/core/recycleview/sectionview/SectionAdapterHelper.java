@@ -30,6 +30,7 @@ import com.core.recycleview.item.SectionView;
 import com.core.recycleview.item.SpliteView;
 import com.core.recycleview.item.bean.SelectBean;
 import com.easysoft.costumes.R;
+import com.ui.message.SpacesItemDecoration;
 
 /**
  *创建者：林党宏
@@ -561,6 +562,14 @@ public class SectionAdapterHelper {
     private void cancelEmptyViewAnimation() {
         ImageView ivEmpty = (ImageView) mEmptyView.findViewById(R.id.iv_empty);
         ivEmpty.clearAnimation();
+    }
+
+    public void initLayoutManager(RecyclerView.LayoutManager layout) {
+        mRecyclerView.setLayoutManager(layout);
+    }
+
+    public void addItemDecoration(SpacesItemDecoration decoration) {
+        mRecyclerView.addItemDecoration(decoration);
     }
 
     private static class SectinComparator implements Comparator<Section> {

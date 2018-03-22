@@ -16,6 +16,7 @@ import com.ui.car.ShopOrderListFragment;
 import com.ui.login.IlogInView;
 import com.ui.login.LoginActivity;
 import com.ui.login.LoginPresenter;
+import com.ui.message.GoodsFragment;
 import com.ui.message.add.AddFragment;
 import com.ui.other.TabOtherFragment;
 import com.ui.setting.SettingFragment;
@@ -38,7 +39,7 @@ public class HomeActivity extends BasicActivity implements IlogInView {
          tabContainerView = (TabContainerView) findViewById(R.id.tab_container);
 
         MainViewAdapter mainViewAdapter=new MainViewAdapter(getSupportFragmentManager(),
-                new Fragment[] {new AddFragment(),  new ShopOrderListFragment(),new TabOtherFragment(),new SettingFragment()});
+                new Fragment[] {new GoodsFragment(),  new ShopOrderListFragment(),new TabOtherFragment(),new SettingFragment()});
 //        MainViewAdapter mainViewAdapter=new MainViewAdapter(getSupportFragmentManager(),
 //                new Fragment[] {new AddFragment(),  new ShopOrderListFragment(),new TabOtherFragment(),new SettingFragment()});
         mainViewAdapter.setHasMsgIndex(1);

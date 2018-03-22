@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
 android {
-    compileSdkVersion 24
+    compileSdkVersion 25
     buildToolsVersion  '26.0.0'
 
     defaultConfig {
         applicationId "com.easysoft.costumes"
         minSdkVersion 16
-        targetSdkVersion 26
+        targetSdkVersion 25
         versionCode 1
         versionName "1.0"
         ndk {
@@ -55,8 +55,11 @@ dependencies {
     compile 'org.greenrobot:greendao-generator:3.0.0'
     compile files('libs/mobAPI-2.0.0.jar')
     compile files('libs/alipaySdk-20170922.jar')
-    compile files('libs/android-support-v4.jar')
     compile files('libs/android-async-http-1.4.1.jar')
-    compile 'com.tencent.bugly:crashreport:latest.release' //其中latest.release指代最新Bugly SDK版本号，也可以指定明确的版本号，例如2.1.9
-    compile 'com.tencent.bugly:nativecrashreport:latest.release' //其中latest.release指代最新Bugly NDK版本号，也可以指定明确的版本号，例如3.0
+    compile 'com.tencent.bugly:crashreport:latest.release'
+    //其中latest.release指代最新Bugly SDK版本号，也可以指定明确的版本号，例如2.1.9
+    compile 'com.tencent.bugly:nativecrashreport:latest.release'
+    //其中latest.release指代最新Bugly NDK版本号，也可以指定明确的版本号，例如3.0
+    compile 'com.android.support:recyclerview-v7:25.0.0'
+    compile 'com.android.support:support-v4:25.3.1'
 }
