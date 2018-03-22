@@ -122,6 +122,9 @@ public class GoodsFragment extends BaseFragment implements IGoodsView{
         if(type.equals(BusinessBroadcastUtils.TYPE_RELOGIN_SUCESS)){
            persenter.list();
         }
+        else if(type.equals(BusinessBroadcastUtils.TYPE_GOODS_ADD_SUCESS)){
+            persenter.list();
+        }
 	}
 
     @Override

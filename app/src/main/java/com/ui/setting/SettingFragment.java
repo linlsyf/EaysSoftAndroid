@@ -12,10 +12,12 @@ import com.core.base.BaseFragment;
 import com.core.recycleview.item.AddressItemBean;
 import com.core.recycleview.sectionview.Section;
 import com.core.update.UpdateAPK;
+import com.core.utils.FragmentHelper;
 import com.core.utils.ToastUtils;
 import com.easysoft.costumes.R;
 import com.ui.login.LoginActivity;
 import com.ui.message.add.OrderDetailPersenter;
+import com.ui.other.tuling.TulingFragemnt;
 import com.ui.setting.view.MySettingContentView;
 import com.view.toolbar.NavigationBar;
 import com.view.toolbar.TopBarBuilder;
@@ -116,6 +118,19 @@ public class SettingFragment extends BaseFragment implements ISafeSettingView{
             @Override
             public void run() {
                 recycleView.getSectionAdapterHelper().updateItem(OrderDetailPersenter.KEY_ShopOrderInfo, imgBean);
+            }
+        });
+    }
+    @Override
+    public void showNews() {
+        getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+
+                Bundle bundle=new Bundle();
+
+                FragmentHelper.showFrag(getActivity(), R.id.container_framelayout, new TulingFragemnt(), bundle);
+
             }
         });
     }

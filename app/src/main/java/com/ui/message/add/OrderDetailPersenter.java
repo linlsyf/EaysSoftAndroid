@@ -327,6 +327,7 @@ public class OrderDetailPersenter {
 					if (responseMsg.isSuccess()) {
 						iShopOrderItemView.addSucess();
 						BusinessBroadcastUtils.sendBroadcast(iShopOrderItemView.getContext(), BusinessBroadcastUtils.TYPE_SHOPCAR_LIST, null);
+						BusinessBroadcastUtils.sendBroadcast(iShopOrderItemView.getContext(), BusinessBroadcastUtils.TYPE_GOODS_ADD_SUCESS, null);
 						BusinessBroadcastUtils.sendBroadcast(iShopOrderItemView.getContext(), BusinessBroadcastUtils.Type_Local_HOME_PAGE_CHANGE, 1);
 					}
 				}else{

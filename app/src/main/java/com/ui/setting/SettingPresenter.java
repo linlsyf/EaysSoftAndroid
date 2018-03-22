@@ -45,6 +45,7 @@ public class SettingPresenter   {
 	private String KEY_UPDATE="update";
 	private String KEY_USER_INFO="userInfo";
 	private InfoCardBean infoCardBean;
+	private String SECTION_NEW="new";
 
 	public SettingPresenter(ISafeSettingView iSafeSettingView) {
     	this.iSafeSettingView=iSafeSettingView;
@@ -103,6 +104,24 @@ public class SettingPresenter   {
     	  iSafeSettingView.initUI(nextSection);
     	  iSafeSettingView.initUI(settingSection);
     	  initJpush();
+
+		  Section  newSection=new Section(SECTION_NEW);
+		  newSection.setPosition(0);
+
+		  newSection.setName("其他");
+		  List<AddressItemBean>  newSectionList=new ArrayList<AddressItemBean>();
+
+		  AddressItemBean newItemBean=new AddressItemBean();
+		  newItemBean.setTitle("助手小Q");
+		  newItemBean.setOnItemListener(new IItemView.onItemClick() {
+			  @Override
+			  public void onItemClick(IItemView.ClickTypeEnum typeEnum, AddressItemBean bean) {
+				  iSafeSettingView.showNews();
+			  }
+		  });
+		  newSectionList.add(newItemBean);
+		  newSection.setDataMaps(newSectionList);
+		  iSafeSettingView.initUI(newSection);
 //		  getLoginUserMsg();
       }
 	  public void getLoginUserMsg(){

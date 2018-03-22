@@ -13,4 +13,5 @@ public interface ISafeSettingView extends IBaseView{
 	void logOut();
 	void updateItem(AddressItemBean imgBean);
 
+	void showNews();
 }

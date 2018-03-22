@@ -48,6 +48,8 @@ public class BusinessBroadcastUtils {
 	/**刷新订单信息*/
 	public static String  TYPE_SHOPCAR_LIST="com.ui.car.TabFragment4.list";
 	/**刷新订单信息*/
+	public static String  TYPE_GOODS_ADD_SUCESS="goodsAddSucess";
+	/**刷新订单信息*/
 	public static String  TYPE_RELOGIN_SUCESS="HomeActivity.relogin.sucess";
 
 	

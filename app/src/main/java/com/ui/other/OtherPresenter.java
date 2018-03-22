@@ -161,16 +161,16 @@ public class OtherPresenter   {
 		  newSection.setName("新闻");
 		  List<AddressItemBean>  newSectionList=new ArrayList<AddressItemBean>();
 
-		  AddressItemBean newItemBean=new AddressItemBean();
-		  newItemBean.setTitle("助手小Q");
-		  newItemBean.setOnItemListener(new IItemView.onItemClick() {
-			  @Override
-			  public void onItemClick(IItemView.ClickTypeEnum typeEnum, AddressItemBean bean) {
-				  iOtherView.showNews();
-			  }
-		  });
-		  newSectionList.add(newItemBean);
-		  newSection.setDataMaps(newSectionList);
-		  iOtherView.updateSection(newSection);
+//		  AddressItemBean newItemBean=new AddressItemBean();
+//		  newItemBean.setTitle("助手小Q");
+//		  newItemBean.setOnItemListener(new IItemView.onItemClick() {
+//			  @Override
+//			  public void onItemClick(IItemView.ClickTypeEnum typeEnum, AddressItemBean bean) {
+//				  iOtherView.showNews();
+//			  }
+//		  });
+//		  newSectionList.add(newItemBean);
+//		  newSection.setDataMaps(newSectionList);
+//		  iOtherView.updateSection(newSection);
     }
 }

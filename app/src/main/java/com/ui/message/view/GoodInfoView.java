@@ -50,7 +50,7 @@ public class GoodInfoView extends LinearLayout implements IItemView {
         mContext=context;
         LayoutInflater.from(context).inflate(R.layout.view_goods_item, this, true);
         ButterKnife.bind(this);
-        setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+//        setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 
     }
 
