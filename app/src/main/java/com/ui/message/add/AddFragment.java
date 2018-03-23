@@ -144,11 +144,11 @@ public class AddFragment extends BaseFragment implements IShopOrderItemView{
   	  persenter=new OrderDetailPersenter(this);
   	editOrder = new ShopOrder();
     Bundle bundle=	getArguments();
-    boolean isShow=false;
+    boolean isAdd=false;
      if (bundle!=null&&bundle.containsKey("type")) {
 		String type=bundle.getString("type");
-		if (type.equals("show")) {
-			isShow=true;
+		if (type.equals(TYPE_ADD)) {
+			isAdd=true;
 
 		}
 			if (bundle.containsKey("order")){
@@ -159,27 +159,17 @@ public class AddFragment extends BaseFragment implements IShopOrderItemView{
 
 				editGoods=(Goods)bundle.getSerializable("goods");
 			}
-
-
 	}
-     
-     if(isShow){
+     if(!isAdd){
          TopBarBuilder.buildCenterTextTitle(toolbar, getActivity(), "订单", 0);
-
   	   TopBarBuilder.buildLeftArrowText(toolbar, getActivity(),  "返回", 0);
          buyBtn.setVisibility(View.GONE);
          addToChartBtn.setVisibility(View.GONE);
      }else{
          TopBarBuilder.buildCenterTextTitle(toolbar, getActivity(), "添加订单", 0);
 		 TopBarBuilder.buildLeftArrowText(toolbar, getActivity(),  "返回", 0);
-
-//  	   TopBarBuilder.buildOnlyText(toolbar, getActivity(),Location.RIGHT_SECOND, "加入", 0);
-//  	   TopBarBuilder.buildOnlyText(toolbar, getActivity(),Location.RIGHT_FIRST, "结算", 0);
-
      }
-     
-     persenter.initUI( editOrder,editGoods,isShow);
-     
+     persenter.initUI( editOrder,editGoods,isAdd);
     }
 	@Override
 	public void getBroadcastReceiverMessage(String type, Object mode) {

@@ -21,6 +21,7 @@ import com.view.tabview.tools.DisplayUtil;
 public class TabContainerView extends RelativeLayout {
 
 
+    private static final int PAGE_NUM =4 ;
     /**
      *  底部TabLayout
      */
@@ -120,7 +121,7 @@ public class TabContainerView extends RelativeLayout {
         contentVpLp.addRule(RelativeLayout.ABOVE, R.id.divide_tab);
         contentViewPager.setLayoutParams(contentVpLp);
         contentViewPager.setId(R.id.viewpager_tab);
-
+        contentViewPager.setOffscreenPageLimit(PAGE_NUM);
         contentViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {

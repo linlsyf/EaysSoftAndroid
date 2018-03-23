@@ -84,7 +84,7 @@ public class OrderDetailPersenter {
 		return totalBean;
 	}
 	
-	public void initUI(ShopOrder order,Goods goods,boolean isShow){
+	public void initUI(ShopOrder order,Goods goods,boolean isAdd){
 		
    	Section nextSection=new Section(KEY_ShopOrderInfo);
    	List<AddressItemBean> dataMaps=new ArrayList<>();
@@ -95,7 +95,7 @@ public class OrderDetailPersenter {
    	
    	itemNameBean.setId(KEY_NAME);
    	itemNameBean.setRightFirstText(goods.getName());
-   	if(!isShow){
+   	if(isAdd){
    	   	itemNameBean.setOnItemListener(getNormelItemClick(itemNameBean));
    	}
    	dataMaps.add(itemNameBean);
@@ -122,7 +122,7 @@ public class OrderDetailPersenter {
    	imgBean.setAddressRightSecondImgSettings(imgSetting);
    	dataMaps.add(imgBean);
    	
-	if(!isShow){
+	if(isAdd){
 		imgBean.setOnItemListener(new onItemClick() {
 			
 			@Override
@@ -141,7 +141,7 @@ public class OrderDetailPersenter {
 	colorNameBean.setTitle("颜色");
 	colorNameBean.setId(KEY_COLOR_NAME);
 	colorNameBean.setRightFirstText(goods.getColorName());
-	if(!isShow){
+	if(isAdd){
 		colorNameBean.setOnItemListener(getNormelItemClick(colorNameBean));
    	}
 	dataMaps.add(colorNameBean);
@@ -154,7 +154,7 @@ public class OrderDetailPersenter {
 	colorNumBean.setTitle("色号");
 	colorNumBean.setId(KEY_COLOR_NUM);
 	colorNumBean.setRightFirstText(goods.getColorNum());
-	if(!isShow){
+	if(isAdd){
 		colorNumBean.setOnItemListener(getNormelItemClick(colorNumBean));
    	}
 	dataMaps.add(colorNumBean);
@@ -167,7 +167,7 @@ public class OrderDetailPersenter {
 	priceBean.setTitle("价格");
 	priceBean.setId(KEY_PRICE);
 	priceBean.setRightFirstText(goods.getPrice()+"");
-	if(!isShow){
+	if(isAdd){
 		priceBean.setOnItemListener(getNormelItemClick(priceBean));
    	}
 	dataMaps.add(priceBean);
@@ -181,7 +181,7 @@ public class OrderDetailPersenter {
 	numBean.setTitle("数量");
 	numBean.setId(KEY_NUM);
 	numBean.setRightFirstText(order.getNum()+"");
-	if(!isShow){
+	if(isAdd){
 		numBean.setOnItemListener(getNormelItemClick(numBean));
    	}
 	dataMaps.add(numBean);
@@ -210,7 +210,7 @@ public class OrderDetailPersenter {
 	noteBean.setTitle("备注");
 	noteBean.setId(KEY_CONTENT);
 	noteBean.setRightFirstText(goods.getContent());
-	if(!isShow){
+	if(isAdd){
 		noteBean.setOnItemListener(getNormelItemClick(noteBean));
    	}
 	dataMaps.add(noteBean);

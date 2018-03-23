@@ -28,6 +28,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ui.HttpService;
 import com.ui.car.MyCallback;
 import com.ui.message.add.IShopOrderItemView;
+import com.view.toolbar.NavigationBar;
+import com.view.toolbar.TopBarBuilder;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -74,13 +76,15 @@ public class GoodsPersenter {
 	public AddressItemBean  getAddressItemBean(final Goods goods){
 		GoodsInfoBean itembean = new GoodsInfoBean();
 
+		String  imgURL=ServerUrl.baseUrl+ServerUrl.IMG_URL+goods.getImageId();
+       goods.setImagUrl(imgURL);
+
 		itembean.setOnItemListener(new onItemClick() {
 			@Override
 			public void onItemClick(ClickTypeEnum typeEnum,
 									AddressItemBean bean) {
 				if (typeEnum==ClickTypeEnum.ITEM) {
 
-					String getUrl = ServerUrl.baseUrl+ServerUrl.ORDER_GET;
 					ShopOrder order = new ShopOrder();
 					order.setId(bean.getId());
 
@@ -93,21 +97,18 @@ public class GoodsPersenter {
 						e.printStackTrace();
 					}
 					iGoodsView.toOrder(goods);
-//					get(getUrl, json);
 				}
-
 
 			}
 		});
 
-//			ShopOrder order=orderList.get(i);
 		itembean.setViewType(IItemView.ViewTypeEnum.INFO_CARD_VIEW.value());
 
 		itembean.setTitle(goods.getName());
 		itembean.setPrice(goods.getPrice()+"元");
 		itembean.setId(goods.getId());
 		AddressHeadImgeSettings headImgeSettings = new AddressHeadImgeSettings();
-		String  imgURL=ServerUrl.baseUrl+ServerUrl.IMG_URL+goods.getImageId();
+//		String  imgURL=ServerUrl.baseUrl+ServerUrl.IMG_URL+goods.getImageId();
 		headImgeSettings.setHeadImgUrl(imgURL);
 		int  imgRadius= DensityUtil.dip2px(CoreApplication.getInstance(), 45);
 		headImgeSettings.setHeadImgRadius(imgRadius);
@@ -142,20 +143,10 @@ public class GoodsPersenter {
 								ResponseMsgData.class);
 						List<Goods> orderList = (List<Goods>)JSON.parseArray(data.getData()
 								.toString(), Goods.class);
-
-
 						for (int i = 0; i < orderList.size(); i++) {
 							Goods order=orderList.get(i);
 							AddressItemBean itembean=getAddressItemBean(order);
-
 							dataMaps.add(itembean);
-//							if (i != orderList.size()-1) {
-//								AddressItemBean itembeanSpace = new AddressItemBean();
-//								itembeanSpace.setViewType(IItemView.ViewTypeEnum.SPLITE
-//										.value());
-//								dataMaps.add(itembeanSpace);
-//
-//							}
 
 						}
 						nextSection.setDataMaps(dataMaps);
@@ -176,18 +167,24 @@ public class GoodsPersenter {
 ////
 		Section nextSection=new Section(KEY_ShopOrderInfo);
 		List<AddressItemBean> dataMaps=new ArrayList<>();
-		for (int i=0;i<10;i++ ) {
-			AddressItemBean itemBean=new AddressItemBean();
-			itemBean.setTitle("测试"+i);
-			dataMaps.add(itemBean);
-		}
-
+//		for (int i=0;i<10;i++ ) {
+//			AddressItemBean itemBean=new AddressItemBean();
+//			itemBean.setTitle("测试"+i);
+//			dataMaps.add(itemBean);
+//		}
 		nextSection.setDataMaps(dataMaps);
 		nextSection.setShowSection(false);
 		iGoodsView.showUi(nextSection);
-
-
-
 	}
 
+	public void reInitToolBar() {
+		boolean isAdmin=false;
+		if (BusinessBroadcastUtils.loginUser!=null){
+			if (BusinessBroadcastUtils.loginUser.getIsAdmin().equals("1")){
+				isAdmin=true;
+
+			}
+			iGoodsView.resetToolBar( isAdmin);
+		}
+	}
 }

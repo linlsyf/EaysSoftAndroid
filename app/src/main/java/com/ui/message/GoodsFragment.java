@@ -58,7 +58,12 @@ public class GoodsFragment extends BaseFragment implements IGoodsView{
         recycleView = getViewById(R.id.recycleView);
         toolbar=getViewById(R.id.toolbar);
         TopBarBuilder.buildCenterTextTitle(toolbar, getActivity(), "商品列表", 0);
-        TopBarBuilder.buildOnlyText(toolbar, getActivity(), NavigationBar.Location.RIGHT_FIRST, "新加", 0);
+        if (BusinessBroadcastUtils.loginUser!=null){
+            if (BusinessBroadcastUtils.loginUser.getIsAdmin().equals("1")){
+                TopBarBuilder.buildOnlyText(toolbar, getActivity(), NavigationBar.Location.RIGHT_FIRST, "新加", 0);
+
+            }
+        }
 //        if (BusinessBroadcastUtils.loginUser!=null){
             recycleView.postDelayed(new Runnable() {
 
@@ -73,11 +78,11 @@ public class GoodsFragment extends BaseFragment implements IGoodsView{
 
 //        swipeRefreshLayout = (SwipeRefreshLayout) getViewById(R.id.swipeRefreshLayout);
 //        recyclerView = (RecyclerView) getViewById(R.id.recyclerView);
-        recycleView.getSectionAdapterHelper().initLayoutManager(new GridLayoutManager(getActivity(),2));
+        recycleView.getSectionAdapterHelper().initLayoutManager(new GridLayoutManager(getActivity(),3));
 //        recycleView.getSectionAdapterHelper().initLayoutManager(new StaggerGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
         //设置瀑布流Item
-        SpacesItemDecoration decoration = new SpacesItemDecoration(20);
-        recycleView.getSectionAdapterHelper().addItemDecoration(decoration);
+//        SpacesItemDecoration decoration = new SpacesItemDecoration(20);
+//        recycleView.getSectionAdapterHelper().addItemDecoration(decoration);
 
 
 //        /**
@@ -89,9 +94,10 @@ public class GoodsFragment extends BaseFragment implements IGoodsView{
 //                new Handler().postDelayed(new Runnable() {
 //                    @Override
 //                    public void run() {
-//                        list.remove(sum);
+////                        list.remove(sum);
+////                        swipeRefreshLayout.setRefreshing(false);
+////                        myAdapter.notifyDataSetChanged();
 //                        swipeRefreshLayout.setRefreshing(false);
-//                        myAdapter.notifyDataSetChanged();
 //                    }
 //                }, 2000);
 //            }
@@ -121,6 +127,7 @@ public class GoodsFragment extends BaseFragment implements IGoodsView{
 	public void getBroadcastReceiverMessage(String type, Object mode) {
         if(type.equals(BusinessBroadcastUtils.TYPE_RELOGIN_SUCESS)){
            persenter.list();
+            persenter.reInitToolBar();
         }
         else if(type.equals(BusinessBroadcastUtils.TYPE_GOODS_ADD_SUCESS)){
             persenter.list();
@@ -149,8 +156,28 @@ public class GoodsFragment extends BaseFragment implements IGoodsView{
     public void toOrder(Goods goods) {
         Bundle bundle=new Bundle();
         bundle.putSerializable("goods", (Serializable) goods);
-        bundle.putSerializable("type", "edit");
+        boolean isAdmin=false;
+        if (BusinessBroadcastUtils.loginUser!=null){
+            if (BusinessBroadcastUtils.loginUser.getIsAdmin().equals("1")){
+                isAdmin=true;
+            }
+        }
+         if (isAdmin){
+             bundle.putSerializable("type", AddFragment.TYPE_EDIT);
+
+         }else{
+             bundle.putSerializable("type", AddFragment.TYPE_SHOW);
+
+         }
         FragmentHelper.showFrag(getActivity(), R.id.container_framelayout, new AddFragment(), bundle);
 
+    }
+
+    @Override
+    public void resetToolBar(boolean isAdmin) {
+         if (isAdmin){
+            TopBarBuilder.buildOnlyText(toolbar, getActivity(), NavigationBar.Location.RIGHT_FIRST, "新加", 0);
+
+        }
     }
 }
