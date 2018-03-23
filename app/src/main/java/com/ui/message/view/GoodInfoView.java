@@ -16,6 +16,7 @@ import com.core.recycleview.item.IItemView;
 import com.core.recycleview.sectionview.MutiTypeSelectUtils;
 import com.core.utils.DensityUtil;
 import com.easysoft.costumes.R;
+import com.ui.message.GoodsInfoBean;
 import com.ui.setting.InfoCardBean;
 
 import java.util.Random;
@@ -35,6 +36,10 @@ public class GoodInfoView extends LinearLayout implements IItemView {
     ImageView mImg;
     @Bind(R.id.name)
     TextView mNameTv;
+    @Bind(R.id.price)
+    TextView mPriceTv;
+    @Bind(R.id.content)
+    TextView mContentTv;
 
     public GoodInfoView(Context context) {
         super(context);
@@ -50,7 +55,7 @@ public class GoodInfoView extends LinearLayout implements IItemView {
         mContext=context;
         LayoutInflater.from(context).inflate(R.layout.view_goods_item, this, true);
         ButterKnife.bind(this);
-//        setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 
     }
 
@@ -61,8 +66,10 @@ public class GoodInfoView extends LinearLayout implements IItemView {
 
     @Override
     public void initData(final AddressItemBean map) {
-//        final InfoCardBean cardBean=(InfoCardBean)map;
+        final GoodsInfoBean infoBean=(GoodsInfoBean)map;
         mNameTv.setText(map.getTitle());
+        mPriceTv.setText(infoBean.getPrice());
+        mContentTv.setText(infoBean.getContent());
         ImageUtils.getInStance().load(map.getHeadImgeSettings().getHeadImgUrl(),mImg);
 
         LinearLayout.LayoutParams mHeadParams = (LinearLayout.LayoutParams) mImg.getLayoutParams();

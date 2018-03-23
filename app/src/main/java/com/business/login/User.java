@@ -11,6 +11,9 @@ public class User implements Serializable {
     private String pwd;// 密码
     private String loginId;// 登录名称
 
+    private String isAdmin="0";// 登录名称
+
+
     public String getId() {
         return id;
     }
@@ -59,7 +62,11 @@ public class User implements Serializable {
         this.loginId = loginId;
     }
 
+    public String getIsAdmin() {
+        return isAdmin;
+    }
 
-
-
+    public void setIsAdmin(String isAdmin) {
+        this.isAdmin = isAdmin;
+    }
 }

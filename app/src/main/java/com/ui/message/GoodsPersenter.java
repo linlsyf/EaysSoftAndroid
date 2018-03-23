@@ -72,7 +72,7 @@ public class GoodsPersenter {
 	}
 
 	public AddressItemBean  getAddressItemBean(final Goods goods){
-		AddressItemBean itembean = new AddressItemBean();
+		GoodsInfoBean itembean = new GoodsInfoBean();
 
 		itembean.setOnItemListener(new onItemClick() {
 			@Override
@@ -104,6 +104,7 @@ public class GoodsPersenter {
 		itembean.setViewType(IItemView.ViewTypeEnum.INFO_CARD_VIEW.value());
 
 		itembean.setTitle(goods.getName());
+		itembean.setPrice(goods.getPrice()+"元");
 		itembean.setId(goods.getId());
 		AddressHeadImgeSettings headImgeSettings = new AddressHeadImgeSettings();
 		String  imgURL=ServerUrl.baseUrl+ServerUrl.IMG_URL+goods.getImageId();

@@ -62,6 +62,9 @@ public class SettingPresenter   {
 		  String loginName="用户";
 		   if (BusinessBroadcastUtils.loginUser!=null){
 			   loginName=BusinessBroadcastUtils.loginUser.getName();
+			   if (BusinessBroadcastUtils.loginUser.getIsAdmin().equals("1")){
+				   loginName=loginName+" (管理员)";
+			   }
 		   }
 		    infoCardBean.setUserName(loginName);
 		    infoCardBean.setViewType(IItemView.ViewTypeEnum.INFO_CARD_VIEW.value());
@@ -184,7 +187,13 @@ public class SettingPresenter   {
 
 	public void updateUserInfo() {
 		infoCardBean.setId(BusinessBroadcastUtils.loginUser.getId());
-		infoCardBean.setUserName(BusinessBroadcastUtils.loginUser.getName());
+
+		String  	name=BusinessBroadcastUtils.loginUser.getName();
+		if (BusinessBroadcastUtils.loginUser.getIsAdmin().equals("1")){
+			name=name+" (管理员)";
+		}
+
+		infoCardBean.setUserName(name);
 		iSafeSettingView.updateItem(infoCardBean);
 	}
 }
