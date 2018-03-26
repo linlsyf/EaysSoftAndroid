@@ -413,4 +413,10 @@ public class LoginActivity extends BasicActivity implements IlogInView,
 
 
     }
+
+    @Override
+    public void loginFails() {
+        mDialog.dismiss();
+        showToast("登录失败");
+    }
 }

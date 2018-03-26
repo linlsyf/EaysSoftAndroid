@@ -20,7 +20,7 @@ import com.view.tabview.tools.DisplayUtil;
  */
 public class TabContainerView extends RelativeLayout {
 
-
+  /**限制不回收个数*/
     private static final int PAGE_NUM =4 ;
     /**
      *  底部TabLayout

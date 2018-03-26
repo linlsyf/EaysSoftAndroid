@@ -63,7 +63,7 @@ public class SettingFragment extends BaseFragment implements ISafeSettingView{
     }
 	@Override
 	public void getBroadcastReceiverMessage(String type, Object mode) {
-        if(type.equals(BusinessBroadcastUtils.TYPE_RELOGIN_SUCESS)){
+        if(type.equals(BusinessBroadcastUtils.TYPE_LOGIN_SUCESS)){
             presenter.updateUserInfo();
         }
 		

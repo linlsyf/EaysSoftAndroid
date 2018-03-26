@@ -45,82 +45,20 @@ public class BusinessBroadcastUtils {
 		BroadcastUtils.sendBroadCast(context, GlobalConstants.getInstance().getBroadCastReceiverActionName(), 
 								BaseUiInterface.MSG_TYPE, BaseUiInterface.MSG_MODE, type, obj);
 	}
-	/**刷新订单信息*/
+	/**获取订单列表成功*/
 	public static String  TYPE_SHOPCAR_LIST="com.ui.car.TabFragment4.list";
-	/**刷新订单信息*/
+	/**添加订单成功*/
 	public static String  TYPE_GOODS_ADD_SUCESS="goodsAddSucess";
-	/**刷新订单信息*/
-	public static String  TYPE_RELOGIN_SUCESS="HomeActivity.relogin.sucess";
+//	/**登录成功*/
+//	public static String  TYPE_RELOGIN_SUCESS="HomeActivity.relogin.sucess";
+	/**登录失败*/
+//	public static String  TYPE_RELOGIN_FAILS="HomeActivity.relogin.fails";
+	/**重新登录失败*/
+	public static final String TYPE_RELOGIN ="home_relogin" ;
+	public static final String TYPE_LOGIN_SUCESS ="loginSucess" ;
+	public static final String TYPE_LOGIN_FAILS ="loginFails" ;
 
-	
-	//========平板主界面======
-	/**homeGroupActivity 点击返回按钮事件*/
-	public static String  TYPE_homeGroup_activity_onBackPressed="HomeGroup_activity_onBackPressed";
-	/**homeGroupActivity 点击返回按钮事件*/
-	public static String  TYPE_System_activity_onBackPressed="System_activity_onBackPressed";
-	/**homeGroupActivity   显示会议日历*/
-	public static String  TYPE_System_Show_ScheDuleActivity="System_Show_ScheDuleActivity";
-	
-	//========文档详情界面======
-	/**homeGroupActivity 点击返回会议日历事件*/
-	public static String  TYPE_System_DetailsPadViewActivity_onBackPressed_Schedule="System_DetailsPadViewActivity_onBackPressed_Schedule";
-	/**弹出参加意见框*/
-	public static String  TYPE_System_DetailsPadViewActivity_MeetingConfirm="System_DetailsPadViewActivity_MeetingConfirm";
-	/**homeGroupActivity 点击返回按钮事件*/
-	public static String  TYPE_DetailsPadViewActivity_complete="DetailsPadViewActivity_complete";
-	/**主界面退出*/
-	public static String  TYPE_HomeActivity_exit="HomeActivity_exit";
-	/**公文列表刷新*/
-	public static String  TYPE_DataPullToRefreshList_refresh="DetailsPadViewActivity_request_refresh";
-	/**导航界面刷新*/
-	public static String  TYPE_MenuSubActivity_requset_Item_Num_refresh="MenuSubActivity_requset_Item_Num_refresh";
-	/**手机导航刷新*/
-	public static String  TYPE_OfficeFragment_requset_Item_Num_refresh="OfficeFragment_requset_Item_Num_refresh";
-	
-	/**手机导航刷新*/
-	public static String  TYPE_HometabFragment_requset_Item_Num_refresh="HometabFragment_requset_Item_Num_refresh";
-	
-	/**打开通讯录界面*/
-	public static String  TYPE_MenuSubActivity_open_TXL="MenuSubActivity_open_TXL";
-	
-	//========日程管理======
-	/**刷新编辑和新加后的个人日程界面*/
-	public static String  TYPE_PersonScheduleActivity_refresh="PersonScheduleActivity_refresh";
-	/**刷新日程 列表界面*/
-	public static String  TYPE_PersonSchduleListFragment_refresh="PersonSchduleListFragment_refresh";
-	//========公文运转======
-	/**找人代办后刷新*/
-	public static String  TYPE_DocTransfer_selectUserAgent_refresh="DocTransfer_selectUserAgent_refresh";
-	public static String  TYPE_DailyWork_add_group_sucess="DailyWork_add_group_sucess";
-	//========通讯录======
-	public static String  TYPE_DailyWorkAdress_deletegroup_sucess_refresh="DailyWorkAdress_deletegroup_sucess_refresh";
-	/**关闭群组管理界面*/
-	public static String  TYPE_DailyWorkAdress_GroupDetails_finish="DailyWorkAdress_GroupDetails_finish";
-	/**关闭所有界面*/
-	public static String  TYPE_system_all_Activity_finish="system_all_Activity_finish";
-	/**邮件选择界面*/
-	public static String  TYPE_MailMainViewActivity_showPadMailContact="MailMainViewActivity_showPadMailContact";
-	public static String  TYPE_MailMainViewActivity_resumePadMailContact="_MailMainViewActivity_resumePadMailContact";
-	/**后台检测被杀删除缓存文件*/
-	public static String  Type_AlwayonServiceDeleteTempFile="AlwayonServiceDeleteTempFile";
-	/**完成刷新*/
-	public static String  Type_FlowSelectViewController_onresult="FlowSelectViewController_onresult";
-	/**流程运转完成刷新*/
-	public static String  Type_FlowSelectViewController_sucess="FlowSelectViewController_sucess";
-	/**流程运转完成 详情界面关闭并请求刷新*/
-	public static String  Type_DetailsPadViewActivity_flowfinish_request_refresh="Type_DetailsPadViewActivity_flowfinish_request_refresh";
-	/**完成刷新*/
-	public static String  Type_HometabActivity_gridview_item_click="HometabActivity_gridview_item_click";
-	/**开始发送显示进度条*/
-	public static String  Type_Local_MyHttpUtils_ShowProcess="Type_Local_MyHttpUtils_ShowProcess";
-	/**关闭进度条*/
-	public static String  Type_Local_MyHttpUtils_Close_Process="Local_MyHttpUtils_Close_Process";
-	/**发送服务器返回成功*/
-	public static String  Type_Local_MyHttpUtils_Server_Response_Sucess="Local_MyHttpUtils_Server_Response_Sucess";
-	/**发送服务器返回失败*/
-	public static String  Type_Local_MyHttpUtils_Server_Response_Fail="Local_MyHttpUtils_Server_Response_Fail";
-	
-	
+
 	/**跳转viewpage 主界面*/
 	public static String  Type_Local_HOME_PAGE_CHANGE="Type_Local_HOME_PAGE_CHANGE";
 

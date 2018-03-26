@@ -20,6 +20,7 @@ import com.bumptech.glide.Glide;
 import com.core.CoreApplication;
 import com.core.threadpool.ThreadFactory;
 import com.easysoft.costumes.R;
+import com.utils.ThreadPoolUtils;
 
 public class ImageUtils {
 	
@@ -32,13 +33,20 @@ public class ImageUtils {
 		 return  utils;
 	 }
 	
-	public void load(String url,ImageView myImageView){
+	public void load(final String url, final ImageView myImageView){
 
-		Glide.with(CoreApplication.getAppContext())
-        .load(url)
-				.dontAnimate()
-				.placeholder(R.drawable.empty_photo)//图片加载出来前，显示的图片
-        .into(myImageView);
+
+//		ThreadPoolUtils.execute(new Runnable() {
+//			@Override
+//			public void run() {
+				Glide.with(CoreApplication.getAppContext())
+						.load(url)
+						.dontAnimate()
+						.placeholder(R.drawable.empty_photo)//图片加载出来前，显示的图片
+						.into(myImageView);
+//			}
+//		});
+
 
 	}
 	public void loadPath(final String path, final ImageView myImageView){

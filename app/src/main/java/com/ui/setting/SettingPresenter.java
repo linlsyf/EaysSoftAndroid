@@ -63,7 +63,7 @@ public class SettingPresenter   {
 		   if (BusinessBroadcastUtils.loginUser!=null){
 			   loginName=BusinessBroadcastUtils.loginUser.getName();
 			   if (BusinessBroadcastUtils.loginUser.getIsAdmin().equals("1")){
-				   loginName=loginName+" (管理员)";
+				   loginName=loginName+" (管理)";
 			   }
 		   }
 		    infoCardBean.setUserName(loginName);
@@ -190,7 +190,7 @@ public class SettingPresenter   {
 
 		String  	name=BusinessBroadcastUtils.loginUser.getName();
 		if (BusinessBroadcastUtils.loginUser.getIsAdmin().equals("1")){
-			name=name+" (管理员)";
+			name=name+" (管理)";
 		}
 
 		infoCardBean.setUserName(name);

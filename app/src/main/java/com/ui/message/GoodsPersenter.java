@@ -165,16 +165,12 @@ public class GoodsPersenter {
 				}
 			}));
 ////
-		Section nextSection=new Section(KEY_ShopOrderInfo);
-		List<AddressItemBean> dataMaps=new ArrayList<>();
-//		for (int i=0;i<10;i++ ) {
-//			AddressItemBean itemBean=new AddressItemBean();
-//			itemBean.setTitle("测试"+i);
-//			dataMaps.add(itemBean);
-//		}
-		nextSection.setDataMaps(dataMaps);
-		nextSection.setShowSection(false);
-		iGoodsView.showUi(nextSection);
+//		Section nextSection=new Section(KEY_ShopOrderInfo);
+//		List<AddressItemBean> dataMaps=new ArrayList<>();
+//
+//		nextSection.setDataMaps(dataMaps);
+//		nextSection.setShowSection(false);
+//		iGoodsView.showUi(nextSection);
 	}
 
 	public void reInitToolBar() {

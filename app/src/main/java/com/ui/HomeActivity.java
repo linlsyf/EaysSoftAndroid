@@ -26,10 +26,10 @@ import com.view.tabview.widget.Tab;
 import com.view.tabview.widget.TabContainerView;
 
 
-public class HomeActivity extends BasicActivity implements IlogInView {
+public class HomeActivity extends BasicActivity implements IlogInView,IHomeView {
 	TabContainerView tabContainerView;
 	LoginPresenter loginPresenter;
-
+	HomePresenter  homePresenter;
 	@Override
     protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,7 +58,7 @@ public class HomeActivity extends BasicActivity implements IlogInView {
 //		Intent intent = new Intent(this, TulingFragemnt.class);
 //		startActivity(intent);
 //		CrashReport.testJavaCrash();
-
+		homePresenter=new HomePresenter(this);
 	}
 
 	@Override
@@ -75,16 +75,17 @@ public class HomeActivity extends BasicActivity implements IlogInView {
 ////		      gotoMainOrloginUI(wellComeActivity);
 //		 }else
 		 if(StringUtils.isEmpty(BusinessBroadcastUtils.USER_VALUE_LOGIN_ID)){
-
 			 Intent  homeIntent=new Intent(this,LoginActivity.class);
 			 startActivity(homeIntent);
-		 }else{
-			 loginPresenter=new LoginPresenter(this);
-			 loginPresenter.login(BusinessBroadcastUtils.USER_VALUE_LOGIN_ID,BusinessBroadcastUtils.USER_VALUE_PWD);
-
+		 }else if (BusinessBroadcastUtils.loginUser==null){
+           login();
 		 }
 	}
+   private void login(){
+	   loginPresenter=new LoginPresenter(this);
+	   loginPresenter.login(BusinessBroadcastUtils.USER_VALUE_LOGIN_ID,BusinessBroadcastUtils.USER_VALUE_PWD);
 
+   }
 	@Override
 	public void initUIView() {
 		// TODO Auto-generated method stub
@@ -105,20 +106,28 @@ public class HomeActivity extends BasicActivity implements IlogInView {
 
 	@Override
 	public void loginSucess() {
-		runOnUiThread(new Runnable() {
-			@Override
-			public void run() {
-//				persenter.list();
-				BusinessBroadcastUtils.sendBroadcast(getContext(), BusinessBroadcastUtils.TYPE_RELOGIN_SUCESS, null);
+//		runOnUiThread(new Runnable() {
+//			@Override
+//			public void run() {
+//				BusinessBroadcastUtils.sendBroadcast(getContext(), BusinessBroadcastUtils.TYPE_RELOGIN_SUCESS, null);
+//
+//			}
+//		});
+	}
 
-			}
-		});
+	@Override
+	public void loginFails() {
+//		BusinessBroadcastUtils.sendBroadcast(getContext(), BusinessBroadcastUtils.TYPE_RELOGIN_FAILS, null);
+
 	}
 
 	@Override
 	public void getBroadcastReceiverMessage(String type, Object mode) {
 		if(type.equals(BusinessBroadcastUtils.Type_Local_HOME_PAGE_CHANGE)){
 			tabContainerView.getViewPager().setCurrentItem((int)mode);
+		}else if(type.equals(BusinessBroadcastUtils.TYPE_RELOGIN)){
+
+			login();
 		}
 		
 	}

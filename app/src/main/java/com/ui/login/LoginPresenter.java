@@ -49,9 +49,12 @@ public class LoginPresenter {
                      SpUtils.putString(ilogInView.getContext(),BusinessBroadcastUtils.STRING_LOGIN_USER_ID,serverUser.getId());
                      SpUtils.putString(ilogInView.getContext(),BusinessBroadcastUtils.STRING_LOGIN_USER_PWD,serverUser.getPwd());
                      SpUtils.putString(ilogInView.getContext(),BusinessBroadcastUtils.STRING_LOGIN_ID,serverUser.getLoginId());
+                     BusinessBroadcastUtils.sendBroadcast(ilogInView.getContext(),BusinessBroadcastUtils.TYPE_LOGIN_SUCESS,null);
                      ilogInView.loginSucess();
                  }else{
-                     ilogInView.showToast("登录失败");
+                     ilogInView.loginFails();
+                     BusinessBroadcastUtils.sendBroadcast(ilogInView.getContext(),BusinessBroadcastUtils.TYPE_LOGIN_FAILS,null);
+
                  }
 
 //                ilogInView.showToast("登录成功");

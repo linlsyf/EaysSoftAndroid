@@ -70,7 +70,8 @@ public class GoodInfoView extends LinearLayout implements IItemView {
         mNameTv.setText(map.getTitle());
         mPriceTv.setText(infoBean.getPrice());
         mContentTv.setText(infoBean.getContent());
-        ImageUtils.getInStance().load(map.getHeadImgeSettings().getHeadImgUrl(),mImg);
+        String url=map.getHeadImgeSettings().getHeadImgUrl();
+        ImageUtils.getInStance().load(url,mImg);
 
         LinearLayout.LayoutParams mHeadParams = (LinearLayout.LayoutParams) mImg.getLayoutParams();
 //        if (cardBean.getHeadImgeSettings().getHeadImgRadius() != 0) {

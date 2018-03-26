@@ -81,18 +81,7 @@ public class ShopOrderPersenter  {
 					
 				}
 			});
-			
-//			ShopOrder order=orderList.get(i);
 
-//		  Goods goods=JSON.parseObject(order.getGoods(),Goods.class);
-//		  ShopOrder shopOrder=JSON.parseObject(order.getOrder(),ShopOrder.class);
-
-//		   if (goods==null){
-//			   goods=new Goods();
-//		   }
-//		  if (shopOrder==null){
-//			  shopOrder=new ShopOrder();
-//		  }
 			   itembean.setTitle(order.getName());
 
 			itembean.setId(order.getId());
