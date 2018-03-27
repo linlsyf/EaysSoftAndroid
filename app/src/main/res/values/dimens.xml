@@ -8,41 +8,7 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
  
     <dimen name="wode_title_text_size_17sp">17sp</dimen>
-    <!--RecyclerView-->
-    <!--NavigationBar-->
-    <!--HeadLoadingView-->
-    <!--LoadingDialog-->
-    <!--RecentContactsItemView-->
-    <!--BaseChatItemView-->
-    <!--TextChatItemView-->
-    <!--ImageChatItemView-->
-    <!--VoiceChatItemView-->
-    <!--FileChatItemView-->
-    <!--ShakeChatItemView-->
-    <!--VideoChatItemView-->
-    <!--FunctionItemView-->
-    <!--LocationItemView-->
-    <!--NewsChatItemView-->
-    <!--ExpressionBar-->
-    <!--UnderLineEditText-->
-    <!--BaseExtensionBar-->
-    <!--BaseDialog-->
-    <!--<dimen name="common_navigationbar_hight">50dp</dimen>-->
-    <!--ChatInputBar-->
-    <!--ChatActivity-->
-    <!--address -->
-    <!--Listview item 需要用到的尺寸-->
-
-
-    <!--sidebarListview需要用到的尺寸-->
-
-    <!-- 个人名片缩放图片需要用到的尺寸 -->
-
-    <!--TopNavigationBarView-->
-
-    <!--MessageItemVIew-->
-
-    <!--MessageItemViewLayout-->
 
     <dimen name="spacing_line_hight">0.5dp</dimen>
+    <dimen name="navigationbar_height">45dp</dimen>
 </resources>

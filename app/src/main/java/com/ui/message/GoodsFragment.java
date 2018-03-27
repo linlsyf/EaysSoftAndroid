@@ -11,6 +11,7 @@ import com.core.utils.FragmentHelper;
 import com.easysoft.costumes.R;
 import com.ui.message.add.AddFragment;
 import com.ui.message.view.GoodsView;
+import com.view.search.SearchHeadView;
 import com.view.toolbar.NavigationBar;
 import com.view.toolbar.NavigationBarListener;
 import com.view.toolbar.TopBarBuilder;
@@ -29,6 +30,8 @@ import android.widget.TextView;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import butterknife.Bind;
+
 /**
  * 展示商品
  */
@@ -40,6 +43,7 @@ public class GoodsFragment extends BaseFragment implements IGoodsView{
     SwipeRefreshLayout swipeRefreshLayout;
     int sum = 0;
     TextView noticeTv;
+    SearchHeadView searchHeadView;
     @Override
     public View onCreateView(LayoutInflater inflater,  ViewGroup container,  Bundle savedInstanceState) {
 
@@ -56,15 +60,17 @@ public class GoodsFragment extends BaseFragment implements IGoodsView{
     @Override
     public void initUIView() {
         persenter=new GoodsPersenter(this);
-        recycleView = getViewById(R.id.recycleView);
+        recycleView = getViewById(R.id.goodsGridview);
         noticeTv = getViewById(R.id.noticeTv);
         toolbar=getViewById(R.id.toolbar);
+        searchHeadView=getViewById(R.id.searchView);
         TopBarBuilder.buildCenterTextTitle(toolbar, getActivity(), "首页", 0);
         if (BusinessBroadcastUtils.loginUser!=null){
             if (BusinessBroadcastUtils.loginUser.getIsAdmin().equals("1")){
                 TopBarBuilder.buildOnlyText(toolbar, getActivity(), NavigationBar.Location.RIGHT_FIRST, "新加", 0);
             }
         }
+        persenter.initTop();
         if (BusinessBroadcastUtils.loginUser!=null){
             recycleView.postDelayed(new Runnable() {
 
@@ -124,6 +130,13 @@ public class GoodsFragment extends BaseFragment implements IGoodsView{
             public void onClick(View v) {
                 BusinessBroadcastUtils.sendBroadcast(getContext(), BusinessBroadcastUtils.TYPE_RELOGIN, null);
 
+            }
+        });
+        searchHeadView.getBackLayout().setVisibility(View.GONE);
+        searchHeadView.setOnTextChangerListener(new SearchHeadView.onTextChangerListener() {
+            @Override
+            public void onTextChanger(String text) {
+                persenter.search( text);
             }
         });
     }

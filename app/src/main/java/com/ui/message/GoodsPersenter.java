@@ -45,6 +45,7 @@ public class GoodsPersenter {
 	private IGoodsView iGoodsView;
 	private AddressItemBean totalBean;
 	public static String KEY_ShopOrderInfo="ShopOrderInfo";
+	public static String KEY_TOP="top";
 	public static String KEY_NAME="name";
 	public static String KEY_IMG="image";
 	public static String KEY_COLOR_NAME="colorName";
@@ -54,8 +55,6 @@ public class GoodsPersenter {
 	public static String KEY_TOTAL="total";
 	public static String KEY_PRICE="price";
 
-	public GoodsPersenter() {
-	}
 	public GoodsPersenter( IGoodsView iGoodsView) {
 		service=new HttpService();
 		this.iGoodsView=iGoodsView;
@@ -182,5 +181,28 @@ public class GoodsPersenter {
 			}
 			iGoodsView.resetToolBar( isAdmin);
 		}
+	}
+
+	public void initTop() {
+//		Section nextSection=new Section(KEY_TOP);
+//		List<AddressItemBean> dataMaps=new ArrayList<>();
+//
+//       AddressItemBean itembean=new AddressItemBean();
+//		itembean.setViewType(IItemView.ViewTypeEnum.TOP_VIEW.value());
+//		itembean.setOnItemListener(new onItemClick() {
+//			@Override
+//			public void onItemClick(ClickTypeEnum typeEnum, AddressItemBean bean) {
+//				iGoodsView.showToast("搜索"+bean.getTitle());
+//			}
+//		});
+//		dataMaps.add(itembean);
+//		nextSection.setDataMaps(dataMaps);
+//		nextSection.setShowSection(false);
+//		iGoodsView.showUi(nextSection);
+
+	}
+
+	public void search(String text) {
+		iGoodsView.showToast("搜索"+text);
 	}
 }

@@ -20,7 +20,8 @@ public interface IItemView {
         SPACE_VIEW(5),//间隔view 可设置高度
         CENTER_CONTENT(6),//中间内容itemview
         INPUT_VIEW(7),//中间内容itemview
-        INFO_CARD_VIEW(8);//中间内容itemview
+        INFO_CARD_VIEW(8),//中间内容itemview
+        TOP_VIEW(9);//头部itemview
         private int value=0;
         private ViewTypeEnum(int value) {    //    必须是private的，否则编译错误
             this.value = value;

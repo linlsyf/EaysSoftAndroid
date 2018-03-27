@@ -205,12 +205,10 @@ public class SettingPresenter   {
 
 	public void updateUserInfo() {
 		infoCardBean.setId(BusinessBroadcastUtils.loginUser.getId());
-
-		String  	name=BusinessBroadcastUtils.loginUser.getName();
+		String 	name=BusinessBroadcastUtils.loginUser.getName();
 		if (BusinessBroadcastUtils.loginUser.getIsAdmin().equals("1")){
 			name=name+" (管理)";
 		}
-
 		infoCardBean.setUserName(name);
 		iSafeSettingView.updateItem(infoCardBean);
 	}
