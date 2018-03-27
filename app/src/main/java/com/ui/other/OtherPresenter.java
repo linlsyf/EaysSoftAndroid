@@ -53,11 +53,6 @@ public class OtherPresenter   {
 	HttpService service;
 
 	IOtherView iOtherView;
-	private String KEY_SETTING="setting";
-	private String KEY_INFO="info";
-	private String KEY_LOGOUT="logout";
-	private String KEY_UPDATE="update";
-	private String KEY_USER_INFO="userInfo";
 	private String SECTION_WEATHER="weather";
 	private String SECTION_APAY="apay";
 	private String SECTION_NEW="new";
@@ -158,7 +153,7 @@ public class OtherPresenter   {
 		  Section  newSection=new Section(SECTION_NEW);
 		  newSection.setPosition(0);
 
-		  newSection.setName("新闻");
+		  newSection.setName("圈子");
 		  List<AddressItemBean>  newSectionList=new ArrayList<AddressItemBean>();
 
 //		  AddressItemBean newItemBean=new AddressItemBean();
@@ -170,7 +165,7 @@ public class OtherPresenter   {
 //			  }
 //		  });
 //		  newSectionList.add(newItemBean);
-//		  newSection.setDataMaps(newSectionList);
-//		  iOtherView.updateSection(newSection);
+		  newSection.setDataMaps(newSectionList);
+		  iOtherView.updateSection(newSection);
     }
 }

@@ -130,11 +130,7 @@ public class GoodsFragment extends BaseFragment implements IGoodsView{
 
 	@Override
 	public void getBroadcastReceiverMessage(String type, Object mode) {
-//        if(type.equals(BusinessBroadcastUtils.TYPE_RELOGIN_SUCESS)){
-//           persenter.list();
-//            persenter.reInitToolBar();
-//            noticeTv.setVisibility(View.GONE);
-//        }
+
          if(type.equals(BusinessBroadcastUtils.TYPE_LOGIN_SUCESS)){
            persenter.list();
             persenter.reInitToolBar();
@@ -156,7 +152,6 @@ public class GoodsFragment extends BaseFragment implements IGoodsView{
             @Override
             public void run() {
                 recycleView.updateSection(nextSection);
-
             }
         });
 

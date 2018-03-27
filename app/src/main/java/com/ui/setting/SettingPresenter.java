@@ -46,6 +46,7 @@ public class SettingPresenter   {
 	private String KEY_USER_INFO="userInfo";
 	private InfoCardBean infoCardBean;
 	private String SECTION_NEW="new";
+	private String KEY_ABOUT="about";
 
 	public SettingPresenter(ISafeSettingView iSafeSettingView) {
     	this.iSafeSettingView=iSafeSettingView;
@@ -87,16 +88,16 @@ public class SettingPresenter   {
 							.value());
 			settingMaps.add(itembeanSpace);
 			
-		    AddressItemBean exitBean=new AddressItemBean();
-		    exitBean.setId(KEY_LOGOUT);
-		    exitBean.setTitle("退出登录");
-		  exitBean.setOnItemListener(new IItemView.onItemClick() {
+		    AddressItemBean aboutBean=new AddressItemBean();
+		  aboutBean.setId(KEY_ABOUT);
+		  aboutBean.setTitle("关于");
+		  aboutBean.setOnItemListener(new IItemView.onItemClick() {
 			  @Override
 			  public void onItemClick(IItemView.ClickTypeEnum typeEnum, AddressItemBean bean) {
-				  Logout();
+//				  Logout();
 			  }
 		  });
-		    settingMaps.add(exitBean);
+		    settingMaps.add(aboutBean);
 		    
 		  Section nextSection=new Section(KEY_INFO);
 		
@@ -123,6 +124,23 @@ public class SettingPresenter   {
 			  }
 		  });
 		  newSectionList.add(newItemBean);
+
+		  AddressItemBean itembeanSpaceLogOut= new AddressItemBean();
+		  itembeanSpaceLogOut.setViewType(IItemView.ViewTypeEnum.SPLITE
+				  .value());
+		  newSectionList.add(itembeanSpaceLogOut);
+
+		  AddressItemBean exitBean=new AddressItemBean();
+		  exitBean.setId(KEY_LOGOUT);
+		  exitBean.setTitle("退出登录");
+		  exitBean.setOnItemListener(new IItemView.onItemClick() {
+			  @Override
+			  public void onItemClick(IItemView.ClickTypeEnum typeEnum, AddressItemBean bean) {
+				  Logout();
+			  }
+		  });
+		  newSectionList.add(exitBean);
+
 		  newSection.setDataMaps(newSectionList);
 		  iSafeSettingView.initUI(newSection);
 //		  getLoginUserMsg();
