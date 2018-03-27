@@ -203,6 +203,51 @@ public class GoodsPersenter {
 	}
 
 	public void search(String text) {
-		iGoodsView.showToast("搜索"+text);
+//		iGoodsView.showToast("搜索"+text);
+		String url = ServerUrl.baseUrl+ServerUrl.GOODS_SEARCH;
+//		Goods order = new Goods();
+
+
+//		ObjectMapper mapper = new ObjectMapper();
+		String json = text;
+//		try {
+//			json = mapper.writeValueAsString(order);
+//		} catch (JsonProcessingException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		service.request(url, json,new MyCallback(new MyCallback.IResponse() {
+
+			@Override
+			public void onResponse(ServiceCallBack  callBack) {
+				if(callBack.isSucess()&&callBack.getResponseMsg()!=null){
+					Section nextSection=new Section(KEY_ShopOrderInfo);
+					List<AddressItemBean> dataMaps=new ArrayList<>();
+					ResponseMsgData data =JSON.parseObject(callBack.getResponseMsg().getMsg(),
+							ResponseMsgData.class);
+					List<Goods> orderList = (List<Goods>)JSON.parseArray(data.getData()
+							.toString(), Goods.class);
+					for (int i = 0; i < orderList.size(); i++) {
+						Goods order=orderList.get(i);
+						AddressItemBean itembean=getAddressItemBean(order);
+						dataMaps.add(itembean);
+
+					}
+					nextSection.setDataMaps(dataMaps);
+					nextSection.setShowSection(false);
+					iGoodsView.showUi(nextSection);
+
+
+				}
+			}
+
+			@Override
+			public void onFailure(ServiceCallBack  serviceCallBack) {
+				ToastUtils.show(iGoodsView.getContext(), "服务器响应失败");
+
+
+			}
+		}));
+
 	}
 }
