@@ -316,8 +316,9 @@ public class OrderDetailPersenter {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+		url=ServerUrl.getFinalUrl(url,shopOrderMsgJson);
 
-		service.request(url, shopOrderMsgJson,new MyCallback(new MyCallback.IResponse() {
+		service.request(url, new MyCallback(new MyCallback.IResponse() {
 
 			@Override
 			public void onResponse(ServiceCallBack callBack) {

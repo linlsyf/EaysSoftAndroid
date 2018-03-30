@@ -24,12 +24,14 @@ public class LoginPresenter {
     }
     public void login(final String logInId, final String pwd){
 
-        final String url =ServerUrl.baseUrl+ ServerUrl.loginUrl;
+         String url =ServerUrl.baseUrl+ ServerUrl.loginUrl;
         User loginUser=new User();
         loginUser.setLoginId(logInId);
         loginUser.setPwd(pwd);
         final String json= JSON.toJSONString(loginUser);
-        service.request( url , json,new MyCallback(new MyCallback.IResponse() {
+        url=ServerUrl.getFinalUrl(url,json);
+
+        service.request( url ,new MyCallback(new MyCallback.IResponse() {
             @Override
             public void onFailure(ServiceCallBack serviceCallBack) {
                 ilogInView.showToast("登录失败");

@@ -52,7 +52,10 @@ public class ServerUrl {
 		 baseUrl=host+":"+port+"/easy";
 	}
 
-
+   public static  String  getFinalUrl(String url,String json){
+	   url=url+"?msg="+json;
+	   return url;
+   }
 
 
 }

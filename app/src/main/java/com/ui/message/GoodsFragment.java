@@ -8,6 +8,7 @@ import com.core.recycleview.AddressRecycleView;
 import com.core.recycleview.item.AddressItemBean;
 import com.core.recycleview.sectionview.Section;
 import com.core.utils.FragmentHelper;
+import com.core.utils.StringUtils;
 import com.easysoft.costumes.R;
 import com.ui.message.add.AddFragment;
 import com.ui.message.view.GoodsView;
@@ -136,7 +137,12 @@ public class GoodsFragment extends BaseFragment implements IGoodsView{
         searchHeadView.setOnTextChangerListener(new SearchHeadView.onTextChangerListener() {
             @Override
             public void onTextChanger(String text) {
-                persenter.search( text);
+                 if(StringUtils.isEmpty(text)){
+                     persenter.list();
+                 }else{
+
+                     persenter.search( text);
+                 }
             }
         });
     }

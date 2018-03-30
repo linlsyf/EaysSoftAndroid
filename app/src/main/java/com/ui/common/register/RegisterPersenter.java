@@ -52,15 +52,15 @@ public class   RegisterPersenter{
      }
 
      private void registerServerUser() {
-          final String url = ServerUrl.baseUrl+ ServerUrl.REGISTER_UserUrl;
+           String url = ServerUrl.baseUrl+ ServerUrl.REGISTER_UserUrl;
           User loginUser=new User();
           loginUser.setLoginId(registerPhone);
           loginUser.setName(registerUserName);
           loginUser.setPwd(registerPwd);
           final String json= JSON.toJSONString(loginUser);
+          url=ServerUrl.getFinalUrl(url,json);
 
-
-          service.request( url , json,new MyCallback(new MyCallback.IResponse() {
+          service.request( url , new MyCallback(new MyCallback.IResponse() {
                @Override
                public void onFailure(ServiceCallBack serviceCallBack) {
                     iregisterView.showToast("连接服务器错误，注册失败");

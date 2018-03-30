@@ -24,11 +24,13 @@ public class CheckUserExitPersenter {
         service=new HttpService();
     }
     public void checkPhoneExit(String logInId){
-        final String url = ServerUrl.baseUrl+ ServerUrl.checkUserExitUrl;
+         String url = ServerUrl.baseUrl+ ServerUrl.checkUserExitUrl;
         User loginUser=new User();
         loginUser.setLoginId(logInId);
         final String json= JSON.toJSONString(loginUser);
-        service.request( url , json,new MyCallback(new MyCallback.IResponse() {
+        url=ServerUrl.getFinalUrl(url,json);
+
+        service.request( url ,new MyCallback(new MyCallback.IResponse() {
             @Override
             public void onFailure(ServiceCallBack serviceCallBack) {
                 icheckPhoneView.checkPhoneUserExit(false);

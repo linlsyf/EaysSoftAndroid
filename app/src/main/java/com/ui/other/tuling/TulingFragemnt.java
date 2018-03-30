@@ -12,6 +12,7 @@ import android.widget.ListView;
 import com.alibaba.fastjson.JSON;
 import com.business.ServiceCallBack;
 import com.business.bean.ResponseMsgData;
+import com.core.ServerUrl;
 import com.core.base.BaseFragment;
 import com.core.utils.FragmentHelper;
 import com.easysoft.costumes.R;
@@ -145,7 +146,9 @@ public class TulingFragemnt extends BaseFragment {
     private void requestApiByRetrofit_RxJava(final String info) {
         HttpService 		service=new HttpService();
         final String url = TulingParams.TULING_URL+"?key="+TulingParams.TULING_KEY+"&info="+info;
-        service.request( url , "",new MyCallback(new MyCallback.IResponse() {
+//        url= ServerUrl.getFinalUrl(url,json);
+
+        service.request( url , new MyCallback(new MyCallback.IResponse() {
             @Override
             public void onFailure(ServiceCallBack serviceCallBack) {
             }

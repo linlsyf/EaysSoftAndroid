@@ -148,11 +148,13 @@ public class SettingPresenter   {
 	  public void getLoginUserMsg(){
 		  if(StringUtils.isNotEmpty(BusinessBroadcastUtils.USER_VALUE_USER_ID)){{
 
-			  final String url = ServerUrl.baseUrl+ServerUrl.Get_UserUrl;
+			   String url = ServerUrl.baseUrl+ServerUrl.Get_UserUrl;
 			  User loginUser=new User();
 			  loginUser.setId(BusinessBroadcastUtils.USER_VALUE_USER_ID);
 			  final String json= JSON.toJSONString(loginUser);
-			  service.request( url , json,new MyCallback(new MyCallback.IResponse() {
+			  url=ServerUrl.getFinalUrl(url,json);
+
+			  service.request( url , new MyCallback(new MyCallback.IResponse() {
 				  @Override
 				  public void onFailure(ServiceCallBack serviceCallBack) {
 				  }

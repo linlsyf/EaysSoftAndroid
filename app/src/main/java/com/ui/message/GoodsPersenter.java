@@ -131,7 +131,9 @@ public class GoodsPersenter {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			service.request(url, json,new MyCallback(new MyCallback.IResponse() {
+		url=ServerUrl.getFinalUrl(url,json);
+
+		service.request(url, new MyCallback(new MyCallback.IResponse() {
 
 				@Override
 				public void onResponse(ServiceCallBack  callBack) {
@@ -216,7 +218,9 @@ public class GoodsPersenter {
 //			// TODO Auto-generated catch block
 //			e.printStackTrace();
 //		}
-		service.request(url, json,new MyCallback(new MyCallback.IResponse() {
+		url=ServerUrl.getFinalUrl(url,json);
+
+		service.request(url, new MyCallback(new MyCallback.IResponse() {
 
 			@Override
 			public void onResponse(ServiceCallBack  callBack) {

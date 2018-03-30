@@ -116,10 +116,12 @@ public class OtherPresenter   {
 			  public void onItemClick(IItemView.ClickTypeEnum typeEnum, AddressItemBean bean) {
 
 
-				  final String url = ServerUrl.baseUrl+ServerUrl.Order_GETSIGN;
+				   String url = ServerUrl.baseUrl+ServerUrl.Order_GETSIGN;
 				  ShopOrder loginUser=new ShopOrder();
 				  final String json= JSON.toJSONString(loginUser);
-				  service.request( url , json,new MyCallback(new MyCallback.IResponse() {
+				  url=ServerUrl.getFinalUrl(url,json);
+
+				  service.request( url , new MyCallback(new MyCallback.IResponse() {
 					  @Override
 					  public void onFailure(ServiceCallBack serviceCallBack) {
 						  iOtherView.showToast("服务器获取数据失败");

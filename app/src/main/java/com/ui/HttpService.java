@@ -57,10 +57,10 @@ public class HttpService {
 //
 //		return serviceCallBack;
 //	}
-	public void request(final String url ,final String json,MyCallback  callback){
+	public void request(final String url ,MyCallback  callback){
 		
 
-		OkHttpUtils.getInStance().post(url, json, callback);
+		OkHttpUtils.getInStance().post(url,  callback);
 		
 		
 	}

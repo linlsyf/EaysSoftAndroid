@@ -33,13 +33,10 @@ public class OkHttpUtils {
 		 return  utils;
 	 }
 	
-	public void post(String url, String json,  Callback callBack)  {
-		  if (!url.contains("?")){
-			  url=url+"?msg="+json;
-
-		  }
+	public void post(String url,   Callback callBack)  {
 
 
+		String json="";
 		RequestBody body = RequestBody.create(JSON, json);
 	   
 	    Request request = new Request.Builder()

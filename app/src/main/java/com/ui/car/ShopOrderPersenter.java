@@ -109,7 +109,9 @@ public class ShopOrderPersenter  {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		service.request(url, json,new MyCallback(new IResponse() {
+		url=ServerUrl.getFinalUrl(url,json);
+
+		service.request(url, new MyCallback(new IResponse() {
 			
 			@Override
 			public void onResponse(ServiceCallBack  callBack) {
@@ -163,8 +165,9 @@ public class ShopOrderPersenter  {
 	}
 	
 	public void get(String url ,String json){
-	
-		service.request(url, json, new MyCallback(new IResponse() {
+		url=ServerUrl.getFinalUrl(url,json);
+
+		service.request(url,  new MyCallback(new IResponse() {
 			
 			@Override
 			public void onResponse(ServiceCallBack callBack) {
@@ -193,8 +196,9 @@ public class ShopOrderPersenter  {
 	
 	}
 	public void remove(String url ,String json){
-		
-service.request(url, json, new MyCallback(new IResponse() {
+		url=ServerUrl.getFinalUrl(url,json);
+
+		service.request(url,  new MyCallback(new IResponse() {
 			
 			@Override
 			public void onResponse(ServiceCallBack callBack) {
