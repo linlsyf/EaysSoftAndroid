@@ -42,7 +42,7 @@ public class HomeActivity extends BasicActivity implements IlogInView,IHomeView 
                 new Fragment[] {new GoodsFragment(),  new ShopOrderListFragment(),new TabOtherFragment(),new SettingFragment()});
 //        MainViewAdapter mainViewAdapter=new MainViewAdapter(getSupportFragmentManager(),
 //                new Fragment[] {new AddFragment(),  new ShopOrderListFragment(),new TabOtherFragment(),new SettingFragment()});
-        mainViewAdapter.setHasMsgIndex(1);
+        mainViewAdapter.setHasMsgIndex(0);
         tabContainerView.setAdapter(mainViewAdapter);
         tabContainerView.setOnTabSelectedListener(new OnTabSelectedListener() {
             @Override

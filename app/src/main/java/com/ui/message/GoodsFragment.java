@@ -65,6 +65,7 @@ public class GoodsFragment extends BaseFragment implements IGoodsView{
         noticeTv = getViewById(R.id.noticeTv);
         toolbar=getViewById(R.id.toolbar);
         searchHeadView=getViewById(R.id.searchView);
+        recycleView.requestFocus();
         TopBarBuilder.buildCenterTextTitle(toolbar, getActivity(), "首页", 0);
         if (BusinessBroadcastUtils.loginUser!=null){
             if (BusinessBroadcastUtils.loginUser.getIsAdmin().equals("1")){
