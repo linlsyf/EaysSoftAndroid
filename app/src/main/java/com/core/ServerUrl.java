@@ -30,6 +30,8 @@ public class ServerUrl {
 	public static String ORDER_REMOVE="/api/v1/order/remove";
 	//商品
 	public static String GOODSLIST="/api/v1/goods/list";
+	public static String GOODS_ADD="/api/v1/goods/add";
+
 	//商品搜索
 	public static String GOODS_SEARCH="/api/v1/goods/search";
 

@@ -18,4 +18,5 @@ public interface IShopOrderItemView extends IBaseView{
 
 
 	void addSucess();
+	void addGoodsSucess();
 }

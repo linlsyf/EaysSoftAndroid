@@ -17,6 +17,9 @@ import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.drawable.GlideDrawable;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
 import com.core.CoreApplication;
 import com.core.threadpool.ThreadFactory;
 import com.easysoft.costumes.R;
@@ -43,6 +46,18 @@ public class ImageUtils {
 						.load(url)
 						.dontAnimate()
 						.placeholder(R.drawable.empty_photo)//图片加载出来前，显示的图片
+						.listener(new RequestListener<String, GlideDrawable>() {
+							@Override
+							public boolean onException(Exception e, String s, Target<GlideDrawable> target, boolean b) {
+
+								return false;
+							}
+
+							@Override
+							public boolean onResourceReady(GlideDrawable glideDrawable, String s, Target<GlideDrawable> target, boolean b, boolean b1) {
+								return false;
+							}
+						})
 						.into(myImageView);
 //			}
 //		});

@@ -1,13 +1,7 @@
 package com.ui.message.add;
 
 
-import java.io.IOException;
 import java.io.Serializable;
-
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.Response;
-import okhttp3.ResponseBody;
 
 import android.content.Context;
 import android.content.Intent;
@@ -17,17 +11,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.alibaba.fastjson.JSON;
 import com.business.BusinessBroadcastUtils;
-import com.business.bean.FileRecorder;
 import com.business.bean.Goods;
-import com.business.bean.ResponseMsg;
-import com.business.bean.ResponseMsgData;
 import com.business.bean.ShopOrder;
-import com.business.bean.ShopOrderMsg;
 import com.core.ServerUrl;
 import com.core.base.BaseFragment;
-import com.core.http.OkHttpUtils;
 import com.core.recycleview.AddressRecycleView;
 import com.core.recycleview.item.AddressItemBean;
 import com.core.recycleview.sectionview.Section;
@@ -36,8 +24,6 @@ import com.core.utils.StringUtils;
 import com.core.utils.ToastUtils;
 import com.easysoft.costumes.R;
 import com.example.choose.ChooseFragmentActivity;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ui.common.InformationInputFragment;
 import com.ui.common.InformationInputFragment.OnUpdateSuccessListener;
 import com.view.toolbar.NavigationBar;
@@ -61,9 +47,13 @@ public class AddFragment extends BaseFragment implements IShopOrderItemView{
 	private OrderDetailPersenter persenter;
 	Button buyBtn;
 	Button addToChartBtn;
+	Button addGoodsBtn;
 	public final static String TYPE_SHOW="show";
 	public final static String TYPE_ADD="add";
+	public final static String TYPE_Admin_ADD_GOODS ="addGoods";
+
 	public final static String TYPE_EDIT="edit";
+
 
     @Override
     public View onCreateView(LayoutInflater inflater,  ViewGroup container,  Bundle savedInstanceState) {
@@ -90,6 +80,7 @@ public class AddFragment extends BaseFragment implements IShopOrderItemView{
 			
     	   buyBtn=getViewById(R.id.buy);
     	   addToChartBtn=getViewById(R.id.add);
+		addGoodsBtn=getViewById(R.id.addGoods);
 
 
     }
@@ -110,15 +101,12 @@ public class AddFragment extends BaseFragment implements IShopOrderItemView{
 		 addToChartBtn.setOnClickListener(new View.OnClickListener() {
 			 @Override
 			 public void onClick(View view) {
-					 if(StringUtils.isEmpty(editGoods.getImageId())){
-						 ToastUtils.show(getActivity(), "图片路径为空");
-						 return;
-					 }
+
 					 editOrder.setType(2);
 				 editOrder.setCreatorId(BusinessBroadcastUtils.loginUser.getId() );
 				 editOrder.setCreator(BusinessBroadcastUtils.loginUser.getName() );
 
-				 persenter.add(editOrder,editGoods);
+				 persenter.add(editOrder);
 			 }
 		 });
 		 buyBtn.setOnClickListener(new View.OnClickListener() {
@@ -129,11 +117,18 @@ public class AddFragment extends BaseFragment implements IShopOrderItemView{
 
 					 editOrder.setType(1);
 
+					 persenter.add(editOrder);
+
+			 }
+		 });
+		addGoodsBtn.setOnClickListener(new View.OnClickListener() {
+			 @Override
+			 public void onClick(View view) {
 					 if(StringUtils.isEmpty(editGoods.getImageId())){
 						 ToastUtils.show(getActivity(), "图片路径为空");
 						 return;
 					 }
-					 persenter.add(editOrder,editGoods);
+					 persenter.addGoods(editGoods);
 
 			 }
 		 });
@@ -144,23 +139,34 @@ public class AddFragment extends BaseFragment implements IShopOrderItemView{
   	  persenter=new OrderDetailPersenter(this);
   	editOrder = new ShopOrder();
     Bundle bundle=	getArguments();
-    boolean isAdd=false;
+    boolean isBuy=false;
+    boolean isAddGoods=false;
      if (bundle!=null&&bundle.containsKey("type")) {
 		String type=bundle.getString("type");
 		if (type.equals(TYPE_ADD)) {
-			isAdd=true;
+			isBuy=true;
 
 		}
-			if (bundle.containsKey("order")){
+		if (type.equals(TYPE_Admin_ADD_GOODS)) {
+			isAddGoods=true;
+		}
+			if (bundle.containsKey("order")){//查看订单
 
 				editOrder=(ShopOrder)bundle.getSerializable("order");
 			}
-			if (bundle.containsKey("goods")){
-
+			if (bundle.containsKey("goods")){//新增订单
 				editGoods=(Goods)bundle.getSerializable("goods");
 			}
 	}
-     if(!isAdd){
+		editOrder.setGoodsId(editGoods.getId());
+       if (isAddGoods){
+		   TopBarBuilder.buildCenterTextTitle(toolbar, getActivity(), "新增商品", 0);
+		   TopBarBuilder.buildLeftArrowText(toolbar, getActivity(),  "返回", 0);
+		   buyBtn.setVisibility(View.GONE);
+		   addToChartBtn.setVisibility(View.GONE);
+		   addGoodsBtn.setVisibility(View.VISIBLE);
+	   }
+     else if(!isBuy){
          TopBarBuilder.buildCenterTextTitle(toolbar, getActivity(), "订单", 0);
   	   TopBarBuilder.buildLeftArrowText(toolbar, getActivity(),  "返回", 0);
          buyBtn.setVisibility(View.GONE);
@@ -169,7 +175,7 @@ public class AddFragment extends BaseFragment implements IShopOrderItemView{
          TopBarBuilder.buildCenterTextTitle(toolbar, getActivity(), "添加订单", 0);
 		 TopBarBuilder.buildLeftArrowText(toolbar, getActivity(),  "返回", 0);
      }
-     persenter.initUI( editOrder,editGoods,isAdd);
+     persenter.initUI( editOrder,editGoods,isBuy,isAddGoods);
     }
 	@Override
 	public void getBroadcastReceiverMessage(String type, Object mode) {
@@ -223,6 +229,12 @@ public class AddFragment extends BaseFragment implements IShopOrderItemView{
 	@Override
 	public void addSucess() {
 		FragmentHelper.popBackFragment(getActivity());
+	}
+
+	@Override
+	public void addGoodsSucess() {
+		FragmentHelper.popBackFragment(getActivity());
+
 	}
 
 	@Override

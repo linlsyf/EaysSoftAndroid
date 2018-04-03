@@ -84,7 +84,7 @@ public class OrderDetailPersenter {
 		return totalBean;
 	}
 	
-	public void initUI(ShopOrder order,Goods goods,boolean isAdd){
+	public void initUI(ShopOrder order,Goods goods,boolean isAdd,boolean isAddGoods){
 		
    	Section nextSection=new Section(KEY_ShopOrderInfo);
    	List<AddressItemBean> dataMaps=new ArrayList<>();
@@ -95,7 +95,7 @@ public class OrderDetailPersenter {
    	
    	itemNameBean.setId(KEY_NAME);
    	itemNameBean.setRightFirstText(goods.getName());
-   	if(isAdd){
+   	if(isAddGoods){
    	   	itemNameBean.setOnItemListener(getNormelItemClick(itemNameBean));
    	}
    	dataMaps.add(itemNameBean);
@@ -122,17 +122,15 @@ public class OrderDetailPersenter {
    	imgBean.setAddressRightSecondImgSettings(imgSetting);
    	dataMaps.add(imgBean);
    	
-	if(isAdd){
+	if(isAddGoods){
 		imgBean.setOnItemListener(new onItemClick() {
 			
 			@Override
 			public void onItemClick(ClickTypeEnum typeEnum, AddressItemBean bean) {
 				iShopOrderItemView.selectImg();
-				
 			}
 		});
    	}
-   	
    	AddressItemBean itembeanSpace2 = new AddressItemBean();
 	itembeanSpace2.setViewType(IItemView.ViewTypeEnum.SPLITE
 						.value());
@@ -141,7 +139,7 @@ public class OrderDetailPersenter {
 	colorNameBean.setTitle("颜色");
 	colorNameBean.setId(KEY_COLOR_NAME);
 	colorNameBean.setRightFirstText(goods.getColorName());
-	if(isAdd){
+	if(isAddGoods){
 		colorNameBean.setOnItemListener(getNormelItemClick(colorNameBean));
    	}
 	dataMaps.add(colorNameBean);
@@ -154,7 +152,7 @@ public class OrderDetailPersenter {
 	colorNumBean.setTitle("色号");
 	colorNumBean.setId(KEY_COLOR_NUM);
 	colorNumBean.setRightFirstText(goods.getColorNum());
-	if(isAdd){
+	if(isAddGoods){
 		colorNumBean.setOnItemListener(getNormelItemClick(colorNumBean));
    	}
 	dataMaps.add(colorNumBean);
@@ -167,7 +165,7 @@ public class OrderDetailPersenter {
 	priceBean.setTitle("价格");
 	priceBean.setId(KEY_PRICE);
 	priceBean.setRightFirstText(goods.getPrice()+"");
-	if(isAdd){
+	if(isAddGoods){
 		priceBean.setOnItemListener(getNormelItemClick(priceBean));
    	}
 	dataMaps.add(priceBean);
@@ -184,8 +182,10 @@ public class OrderDetailPersenter {
 	if(isAdd){
 		numBean.setOnItemListener(getNormelItemClick(numBean));
    	}
-	dataMaps.add(numBean);
-	
+		if (!isAddGoods){
+			dataMaps.add(numBean);
+		}
+
 	
 	AddressItemBean itembeanSpace6 = new AddressItemBean();
 	itembeanSpace6.setViewType(IItemView.ViewTypeEnum.SPLITE
@@ -199,8 +199,10 @@ public class OrderDetailPersenter {
 //	if(!isShow){
 //		totalBean.setOnItemListener(getNormelItemClick(noteBean));
 //   	}
-	dataMaps.add(totalBean);
-	
+		if (!isAddGoods){
+			dataMaps.add(totalBean);
+		}
+
 	
 	AddressItemBean itembeanSpace7 = new AddressItemBean();
 	itembeanSpace7.setViewType(IItemView.ViewTypeEnum.SPLITE
@@ -213,8 +215,10 @@ public class OrderDetailPersenter {
 	if(isAdd){
 		noteBean.setOnItemListener(getNormelItemClick(noteBean));
    	}
-	dataMaps.add(noteBean);
-	
+		if (!isAddGoods){
+			dataMaps.add(noteBean);
+		}
+
    	 nextSection.setDataMaps(dataMaps);
    	iShopOrderItemView.showUi(nextSection);
 	}
@@ -296,34 +300,24 @@ public class OrderDetailPersenter {
 		});
 	}
 
-	public void add(ShopOrder editOrder, Goods goods) {
 
+	public void add(ShopOrder editOrder) {
 		String url= ServerUrl.baseUrl+ServerUrl.addOrder;
 		ObjectMapper mapper = new ObjectMapper();
-
 		String shopOrderMsgJson = null;
-
 		ShopOrderMsg  shopOrderMsg=new ShopOrderMsg();
 		try {
-
 			String orderJson = mapper.writeValueAsString(editOrder);
 			shopOrderMsg.setOrder(orderJson);
-			String goodsJson = mapper.writeValueAsString(goods);
-			shopOrderMsg.setGoods(goodsJson);
 			shopOrderMsgJson = mapper.writeValueAsString(shopOrderMsg);
-
 		} catch (JsonProcessingException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		url=ServerUrl.getFinalUrl(url,shopOrderMsgJson);
-
 		service.request(url, new MyCallback(new MyCallback.IResponse() {
-
 			@Override
 			public void onResponse(ServiceCallBack callBack) {
 				if(callBack.isSucess()&&callBack.getResponseMsg()!=null){
-
 					ResponseMsg responseMsg = JSON.parseObject(callBack.getResponseMsg().getMsg(), ResponseMsg.class);
 					if (responseMsg.isSuccess()) {
 						iShopOrderItemView.addSucess();
@@ -337,6 +331,40 @@ public class OrderDetailPersenter {
 			}
 
 
+			@Override
+			public void onFailure(ServiceCallBack  serviceCallBack) {
+						// TODO Auto-generated method stub
+//						String  result=	serviceCallBack.toString();
+						ToastUtils.show(iShopOrderItemView.getContext(),"请求失败");
+			}
+		}));
+
+	}
+	public void addGoods(Goods goods) {
+
+		String url= ServerUrl.baseUrl+ServerUrl.GOODS_ADD;
+		ObjectMapper mapper = new ObjectMapper();
+		String orderJson = null;
+		ShopOrderMsg  shopOrderMsg=new ShopOrderMsg();
+		try {
+			 orderJson = mapper.writeValueAsString(goods);
+		} catch (JsonProcessingException e1) {
+			e1.printStackTrace();
+		}
+		url=ServerUrl.getFinalUrl(url,orderJson);
+		service.request(url, new MyCallback(new MyCallback.IResponse() {
+			@Override
+			public void onResponse(ServiceCallBack callBack) {
+				if(callBack.isSucess()&&callBack.getResponseMsg()!=null){
+					ResponseMsg responseMsg = JSON.parseObject(callBack.getResponseMsg().getMsg(), ResponseMsg.class);
+					if (responseMsg.isSuccess()) {
+						BusinessBroadcastUtils.sendBroadcast(iShopOrderItemView.getContext(), BusinessBroadcastUtils.TYPE_GOODS_ADD_SUCESS, null);
+						iShopOrderItemView.addGoodsSucess();
+					}
+				}else{
+					iShopOrderItemView.showToast("服务器响应失败");
+				}
+			}
 			@Override
 			public void onFailure(ServiceCallBack  serviceCallBack) {
 						// TODO Auto-generated method stub

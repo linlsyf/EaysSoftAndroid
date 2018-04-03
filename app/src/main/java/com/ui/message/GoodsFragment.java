@@ -118,7 +118,7 @@ public class GoodsFragment extends BaseFragment implements IGoodsView{
                 if (location== NavigationBar.Location.RIGHT_FIRST) {
                     Bundle bundle=new Bundle();
 //                    bundle.putSerializable("goods", (Serializable) goods);
-                    bundle.putSerializable("type",AddFragment.TYPE_ADD);
+                    bundle.putSerializable("type",AddFragment.TYPE_Admin_ADD_GOODS);
                     FragmentHelper.showFrag(getActivity(), R.id.container_framelayout, new AddFragment(), bundle);
 
 
@@ -185,19 +185,19 @@ public class GoodsFragment extends BaseFragment implements IGoodsView{
     public void toOrder(Goods goods) {
         Bundle bundle=new Bundle();
         bundle.putSerializable("goods", (Serializable) goods);
-        boolean isAdmin=false;
-        if (BusinessBroadcastUtils.loginUser!=null){
-            if (BusinessBroadcastUtils.loginUser.getIsAdmin().equals("1")){
-                isAdmin=true;
-            }
-        }
-         if (isAdmin){
-             bundle.putSerializable("type", AddFragment.TYPE_EDIT);
+//        boolean isAdmin=false;
+//        if (BusinessBroadcastUtils.loginUser!=null){
+//            if (BusinessBroadcastUtils.loginUser.getIsAdmin().equals("1")){
+//                isAdmin=true;
+//            }
+//        }
+//         if (isAdmin){
+//             bundle.putSerializable("type", AddFragment.TYPE_EDIT);
+//
+//         }else{
+             bundle.putSerializable("type", AddFragment.TYPE_ADD);
 
-         }else{
-             bundle.putSerializable("type", AddFragment.TYPE_SHOW);
-
-         }
+//         }
         FragmentHelper.showFrag(getActivity(), R.id.container_framelayout, new AddFragment(), bundle);
 
     }

@@ -147,6 +147,10 @@ public class GoodsPersenter {
 						for (int i = 0; i < orderList.size(); i++) {
 							Goods order=orderList.get(i);
 							AddressItemBean itembean=getAddressItemBean(order);
+//							if (i==0){
+//								dataMaps.add(itembean);
+//                              break;
+//							}
 							dataMaps.add(itembean);
 
 						}
