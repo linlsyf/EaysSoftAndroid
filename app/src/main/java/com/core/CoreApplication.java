@@ -1,7 +1,9 @@
 package com.core;
 
 import android.app.Application;
+import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.core.DebugUtlis.CrashHandler;
 import com.core.base.GlobalConstants;
@@ -21,7 +23,7 @@ import cn.jpush.android.api.JPushInterface;
  * 
  */
 public class CoreApplication extends Application {
-
+	private static final String TAG = "Tinker.CoreApplication";
 
 	public static CoreApplication instance;
 	
@@ -34,15 +36,44 @@ public class CoreApplication extends Application {
 	private DaoSession mDaoSession;
 
 	public boolean isDubug=false;
+//	private ApplicationLike tinkerApplicationLike;
 	@Override
 	public void onCreate() {
 		super.onCreate();
+//		initTinkerPatch();
 		instance = this;
 		  JPushInterface.setDebugMode(true); 	// 设置开启日志,发布时请关闭日志
 	         JPushInterface.init(this);     		// 初始化 JPush
 	      // 是否为平板
 			 initGlobalConstants();
 			init();
+	}
+	/**
+	 * 我们需要确保至少对主进程跟patch进程初始化 TinkerPatch
+	 */
+	private void initTinkerPatch() {
+//		// 我们可以从这里获得Tinker加载过程的信息
+//		if (BuildConfig.TINKER_ENABLE) {
+//			tinkerApplicationLike = TinkerPatchApplicationLike.getTinkerPatchApplicationLike();
+//			// 初始化TinkerPatch SDK
+//			TinkerPatch.init(
+//					tinkerApplicationLike
+////                new TinkerPatch.Builder(tinkerApplicationLike)
+////                    .requestLoader(new OkHttp3Loader())
+////                    .build()
+//			)
+//					.reflectPatchLibrary()
+//					.setPatchRollbackOnScreenOff(true)
+//					.setPatchRestartOnSrceenOff(true)
+//					.setFetchPatchIntervalByHours(3)
+//			;
+//			// 获取当前的补丁版本
+//			Log.d(TAG, "Current patch version is " + TinkerPatch.with().getPatchVersion());
+//
+//			// fetchPatchUpdateAndPollWithInterval 与 fetchPatchUpdate(false)
+//			// 不同的是，会通过handler的方式去轮询
+//			TinkerPatch.with().fetchPatchUpdateAndPollWithInterval();
+//		}
 	}
 
 	/**
@@ -74,6 +105,13 @@ public class CoreApplication extends Application {
 		mDaoMaster = new DaoMaster(db);
 		mDaoSession = mDaoMaster.newSession();
 	}
+
+//	@Override
+//	public void attachBaseContext(Context base) {
+//		super.attachBaseContext(base);
+//		//you must install multiDex whatever tinker is installed!
+//		MultiDex.install(base);
+//	}
 
 	public DaoSession getDaoSession() {
 		return mDaoSession;
