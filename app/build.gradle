@@ -9,8 +9,8 @@ android {
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
-        multiDexEnabled true
-        multiDexKeepProguard file("tinkerMultidexKeep.pro") //keep specific classes using proguard syntax
+//        multiDexEnabled true
+//        multiDexKeepProguard file("tinkerMultidexKeep.pro") //keep specific classes using proguard syntax
 
         ndk {
             // 设置支持的SO库架构
@@ -71,4 +71,4 @@ dependencies {
 //    implementation("com.tinkerpatch.sdk:tinkerpatch-android-sdk:${TINKERPATCH_VERSION}") { changing = true }
 
 }
-apply from: 'tinkerpatch.gradle'
+//apply from: 'tinkerpatch.gradle'
