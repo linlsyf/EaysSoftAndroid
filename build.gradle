@@ -6,10 +6,9 @@ buildscript {
 
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.1.0'
-//        classpath 'com.android.tools.build:gradle:3.0.1'
+        classpath 'com.android.tools.build:gradle:3.0.1'
         classpath "com.tinkerpatch.sdk:tinkerpatch-gradle-plugin:${TINKERPATCH_VERSION}"
-
+        classpath 'org.greenrobot:greendao-gradle-plugin:3.0.0'
     }
     // 添加MobSDK的maven地址
     repositories {
