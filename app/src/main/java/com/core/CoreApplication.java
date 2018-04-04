@@ -11,6 +11,9 @@ import com.core.db.greenDao.gen.DaoMaster;
 import com.core.db.greenDao.gen.DaoSession;
 import com.mob.MobSDK;
 import com.tencent.bugly.crashreport.CrashReport;
+import com.tencent.tinker.loader.app.ApplicationLike;
+import com.tinkerpatch.sdk.TinkerPatch;
+import com.tinkerpatch.sdk.loader.TinkerPatchApplicationLike;
 
 import cn.jpush.android.api.JPushInterface;
 /**
@@ -36,11 +39,11 @@ public class CoreApplication extends Application {
 	private DaoSession mDaoSession;
 
 	public boolean isDubug=false;
-//	private ApplicationLike tinkerApplicationLike;
+	private ApplicationLike tinkerApplicationLike;
 	@Override
 	public void onCreate() {
 		super.onCreate();
-//		initTinkerPatch();
+		initTinkerPatch();
 		instance = this;
 		  JPushInterface.setDebugMode(true); 	// 设置开启日志,发布时请关闭日志
 	         JPushInterface.init(this);     		// 初始化 JPush
@@ -52,7 +55,7 @@ public class CoreApplication extends Application {
 	 * 我们需要确保至少对主进程跟patch进程初始化 TinkerPatch
 	 */
 	private void initTinkerPatch() {
-//		// 我们可以从这里获得Tinker加载过程的信息
+		// 我们可以从这里获得Tinker加载过程的信息
 //		if (BuildConfig.TINKER_ENABLE) {
 //			tinkerApplicationLike = TinkerPatchApplicationLike.getTinkerPatchApplicationLike();
 //			// 初始化TinkerPatch SDK
@@ -106,12 +109,12 @@ public class CoreApplication extends Application {
 		mDaoSession = mDaoMaster.newSession();
 	}
 
-//	@Override
-//	public void attachBaseContext(Context base) {
-//		super.attachBaseContext(base);
-//		//you must install multiDex whatever tinker is installed!
+	@Override
+	public void attachBaseContext(Context base) {
+		super.attachBaseContext(base);
+		//you must install multiDex whatever tinker is installed!
 //		MultiDex.install(base);
-//	}
+	}
 
 	public DaoSession getDaoSession() {
 		return mDaoSession;
