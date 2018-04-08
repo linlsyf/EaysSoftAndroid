@@ -3,12 +3,14 @@ package com.core;
 import android.app.Application;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import android.support.multidex.MultiDex;
 import android.util.Log;
 
 import com.core.DebugUtlis.CrashHandler;
 import com.core.base.GlobalConstants;
 import com.core.db.greenDao.gen.DaoMaster;
 import com.core.db.greenDao.gen.DaoSession;
+import com.easysoft.costumes.BuildConfig;
 import com.mob.MobSDK;
 import com.tencent.bugly.crashreport.CrashReport;
 import com.tencent.tinker.loader.app.ApplicationLike;
@@ -56,27 +58,27 @@ public class CoreApplication extends Application {
 	 */
 	private void initTinkerPatch() {
 		// 我们可以从这里获得Tinker加载过程的信息
-//		if (BuildConfig.TINKER_ENABLE) {
-//			tinkerApplicationLike = TinkerPatchApplicationLike.getTinkerPatchApplicationLike();
-//			// 初始化TinkerPatch SDK
-//			TinkerPatch.init(
-//					tinkerApplicationLike
-////                new TinkerPatch.Builder(tinkerApplicationLike)
-////                    .requestLoader(new OkHttp3Loader())
-////                    .build()
-//			)
-//					.reflectPatchLibrary()
-//					.setPatchRollbackOnScreenOff(true)
-//					.setPatchRestartOnSrceenOff(true)
-//					.setFetchPatchIntervalByHours(3)
-//			;
-//			// 获取当前的补丁版本
-//			Log.d(TAG, "Current patch version is " + TinkerPatch.with().getPatchVersion());
-//
-//			// fetchPatchUpdateAndPollWithInterval 与 fetchPatchUpdate(false)
-//			// 不同的是，会通过handler的方式去轮询
-//			TinkerPatch.with().fetchPatchUpdateAndPollWithInterval();
-//		}
+		if (BuildConfig.TINKER_ENABLE) {
+			tinkerApplicationLike = TinkerPatchApplicationLike.getTinkerPatchApplicationLike();
+			// 初始化TinkerPatch SDK
+			TinkerPatch.init(
+					tinkerApplicationLike
+//                new TinkerPatch.Builder(tinkerApplicationLike)
+//                    .requestLoader(new OkHttp3Loader())
+//                    .build()
+			)
+					.reflectPatchLibrary()
+					.setPatchRollbackOnScreenOff(true)
+					.setPatchRestartOnSrceenOff(true)
+					.setFetchPatchIntervalByHours(3)
+			;
+			// 获取当前的补丁版本
+			Log.d(TAG, "Current patch version is " + TinkerPatch.with().getPatchVersion());
+
+			// fetchPatchUpdateAndPollWithInterval 与 fetchPatchUpdate(false)
+			// 不同的是，会通过handler的方式去轮询
+			TinkerPatch.with().fetchPatchUpdateAndPollWithInterval();
+		}
 	}
 
 	/**
@@ -113,7 +115,7 @@ public class CoreApplication extends Application {
 	public void attachBaseContext(Context base) {
 		super.attachBaseContext(base);
 		//you must install multiDex whatever tinker is installed!
-//		MultiDex.install(base);
+		MultiDex.install(base);
 	}
 
 	public DaoSession getDaoSession() {
