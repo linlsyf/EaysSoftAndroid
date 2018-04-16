@@ -88,7 +88,7 @@ public class CoreApplication extends Application {
 	 * <br>注释：初始化一些数据  如调试信息  jpush信息
 	 */
 	private void init() {
-
+//
 		 setDatabase();
 		MobSDK.init(this,"2433f5d8b5a48","33927e698b643937655aa60604f7686e");
 		CrashHandler handler = CrashHandler.getInstance();

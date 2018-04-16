@@ -33,7 +33,7 @@ tinkerpatchSupport {
 
     autoBackupApkPath = "${bakPath}"
 
-    appKey = "f938475486f91936"
+    appKey = "3915e5800251f577"
 
     /** 注意: 若发布新的全量包, appVersion一定要更新 **/
     appVersion = "1.0.0"
