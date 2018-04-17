@@ -127,35 +127,7 @@ public class InformationInputFragment extends BaseFragment implements Informatio
 //    }
 //
 //  
-//
-//    @Override
-//    public void saveSucceed(boolean isSucceed) {
-////        if (isSucceed){
-////            ToastUtils.showShort(getString(R.string.save_success));
-////            KeyBoardUtils.closeKeybord(getActivity());
-////            FragmentHelper.popBackFragment(getActivity());
-////            listener.updateSuccess();
-////        }else {
-////            ToastUtils.showShort(getString(R.string.save_fail));
-////        }
-//    }
-//
-//    @Override
-//    public void saveError(String msg) {
-////        ToastUtils.showShort(msg);
-//    }
 
-//	@Override
-//	public void setPresenter(Object presenter) {
-//		// TODO Auto-generated method stub
-//		
-//	}
-//
-//	@Override
-//	public Context getContext() {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
 
 	@Override
 	public void getBroadcastReceiverMessage(String type, Object mode) {

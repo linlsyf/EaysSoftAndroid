@@ -103,7 +103,6 @@ public class RegisterUserFragment extends BaseFragment implements OnClickListene
 	}
 	@Override
 	public void initUIView() {
-//		mTopbar = getViewById(R.id.topbar_register);
 		registerPhoneTextView = getViewById(R.id.tv_input_phone_register);
 		getCodeButton =  getViewById(R.id.bt_getcode_register);
 		realUserNameEditText =  getViewById(R.id.edit_relality_name);

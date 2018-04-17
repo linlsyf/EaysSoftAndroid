@@ -209,23 +209,10 @@ public class GoodsPersenter {
 	}
 
 	public void search(String text) {
-//		iGoodsView.showToast("搜索"+text);
 		String url = ServerUrl.baseUrl+ServerUrl.GOODS_SEARCH;
-//		Goods order = new Goods();
-
-
-//		ObjectMapper mapper = new ObjectMapper();
 		String json = text;
-//		try {
-//			json = mapper.writeValueAsString(order);
-//		} catch (JsonProcessingException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
 		url=ServerUrl.getFinalUrl(url,json);
-
 		service.request(url, new MyCallback(new MyCallback.IResponse() {
-
 			@Override
 			public void onResponse(ServiceCallBack  callBack) {
 				if(callBack.isSucess()&&callBack.getResponseMsg()!=null){
@@ -244,16 +231,12 @@ public class GoodsPersenter {
 					nextSection.setDataMaps(dataMaps);
 					nextSection.setShowSection(false);
 					iGoodsView.showUi(nextSection);
-
-
 				}
 			}
 
 			@Override
 			public void onFailure(ServiceCallBack  serviceCallBack) {
-				ToastUtils.show(iGoodsView.getContext(), "服务器响应失败");
-
-
+				iGoodsView.showToast( "服务器响应失败");
 			}
 		}));
 

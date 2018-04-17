@@ -9,9 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
-/**
- * Created by chengxi on 17/4/26.
- */
+
 public class TabFragment3 extends BaseFragment {
 
     @Override

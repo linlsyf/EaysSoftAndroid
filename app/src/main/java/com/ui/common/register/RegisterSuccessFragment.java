@@ -52,16 +52,13 @@ public class RegisterSuccessFragment extends BaseFragment implements OnClickList
 			loginPerson=(LoginPerson) mBundle.getSerializable(KEY_LOGIN_BEAN);
 		}
 
-//		mTopbar.initView("", 0 ,0, getResources().getString(R.string.register_complete), "分享", 0, 0);
 	}
 	@Override
 	public void initListener() {
 		super.initListener();
 		toUserButton.setOnClickListener(this);
-//		mTopbar.getRight_btn().setOnClickListener(this);
 		mTopbar=getViewById(R.id.topbar_register);
 
-//		TopBarBuilder.buildOnlyText(mTopbar, getActivity(), NavigationBar.Location.LEFT_FIRST, "返回", 0);
 
 		TopBarBuilder.buildCenterTextTitle(mTopbar, getActivity(), getResources().getString(R.string.register_complete),  0);
 	}

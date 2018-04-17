@@ -32,7 +32,6 @@ public class GoodsView extends AddressRecycleView {
 //            itemView=new HomeView(getContext());
 //            return itemView;
 //        }
-
         return super.addItemView(viewType);
     }
 }

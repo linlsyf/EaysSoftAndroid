@@ -57,7 +57,6 @@ public class HomeActivity extends BasicActivity implements IlogInView,IHomeView 
 //		sendCode(this);
 //		Intent intent = new Intent(this, TulingFragemnt.class);
 //		startActivity(intent);
-//		CrashReport.testJavaCrash();
 		homePresenter=new HomePresenter(this);
 	}
 

@@ -31,15 +31,10 @@ import com.view.toolbar.NavigationBar.Location;
 import com.view.toolbar.NavigationBarListener;
 import com.view.toolbar.TopBarBuilder;
 
-/**
- * Created by chengxi on 17/4/26.
- */
-public class AddFragment extends BaseFragment implements IShopOrderItemView{
 
-	  
+public class AddFragment extends BaseFragment implements IShopOrderItemView{
 	 public Goods editGoods=new Goods();
 	 public ShopOrder editOrder=new ShopOrder();
-//	 public ShopOrderMsg editOrderMsg=new ShopOrderMsg();
 	private String chooseImgPath="";
 
 	private AddressRecycleView recycleView;
@@ -86,8 +81,6 @@ public class AddFragment extends BaseFragment implements IShopOrderItemView{
     }
     @Override
     public void initListener() {
-    	 
-
     	 toolbar.setNavigationBarListener(new NavigationBarListener() {
 
 			@Override
@@ -179,8 +172,7 @@ public class AddFragment extends BaseFragment implements IShopOrderItemView{
     }
 	@Override
 	public void getBroadcastReceiverMessage(String type, Object mode) {
-		// TODO Auto-generated method stub
-		
+
 	}
 	 @Override
 		public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -234,7 +226,6 @@ public class AddFragment extends BaseFragment implements IShopOrderItemView{
 	@Override
 	public void addGoodsSucess() {
 		FragmentHelper.popBackFragment(getActivity());
-
 	}
 
 	@Override

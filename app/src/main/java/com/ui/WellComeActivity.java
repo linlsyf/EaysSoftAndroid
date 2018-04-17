@@ -28,10 +28,7 @@ public class WellComeActivity extends BasicActivity    {
 	private int TIME = 1000;
 	String TAG = WellComeActivity.class.getSimpleName();
 	
-//	public static UserInfo userInfo;
-	/**欢迎界面版本更新时需要用到的进度提示框*/
-	private static ProgressHUD progressHUD;
-	static Bundle bundle=new Bundle();
+
 
 
 	@Override
@@ -118,7 +115,6 @@ public class WellComeActivity extends BasicActivity    {
 		
 	}
 //	/**
-//	 * 创建者：zw
 //	 * 时间：2015-6-29 下午5:46:38
 //	 * 注释：判断是进入登录界面还是主界面
 //	 */

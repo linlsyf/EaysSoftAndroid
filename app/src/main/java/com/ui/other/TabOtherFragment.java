@@ -21,17 +21,13 @@ import com.view.toolbar.TopBarBuilder;
 
 import butterknife.ButterKnife;
 
-/**
- * Created by chengxi on 17/4/26.
- */
+
 public class TabOtherFragment extends BaseFragment implements IOtherView{
     OtherPresenter presenter;
     OtherContentView recycleView;
     protected Context mContext;
 
-    /**
-     * 原生插屏广告控件容器
-     */
+
     private RelativeLayout mNativeSpotAdLayout;
     public View onCreateView(LayoutInflater inflater,  ViewGroup container,  Bundle savedInstanceState) {
 
@@ -61,35 +57,20 @@ public class TabOtherFragment extends BaseFragment implements IOtherView{
         presenter=new OtherPresenter(this);
         presenter.init();
         mContext=getActivity();
-        // 设置原生插屏广告
-//        setupNativeSpotAd();
-
 
     }
 
-//    @Override
-//    public void onBackPressed() {
-//        //原生控件点击后退关闭
-//        if (mNativeSpotAdLayout != null && mNativeSpotAdLayout.getVisibility() != View.GONE) {
-//            mNativeSpotAdLayout.removeAllViews();
-//            mNativeSpotAdLayout.setVisibility(View.GONE);
-//            return;
-//        }
-//        super.onBackPressed();
-//    }
     @Override
 	public void getBroadcastReceiverMessage(String type, Object mode) {
 		// TODO Auto-generated method stub
 		
 	}
 
-
     @Override
     public void updateSection(Section section) {
         recycleView.updateSection(section);
 
     }
-
 
 
     @Override
@@ -102,9 +83,7 @@ public class TabOtherFragment extends BaseFragment implements IOtherView{
         getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
-
                 Bundle bundle=new Bundle();
-
                 FragmentHelper.showFrag(getActivity(), R.id.container_framelayout, new TulingFragemnt(), bundle);
 
             }

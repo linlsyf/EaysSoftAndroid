@@ -30,8 +30,6 @@ import butterknife.ButterKnife;
 
 public class GoodInfoView extends LinearLayout implements IItemView {
     Context mContext;
-
-
     @Bind(R.id.img)
     ImageView mImg;
     @Bind(R.id.name)
@@ -40,7 +38,6 @@ public class GoodInfoView extends LinearLayout implements IItemView {
     TextView mPriceTv;
     @Bind(R.id.content)
     TextView mContentTv;
-
     public GoodInfoView(Context context) {
         super(context);
         initUI(context);

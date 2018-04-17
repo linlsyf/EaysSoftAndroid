@@ -46,9 +46,6 @@ import com.ui.other.bean.WeatherMsg;
 import android.net.wifi.p2p.WifiP2pManager.ActionListener;
 import android.widget.Toast;
 
-/**
- * Created by vincent_tung on 2017/3/2.
- */
 public class OtherPresenter   {
 	HttpService service;
 
@@ -94,11 +91,9 @@ public class OtherPresenter   {
 					  }
 
 				  }
-//				  weartherSectionList.addAll(futureWeatherList);
 				  weatherSection.setDataMaps(weartherSectionList);
 				  iOtherView.updateSection(weatherSection);
 			  }
-
 			  @Override
 			  public void onError(API api, int i, Throwable throwable) {
 				  iOtherView.showToast("请求服务器失败");
@@ -108,25 +103,20 @@ public class OtherPresenter   {
 		  apaySection.setPosition(1);
 		  apaySection.setName("支付");
 		  List<AddressItemBean>  paySectionList=new ArrayList<AddressItemBean>();
-
 		  AddressItemBean itemBean=new AddressItemBean();
 		  itemBean.setTitle("测试支付功能");
 		  itemBean.setOnItemListener(new IItemView.onItemClick() {
 			  @Override
 			  public void onItemClick(IItemView.ClickTypeEnum typeEnum, AddressItemBean bean) {
-
-
 				   String url = ServerUrl.baseUrl+ServerUrl.Order_GETSIGN;
 				  ShopOrder loginUser=new ShopOrder();
 				  final String json= JSON.toJSONString(loginUser);
 				  url=ServerUrl.getFinalUrl(url,json);
-
 				  service.request( url , new MyCallback(new MyCallback.IResponse() {
 					  @Override
 					  public void onFailure(ServiceCallBack serviceCallBack) {
 						  iOtherView.showToast("服务器获取数据失败");
 					  }
-
 					  @Override
 					  public void onResponse(ServiceCallBack serviceCallBack) {
 						  if (serviceCallBack.isSucess()){
@@ -140,11 +130,8 @@ public class OtherPresenter   {
 							  iOtherView.showToast("服务器获取数据失败");
 						  }
 
-//                ilogInView.showToast("登录成功");
 					  }
 				  }));
-
-
 
 			  }
 		  });
@@ -158,15 +145,6 @@ public class OtherPresenter   {
 		  newSection.setName("圈子");
 		  List<AddressItemBean>  newSectionList=new ArrayList<AddressItemBean>();
 
-//		  AddressItemBean newItemBean=new AddressItemBean();
-//		  newItemBean.setTitle("助手小Q");
-//		  newItemBean.setOnItemListener(new IItemView.onItemClick() {
-//			  @Override
-//			  public void onItemClick(IItemView.ClickTypeEnum typeEnum, AddressItemBean bean) {
-//				  iOtherView.showNews();
-//			  }
-//		  });
-//		  newSectionList.add(newItemBean);
 		  newSection.setDataMaps(newSectionList);
 		  iOtherView.updateSection(newSection);
     }

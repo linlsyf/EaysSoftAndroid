@@ -59,7 +59,6 @@ public class LoginPresenter {
 
                  }
 
-//                ilogInView.showToast("登录成功");
             }
         }));
 

@@ -42,12 +42,10 @@ public class GoodsFragment extends BaseFragment implements IGoodsView{
     GoodsView recycleView;
     private NavigationBar toolbar;
     SwipeRefreshLayout swipeRefreshLayout;
-    int sum = 0;
     TextView noticeTv;
     SearchHeadView searchHeadView;
     @Override
     public View onCreateView(LayoutInflater inflater,  ViewGroup container,  Bundle savedInstanceState) {
-
     	View rootView=inflater.inflate(R.layout.fragment_tab_goods, null);
     	setRootView(rootView);
        return rootView;
@@ -121,8 +119,6 @@ public class GoodsFragment extends BaseFragment implements IGoodsView{
 //                    bundle.putSerializable("goods", (Serializable) goods);
                     bundle.putSerializable("type",AddFragment.TYPE_Admin_ADD_GOODS);
                     FragmentHelper.showFrag(getActivity(), R.id.container_framelayout, new AddFragment(), bundle);
-
-
                 }
 
             }
@@ -141,7 +137,6 @@ public class GoodsFragment extends BaseFragment implements IGoodsView{
                  if(StringUtils.isEmpty(text)){
                      persenter.list();
                  }else{
-
                      persenter.search( text);
                  }
             }
@@ -186,21 +181,8 @@ public class GoodsFragment extends BaseFragment implements IGoodsView{
     public void toOrder(Goods goods) {
         Bundle bundle=new Bundle();
         bundle.putSerializable("goods", (Serializable) goods);
-//        boolean isAdmin=false;
-//        if (BusinessBroadcastUtils.loginUser!=null){
-//            if (BusinessBroadcastUtils.loginUser.getIsAdmin().equals("1")){
-//                isAdmin=true;
-//            }
-//        }
-//         if (isAdmin){
-//             bundle.putSerializable("type", AddFragment.TYPE_EDIT);
-//
-//         }else{
              bundle.putSerializable("type", AddFragment.TYPE_ADD);
-
-//         }
         FragmentHelper.showFrag(getActivity(), R.id.container_framelayout, new AddFragment(), bundle);
-
     }
 
     @Override

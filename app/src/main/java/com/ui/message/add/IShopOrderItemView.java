@@ -12,10 +12,10 @@ public interface IShopOrderItemView extends IBaseView{
 	void showUi(Section nextSection);
 	void selectImg();
 	void inputItem(AddressItemBean imgBean);
+
 	void updateItem(AddressItemBean imgBean);
 
 	void getImgeDbId(String id);
-
 
 	void addSucess();
 	void addGoodsSucess();

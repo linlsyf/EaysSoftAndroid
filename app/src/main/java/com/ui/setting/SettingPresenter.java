@@ -32,9 +32,7 @@ import com.ui.car.MyCallback;
 import android.net.wifi.p2p.WifiP2pManager.ActionListener;
 import android.widget.Toast;
 
-/**
- * Created by vincent_tung on 2017/3/2.
- */
+
 public class SettingPresenter   {
 	HttpService service;
 
@@ -51,11 +49,9 @@ public class SettingPresenter   {
 	public SettingPresenter(ISafeSettingView iSafeSettingView) {
     	this.iSafeSettingView=iSafeSettingView;
 		service=new HttpService();
-
 	}
 
       public void init(){
-    	  
 		  List<AddressItemBean> dataMaps=new ArrayList<>();
 		  List<AddressItemBean> settingMaps=new ArrayList<>();
 		    infoCardBean=new InfoCardBean();
@@ -78,7 +74,6 @@ public class SettingPresenter   {
 			  @Override
 			  public void onItemClick(IItemView.ClickTypeEnum typeEnum, AddressItemBean bean) {
 				iSafeSettingView.showUpdate();
-//				  sendCode("86","15217636960");
 			  }
 		  });
 		  settingMaps.add(updateBean);

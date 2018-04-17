@@ -18,13 +18,10 @@ import butterknife.ButterKnife;
 
 public class HomeView extends LinearLayout  {
     Context mContext;
-
-
     @Bind(R.id.searchView)
     SearchHeadView searchHeadView;
     @Bind(R.id.goodsGridview)
     GoodsView goodsView;
-
 
     public HomeView(Context context) {
         super(context);
@@ -41,12 +38,10 @@ public class HomeView extends LinearLayout  {
         LayoutInflater.from(context).inflate(R.layout.view_home, this, true);
         ButterKnife.bind(this);
 //        setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-
     }
 
 
     public void initData(final AddressItemBean map) {
-
 //        searchHeadView.setOnTextChangerListener(new SearchHeadView.onTextChangerListener() {
 //            @Override
 //            public void onTextChanger(String text) {

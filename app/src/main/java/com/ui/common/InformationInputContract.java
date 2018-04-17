@@ -1,9 +1,7 @@
 package com.ui.common;
 
 
-/**
- * Created by vincent_tung on 2017/3/3.
- */
+
 public interface InformationInputContract {
 
     interface IInformationInputView {

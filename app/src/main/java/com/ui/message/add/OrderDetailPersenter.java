@@ -367,8 +367,6 @@ public class OrderDetailPersenter {
 			}
 			@Override
 			public void onFailure(ServiceCallBack  serviceCallBack) {
-						// TODO Auto-generated method stub
-//						String  result=	serviceCallBack.toString();
 						ToastUtils.show(iShopOrderItemView.getContext(),"请求失败");
 			}
 		}));

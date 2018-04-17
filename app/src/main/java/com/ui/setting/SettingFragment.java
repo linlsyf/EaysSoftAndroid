@@ -25,9 +25,7 @@ import com.view.toolbar.TopBarBuilder;
 import cn.smssdk.SMSSDK;
 
 
-/**
- * Created by chengxi on 17/4/26.
- */
+
 public class SettingFragment extends BaseFragment implements ISafeSettingView{
 	MySettingContentView recycleView;
 	  SettingPresenter presenter;
@@ -97,7 +95,6 @@ public class SettingFragment extends BaseFragment implements ISafeSettingView{
     @Override
     public void onDetach() {
         super.onDetach();
-
         //用完回调要注销掉，否则可能会出现内存泄露
         SMSSDK.unregisterAllEventHandler();
     }

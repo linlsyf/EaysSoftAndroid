@@ -96,7 +96,6 @@ public class LoginActivity extends BasicActivity implements IlogInView,
     /** 是否可见图标 */
     private boolean isVisualized = false;
 
-//     public static String KEY_WELLCOM="from";
     /*进度提示框*/
     private ProgressHUD mDialog;
     LoginPresenter  loginPresenter;
@@ -107,18 +106,13 @@ public class LoginActivity extends BasicActivity implements IlogInView,
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
-
         initData();
-
-
-
         mStatusView.init(mScreenHeight,mLayoutLogin,mBtnLogin);
         mStatusView.setSoftKeyBoardListener(this);
         mBtnSetting.setOnClickListener(this);
         mBtnLogin.setOnClickListener(this);
         mTvRegister.setOnClickListener(this);
         mForgetPwdTextView.setOnClickListener(this);
-
         mEtUsername.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
