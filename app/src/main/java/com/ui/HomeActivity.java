@@ -6,18 +6,16 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
 import com.business.BusinessBroadcastUtils;
-import com.core.CoreApplication;
 import com.core.base.BasicActivity;
 import com.core.utils.StringUtils;
 import com.core.utils.ToastUtils;
 import com.easysoft.costumes.R;
-import com.tencent.bugly.crashreport.CrashReport;
+import com.easysoft.dynamicrecycleview.TestView;
 import com.ui.car.ShopOrderListFragment;
 import com.ui.login.IlogInView;
 import com.ui.login.LoginActivity;
 import com.ui.login.LoginPresenter;
 import com.ui.message.GoodsFragment;
-import com.ui.message.add.AddFragment;
 import com.ui.other.TabOtherFragment;
 import com.ui.setting.SettingFragment;
 import com.view.tabview.adapter.MainViewAdapter;
@@ -50,7 +48,8 @@ public class HomeActivity extends BasicActivity implements IlogInView,IHomeView 
 
             }
         });
-
+		TestView testView=new TestView();
+		String name=testView.get();
 //		FragmentHelper.showFrag(this,R.id.container_framelayout,new RegisterSuccessFragment(),null);
 //		Intent dbIntent=new Intent(this, LoginActivity.class);
 //		 startActivity(dbIntent);
