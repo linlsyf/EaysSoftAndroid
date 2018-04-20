@@ -10,6 +10,8 @@ import com.core.DebugUtlis.CrashHandler;
 import com.core.base.GlobalConstants;
 import com.core.db.greenDao.gen.DaoMaster;
 import com.core.db.greenDao.gen.DaoSession;
+import com.core.imge.ImageUtils;
+import com.easy.recycleview.recycleview.RecycleViewManage;
 import com.easysoft.costumes.BuildConfig;
 import com.mob.MobSDK;
 import com.tencent.bugly.crashreport.CrashReport;
@@ -52,6 +54,8 @@ public class CoreApplication extends Application {
 	      // 是否为平板
 			 initGlobalConstants();
 			init();
+		RecycleViewManage.getInStance().setIloadImage(ImageUtils.getInStance());
+
 	}
 	/**
 	 * 我们需要确保至少对主进程跟patch进程初始化 TinkerPatch

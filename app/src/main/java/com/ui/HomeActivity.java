@@ -10,7 +10,6 @@ import com.core.base.BasicActivity;
 import com.core.utils.StringUtils;
 import com.core.utils.ToastUtils;
 import com.easysoft.costumes.R;
-import com.easysoft.dynamicrecycleview.TestView;
 import com.ui.car.ShopOrderListFragment;
 import com.ui.login.IlogInView;
 import com.ui.login.LoginActivity;
@@ -48,8 +47,8 @@ public class HomeActivity extends BasicActivity implements IlogInView,IHomeView 
 
             }
         });
-		TestView testView=new TestView();
-		String name=testView.get();
+//		TestView testView=new TestView();
+//		String name=testView.get();
 //		FragmentHelper.showFrag(this,R.id.container_framelayout,new RegisterSuccessFragment(),null);
 //		Intent dbIntent=new Intent(this, LoginActivity.class);
 //		 startActivity(dbIntent);

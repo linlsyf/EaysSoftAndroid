@@ -21,11 +21,12 @@ import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 import com.core.CoreApplication;
-import com.core.threadpool.ThreadFactory;
+import com.easy.recycleview.recycleview.item.IloadImage;
+import com.easy.recycleview.threadpool.ThreadFactory;
 import com.easysoft.costumes.R;
 import com.utils.ThreadPoolUtils;
 
-public class ImageUtils {
+public class ImageUtils implements IloadImage {
 	
 	static ImageUtils  utils;
 	 public static ImageUtils getInStance(){

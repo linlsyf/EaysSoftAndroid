@@ -56,6 +56,7 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile files('libs/glide-3.8.0.jar')
+    compile 'com.github.linlsyf:dynamicrecycleview:1.0.0.5'
 
     compile files('libs/mobAPI-2.0.0.jar')
     compile files('libs/alipaySdk-20170922.jar')
@@ -71,7 +72,6 @@ dependencies {
     compileOnly("com.tinkerpatch.tinker:tinker-android-anno:${TINKER_VERSION}") { changing = true }
     implementation("com.tinkerpatch.sdk:tinkerpatch-android-sdk:${TINKERPATCH_VERSION}") { changing = true }
 
-    compile project(path: ':dynamicrecycleview')
-    compile project(path: ':dynamicrecycleview')
+
 }
 apply from: 'tinkerpatch.gradle'
