@@ -1,8 +1,5 @@
 package com.ui.car;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.alibaba.fastjson.JSON;
 import com.business.BusinessBroadcastUtils;
 import com.business.ServiceCallBack;
@@ -14,18 +11,19 @@ import com.business.bean.ShopRecorder;
 import com.business.login.User;
 import com.core.CoreApplication;
 import com.core.ServerUrl;
-import com.core.recycleview.item.AddressItemBean;
-import com.core.recycleview.item.IItemView;
-import com.core.recycleview.item.IItemView.ClickTypeEnum;
-import com.core.recycleview.item.IItemView.onItemClick;
-import com.core.recycleview.item.bean.AddressHeadImgeSettings;
-import com.core.recycleview.sectionview.Section;
 import com.core.utils.DensityUtil;
 import com.core.utils.ToastUtils;
+import com.easy.recycleview.recycleview.item.AddressItemBean;
+import com.easy.recycleview.recycleview.item.IItemView;
+import com.easy.recycleview.recycleview.item.bean.AddressHeadImgeSettings;
+import com.easy.recycleview.recycleview.sectionview.Section;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ui.HttpService;
 import com.ui.car.MyCallback.IResponse;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ShopOrderPersenter  {
 	HttpService service;
@@ -39,14 +37,14 @@ public class ShopOrderPersenter  {
 		this.iShopOrderListView=iShopOrderListView;
 	}
 	
-	  public AddressItemBean  getAddressItemBean(ShopRecorder order){
+	  public AddressItemBean getAddressItemBean(ShopRecorder order){
 			AddressItemBean itembean = new AddressItemBean();
 		
-			itembean.setOnItemListener(new onItemClick() {
+			itembean.setOnItemListener(new IItemView.onItemClick() {
 				@Override
-				public void onItemClick(ClickTypeEnum typeEnum,
+				public void onItemClick(IItemView.ClickTypeEnum typeEnum,
 						AddressItemBean bean) {
-					if (typeEnum==ClickTypeEnum.ITEM) {
+					if (typeEnum== IItemView.ClickTypeEnum.ITEM) {
 			
 						String getUrl = ServerUrl.baseUrl+ServerUrl.ORDER_GET;
 						ShopOrder order = new ShopOrder();
@@ -62,7 +60,7 @@ public class ShopOrderPersenter  {
 							}
 						 get(getUrl, json);
 				
-					}else if(typeEnum==ClickTypeEnum.ITEM_LONG){
+					}else if(typeEnum== IItemView.ClickTypeEnum.ITEM_LONG){
 						String getUrl = ServerUrl.baseUrl+ServerUrl.ORDER_REMOVE;
 						ShopOrder order = new ShopOrder();
 						 order.setId(bean.getId());

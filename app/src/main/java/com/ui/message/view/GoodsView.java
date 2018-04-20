@@ -4,8 +4,8 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.core.recycleview.AddressRecycleView;
-import com.core.recycleview.item.IItemView;
+import com.easy.recycleview.recycleview.AddressRecycleView;
+import com.easy.recycleview.recycleview.item.IItemView;
 
 /**
  * Created by ldh on 2017/5/11.

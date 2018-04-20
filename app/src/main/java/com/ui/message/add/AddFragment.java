@@ -1,8 +1,6 @@
 package com.ui.message.add;
 
 
-import java.io.Serializable;
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,12 +14,12 @@ import com.business.bean.Goods;
 import com.business.bean.ShopOrder;
 import com.core.ServerUrl;
 import com.core.base.BaseFragment;
-import com.core.recycleview.AddressRecycleView;
-import com.core.recycleview.item.AddressItemBean;
-import com.core.recycleview.sectionview.Section;
 import com.core.utils.FragmentHelper;
 import com.core.utils.StringUtils;
 import com.core.utils.ToastUtils;
+import com.easy.recycleview.recycleview.AddressRecycleView;
+import com.easy.recycleview.recycleview.item.AddressItemBean;
+import com.easy.recycleview.recycleview.sectionview.Section;
 import com.easysoft.costumes.R;
 import com.example.choose.ChooseFragmentActivity;
 import com.ui.common.InformationInputFragment;
@@ -30,6 +28,8 @@ import com.view.toolbar.NavigationBar;
 import com.view.toolbar.NavigationBar.Location;
 import com.view.toolbar.NavigationBarListener;
 import com.view.toolbar.TopBarBuilder;
+
+import java.io.Serializable;
 
 
 public class AddFragment extends BaseFragment implements IShopOrderItemView{

@@ -1,14 +1,5 @@
 package com.ui.setting;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
-
-import cn.jpush.android.api.JPushInterface;
-import cn.jpush.android.api.TagAliasCallback;
-import cn.smssdk.EventHandler;
-import cn.smssdk.SMSSDK;
-
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.business.BusinessBroadcastUtils;
@@ -16,21 +7,17 @@ import com.business.ServiceCallBack;
 import com.business.bean.ResponseMsg;
 import com.business.bean.ResponseMsgData;
 import com.business.login.User;
-import com.core.CoreApplication;
 import com.core.ServerUrl;
-import com.core.recycleview.item.AddressItemBean;
-import com.core.recycleview.item.IItemView;
-import com.core.recycleview.sectionview.Section;
-import com.core.threadpool.ThreadFactory;
-import com.core.update.UpdateAPK;
 import com.core.utils.SpUtils;
 import com.core.utils.StringUtils;
-import com.core.utils.ToastUtils;
+import com.easy.recycleview.recycleview.item.AddressItemBean;
+import com.easy.recycleview.recycleview.item.IItemView;
+import com.easy.recycleview.recycleview.sectionview.Section;
 import com.ui.HttpService;
 import com.ui.car.MyCallback;
 
-import android.net.wifi.p2p.WifiP2pManager.ActionListener;
-import android.widget.Toast;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class SettingPresenter   {

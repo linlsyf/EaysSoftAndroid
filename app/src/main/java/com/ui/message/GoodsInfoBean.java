@@ -1,6 +1,7 @@
 package com.ui.message;
 
-import com.core.recycleview.item.AddressItemBean;
+
+import com.easy.recycleview.recycleview.item.AddressItemBean;
 
 /**
  * Created by ldh on 2017/5/11.

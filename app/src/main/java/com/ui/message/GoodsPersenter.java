@@ -12,16 +12,14 @@ import com.business.bean.ShopOrderMsg;
 import com.core.CoreApplication;
 import com.core.ServerUrl;
 import com.core.http.OkHttpUtils;
-import com.core.recycleview.item.AddressItemBean;
-import com.core.recycleview.item.IItemView;
-import com.core.recycleview.item.IItemView.ClickTypeEnum;
-import com.core.recycleview.item.IItemView.onItemClick;
-import com.core.recycleview.item.bean.AddressHeadImgeSettings;
-import com.core.recycleview.item.bean.AddressRightSecondImgSettings;
-import com.core.recycleview.sectionview.Section;
+
 import com.core.utils.DensityUtil;
 import com.core.utils.StringUtils;
 import com.core.utils.ToastUtils;
+import com.easy.recycleview.recycleview.item.AddressItemBean;
+import com.easy.recycleview.recycleview.item.IItemView;
+import com.easy.recycleview.recycleview.item.bean.AddressHeadImgeSettings;
+import com.easy.recycleview.recycleview.sectionview.Section;
 import com.easysoft.costumes.R;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -61,11 +59,11 @@ public class GoodsPersenter {
 	}
 	
 	
-	public onItemClick getNormelItemClick(final AddressItemBean itemNameBean){
-	onItemClick itemclick =new onItemClick() {
+	public IItemView.onItemClick getNormelItemClick(final AddressItemBean itemNameBean){
+	IItemView.onItemClick itemclick =new IItemView.onItemClick() {
 		
 		@Override
-		public void onItemClick(ClickTypeEnum typeEnum, AddressItemBean bean) {
+		public void onItemClick(IItemView.ClickTypeEnum typeEnum, AddressItemBean bean) {
 			iGoodsView.showItem(itemNameBean);
 			
 		}};
@@ -78,11 +76,11 @@ public class GoodsPersenter {
 		String  imgURL=ServerUrl.baseUrl+ServerUrl.IMG_URL+goods.getImageId();
        goods.setImagUrl(imgURL);
 
-		itembean.setOnItemListener(new onItemClick() {
+		itembean.setOnItemListener(new IItemView.onItemClick() {
 			@Override
-			public void onItemClick(ClickTypeEnum typeEnum,
+			public void onItemClick(IItemView.ClickTypeEnum typeEnum,
 									AddressItemBean bean) {
-				if (typeEnum==ClickTypeEnum.ITEM) {
+				if (typeEnum== IItemView.ClickTypeEnum.ITEM) {
 
 					ShopOrder order = new ShopOrder();
 					order.setId(bean.getId());

@@ -1,6 +1,7 @@
 package com.ui.other.bean;
 
-import com.core.recycleview.item.AddressItemBean;
+
+import com.easy.recycleview.recycleview.item.AddressItemBean;
 
 /**
  * Created by lindanghong on 2018/2/28.

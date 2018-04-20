@@ -9,7 +9,7 @@
      android:layout_width="match_parent"
         android:layout_height="35dp"
     ></com.view.toolbar.NavigationBar>
-    <com.core.recycleview.AddressRecycleView
+    <com.easy.recycleview.recycleview.AddressRecycleView
         android:id="@+id/recycleView"
         
         android:layout_width="match_parent"

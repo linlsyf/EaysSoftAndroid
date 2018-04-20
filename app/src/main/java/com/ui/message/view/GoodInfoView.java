@@ -11,10 +11,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.core.imge.ImageUtils;
-import com.core.recycleview.item.AddressItemBean;
-import com.core.recycleview.item.IItemView;
-import com.core.recycleview.sectionview.MutiTypeSelectUtils;
+
 import com.core.utils.DensityUtil;
+import com.easy.recycleview.recycleview.item.AddressItemBean;
+import com.easy.recycleview.recycleview.item.IItemView;
+import com.easy.recycleview.recycleview.sectionview.MutiTypeSelectUtils;
 import com.easysoft.costumes.R;
 import com.ui.message.GoodsInfoBean;
 import com.ui.setting.InfoCardBean;

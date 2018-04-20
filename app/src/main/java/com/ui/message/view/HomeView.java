@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 
-import com.core.recycleview.item.AddressItemBean;
+import com.easy.recycleview.recycleview.item.AddressItemBean;
 import com.easysoft.costumes.R;
 import com.view.search.SearchHeadView;
 

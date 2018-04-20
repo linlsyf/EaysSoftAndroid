@@ -1,14 +1,22 @@
 package com.ui.message;
 
 
+import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.GridLayoutManager;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
 import com.business.BusinessBroadcastUtils;
 import com.business.bean.Goods;
 import com.core.base.BaseFragment;
-import com.core.recycleview.AddressRecycleView;
-import com.core.recycleview.item.AddressItemBean;
-import com.core.recycleview.sectionview.Section;
+
 import com.core.utils.FragmentHelper;
 import com.core.utils.StringUtils;
+import com.easy.recycleview.recycleview.item.AddressItemBean;
+import com.easy.recycleview.recycleview.sectionview.Section;
 import com.easysoft.costumes.R;
 import com.ui.message.add.AddFragment;
 import com.ui.message.view.GoodsView;
@@ -17,21 +25,7 @@ import com.view.toolbar.NavigationBar;
 import com.view.toolbar.NavigationBarListener;
 import com.view.toolbar.TopBarBuilder;
 
-import android.os.Bundle;
-import android.os.Handler;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-
 import java.io.Serializable;
-import java.util.ArrayList;
-
-import butterknife.Bind;
 
 /**
  * 展示商品

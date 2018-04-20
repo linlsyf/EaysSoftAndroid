@@ -26,14 +26,15 @@ import com.business.bean.ShopRecorder;
 import com.business.login.User;
 import com.core.CoreApplication;
 import com.core.ServerUrl;
-import com.core.recycleview.item.AddressItemBean;
-import com.core.recycleview.item.IItemView;
-import com.core.recycleview.sectionview.Section;
+
 import com.core.threadpool.ThreadFactory;
 import com.core.update.UpdateAPK;
 import com.core.utils.SpUtils;
 import com.core.utils.StringUtils;
 import com.core.utils.ToastUtils;
+import com.easy.recycleview.recycleview.item.AddressItemBean;
+import com.easy.recycleview.recycleview.item.IItemView;
+import com.easy.recycleview.recycleview.sectionview.Section;
 import com.mob.mobapi.API;
 import com.mob.mobapi.APICallback;
 import com.mob.mobapi.MobAPI;

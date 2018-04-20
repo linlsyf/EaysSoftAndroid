@@ -12,9 +12,10 @@ import com.business.BusinessBroadcastUtils;
 import com.business.bean.Goods;
 import com.business.bean.ShopOrder;
 import com.core.base.BaseFragment;
-import com.core.recycleview.AddressRecycleView;
-import com.core.recycleview.sectionview.Section;
+
 import com.core.utils.FragmentHelper;
+import com.easy.recycleview.recycleview.AddressRecycleView;
+import com.easy.recycleview.recycleview.sectionview.Section;
 import com.easysoft.costumes.R;
 import com.ui.login.IlogInView;
 import com.ui.login.LoginPresenter;

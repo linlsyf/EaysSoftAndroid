@@ -4,8 +4,9 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.core.recycleview.AddressRecycleView;
-import com.core.recycleview.item.IItemView;
+import com.easy.recycleview.recycleview.AddressRecycleView;
+import com.easy.recycleview.recycleview.item.IItemView;
+
 
 /**
  * 个人设置内容布局

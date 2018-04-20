@@ -2,8 +2,8 @@ package com.ui.message;
 
 import com.business.bean.Goods;
 import com.core.base.IBaseView;
-import com.core.recycleview.item.AddressItemBean;
-import com.core.recycleview.sectionview.Section;
+import com.easy.recycleview.recycleview.item.AddressItemBean;
+import com.easy.recycleview.recycleview.sectionview.Section;
 
 public interface IGoodsView extends IBaseView{
 

@@ -1,8 +1,9 @@
 package com.ui.other;
 
 import com.core.base.IBaseView;
-import com.core.recycleview.item.AddressItemBean;
-import com.core.recycleview.sectionview.Section;
+
+import com.easy.recycleview.recycleview.item.AddressItemBean;
+import com.easy.recycleview.recycleview.sectionview.Section;
 import com.ui.other.bean.WeatherMsg;
 
 import java.util.List;

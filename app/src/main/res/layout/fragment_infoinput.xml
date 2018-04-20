@@ -10,7 +10,7 @@
         android:layout_height="35dp"
     ></com.view.toolbar.NavigationBar>
 
-    <com.core.recycleview.EdittextLayoutView
+    <com.easy.recycleview.recycleview.EdittextLayoutView
         android:id="@+id/mNameEt"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"

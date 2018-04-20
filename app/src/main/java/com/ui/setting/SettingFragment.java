@@ -9,11 +9,12 @@ import android.view.ViewGroup;
 
 import com.business.BusinessBroadcastUtils;
 import com.core.base.BaseFragment;
-import com.core.recycleview.item.AddressItemBean;
-import com.core.recycleview.sectionview.Section;
+
 import com.core.update.UpdateAPK;
 import com.core.utils.FragmentHelper;
 import com.core.utils.ToastUtils;
+import com.easy.recycleview.recycleview.item.AddressItemBean;
+import com.easy.recycleview.recycleview.sectionview.Section;
 import com.easysoft.costumes.R;
 import com.ui.login.LoginActivity;
 import com.ui.message.add.OrderDetailPersenter;

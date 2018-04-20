@@ -5,11 +5,11 @@ import android.text.InputType;
 import android.view.ViewGroup;
 
 import com.core.base.BaseFragment;
-import com.core.recycleview.EdittextLayoutView;
 import com.core.utils.DensityUtil;
 import com.core.utils.FragmentHelper;
 import com.core.utils.KeyboardUtils;
 import com.core.utils.StringUtils;
+import com.easy.recycleview.recycleview.EdittextLayoutView;
 import com.easysoft.costumes.R;
 import com.ui.message.add.OrderDetailPersenter;
 import com.view.toolbar.NavigationBar;
