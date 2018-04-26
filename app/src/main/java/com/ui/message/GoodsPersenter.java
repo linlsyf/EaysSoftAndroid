@@ -43,6 +43,7 @@ public class GoodsPersenter {
 	private IGoodsView iGoodsView;
 	private AddressItemBean totalBean;
 	public static String KEY_ShopOrderInfo="ShopOrderInfo";
+	public static String KEY_SHOP_TYPE="KEY_SHOP_TYPE";
 	public static String KEY_TOP="top";
 	public static String KEY_NAME="name";
 	public static String KEY_IMG="image";
@@ -117,6 +118,16 @@ public class GoodsPersenter {
 	}
 	
 	public void list(){
+
+		Section nextSection=new Section(KEY_SHOP_TYPE);
+		List<AddressItemBean> dataMaps=new ArrayList<>();
+		AddressItemBean  itemBean=new AddressItemBean();
+		 itemBean.setViewType(IItemView.ViewTypeEnum.TOP_VIEW.value());
+		nextSection.setDataMaps(dataMaps);
+		nextSection.setShowSection(false);
+		iGoodsView.showUi(nextSection);
+
+
 			String url = ServerUrl.baseUrl+ServerUrl.GOODSLIST;
 			Goods order = new Goods();
 

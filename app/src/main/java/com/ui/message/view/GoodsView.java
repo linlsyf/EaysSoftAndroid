@@ -28,11 +28,17 @@ public class GoodsView extends AddressRecycleView {
             itemView=new GoodInfoView(getContext());
             return itemView;
         }
+       else if (viewType== IItemView.ViewTypeEnum.TOP_VIEW.value()){
+            itemView=new HomeCirclerView(getContext());
+            return itemView;
+        }
 //       else if (viewType== IItemView.ViewTypeEnum.TOP_VIEW.value()){
 //            itemView=new HomeView(getContext());
 //            return itemView;
 //        }
         return super.addItemView(viewType);
     }
+
+
 }
 
