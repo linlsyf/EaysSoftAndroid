@@ -123,6 +123,7 @@ public class GoodsPersenter {
 		List<AddressItemBean> dataMaps=new ArrayList<>();
 		AddressItemBean  itemBean=new AddressItemBean();
 		 itemBean.setViewType(IItemView.ViewTypeEnum.TOP_VIEW.value());
+		dataMaps.add(itemBean);
 		nextSection.setDataMaps(dataMaps);
 		nextSection.setShowSection(false);
 		iGoodsView.showUi(nextSection);

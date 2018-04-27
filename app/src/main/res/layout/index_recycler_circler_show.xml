@@ -6,17 +6,13 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-        <android.support.v7.widget.CardView
-            android:id="@+id/index_circleshow_cardview"
-            android:layout_width="match_parent"
-            android:layout_height="0dp">
+
                 <fragment
                     android:name="com.ui.message.IndexCircleShowFragment"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     />
 
-        </android.support.v7.widget.CardView>
 
         <!--<View
             app:layout_marginTopPercent = "0.1%w"
