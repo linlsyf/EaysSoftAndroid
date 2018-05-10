@@ -27,7 +27,7 @@ import com.core.utils.ToastUtils;
 import com.core.utils.system.AndroidUtil;
 import com.easy.recycleview.recycleview.item.AddressItemBean;
 import com.easy.recycleview.recycleview.item.IItemView;
-import com.easy.recycleview.recycleview.item.bean.AddressRightSecondImgSettings;
+import com.easy.recycleview.recycleview.item.bean.RightSecondImgSettings;
 import com.easy.recycleview.recycleview.sectionview.Section;
 import com.easysoft.costumes.R;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -108,7 +108,7 @@ public class OrderDetailPersenter {
    	imgBean.setTitle("图片");
    	imgBean.setId(KEY_IMG);
 
-   	AddressRightSecondImgSettings  imgSetting=new AddressRightSecondImgSettings();
+		RightSecondImgSettings  imgSetting=new RightSecondImgSettings();
    	imgSetting.setRightSecondImgRadius(DensityUtil.dip2px(CoreApplication.getAppContext(), 25));
    	if (StringUtils.isNotEmpty(goods.getImagUrl())) {
    		imgSetting.setRightSecondImgURL(goods.getImagUrl());
@@ -116,8 +116,8 @@ public class OrderDetailPersenter {
 	   	imgSetting.setRightSecondImgResId(R.drawable.address_book_list_empty);
 
 	}
-   	
-   	imgBean.setAddressRightSecondImgSettings(imgSetting);
+
+   	imgBean.setRightSecondImgSettings(imgSetting);
    	dataMaps.add(imgBean);
    	
 	if(isAddGoods){
@@ -224,10 +224,10 @@ public class OrderDetailPersenter {
 	 	AddressItemBean imgBean=new AddressItemBean();
 	   	imgBean.setTitle("图片");
 	   	imgBean.setId(KEY_IMG);
-	 	AddressRightSecondImgSettings  imgSetting=new AddressRightSecondImgSettings();
+		RightSecondImgSettings imgSetting=new RightSecondImgSettings();
 	   	imgSetting.setRightSecondImgRadius(DensityUtil.dip2px(CoreApplication.getAppContext(), 25));
 	   	imgSetting.setRightSecondImgStorePath(path);
-	   	imgBean.setAddressRightSecondImgSettings(imgSetting);
+	   	imgBean.setRightSecondImgSettings(imgSetting);
 	   	imgBean.setOnItemListener(new IItemView.onItemClick() {
 			
 			@Override

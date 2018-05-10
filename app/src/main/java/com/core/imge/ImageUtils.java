@@ -22,7 +22,6 @@ import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 import com.core.CoreApplication;
 import com.easy.recycleview.recycleview.item.IloadImage;
-import com.easy.recycleview.threadpool.ThreadFactory;
 import com.easysoft.costumes.R;
 import com.utils.ThreadPoolUtils;
 
