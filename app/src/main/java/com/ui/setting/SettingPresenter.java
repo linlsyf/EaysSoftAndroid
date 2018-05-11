@@ -51,7 +51,7 @@ public class SettingPresenter   {
 			   }
 		   }
 		    infoCardBean.setUserName(loginName);
-		    infoCardBean.setViewType(IItemView.ViewTypeEnum.INFO_CARD_VIEW.value());
+		    infoCardBean.setViewType(3);
 		    dataMaps.add(infoCardBean);
 		    
 		    AddressItemBean updateBean=new AddressItemBean();

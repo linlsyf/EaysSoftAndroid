@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.alibaba.android.vlayout.LayoutHelper;
 import com.business.BusinessBroadcastUtils;
 import com.business.bean.Goods;
 import com.core.base.BaseFragment;
@@ -26,6 +27,7 @@ import com.view.toolbar.NavigationBarListener;
 import com.view.toolbar.TopBarBuilder;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * 展示商品
@@ -78,7 +80,7 @@ public class GoodsFragment extends BaseFragment implements IGoodsView{
 
 //        swipeRefreshLayout = (SwipeRefreshLayout) getViewById(R.id.swipeRefreshLayout);
 //        recyclerView = (RecyclerView) getViewById(R.id.recyclerView);
-        recycleView.getSectionAdapterHelper().initLayoutManager(new GridLayoutManager(getActivity(),3));
+//        recycleView.getSectionAdapterHelper().initLayoutManager(new GridLayoutManager(getActivity(),3));
 //        recycleView.getSectionAdapterHelper().initLayoutManager(new StaggerGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
         //设置瀑布流Item
 //        SpacesItemDecoration decoration = new SpacesItemDecoration(20);
@@ -160,7 +162,7 @@ public class GoodsFragment extends BaseFragment implements IGoodsView{
 
             @Override
             public void run() {
-                recycleView.updateSection(nextSection);
+                recycleView.updateSection(nextSection,true);
             }
         });
 
@@ -185,5 +187,10 @@ public class GoodsFragment extends BaseFragment implements IGoodsView{
             TopBarBuilder.buildOnlyText(toolbar, getActivity(), NavigationBar.Location.RIGHT_FIRST, "新加", 0);
 
         }
+    }
+
+    @Override
+    public void addLayoutHelper(LayoutHelper helper,boolean isRefresh) {
+        recycleView.addLayoutHelper(helper,isRefresh);
     }
 }

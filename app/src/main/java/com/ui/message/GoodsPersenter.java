@@ -1,5 +1,8 @@
 package com.ui.message;
 
+import com.alibaba.android.vlayout.LayoutHelper;
+import com.alibaba.android.vlayout.layout.DefaultLayoutHelper;
+import com.alibaba.android.vlayout.layout.GridLayoutHelper;
 import com.alibaba.fastjson.JSON;
 import com.business.BusinessBroadcastUtils;
 import com.business.ServiceCallBack;
@@ -31,7 +34,11 @@ import com.view.toolbar.TopBarBuilder;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -100,7 +107,7 @@ public class GoodsPersenter {
 			}
 		});
 
-		itembean.setViewType(IItemView.ViewTypeEnum.INFO_CARD_VIEW.value());
+		itembean.setViewType(3);
 
 		itembean.setTitle(goods.getName());
 		itembean.setPrice(goods.getPrice()+"元");
@@ -122,7 +129,7 @@ public class GoodsPersenter {
 		Section nextSection=new Section(KEY_SHOP_TYPE);
 		List<AddressItemBean> dataMaps=new ArrayList<>();
 		AddressItemBean  itemBean=new AddressItemBean();
-		 itemBean.setViewType(IItemView.ViewTypeEnum.TOP_VIEW.value());
+		 itemBean.setViewType(4);
 		dataMaps.add(itemBean);
 		nextSection.setDataMaps(dataMaps);
 		nextSection.setShowSection(false);
@@ -168,7 +175,10 @@ public class GoodsPersenter {
 						nextSection.setShowSection(false);
 						iGoodsView.showUi(nextSection);
 
-
+						 GridLayoutHelper gridLayoutHelper = new GridLayoutHelper(2);
+						gridLayoutHelper.setItemCount(dataMaps.size()-1);
+//						iGoodsView.addLayoutHelper(DefaultLayoutHelper.newHelper(1),false);
+						iGoodsView.addLayoutHelper(gridLayoutHelper,true);
 					}
 				}
 
@@ -186,6 +196,21 @@ public class GoodsPersenter {
 //		nextSection.setDataMaps(dataMaps);
 //		nextSection.setShowSection(false);
 //		iGoodsView.showUi(nextSection);
+
+		Map<String, String> map = new TreeMap<String, String>(
+
+				new Comparator<String>() {
+                        @Override
+					public int compare(String obj1, String obj2) {
+
+						// 降序排序
+
+						return obj2.compareTo(obj1);
+
+					}
+
+				});
+
 	}
 
 	public void reInitToolBar() {

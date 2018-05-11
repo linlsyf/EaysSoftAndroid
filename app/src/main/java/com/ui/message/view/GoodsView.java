@@ -24,11 +24,11 @@ public class GoodsView extends AddressRecycleView {
     @Override
     public View addItemView(int viewType) {
         View  itemView;
-        if (viewType== IItemView.ViewTypeEnum.INFO_CARD_VIEW.value()){
+        if (viewType==3){
             itemView=new GoodInfoView(getContext());
             return itemView;
         }
-       else if (viewType== IItemView.ViewTypeEnum.TOP_VIEW.value()){
+       else if (viewType== 4){
             itemView=new HomeCirclerView(getContext());
             return itemView;
         }
