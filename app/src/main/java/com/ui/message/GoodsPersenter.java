@@ -176,8 +176,8 @@ public class GoodsPersenter {
 						iGoodsView.showUi(nextSection);
 
 						 GridLayoutHelper gridLayoutHelper = new GridLayoutHelper(2);
-						gridLayoutHelper.setItemCount(dataMaps.size()-1);
-//						iGoodsView.addLayoutHelper(DefaultLayoutHelper.newHelper(1),false);
+						gridLayoutHelper.setItemCount(dataMaps.size());
+						iGoodsView.addLayoutHelper(DefaultLayoutHelper.newHelper(1),false);
 						iGoodsView.addLayoutHelper(gridLayoutHelper,true);
 					}
 				}
