@@ -3,17 +3,14 @@ package com.ui.message;
 
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.GridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.alibaba.android.vlayout.LayoutHelper;
 import com.business.BusinessBroadcastUtils;
 import com.business.bean.Goods;
 import com.core.base.BaseFragment;
-
 import com.core.utils.FragmentHelper;
 import com.core.utils.StringUtils;
 import com.easy.recycleview.recycleview.item.AddressItemBean;
@@ -27,7 +24,6 @@ import com.view.toolbar.NavigationBarListener;
 import com.view.toolbar.TopBarBuilder;
 
 import java.io.Serializable;
-import java.util.List;
 
 /**
  * 展示商品
@@ -37,7 +33,6 @@ public class GoodsFragment extends BaseFragment implements IGoodsView{
     GoodsPersenter persenter;
     GoodsView recycleView;
     private NavigationBar toolbar;
-    SwipeRefreshLayout swipeRefreshLayout;
     TextView noticeTv;
     SearchHeadView searchHeadView;
     @Override
@@ -189,8 +184,8 @@ public class GoodsFragment extends BaseFragment implements IGoodsView{
         }
     }
 
-    @Override
-    public void addLayoutHelper(LayoutHelper helper,boolean isRefresh) {
-        recycleView.addLayoutHelper(helper,isRefresh);
-    }
+//    @Override
+//    public void addLayoutHelper(LayoutHelper helper,boolean isRefresh) {
+//        recycleView.addLayoutHelper(helper,isRefresh);
+//    }
 }

@@ -1,49 +1,31 @@
 package com.ui.message;
 
-import com.alibaba.android.vlayout.LayoutHelper;
-import com.alibaba.android.vlayout.layout.DefaultLayoutHelper;
-import com.alibaba.android.vlayout.layout.GridLayoutHelper;
+
 import com.alibaba.fastjson.JSON;
 import com.business.BusinessBroadcastUtils;
 import com.business.ServiceCallBack;
-import com.business.bean.FileRecorder;
 import com.business.bean.Goods;
-import com.business.bean.ResponseMsg;
 import com.business.bean.ResponseMsgData;
 import com.business.bean.ShopOrder;
-import com.business.bean.ShopOrderMsg;
 import com.core.CoreApplication;
 import com.core.ServerUrl;
-import com.core.http.OkHttpUtils;
-
 import com.core.utils.DensityUtil;
-import com.core.utils.StringUtils;
 import com.core.utils.ToastUtils;
-import com.easy.recycleview.recycleview.item.AddressItemBean;
-import com.easy.recycleview.recycleview.item.IItemView;
-import com.easy.recycleview.recycleview.item.bean.AddressHeadImgeSettings;
-import com.easy.recycleview.recycleview.sectionview.Section;
-import com.easysoft.costumes.R;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ui.HttpService;
 import com.ui.car.MyCallback;
-import com.ui.message.add.IShopOrderItemView;
-import com.view.toolbar.NavigationBar;
-import com.view.toolbar.TopBarBuilder;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.Response;
-import okhttp3.ResponseBody;
+import com.easy.recycleview.recycleview.item.AddressItemBean;
+import com.easy.recycleview.recycleview.item.IItemView;
+import com.easy.recycleview.recycleview.item.bean.AddressHeadImgeSettings;
+import com.easy.recycleview.recycleview.sectionview.Section;
 
 public class GoodsPersenter {
 	private HttpService service;
@@ -175,10 +157,10 @@ public class GoodsPersenter {
 						nextSection.setShowSection(false);
 						iGoodsView.showUi(nextSection);
 
-						 GridLayoutHelper gridLayoutHelper = new GridLayoutHelper(2);
-						gridLayoutHelper.setItemCount(dataMaps.size());
-						iGoodsView.addLayoutHelper(DefaultLayoutHelper.newHelper(1),false);
-						iGoodsView.addLayoutHelper(gridLayoutHelper,true);
+//						 GridLayoutHelper gridLayoutHelper = new GridLayoutHelper(2);
+//						gridLayoutHelper.setItemCount(dataMaps.size());
+//						iGoodsView.addLayoutHelper(DefaultLayoutHelper.newHelper(1),false);
+//						iGoodsView.addLayoutHelper(gridLayoutHelper,true);
 					}
 				}
 
