@@ -3,19 +3,14 @@ package com.ui.message.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.ImageView;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
-import com.core.imge.ImageUtils;
 import com.easy.recycleview.recycleview.item.AddressItemBean;
 import com.easy.recycleview.recycleview.item.IItemView;
 import com.easy.recycleview.recycleview.sectionview.MutiTypeSelectUtils;
 import com.easysoft.costumes.R;
-import com.ui.message.GoodsInfoBean;
 
-import butterknife.Bind;
 import butterknife.ButterKnife;
 
 /**
@@ -46,7 +41,7 @@ public class HomeCirclerView extends LinearLayout implements IItemView {
         mContext=context;
         LayoutInflater.from(context).inflate(R.layout.index_recycler_circler_show, this, true);
         ButterKnife.bind(this);
-//        setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 
     }
 

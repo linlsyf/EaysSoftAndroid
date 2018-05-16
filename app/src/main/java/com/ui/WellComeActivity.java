@@ -25,7 +25,7 @@ import com.view.process.ProgressHUD;
  * <br>注释：欢迎界面
  */
 public class WellComeActivity extends BasicActivity    {
-	private int TIME = 1000;
+	private int TIME = 200;
 	String TAG = WellComeActivity.class.getSimpleName();
 	
 

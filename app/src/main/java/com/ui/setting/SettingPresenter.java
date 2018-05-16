@@ -7,6 +7,7 @@ import com.business.ServiceCallBack;
 import com.business.bean.ResponseMsg;
 import com.business.bean.ResponseMsgData;
 import com.business.login.User;
+import com.core.CoreApplication;
 import com.core.ServerUrl;
 import com.core.utils.SpUtils;
 import com.core.utils.StringUtils;
@@ -15,6 +16,7 @@ import com.easy.recycleview.recycleview.item.IItemView;
 import com.easy.recycleview.recycleview.sectionview.Section;
 import com.ui.HttpService;
 import com.ui.car.MyCallback;
+import com.utils.AppInfo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,7 +58,9 @@ public class SettingPresenter   {
 		    
 		    AddressItemBean updateBean=new AddressItemBean();
 		    updateBean.setId(KEY_UPDATE);
-		    updateBean.setTitle("检查更新");
+		    String  verson="检查更新";
+		     verson=verson+"("+ AppInfo.getAppVersion(CoreApplication.getAppContext())+")";
+		    updateBean.setTitle(verson);
 		  updateBean.setOnItemListener(new IItemView.onItemClick() {
 			  @Override
 			  public void onItemClick(IItemView.ClickTypeEnum typeEnum, AddressItemBean bean) {
