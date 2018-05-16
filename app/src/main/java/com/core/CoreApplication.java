@@ -4,12 +4,12 @@ import android.app.Application;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.core.DebugUtlis.CrashHandler;
 import com.core.base.GlobalConstants;
 import com.core.db.greenDao.gen.DaoMaster;
 import com.core.db.greenDao.gen.DaoSession;
-import com.core.imge.ImageUtils;
+import com.core.imge.ImageLoadUtils;
 import com.easy.recycleview.recycleview.RecycleViewManage;
+import com.easysoft.utils.lib.DebugUtlis.CrashHandler;
 import com.mob.MobSDK;
 import com.tencent.bugly.crashreport.CrashReport;
 import android.support.multidex.MultiDex;
@@ -48,7 +48,7 @@ public class CoreApplication extends Application {
 	      // 是否为平板
 			 initGlobalConstants();
 			init();
-		RecycleViewManage.getInStance().setIloadImage(ImageUtils.getInStance());
+		RecycleViewManage.getInStance().setIloadImage(ImageLoadUtils.getInStance());
 
 	}
 //	/**

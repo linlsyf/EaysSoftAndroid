@@ -4,7 +4,6 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -12,10 +11,8 @@ import android.widget.TextView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-import com.business.BusinessBroadcastUtils;
-import com.core.imge.ImageUtils;
+import com.core.imge.ImageLoadUtils;
 
-import com.core.utils.StringUtils;
 import com.easy.recycleview.recycleview.item.AddressItemBean;
 import com.easy.recycleview.recycleview.item.IItemView;
 import com.easy.recycleview.recycleview.sectionview.MutiTypeSelectUtils;
@@ -88,11 +85,11 @@ public class InfoCardView extends LinearLayout implements IItemView {
             mUserImg.setLayoutParams(mHeadParams);
         }
 
-//        ImageUtils.getInStance().load("http://192.168.155.1:8090/api/v1/file/down?type=2&name=48cead4a-7ba1-41bb-8cb1-5da76d144dd9",mUserImg);
+//        ImageLoadUtils.getInStance().load("http://192.168.155.1:8090/api/v1/file/down?type=2&name=48cead4a-7ba1-41bb-8cb1-5da76d144dd9",mUserImg);
 //        if(StringUtils.isNotEmpty(BusinessBroadcastUtils.USER_VALUE_USER_ID)){
 //
 //        }else{
-            ImageUtils.getInStance().loadResourceId(R.drawable.ic_login_default_user, mUserImg);
+            ImageLoadUtils.getInStance().loadResourceId(R.drawable.ic_login_default_user, mUserImg);
 
 //        }
 

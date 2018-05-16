@@ -24,7 +24,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.core.imge.ImageUtils;
+import com.core.imge.ImageLoadUtils;
 import com.core.utils.DensityUtil;
 import com.easysoft.costumes.R;
 
@@ -555,7 +555,7 @@ public class NavigationBar extends RelativeLayout {
         if (image instanceof BitmapDrawable) {
             Bitmap bitmap = ((BitmapDrawable) image).getBitmap();
             if (scale > 0) {
-                bitmap = ImageUtils.BitmapUtil.zoomBitmap(bitmap, scale);
+                bitmap = ImageLoadUtils.BitmapUtil.zoomBitmap(bitmap, scale);
             }
             imageWidth = bitmap.getWidth();
             imageHeight = bitmap.getHeight();
@@ -721,8 +721,8 @@ public class NavigationBar extends RelativeLayout {
     }
 
     private static Bitmap zoomDrawableToBitmap(Drawable drawable, float scale) {
-        Bitmap bitmap = ImageUtils.DrawableUtil.drawableToBitmap(drawable);
-        return ImageUtils.BitmapUtil.zoomBitmap(bitmap, scale);
+        Bitmap bitmap = ImageLoadUtils.DrawableUtil.drawableToBitmap(drawable);
+        return ImageLoadUtils.BitmapUtil.zoomBitmap(bitmap, scale);
     }
 
     private static Drawable zoomDrawableToDrawable(Context context, Drawable drawable, float scale) {

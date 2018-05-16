@@ -15,16 +15,14 @@ import com.business.bean.ResponseMsg;
 import com.business.bean.ResponseMsgData;
 import com.business.bean.ShopOrder;
 import com.business.bean.ShopOrderMsg;
-import com.business.login.User;
 import com.core.CoreApplication;
 import com.core.ServerUrl;
 import com.core.base.GlobalConstants;
-import com.core.http.OkHttpUtils;
+import com.core.http.HttpUtils;
 
 import com.core.utils.DensityUtil;
 import com.core.utils.StringUtils;
 import com.core.utils.ToastUtils;
-import com.core.utils.system.AndroidUtil;
 import com.easy.recycleview.recycleview.item.AddressItemBean;
 import com.easy.recycleview.recycleview.item.IItemView;
 import com.easy.recycleview.recycleview.item.bean.RightSecondImgSettings;
@@ -33,11 +31,7 @@ import com.easysoft.costumes.R;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ui.HttpService;
-import com.ui.car.IShopOrderListView;
 import com.ui.car.MyCallback;
-import com.view.toolbar.NavigationBarBean;
-import com.view.toolbar.NavigationBar.Location;
-import com.view.toolbar.NavigationBar.Style;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -269,7 +263,7 @@ public class OrderDetailPersenter {
 	public void upLoadImg(String url, final String chooseImgPath) {
 
 
-		OkHttpUtils.getInStance().uploadFile(url, chooseImgPath,"", new Callback() {
+		HttpUtils.getInStance().uploadFile(url, chooseImgPath,"", new Callback() {
 
 			@Override
 			public void onResponse(Call call, Response response) throws IOException {

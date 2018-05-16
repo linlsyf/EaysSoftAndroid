@@ -27,7 +27,6 @@ import com.business.login.User;
 import com.core.CoreApplication;
 import com.core.ServerUrl;
 
-import com.core.threadpool.ThreadFactory;
 import com.core.update.UpdateAPK;
 import com.core.utils.SpUtils;
 import com.core.utils.StringUtils;

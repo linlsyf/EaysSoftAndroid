@@ -7,20 +7,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.core.imge.ImageUtils;
+import com.core.imge.ImageLoadUtils;
 
-import com.core.utils.DensityUtil;
 import com.easy.recycleview.recycleview.item.AddressItemBean;
 import com.easy.recycleview.recycleview.item.IItemView;
 import com.easy.recycleview.recycleview.sectionview.MutiTypeSelectUtils;
 import com.easysoft.costumes.R;
 import com.ui.message.GoodsInfoBean;
-import com.ui.setting.InfoCardBean;
-
-import java.util.Random;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -69,7 +64,7 @@ public class GoodInfoView extends LinearLayout implements IItemView {
         mPriceTv.setText(infoBean.getPrice());
         mContentTv.setText(infoBean.getContent());
         String url=map.getHeadImgeSettings().getHeadImgUrl();
-        ImageUtils.getInStance().load(url,mImg);
+        ImageLoadUtils.getInStance().load(url,mImg);
 
         LinearLayout.LayoutParams mHeadParams = (LinearLayout.LayoutParams) mImg.getLayoutParams();
 //        if (cardBean.getHeadImgeSettings().getHeadImgRadius() != 0) {

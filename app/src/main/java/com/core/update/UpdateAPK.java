@@ -20,16 +20,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.core.ServerUrl;
-import com.core.http.OkHttpUtils;
+import com.core.http.HttpUtils;
 import com.easysoft.costumes.BuildConfig;
 import com.easysoft.costumes.R;
+import com.easysoft.utils.lib.http.OkHttpUtils;
 
 
 import org.json.JSONObject;
 
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.InputStream;
 
 /**
  * 更新APK
@@ -209,7 +208,7 @@ public class UpdateAPK {
 	}
 	
 	public void loadFile(String url) {
-		OkHttpUtils.getInStance().download(url, getDownLoadFile().getAbsolutePath(), new OkHttpUtils.OnDownloadListener() {
+		HttpUtils.getInStance().download(url, getDownLoadFile().getAbsolutePath(), new OkHttpUtils.OnDownloadListener() {
 			@Override
 			public void onDownloadSuccess() {
 				sendMsg(2,0);

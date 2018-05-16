@@ -6,7 +6,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Environment;
 
-import com.core.http.OkHttpUtils;
+import com.core.http.HttpUtils;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -54,7 +54,7 @@ public class UpdateUtil {
 		// 建立HTTP Get联机
 
 		  reuslt="";
-		OkHttpUtils.getInStance().post(url, new Callback() {
+		HttpUtils.getInStance().post(url, new Callback() {
 			@Override
 			public void onFailure(Call call, IOException e) {
 				reuslt= call.toString();
