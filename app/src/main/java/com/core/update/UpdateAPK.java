@@ -20,14 +20,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.core.ServerUrl;
+import com.core.http.OkHttpUtils;
 import com.easysoft.costumes.BuildConfig;
 import com.easysoft.costumes.R;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
+
 import org.json.JSONObject;
 
 import java.io.File;
@@ -212,42 +209,61 @@ public class UpdateAPK {
 	}
 	
 	public void loadFile(String url) {
-		HttpClient client = new DefaultHttpClient();
-		HttpGet get = new HttpGet(url);
-		HttpResponse response;
-		try {
-			response = client.execute(get);
-			
-			HttpEntity entity = response.getEntity();
-			float length = entity.getContentLength();
-			
-			InputStream is = entity.getContent();
-			FileOutputStream fileOutputStream = null;
-			if (is != null) {
-//				File filepath = new File(UpdateUtil.getSDPath(),"");
-//				File file = new File(filepath,VersionUtil.NEW_SAVE_APK_NAME);
-				File file =getDownLoadFile();
-				fileOutputStream = new FileOutputStream(file);
-				byte[] buf = new byte[1024];
-				int ch = -1;
-				float count = 0;
-				while (( ch = is.read(buf)) != -1) {
-					fileOutputStream.write(buf, 0, ch);
-					count = count+ch;
-					sendMsg(1,(int) (count*100/length));
-				}
+		OkHttpUtils.getInStance().download(url, getDownLoadFile().getAbsolutePath(), new OkHttpUtils.OnDownloadListener() {
+			@Override
+			public void onDownloadSuccess() {
+				sendMsg(2,0);
 			}
-			
-			fileOutputStream.flush();
-			if (fileOutputStream != null) {
-				fileOutputStream.close();
+
+			@Override
+			public void onDownloading(int progress) {
+				sendMsg(1,progress);
 			}
-			sendMsg(2,0);
-		} catch (Exception e) {
-			sendMsg(-1,0);
-		}
+
+			@Override
+			public void onDownloadFailed() {
+				sendMsg(-1,0);
+			}
+		});
+
 	}
-	
+//	public void loadFile(String url) {
+//		HttpClient client = new DefaultHttpClient();
+//		HttpGet get = new HttpGet(url);
+//		HttpResponse response;
+//		try {
+//			response = client.execute(get);
+//
+//			HttpEntity entity = response.getEntity();
+//			float length = entity.getContentLength();
+//
+//			InputStream is = entity.getContent();
+//			FileOutputStream fileOutputStream = null;
+//			if (is != null) {
+////				File filepath = new File(UpdateUtil.getSDPath(),"");
+////				File file = new File(filepath,VersionUtil.NEW_SAVE_APK_NAME);
+//				File file =getDownLoadFile();
+//				fileOutputStream = new FileOutputStream(file);
+//				byte[] buf = new byte[1024];
+//				int ch = -1;
+//				float count = 0;
+//				while (( ch = is.read(buf)) != -1) {
+//					fileOutputStream.write(buf, 0, ch);
+//					count = count+ch;
+//					sendMsg(1,(int) (count*100/length));
+//				}
+//			}
+//
+//			fileOutputStream.flush();
+//			if (fileOutputStream != null) {
+//				fileOutputStream.close();
+//			}
+//			sendMsg(2,0);
+//		} catch (Exception e) {
+//			sendMsg(-1,0);
+//		}
+//	}
+
 	private void sendMsg(int flag,int c) {
 		Message msg = new Message();
 		msg.what = flag;

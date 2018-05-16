@@ -64,7 +64,7 @@ dependencies {
     compile files('libs/butterknife-7.0.1.jar')
     compile files('libs/mobAPI-2.0.0.jar')
     compile files('libs/alipaySdk-20170922.jar')
-    compile files('libs/android-async-http-1.4.1.jar')
+
     compile 'com.tencent.bugly:crashreport:latest.release'
     //其中latest.release指代最新Bugly SDK版本号，也可以指定明确的版本号，例如2.1.9
     compile 'com.tencent.bugly:nativecrashreport:latest.release'
