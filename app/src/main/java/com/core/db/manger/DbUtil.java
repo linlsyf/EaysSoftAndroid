@@ -12,6 +12,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.util.Log;
 
+import com.easysoft.utils.lib.string.StringUtils;
+
 /**
  * 创建者：zw<br>
  * 修改时间：2015-2-28 下午4:05:30<br>

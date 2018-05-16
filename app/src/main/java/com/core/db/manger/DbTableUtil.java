@@ -1,5 +1,7 @@
 package com.core.db.manger;
 
+import com.easysoft.utils.lib.string.StringUtils;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
@@ -36,7 +38,7 @@ public class DbTableUtil {
 	 * 时间：2015-4-27 下午6:21:45<br>
 	 * 注释：通过实例类型，动态的创建数据库表。检查并判断是否需要创建表，如果没有该表就创建，否则不创建。<br>
 	 * @param cls
-	 * @param isAutoInCrement  是否需要让主键id自增 
+	 * @param   是否需要让主键id自增
 	 * @param extStr
 	 */
 	public static <T> boolean createTable(Class<T> cls,String primaryKey,boolean isPrimaryKeyAutoInCrement,boolean isPrimaryKeyUniqueOnConflictReplace,String... extStr){

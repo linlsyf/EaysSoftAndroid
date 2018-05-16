@@ -1,6 +1,6 @@
 package com.utils;
 
-import com.core.db.manger.StringUtils;
+import com.easysoft.utils.lib.string.StringUtils;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

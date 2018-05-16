@@ -14,8 +14,8 @@ import java.io.Writer;
 import android.os.Environment;
 import android.util.Log;
 
-import com.core.db.manger.StringUtils;
 import com.core.utils.TimeUtils;
+import com.easysoft.utils.lib.string.StringUtils;
 
 /**
  * 
