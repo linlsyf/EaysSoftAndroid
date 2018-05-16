@@ -59,7 +59,7 @@ public class InfoCardView extends LinearLayout implements IItemView {
         LayoutInflater.from(context).inflate(R.layout.view_infocard, this, true);
         ButterKnife.bind(this);
 //        setBackgroundColor(getResources().getColor(R.color.blue_theme));
-        setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+//        setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
 
     }
 
