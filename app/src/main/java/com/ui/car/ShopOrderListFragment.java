@@ -13,16 +13,13 @@ import com.business.bean.Goods;
 import com.business.bean.ShopOrder;
 import com.core.base.BaseFragment;
 
-import com.core.utils.FragmentHelper;
 import com.easy.recycleview.recycleview.AddressRecycleView;
 import com.easy.recycleview.recycleview.sectionview.Section;
 import com.easysoft.costumes.R;
-import com.ui.login.IlogInView;
-import com.ui.login.LoginPresenter;
+import com.easysoft.utils.lib.system.FragmentHelper;
 import com.ui.message.add.AddFragment;
 import com.view.toolbar.NavigationBar;
 import com.view.toolbar.TopBarBuilder;
-import com.view.toolbar.NavigationBar.Location;
 
 /**
  * Created by chengxi on 17/4/26.

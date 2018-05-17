@@ -11,10 +11,10 @@ import android.widget.RelativeLayout;
 import com.alipay.sdk.pay.demo.PayDemoActivity;
 import com.core.base.BaseFragment;
 
-import com.core.utils.FragmentHelper;
 import com.easy.recycleview.recycleview.item.AddressItemBean;
 import com.easy.recycleview.recycleview.sectionview.Section;
 import com.easysoft.costumes.R;
+import com.easysoft.utils.lib.system.FragmentHelper;
 import com.ui.other.tuling.TulingFragemnt;
 import com.ui.other.view.OtherContentView;
 import com.view.toolbar.NavigationBar;

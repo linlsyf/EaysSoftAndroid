@@ -1,28 +1,14 @@
 package com.core.base;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.AlertDialog.Builder;
 import android.app.Dialog;
-import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.v4.app.FragmentActivity;
-import android.util.Log;
-import android.view.View;
-
-import com.core.utils.SoftInputUtils;
-import com.easysoft.costumes.R;
 
 @SuppressLint("HandlerLeak")
 public abstract class BasicActivity extends FragmentActivity implements BaseUiInterface{

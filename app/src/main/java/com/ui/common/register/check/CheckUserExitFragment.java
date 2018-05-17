@@ -12,11 +12,11 @@ import android.widget.TextView;
 
 import com.business.login.LoginPerson;
 import com.core.base.BaseFragment;
-import com.core.utils.FragmentHelper;
-import com.core.utils.KeyboardUtils;
-import com.core.utils.StringUtils;
-import com.core.utils.ToastUtils;
 import com.easysoft.costumes.R;
+import com.easysoft.utils.lib.system.FragmentHelper;
+import com.easysoft.utils.lib.system.KeyboardUtils;
+import com.easysoft.utils.lib.system.StringUtils;
+import com.easysoft.utils.lib.system.ToastUtils;
 import com.ui.common.register.RegisterUserFragment;
 import com.view.dialog.ChatBaseDialog;
 import com.view.process.ProgressHUD;

@@ -2,7 +2,6 @@ package com.ui.message;
 
 
 import android.os.Bundle;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,11 +10,11 @@ import android.widget.TextView;
 import com.business.BusinessBroadcastUtils;
 import com.business.bean.Goods;
 import com.core.base.BaseFragment;
-import com.core.utils.FragmentHelper;
-import com.core.utils.StringUtils;
 import com.easy.recycleview.recycleview.item.AddressItemBean;
 import com.easy.recycleview.recycleview.sectionview.Section;
 import com.easysoft.costumes.R;
+import com.easysoft.utils.lib.system.FragmentHelper;
+import com.easysoft.utils.lib.system.StringUtils;
 import com.ui.message.add.AddFragment;
 import com.ui.message.view.GoodsView;
 import com.view.search.SearchHeadView;

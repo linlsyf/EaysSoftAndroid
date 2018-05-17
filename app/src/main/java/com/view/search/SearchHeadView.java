@@ -11,9 +11,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
-import com.core.utils.KeyboardUtils;
 import com.easysoft.costumes.R;
 import com.easysoft.utils.lib.string.StringUtils;
+import com.easysoft.utils.lib.system.KeyboardUtils;
 import com.view.edittextview.DelayListenerEditText;
 
 import butterknife.Bind;

@@ -7,9 +7,9 @@ import android.support.v4.app.Fragment;
 
 import com.business.BusinessBroadcastUtils;
 import com.core.base.BasicActivity;
-import com.core.utils.StringUtils;
-import com.core.utils.ToastUtils;
 import com.easysoft.costumes.R;
+import com.easysoft.utils.lib.system.StringUtils;
+import com.easysoft.utils.lib.system.ToastUtils;
 import com.ui.car.ShopOrderListFragment;
 import com.ui.login.IlogInView;
 import com.ui.login.LoginActivity;

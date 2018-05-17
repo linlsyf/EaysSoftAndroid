@@ -3,20 +3,15 @@ package com.core.base;
 import java.io.File;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Configuration;
-import android.net.wifi.WifiInfo;
-import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.Environment;
 import android.telephony.TelephonyManager;
 import android.util.DisplayMetrics;
 
-import com.core.CoreApplication;
-import com.core.utils.FileUtils;
-import com.core.utils.StringUtils;
+import com.easysoft.utils.lib.system.FileUtils;
 
 /**
  
@@ -235,7 +230,7 @@ public class GlobalConstants {
 		phoneNumber = phoneMgr.getLine1Number();// 本机电话号码
 		// sdkVersion = Build.VERSION.SDK;// SDK版本号
 		osVersion = Build.VERSION.RELEASE;// Firmware/OS 版本号
-		deviceId = phoneMgr.getDeviceId();// IMEI 作为 Device Id,
+//		deviceId = phoneMgr.getDeviceId();// IMEI 作为 Device Id,
 											// 暂时发现若WIFI没有打开无法获取MAC地址
 		intSDKVersion = getAndroidSDKVersion();
 

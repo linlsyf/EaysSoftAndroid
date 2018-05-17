@@ -15,7 +15,7 @@ import android.view.View;
 import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 
-import com.core.utils.ToastUtils;
+import com.easysoft.utils.lib.system.ToastUtils;
 
 /**
  * Fragment碎片基类

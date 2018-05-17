@@ -6,7 +6,7 @@ import android.content.Context;
 import com.business.login.User;
 import com.core.base.BaseUiInterface;
 import com.core.base.GlobalConstants;
-import com.core.utils.system.BroadcastUtils;
+import com.core.utils.BroadcastUtils;
 
 
 /**

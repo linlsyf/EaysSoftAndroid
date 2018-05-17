@@ -9,10 +9,9 @@ import android.widget.AdapterView;
 
 import com.core.CoreApplication;
 import com.core.base.BaseFragment;
-import com.core.utils.FragmentHelper;
 import com.easysoft.costumes.R;
+import com.easysoft.utils.lib.system.FragmentHelper;
 import com.ui.other.tuling.adapter.NewsAdapter;
-import com.ui.other.tuling.control.NavigateManager;
 import com.ui.other.tuling.entity.MessageEntity;
 import com.ui.other.tuling.entity.NewsEntity;
 import com.ui.other.tuling.util.DisplayUtil;

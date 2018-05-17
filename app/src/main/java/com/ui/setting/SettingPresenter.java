@@ -10,13 +10,13 @@ import com.business.login.User;
 import com.core.CoreApplication;
 import com.core.ServerUrl;
 import com.core.utils.SpUtils;
-import com.core.utils.StringUtils;
 import com.easy.recycleview.recycleview.item.AddressItemBean;
 import com.easy.recycleview.recycleview.item.IItemView;
 import com.easy.recycleview.recycleview.sectionview.Section;
+import com.easysoft.utils.lib.system.AppInfo;
+import com.easysoft.utils.lib.system.StringUtils;
 import com.ui.HttpService;
 import com.ui.car.MyCallback;
-import com.utils.AppInfo;
 
 import java.util.ArrayList;
 import java.util.List;

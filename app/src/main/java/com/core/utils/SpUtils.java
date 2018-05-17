@@ -10,6 +10,7 @@ import android.graphics.BitmapFactory;
 import android.util.Base64;
 
 import com.alibaba.fastjson.JSON;
+import com.easysoft.utils.lib.system.StringUtils;
 
 /**
  * 共享存储辅助类

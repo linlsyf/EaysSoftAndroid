@@ -9,10 +9,10 @@ import com.business.bean.ResponseMsgData;
 import com.business.bean.ShopOrder;
 import com.core.CoreApplication;
 import com.core.ServerUrl;
-import com.core.utils.DensityUtil;
-import com.core.utils.ToastUtils;
 
 import com.easysoft.costumes.R;
+import com.easysoft.utils.lib.system.DensityUtil;
+import com.easysoft.utils.lib.system.ToastUtils;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ui.HttpService;

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.core.utils.system;
+package com.core.utils;
 
 import java.io.Serializable;
 

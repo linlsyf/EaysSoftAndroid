@@ -24,9 +24,10 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.core.CoreApplication;
 import com.core.imge.ImageLoadUtils;
-import com.core.utils.DensityUtil;
 import com.easysoft.costumes.R;
+import com.easysoft.utils.lib.system.DensityUtil;
 
 public class NavigationBar extends RelativeLayout {
 
@@ -243,7 +244,7 @@ public class NavigationBar extends RelativeLayout {
                 LinearLayout layout = (LinearLayout) mRLMap.get(Location.CENTER);
                 ViewGroup.LayoutParams params = layout.getLayoutParams();
                 /*间距*/
-                int margin = DensityUtil.dip2pxInt( 5);
+                int margin = DensityUtil.dip2pxInt(CoreApplication.getAppContext(), 5);
                 /*选择宽度大的一边*/
                 int maxSideWidth = Math.max(leftTotalWidth, rightTotalWidth);
                 int centerWidth = mWidth - (maxSideWidth + margin) * 2;
@@ -595,7 +596,7 @@ public class NavigationBar extends RelativeLayout {
             textView.setTextColor(bean.getTextColor());
         }
         /*设置TextView的Padding值*/
-        int padding = DensityUtil.dip2pxInt( bean.getPadding());
+        int padding = DensityUtil.dip2pxInt(CoreApplication.getAppContext(),  bean.getPadding());
         textView.setPadding(padding, padding, padding, padding);
 
         LayoutParams layoutParams = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);

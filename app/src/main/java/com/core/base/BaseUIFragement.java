@@ -1,7 +1,6 @@
 package com.core.base;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -15,7 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.core.utils.ToastUtils;
+import com.easysoft.utils.lib.system.ToastUtils;
 
 @SuppressLint("HandlerLeak")
 public abstract class BaseUIFragement  extends  BaseFragment{

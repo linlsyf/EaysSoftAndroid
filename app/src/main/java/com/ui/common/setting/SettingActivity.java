@@ -11,17 +11,14 @@ import android.widget.TextView;
 import com.core.ServerUrl;
 import com.core.base.BasicActivity;
 
-import com.core.utils.FragmentHelper;
-import com.core.utils.KeyboardUtils;
 import com.core.utils.SpUtils;
-import com.core.utils.StringUtils;
-import com.core.utils.ToastUtils;
 import com.easysoft.costumes.R;
+import com.easysoft.utils.lib.system.KeyboardUtils;
+import com.easysoft.utils.lib.system.StringUtils;
+import com.easysoft.utils.lib.system.ToastUtils;
 import com.view.toolbar.NavigationBar;
 import com.view.toolbar.NavigationBarListener;
 import com.view.toolbar.TopBarBuilder;
-
-import org.w3c.dom.Text;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

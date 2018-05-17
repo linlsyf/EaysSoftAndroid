@@ -4,8 +4,8 @@ import android.content.Context;
 import android.os.Handler;
 import android.widget.TextView;
 
-import com.core.utils.StringUtils;
 import com.easysoft.costumes.R;
+import com.easysoft.utils.lib.system.StringUtils;
 
 
 /**

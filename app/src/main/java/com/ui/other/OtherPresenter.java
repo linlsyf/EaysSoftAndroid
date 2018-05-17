@@ -1,36 +1,16 @@
 package com.ui.other;
 
-import java.io.LineNumberInputStream;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
-
-import cn.jpush.android.api.JPushInterface;
-import cn.jpush.android.api.TagAliasCallback;
-import cn.smssdk.EventHandler;
-import cn.smssdk.SMSSDK;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import com.alipay.sdk.pay.demo.SignUtils;
-import com.business.BusinessBroadcastUtils;
 import com.business.ServiceCallBack;
-import com.business.bean.ResponseMsg;
 import com.business.bean.ResponseMsgData;
 import com.business.bean.ShopOrder;
-import com.business.bean.ShopRecorder;
-import com.business.login.User;
-import com.core.CoreApplication;
 import com.core.ServerUrl;
 
-import com.core.update.UpdateAPK;
-import com.core.utils.SpUtils;
-import com.core.utils.StringUtils;
-import com.core.utils.ToastUtils;
 import com.easy.recycleview.recycleview.item.AddressItemBean;
 import com.easy.recycleview.recycleview.item.IItemView;
 import com.easy.recycleview.recycleview.sectionview.Section;
@@ -40,11 +20,7 @@ import com.mob.mobapi.MobAPI;
 import com.mob.mobapi.apis.Weather;
 import com.ui.HttpService;
 import com.ui.car.MyCallback;
-import com.ui.other.IOtherView;
 import com.ui.other.bean.WeatherMsg;
-
-import android.net.wifi.p2p.WifiP2pManager.ActionListener;
-import android.widget.Toast;
 
 public class OtherPresenter   {
 	HttpService service;

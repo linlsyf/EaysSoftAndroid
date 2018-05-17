@@ -20,14 +20,14 @@ import com.core.ServerUrl;
 import com.core.base.GlobalConstants;
 import com.core.http.HttpUtils;
 
-import com.core.utils.DensityUtil;
-import com.core.utils.StringUtils;
-import com.core.utils.ToastUtils;
 import com.easy.recycleview.recycleview.item.AddressItemBean;
 import com.easy.recycleview.recycleview.item.IItemView;
 import com.easy.recycleview.recycleview.item.bean.RightSecondImgSettings;
 import com.easy.recycleview.recycleview.sectionview.Section;
+import com.easy.recycleview.utils.DensityUtil;
 import com.easysoft.costumes.R;
+import com.easysoft.utils.lib.system.StringUtils;
+import com.easysoft.utils.lib.system.ToastUtils;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ui.HttpService;

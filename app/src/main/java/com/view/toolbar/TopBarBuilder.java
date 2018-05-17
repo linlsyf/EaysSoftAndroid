@@ -1,13 +1,10 @@
 package com.view.toolbar;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.support.v7.widget.RecyclerView;
-import android.view.MotionEvent;
-import android.view.View;
 
-import com.core.utils.DensityUtil;
 import com.easy.recycleview.recycleview.ResourcesUtil;
 import com.easysoft.costumes.R;
+import com.easysoft.utils.lib.system.DensityUtil;
 
 public class TopBarBuilder {
 

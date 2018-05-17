@@ -6,8 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.core.utils.FragmentHelper;
 import com.easysoft.costumes.R;
+import com.easysoft.utils.lib.system.FragmentHelper;
 import com.ui.other.tuling.constant.TulingParams;
 import com.ui.other.tuling.entity.MessageEntity;
 import com.ui.other.tuling.NewDetailFragment;
