@@ -1,22 +1,10 @@
-package com.core.http;
-
-import android.os.Environment;
+package com.core.utils;
 
 import com.easysoft.utils.lib.http.OkHttpUtils;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-
-import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.MediaType;
-import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
 
 public class HttpUtils {
 	

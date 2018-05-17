@@ -78,7 +78,7 @@ public class SettingFragment extends BaseFragment implements ISafeSettingView{
         getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                UpdateAPK  apk=new UpdateAPK( getActivity());
+                UpdateAPK apk=new UpdateAPK( getActivity());
                 apk.Beginning();
             }
         });

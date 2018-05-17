@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import com.core.base.GlobalConstants;
 import com.core.db.greenDao.gen.DaoMaster;
 import com.core.db.greenDao.gen.DaoSession;
-import com.core.imge.ImageLoadUtils;
+import com.core.utils.ImageLoadUtils;
 import com.easy.recycleview.recycleview.RecycleViewManage;
 import com.easysoft.utils.lib.DebugUtlis.CrashHandler;
 import com.mob.MobSDK;

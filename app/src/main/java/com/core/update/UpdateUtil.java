@@ -6,7 +6,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Environment;
 
-import com.core.http.HttpUtils;
+import com.core.utils.HttpUtils;
 
 import org.json.JSONArray;
 import org.json.JSONObject;

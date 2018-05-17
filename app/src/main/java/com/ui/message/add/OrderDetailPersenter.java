@@ -18,7 +18,7 @@ import com.business.bean.ShopOrderMsg;
 import com.core.CoreApplication;
 import com.core.ServerUrl;
 import com.core.base.GlobalConstants;
-import com.core.http.HttpUtils;
+import com.core.utils.HttpUtils;
 
 import com.easy.recycleview.recycleview.item.AddressItemBean;
 import com.easy.recycleview.recycleview.item.IItemView;

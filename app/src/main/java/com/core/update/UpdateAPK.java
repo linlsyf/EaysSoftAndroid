@@ -20,7 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.core.ServerUrl;
-import com.core.http.HttpUtils;
+import com.core.utils.HttpUtils;
 import com.easysoft.costumes.BuildConfig;
 import com.easysoft.costumes.R;
 import com.easysoft.utils.lib.http.OkHttpUtils;

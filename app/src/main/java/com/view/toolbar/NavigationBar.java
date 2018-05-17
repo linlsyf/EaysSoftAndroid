@@ -25,7 +25,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.core.CoreApplication;
-import com.core.imge.ImageLoadUtils;
+import com.core.utils.ImageLoadUtils;
 import com.easysoft.costumes.R;
 import com.easysoft.utils.lib.system.DensityUtil;
 
