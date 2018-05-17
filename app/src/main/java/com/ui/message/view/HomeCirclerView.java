@@ -3,14 +3,18 @@ package com.ui.message.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.easy.recycleview.recycleview.item.AddressItemBean;
 import com.easy.recycleview.recycleview.item.IItemView;
 import com.easy.recycleview.recycleview.sectionview.MutiTypeSelectUtils;
 import com.easysoft.costumes.R;
+import com.easysoft.widget.imgeview.MultiShapeView;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
 
 /**
@@ -19,10 +23,10 @@ import butterknife.ButterKnife;
 
 public class HomeCirclerView extends LinearLayout implements IItemView {
     Context mContext;
-//    @Bind(R.id.img)
-//    ImageView mImg;
-//    @Bind(R.id.name)
-//    TextView mNameTv;
+    @Bind(R.id.img)
+    MultiShapeView mImg;
+    @Bind(R.id.name)
+    TextView mNameTv;
 //    @Bind(R.id.price)
 //    TextView mPriceTv;
 //    @Bind(R.id.content)
@@ -52,6 +56,9 @@ public class HomeCirclerView extends LinearLayout implements IItemView {
 
     @Override
     public void initData(final AddressItemBean map) {
+
+        mImg.setImageResource(map.getHeadImgeSettings().getHeadImgDrawableId());
+        mNameTv.setText(map.getTitle());
 //        final GoodsInfoBean infoBean=(GoodsInfoBean)map;
 //        mNameTv.setText(map.getTitle());
 //        mPriceTv.setText(infoBean.getPrice());
@@ -69,14 +76,14 @@ public class HomeCirclerView extends LinearLayout implements IItemView {
 ////            mHeadParams.width = DensityUtil.dip2px(getContext(),230);
 ////            mHeadParams.height = DensityUtil.dip2px(getContext(),230);
 ////            mImg.setLayoutParams(mHeadParams);
-//        setOnClickListener(new OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if (map.getOnItemListener()!=null){
-//                    map.getOnItemListener().onItemClick(ClickTypeEnum.ITEM,map);
-//                }
-//            }
-//        });
+        setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (map.getOnItemListener()!=null){
+                    map.getOnItemListener().onItemClick(ClickTypeEnum.ITEM,map);
+                }
+            }
+        });
     }
 }
 

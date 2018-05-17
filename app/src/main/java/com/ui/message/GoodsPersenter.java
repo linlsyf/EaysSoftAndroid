@@ -12,6 +12,7 @@ import com.core.ServerUrl;
 import com.core.utils.DensityUtil;
 import com.core.utils.ToastUtils;
 
+import com.easysoft.costumes.R;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ui.HttpService;
@@ -28,6 +29,8 @@ import com.easy.recycleview.recycleview.item.bean.AddressHeadImgeSettings;
 import com.easy.recycleview.recycleview.sectionview.Section;
 
 public class GoodsPersenter {
+
+
 	private HttpService service;
 	private IGoodsView iGoodsView;
 	private AddressItemBean totalBean;
@@ -109,12 +112,56 @@ public class GoodsPersenter {
 	public void list(){
 
 		Section nextSection=new Section(KEY_SHOP_TYPE);
+		nextSection.setName("分类");
 		List<AddressItemBean> dataMaps=new ArrayList<>();
-		AddressItemBean  itemBean=new AddressItemBean();
-		 itemBean.setViewType(4);
-		dataMaps.add(itemBean);
+
+		for (int i=0;i<12;i++){
+			AddressItemBean  itemBean=new AddressItemBean();
+			itemBean.setViewType(4);
+			itemBean.setSpanSize(1);
+			if (i==0){
+				itemBean.getHeadImgeSettings().setHeadImgDrawableId(R.drawable.new_find_icon);
+				itemBean.setTitle("鞋子");
+			}
+			else if (i==1){
+				itemBean.getHeadImgeSettings().setHeadImgDrawableId(R.drawable.new_myhome_icon);
+				itemBean.setTitle("衣服");
+			}
+			else if (i==2){
+				itemBean.getHeadImgeSettings().setHeadImgDrawableId(R.drawable.new_shoppingcar_icon);
+				itemBean.setTitle("裤子");
+			}
+			else if (i==3){
+				itemBean.getHeadImgeSettings().setHeadImgDrawableId(R.drawable.welcome_page);
+				itemBean.setTitle("家具");
+			}
+			else if (i==4){
+				itemBean.getHeadImgeSettings().setHeadImgDrawableId(R.drawable.new_life_icon);
+				itemBean.setTitle("化妆品");
+			}
+			else if (i==5){
+				itemBean.getHeadImgeSettings().setHeadImgDrawableId(R.drawable.visualization);
+				itemBean.setTitle("其他");
+			}
+			else if (i==6){
+				itemBean.getHeadImgeSettings().setHeadImgDrawableId(R.drawable.weather_bg);
+				itemBean.setTitle("其他");
+			}
+			else{
+				itemBean.getHeadImgeSettings().setHeadImgDrawableId(R.drawable.new_life_icon);
+				itemBean.setTitle("更多"+(i+1));
+			}
+			itemBean.setOnItemListener(new IItemView.onItemClick() {
+				@Override
+				public void onItemClick(IItemView.ClickTypeEnum clickTypeEnum, AddressItemBean addressItemBean) {
+					iGoodsView.showToast(addressItemBean.getTitle());
+				}
+			});
+			itemBean.setId(itemBean.getTitle());
+			dataMaps.add(itemBean);
+		}
+
 		nextSection.setDataMaps(dataMaps);
-		nextSection.setShowSection(false);
 		iGoodsView.showUi(nextSection);
 
 
@@ -155,13 +202,10 @@ public class GoodsPersenter {
 
 						}
 						nextSection.setDataMaps(dataMaps);
-						nextSection.setShowSection(false);
+						nextSection.setName("热销");
 						iGoodsView.showUi(nextSection);
 
-//						 GridLayoutHelper gridLayoutHelper = new GridLayoutHelper(2);
-//						gridLayoutHelper.setItemCount(dataMaps.size());
-//						iGoodsView.addLayoutHelper(DefaultLayoutHelper.newHelper(1),false);
-//						iGoodsView.addLayoutHelper(gridLayoutHelper,true);
+
 					}
 				}
 

@@ -2,7 +2,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/bg_login"
+    xmlns:tools="http://schemas.android.com/tools"
+
     >
 
     <com.view.statusview.SoftKeyBoardSatusView
@@ -40,8 +43,9 @@
                 android:layout_height="match_parent"
                 android:layout_alignParentRight="true"/>
         </RelativeLayout>
+        <com.easysoft.widget.imgeview.MultiShapeView
+            app:shape="circle"
 
-        <ImageView
             android:id="@+id/ivUserIcon"
             android:layout_width="114dp"
             android:layout_height="114dp"

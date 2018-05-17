@@ -26,6 +26,7 @@ import com.core.utils.KeyboardUtils;
 import com.core.utils.StringUtils;
 import com.core.utils.ToastUtils;
 import com.easysoft.costumes.R;
+import com.easysoft.widget.imgeview.MultiShapeView;
 import com.ui.common.register.check.CheckUserExitFragment;
 import com.ui.common.setting.SettingActivity;
 import com.utils.AppInfo;
@@ -75,7 +76,7 @@ public class LoginActivity extends BasicActivity implements IlogInView,
     ImageView mIvVisualized;
 
     @Bind(R.id.ivUserIcon)
-    ImageView mIvUserIcon;
+    MultiShapeView mIvUserIcon;
 
     /** 注册按钮 */
     @Bind(R.id.mTvRegister)
@@ -219,6 +220,7 @@ public class LoginActivity extends BasicActivity implements IlogInView,
         mTvVersion.setText(version);
         setForgetPwdVisible();
         judgeFillLoginParams();
+        mIvUserIcon.setImageResource(R.drawable.ic_login_default_user);
     }
 
     @Override

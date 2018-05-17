@@ -2,22 +2,27 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/index_recycler_circler_show"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
+    android:layout_margin="10dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-
-                <fragment
-                    android:name="com.ui.message.IndexCircleShowFragment"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    />
-
-
-        <!--<View
-            app:layout_marginTopPercent = "0.1%w"
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:background="#000000"/>-->
-
+    <com.easysoft.widget.imgeview.MultiShapeView
+        app:shape="circle"
+        android:id="@+id/img"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_gravity="center_horizontal"/>
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:lines="1"
+        android:ellipsize="end"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="1"
+        android:textColor="@color/black" />
 </LinearLayout>
