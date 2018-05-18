@@ -10,6 +10,12 @@
 1 注册和登录
 2 用户管理
 3 商品管理
+## 一些界面图片
+首页
+https://github.com/linlsyf/ImageCache/raw/master/image/head.jpg
+设置
+https://github.com/linlsyf/ImageCache/raw/master/image/setting.jpg
+
 
  ## 待实现：
  ## 测试测试账号  ldh  密码 ldh 也可以自行注册一个账号
