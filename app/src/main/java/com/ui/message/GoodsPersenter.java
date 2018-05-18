@@ -173,7 +173,7 @@ public class GoodsPersenter {
 		}
 
 		nextSection.setDataMaps(dataMaps);
-		iGoodsView.addSection(nextSection);
+		iGoodsView.showUi(nextSection);
 
 
 			String url = ServerUrl.baseUrl+ServerUrl.GOODSLIST;
