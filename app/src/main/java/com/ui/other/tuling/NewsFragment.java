@@ -11,6 +11,8 @@ import com.core.CoreApplication;
 import com.core.base.BaseFragment;
 import com.easysoft.costumes.R;
 import com.easysoft.utils.lib.system.FragmentHelper;
+import com.easysoft.widget.toolbar.NavigationBar;
+import com.easysoft.widget.toolbar.TopBarBuilder;
 import com.ui.other.tuling.adapter.NewsAdapter;
 import com.ui.other.tuling.entity.MessageEntity;
 import com.ui.other.tuling.entity.NewsEntity;
@@ -20,8 +22,7 @@ import com.view.swipemenulistview.SwipeMenu;
 import com.view.swipemenulistview.SwipeMenuCreator;
 import com.view.swipemenulistview.SwipeMenuItem;
 import com.view.swipemenulistview.SwipeMenuListView;
-import com.view.toolbar.NavigationBar;
-import com.view.toolbar.TopBarBuilder;
+
 
 import java.util.List;
 

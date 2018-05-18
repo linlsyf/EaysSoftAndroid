@@ -15,6 +15,9 @@ import com.business.bean.ResponseMsgData;
 import com.core.base.BaseFragment;
 import com.easysoft.costumes.R;
 import com.easysoft.utils.lib.system.FragmentHelper;
+import com.easysoft.widget.toolbar.NavigationBar;
+import com.easysoft.widget.toolbar.NavigationBarListener;
+import com.easysoft.widget.toolbar.TopBarBuilder;
 import com.ui.other.tuling.adapter.ChatMessageAdapter;
 import com.ui.other.tuling.constant.TulingParams;
 import com.ui.other.tuling.entity.MessageEntity;
@@ -24,9 +27,7 @@ import com.ui.other.tuling.util.KeyBoardUtil;
 import com.ui.other.tuling.util.TimeUtil;
 import com.ui.HttpService;
 import com.ui.car.MyCallback;
-import com.view.toolbar.NavigationBar;
-import com.view.toolbar.NavigationBarListener;
-import com.view.toolbar.TopBarBuilder;
+
 
 import java.util.ArrayList;
 import java.util.List;

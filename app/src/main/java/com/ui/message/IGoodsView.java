@@ -10,6 +10,8 @@ import java.util.List;
 public interface IGoodsView extends IBaseView{
 
 	void showUi(Section nextSection);
+	void addSection(Section nextSection);
+
 	void showItem(AddressItemBean imgBean);
 	void toOrder(Goods goods);
 

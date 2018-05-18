@@ -5,7 +5,7 @@
     android:background="@color/white"
     android:orientation="vertical" >
 
-    <com.view.toolbar.NavigationBar
+    <com.easysoft.widget.toolbar.NavigationBar
         android:id="@+id/topbar_register"
         android:layout_width="fill_parent"
         android:layout_height="45dp" />

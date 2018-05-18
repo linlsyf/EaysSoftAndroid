@@ -45,6 +45,7 @@ public class GoodsPersenter {
 	public static String KEY_NUM="num";
 	public static String KEY_TOTAL="total";
 	public static String KEY_PRICE="price";
+	private java.lang.String KEY_BANNER="banner";
 
 	public GoodsPersenter( IGoodsView iGoodsView) {
 		service=new HttpService();
@@ -110,6 +111,16 @@ public class GoodsPersenter {
 	}
 	
 	public void list(){
+		Section bannerSection=new Section(KEY_BANNER);
+		bannerSection.setShowSection(false);
+		List<AddressItemBean> dataMapsBanner=new ArrayList<>();
+		AddressItemBean bannerItem=new AddressItemBean();
+//		bannerItem.setSpanSize(6);
+		bannerItem.setViewType(5);
+		dataMapsBanner.add(bannerItem);
+		bannerSection.setDataMaps(dataMapsBanner);
+
+		iGoodsView.addSection(bannerSection);
 
 		Section nextSection=new Section(KEY_SHOP_TYPE);
 		nextSection.setName("分类");
@@ -162,7 +173,7 @@ public class GoodsPersenter {
 		}
 
 		nextSection.setDataMaps(dataMaps);
-		iGoodsView.showUi(nextSection);
+		iGoodsView.addSection(nextSection);
 
 
 			String url = ServerUrl.baseUrl+ServerUrl.GOODSLIST;

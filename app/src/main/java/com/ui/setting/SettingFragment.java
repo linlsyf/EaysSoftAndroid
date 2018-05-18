@@ -16,12 +16,13 @@ import com.easy.recycleview.recycleview.sectionview.Section;
 import com.easysoft.costumes.R;
 import com.easysoft.utils.lib.system.FragmentHelper;
 import com.easysoft.utils.lib.system.ToastUtils;
+import com.easysoft.widget.toolbar.NavigationBar;
+import com.easysoft.widget.toolbar.TopBarBuilder;
 import com.ui.login.LoginActivity;
 import com.ui.message.add.OrderDetailPersenter;
 import com.ui.other.tuling.TulingFragemnt;
 import com.ui.setting.view.MySettingContentView;
-import com.view.toolbar.NavigationBar;
-import com.view.toolbar.TopBarBuilder;
+
 
 import cn.smssdk.SMSSDK;
 
@@ -50,7 +51,7 @@ public class SettingFragment extends BaseFragment implements ISafeSettingView{
       @Override
     public void initUIView() {
     	  recycleView= getViewById(R.id.recycleView);
-    	  NavigationBar  toolbar=getViewById(R.id.toolbar);
+    	  NavigationBar toolbar=getViewById(R.id.toolbar);
 		  TopBarBuilder.buildCenterTextTitle(toolbar, getActivity(), "设置", 0);
      
       }
@@ -78,7 +79,14 @@ public class SettingFragment extends BaseFragment implements ISafeSettingView{
         getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
+
+                //		String downloadUrl ="http://192.168.155.1:8090/MyServer/api/v1/file/down?name=costumes.apk&type=1";
+                /**由于eappstore.cn这个域名最近出现解析指向两个不同的IP地址，导致用户更新时出现下载的是旧的版本。在没有找出具体解决方案之前，
+                 使用固定IP地址解决问题。以免影响用户体验。*/
+//		downloadUrl += "124.172.226.152:1672/MMS/MiracleMessenger.apk";
+//		final String url =ServerUrl.baseUrl+ ServerUrl.updateUrl;
                 UpdateAPK apk=new UpdateAPK( getActivity());
+//                setPustIconId
                 apk.Beginning();
             }
         });

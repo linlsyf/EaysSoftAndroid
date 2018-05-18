@@ -30,11 +30,12 @@ import com.easysoft.utils.lib.system.KeyboardUtils;
 import com.easysoft.utils.lib.system.PasswordUtils;
 import com.easysoft.utils.lib.system.StringUtils;
 import com.easysoft.utils.lib.system.ToastUtils;
+import com.easysoft.widget.toolbar.NavigationBar;
+import com.easysoft.widget.toolbar.NavigationBarListener;
+import com.easysoft.widget.toolbar.TopBarBuilder;
 import com.view.edittextview.ValidateEdittextView;
 import com.view.process.ProgressHUD;
-import com.view.toolbar.NavigationBar;
-import com.view.toolbar.NavigationBarListener;
-import com.view.toolbar.TopBarBuilder;
+
 
 import cn.smssdk.SMSSDK;
 
@@ -51,7 +52,7 @@ public class RegisterUserFragment extends BaseFragment implements OnClickListene
 	/**获得验证码按钮*/
 	private Button getCodeButton;
 	/** 顶部 toorbar*/
-	private NavigationBar  toolbar;
+	private NavigationBar toolbar;
 	/**注册用户*/
 	public static String loginId ="";
 	/** 保存信息进度框 */

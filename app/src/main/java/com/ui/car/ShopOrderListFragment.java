@@ -17,9 +17,10 @@ import com.easy.recycleview.recycleview.AddressRecycleView;
 import com.easy.recycleview.recycleview.sectionview.Section;
 import com.easysoft.costumes.R;
 import com.easysoft.utils.lib.system.FragmentHelper;
+import com.easysoft.widget.toolbar.NavigationBar;
+import com.easysoft.widget.toolbar.TopBarBuilder;
 import com.ui.message.add.AddFragment;
-import com.view.toolbar.NavigationBar;
-import com.view.toolbar.TopBarBuilder;
+
 
 /**
  * Created by chengxi on 17/4/26.
@@ -29,7 +30,7 @@ public  class ShopOrderListFragment extends BaseFragment implements IShopOrderLi
 	ShopOrderPersenter persenter;
 	AddressRecycleView recycleView;
 
-	private NavigationBar  toolbar;
+	private NavigationBar toolbar;
 	@Override
 	public View onCreateView(LayoutInflater inflater,
 			 ViewGroup container,  Bundle savedInstanceState) {

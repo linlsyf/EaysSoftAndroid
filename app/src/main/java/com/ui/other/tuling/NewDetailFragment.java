@@ -14,8 +14,9 @@ import android.webkit.WebViewClient;
 
 import com.core.base.BaseFragment;
 import com.easysoft.costumes.R;
-import com.view.toolbar.NavigationBar;
-import com.view.toolbar.TopBarBuilder;
+import com.easysoft.widget.toolbar.NavigationBar;
+import com.easysoft.widget.toolbar.TopBarBuilder;
+
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

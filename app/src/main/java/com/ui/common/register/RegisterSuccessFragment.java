@@ -10,8 +10,8 @@ import com.business.login.LoginPerson;
 import com.core.base.BaseFragment;
 import com.easysoft.costumes.R;
 import com.easysoft.utils.lib.system.FragmentHelper;
-import com.view.toolbar.NavigationBar;
-import com.view.toolbar.TopBarBuilder;
+import com.easysoft.widget.toolbar.NavigationBar;
+import com.easysoft.widget.toolbar.TopBarBuilder;
 
 
 /**

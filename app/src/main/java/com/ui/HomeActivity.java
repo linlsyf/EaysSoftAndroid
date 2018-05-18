@@ -10,6 +10,10 @@ import com.core.base.BasicActivity;
 import com.easysoft.costumes.R;
 import com.easysoft.utils.lib.system.StringUtils;
 import com.easysoft.utils.lib.system.ToastUtils;
+import com.easysoft.widget.tabview.adapter.MainViewAdapter;
+import com.easysoft.widget.tabview.listener.OnTabSelectedListener;
+import com.easysoft.widget.tabview.widget.Tab;
+import com.easysoft.widget.tabview.widget.TabContainerView;
 import com.ui.car.ShopOrderListFragment;
 import com.ui.login.IlogInView;
 import com.ui.login.LoginActivity;
@@ -17,10 +21,7 @@ import com.ui.login.LoginPresenter;
 import com.ui.message.GoodsFragment;
 import com.ui.other.TabOtherFragment;
 import com.ui.setting.SettingFragment;
-import com.view.tabview.adapter.MainViewAdapter;
-import com.view.tabview.listener.OnTabSelectedListener;
-import com.view.tabview.widget.Tab;
-import com.view.tabview.widget.TabContainerView;
+
 
 
 public class HomeActivity extends BasicActivity implements IlogInView,IHomeView {
@@ -37,8 +38,8 @@ public class HomeActivity extends BasicActivity implements IlogInView,IHomeView 
 
         MainViewAdapter mainViewAdapter=new MainViewAdapter(getSupportFragmentManager(),
                 new Fragment[] {new GoodsFragment(),  new ShopOrderListFragment(),new TabOtherFragment(),new SettingFragment()});
-//        MainViewAdapter mainViewAdapter=new MainViewAdapter(getSupportFragmentManager(),
-//                new Fragment[] {new AddFragment(),  new ShopOrderListFragment(),new TabOtherFragment(),new SettingFragment()});
+		mainViewAdapter.setIconImageArray(new int[] {R.drawable.new_life_icon_grey, R.drawable.new_shoppingcar_icon_grey,R.drawable.new_find_icon_grey,R.drawable.new_myhome_icon_grey});
+		 mainViewAdapter.setSelectedIconImageArray(new int[] {R.drawable.new_life_icon, R.drawable.new_shoppingcar_icon,R.drawable.new_find_icon,R.drawable.new_myhome_icon});
         mainViewAdapter.setHasMsgIndex(0);
         tabContainerView.setAdapter(mainViewAdapter);
         tabContainerView.setOnTabSelectedListener(new OnTabSelectedListener() {

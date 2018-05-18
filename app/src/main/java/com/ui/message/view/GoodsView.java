@@ -32,10 +32,10 @@ public class GoodsView extends AddressRecycleView {
             itemView=new HomeCirclerView(getContext());
             return itemView;
         }
-//       else if (viewType== IItemView.ViewTypeEnum.TOP_VIEW.value()){
-//            itemView=new HomeView(getContext());
-//            return itemView;
-//        }
+       else if (viewType== 5){
+            itemView=new BannerItemView(getContext());
+            return itemView;
+        }
         return super.addItemView(viewType);
     }
 

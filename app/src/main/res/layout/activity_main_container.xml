@@ -6,7 +6,7 @@
                 android:layout_height="match_parent"
                 >
 
-    <com.view.tabview.widget.TabContainerView
+    <com.easysoft.widget.tabview.widget.TabContainerView
         android:id="@+id/tab_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

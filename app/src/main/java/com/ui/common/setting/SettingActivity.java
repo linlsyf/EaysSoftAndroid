@@ -16,9 +16,10 @@ import com.easysoft.costumes.R;
 import com.easysoft.utils.lib.system.KeyboardUtils;
 import com.easysoft.utils.lib.system.StringUtils;
 import com.easysoft.utils.lib.system.ToastUtils;
-import com.view.toolbar.NavigationBar;
-import com.view.toolbar.NavigationBarListener;
-import com.view.toolbar.TopBarBuilder;
+import com.easysoft.widget.toolbar.NavigationBar;
+import com.easysoft.widget.toolbar.NavigationBarListener;
+import com.easysoft.widget.toolbar.TopBarBuilder;
+
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -32,7 +33,7 @@ public class SettingActivity extends BasicActivity implements OnClickListener{
 	String TAG = SettingActivity.class.getSimpleName();
 	/** 顶部 */
 	 @Bind(R.id.loginsetting_topbar)
-	 NavigationBar mTopbar;
+	NavigationBar mTopbar;
 
 	@Bind(R.id.setip)
 	 EditText setip;

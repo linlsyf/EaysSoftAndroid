@@ -5,11 +5,11 @@
                 android:orientation="vertical"
                 >
 
-    <com.view.toolbar.NavigationBar
+    <com.easysoft.widget.toolbar.NavigationBar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="35dp"
-        ></com.view.toolbar.NavigationBar>
+        ></com.easysoft.widget.toolbar.NavigationBar>
     <TextView
         android:id="@+id/noticeTv"
         android:layout_width="match_parent"
@@ -25,6 +25,7 @@
         android:id="@+id/searchView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+
     <com.ui.message.view.GoodsView
         android:layout_marginTop="20dp"
         android:id="@+id/goodsGridview"

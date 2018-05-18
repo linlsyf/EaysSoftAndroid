@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.business.BusinessBroadcastUtils;
@@ -15,14 +16,17 @@ import com.easy.recycleview.recycleview.sectionview.Section;
 import com.easysoft.costumes.R;
 import com.easysoft.utils.lib.system.FragmentHelper;
 import com.easysoft.utils.lib.system.StringUtils;
+import com.easysoft.widget.banner.BannerView;
+import com.easysoft.widget.toolbar.NavigationBar;
+import com.easysoft.widget.toolbar.NavigationBarListener;
+import com.easysoft.widget.toolbar.TopBarBuilder;
 import com.ui.message.add.AddFragment;
 import com.ui.message.view.GoodsView;
 import com.view.search.SearchHeadView;
-import com.view.toolbar.NavigationBar;
-import com.view.toolbar.NavigationBarListener;
-import com.view.toolbar.TopBarBuilder;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 展示商品
@@ -34,6 +38,10 @@ public class GoodsFragment extends BaseFragment implements IGoodsView{
     private NavigationBar toolbar;
     TextView noticeTv;
     SearchHeadView searchHeadView;
+
+//    private List<View> viewList;
+//    BannerView bannerView;
+
     @Override
     public View onCreateView(LayoutInflater inflater,  ViewGroup container,  Bundle savedInstanceState) {
     	View rootView=inflater.inflate(R.layout.fragment_tab_goods, null);
@@ -97,6 +105,10 @@ public class GoodsFragment extends BaseFragment implements IGoodsView{
 //                }, 2000);
 //            }
 //        });
+
+
+
+//        bannerView.setTransformAnim(true);
     }
     @Override
     public void initListener() {
@@ -161,6 +173,12 @@ public class GoodsFragment extends BaseFragment implements IGoodsView{
         });
 
     }
+
+    @Override
+    public void addSection(Section nextSection) {
+        recycleView.addSection(nextSection);
+    }
+
 
     @Override
     public void showItem(AddressItemBean imgBean) {

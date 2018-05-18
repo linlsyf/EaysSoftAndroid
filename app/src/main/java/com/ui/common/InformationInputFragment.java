@@ -10,11 +10,11 @@ import com.easysoft.costumes.R;
 import com.easysoft.utils.lib.system.DensityUtil;
 import com.easysoft.utils.lib.system.FragmentHelper;
 import com.easysoft.utils.lib.system.KeyboardUtils;
+import com.easysoft.widget.toolbar.NavigationBar;
+import com.easysoft.widget.toolbar.NavigationBarListener;
+import com.easysoft.widget.toolbar.TopBarBuilder;
 import com.ui.message.add.OrderDetailPersenter;
-import com.view.toolbar.NavigationBar;
-import com.view.toolbar.NavigationBarListener;
-import com.view.toolbar.TopBarBuilder;
-import com.view.toolbar.NavigationBar.Location;
+
 
 /**
  * 输入信息界面
@@ -37,7 +37,7 @@ public class InformationInputFragment extends BaseFragment implements Informatio
 
     private String mId;
 
-	private NavigationBar  toolbar;
+	private NavigationBar toolbar;
 
     public OnUpdateSuccessListener listener;
 
@@ -65,10 +65,10 @@ public class InformationInputFragment extends BaseFragment implements Informatio
                  @Override
               public void initUIView() {
             	 toolbar=getViewById(R.id.toolbar);
-        		   TopBarBuilder.buildOnlyText(toolbar, getActivity(),Location.LEFT_FIRST, "返回", 0);
+        		   TopBarBuilder.buildOnlyText(toolbar, getActivity(), NavigationBar.Location.LEFT_FIRST, "返回", 0);
 
       		   TopBarBuilder.buildCenterTextTitle(toolbar, getActivity(), "输入内容", 0);
-      		   TopBarBuilder.buildOnlyText(toolbar, getActivity(),Location.RIGHT_FIRST, "确定", 0);
+      		   TopBarBuilder.buildOnlyText(toolbar, getActivity(), NavigationBar.Location.RIGHT_FIRST, "确定", 0);
             mEt=getViewById(R.id.mNameEt);
        
         mEt.requestFocus();
@@ -81,7 +81,7 @@ public class InformationInputFragment extends BaseFragment implements Informatio
     	toolbar.setNavigationBarListener(new NavigationBarListener() {
       
 			@Override
-			public void onClick(ViewGroup containView, Location location) {
+			public void onClick(ViewGroup containView, NavigationBar.Location location) {
 				  switch (location){
                   case LEFT_FIRST:
                 	  KeyboardUtils.closeKeybord(getActivity());

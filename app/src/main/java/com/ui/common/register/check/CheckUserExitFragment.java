@@ -17,12 +17,13 @@ import com.easysoft.utils.lib.system.FragmentHelper;
 import com.easysoft.utils.lib.system.KeyboardUtils;
 import com.easysoft.utils.lib.system.StringUtils;
 import com.easysoft.utils.lib.system.ToastUtils;
+import com.easysoft.widget.toolbar.NavigationBar;
+import com.easysoft.widget.toolbar.NavigationBarListener;
+import com.easysoft.widget.toolbar.TopBarBuilder;
 import com.ui.common.register.RegisterUserFragment;
 import com.view.dialog.ChatBaseDialog;
 import com.view.process.ProgressHUD;
-import com.view.toolbar.NavigationBar;
-import com.view.toolbar.NavigationBarListener;
-import com.view.toolbar.TopBarBuilder;
+
 
 /**
  * 

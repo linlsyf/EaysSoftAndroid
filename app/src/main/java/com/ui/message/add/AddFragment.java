@@ -21,13 +21,13 @@ import com.easysoft.costumes.R;
 import com.easysoft.utils.lib.system.FragmentHelper;
 import com.easysoft.utils.lib.system.StringUtils;
 import com.easysoft.utils.lib.system.ToastUtils;
+import com.easysoft.widget.toolbar.NavigationBar;
+import com.easysoft.widget.toolbar.NavigationBarListener;
+import com.easysoft.widget.toolbar.TopBarBuilder;
 import com.example.choose.ChooseFragmentActivity;
 import com.ui.common.InformationInputFragment;
 import com.ui.common.InformationInputFragment.OnUpdateSuccessListener;
-import com.view.toolbar.NavigationBar;
-import com.view.toolbar.NavigationBar.Location;
-import com.view.toolbar.NavigationBarListener;
-import com.view.toolbar.TopBarBuilder;
+
 
 import java.io.Serializable;
 
@@ -38,7 +38,7 @@ public class AddFragment extends BaseFragment implements IShopOrderItemView{
 	private String chooseImgPath="";
 
 	private AddressRecycleView recycleView;
-	private NavigationBar  toolbar;
+	private NavigationBar toolbar;
 	private OrderDetailPersenter persenter;
 	Button buyBtn;
 	Button addToChartBtn;
@@ -84,8 +84,8 @@ public class AddFragment extends BaseFragment implements IShopOrderItemView{
     	 toolbar.setNavigationBarListener(new NavigationBarListener() {
 
 			@Override
-			public void onClick(ViewGroup containView, Location location) {
-				  if (location==Location.LEFT_FIRST) {
+			public void onClick(ViewGroup containView, NavigationBar.Location location) {
+				  if (location== NavigationBar.Location.LEFT_FIRST) {
 						FragmentHelper.popBackFragment(getActivity());
 				  }
 				
