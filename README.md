@@ -12,9 +12,11 @@
 3 商品管理
 ## 一些界面图片
 首页
-https://github.com/linlsyf/ImageCache/raw/master/image/head.jpg
+https://github.com/linlsyf/EaysSoftAndroid
+/raw/master/image/head.jpg
 设置
-https://github.com/linlsyf/ImageCache/raw/master/image/setting.jpg
+https://github.com/linlsyf/EaysSoftAndroid
+/raw/master/image/setting.jpg
 
 
  ## 待实现：
