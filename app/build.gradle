@@ -72,4 +72,9 @@ dependencies {
     implementation "com.android.support:multidex:1.0.2"
     implementation "com.github.linlsyf:EasyWidget:1.0.0.2"
     implementation "com.github.linlsyf:EasySoftUtils:1.0.0.1"
+
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+
 }

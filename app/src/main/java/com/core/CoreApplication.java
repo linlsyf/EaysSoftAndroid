@@ -11,6 +11,7 @@ import com.core.utils.ImageLoadUtils;
 import com.easy.recycleview.recycleview.RecycleViewManage;
 import com.easysoft.utils.lib.DebugUtlis.CrashHandler;
 import com.mob.MobSDK;
+import com.squareup.leakcanary.LeakCanary;
 import com.tencent.bugly.crashreport.CrashReport;
 import android.support.multidex.MultiDex;
 import cn.jpush.android.api.JPushInterface;
@@ -49,7 +50,13 @@ public class CoreApplication extends Application {
 			 initGlobalConstants();
 			init();
 		RecycleViewManage.getInStance().setIloadImage(ImageLoadUtils.getInStance());
-
+		if (LeakCanary.isInAnalyzerProcess(this)) {
+			// This process is dedicated to LeakCanary for heap analysis.
+			// You should not init your app in this process.
+			return;
+		}
+		LeakCanary.install(this);
+		// Normal app init code...
 	}
 //	/**
 //	 * 我们需要确保至少对主进程跟patch进程初始化 TinkerPatch
