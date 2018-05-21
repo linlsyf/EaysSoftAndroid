@@ -8,7 +8,7 @@
 
     >
 
-    <com.view.statusview.SoftKeyBoardSatusView
+    <com.easysoft.widget.statusview.SoftKeyBoardSatusView
         android:id="@+id/login_soft_status_view"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" />
@@ -71,7 +71,7 @@
                 android:layout_marginStart="10dp"
                 android:src="@drawable/ic_login_account" />
 
-            <com.view.edittextview.BoundEditText
+            <com.easysoft.widget.edittextview.BoundEditText
                 android:id="@+id/et_login_uername"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -122,7 +122,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginBottom="8dp">
 
-                <com.view.edittextview.BoundEditText
+                <com.easysoft.widget.edittextview.BoundEditText
                     android:id="@+id/et_login_password"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"

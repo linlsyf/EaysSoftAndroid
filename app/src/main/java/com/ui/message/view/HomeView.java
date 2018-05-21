@@ -7,7 +7,7 @@ import android.widget.LinearLayout;
 
 import com.easy.recycleview.recycleview.item.AddressItemBean;
 import com.easysoft.costumes.R;
-import com.view.search.SearchHeadView;
+import com.easysoft.widget.search.SearchHeadView;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

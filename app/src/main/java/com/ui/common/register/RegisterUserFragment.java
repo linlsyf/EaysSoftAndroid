@@ -30,11 +30,11 @@ import com.easysoft.utils.lib.system.KeyboardUtils;
 import com.easysoft.utils.lib.system.PasswordUtils;
 import com.easysoft.utils.lib.system.StringUtils;
 import com.easysoft.utils.lib.system.ToastUtils;
+import com.easysoft.widget.edittextview.ValidateEdittextView;
+import com.easysoft.widget.process.ProgressHUD;
 import com.easysoft.widget.toolbar.NavigationBar;
 import com.easysoft.widget.toolbar.NavigationBarListener;
 import com.easysoft.widget.toolbar.TopBarBuilder;
-import com.view.edittextview.ValidateEdittextView;
-import com.view.process.ProgressHUD;
 
 
 import cn.smssdk.SMSSDK;

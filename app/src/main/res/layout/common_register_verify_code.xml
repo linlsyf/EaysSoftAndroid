@@ -33,7 +33,7 @@
             android:textSize="15sp" />
     </LinearLayout>
 
-    <com.view.edittextview.ValidateEdittextView
+    <com.easysoft.widget.edittextview.ValidateEdittextView
         android:id="@+id/etview_validate_code"
         android:layout_width="fill_parent"
         android:layout_height="50dip"
@@ -41,7 +41,7 @@
         android:layout_marginLeft="@dimen/margin_register_vali_left_right"
         android:layout_marginRight="@dimen/margin_register_vali_left_right"
         android:layout_marginTop="5dp" >
-    </com.view.edittextview.ValidateEdittextView>
+    </com.easysoft.widget.edittextview.ValidateEdittextView>
 
     <Button
         android:id="@+id/bt_getcode_register"
@@ -68,7 +68,7 @@
             android:scaleType="fitXY"
             android:src="@drawable/login_et_slider_line" />
 
-        <com.view.edittextview.BoundEditText
+        <com.easysoft.widget.edittextview.BoundEditText
             android:id="@+id/edit_relality_name"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -107,7 +107,7 @@
             android:layout_marginBottom="@dimen/margin_login_slide"
             android:orientation="horizontal" >
 
-            <com.view.edittextview.BoundEditText
+            <com.easysoft.widget.edittextview.BoundEditText
                 android:id="@+id/edit_pwd"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -130,7 +130,7 @@
                 android:imeOptions="actionDone">
 
                 <requestFocus />
-            </com.view.edittextview.BoundEditText>
+            </com.easysoft.widget.edittextview.BoundEditText>
 
             <RelativeLayout
                 android:id="@+id/rl_changeshow"

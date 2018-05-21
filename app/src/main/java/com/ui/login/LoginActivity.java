@@ -27,16 +27,17 @@ import com.easysoft.utils.lib.system.FragmentHelper;
 import com.easysoft.utils.lib.system.KeyboardUtils;
 import com.easysoft.utils.lib.system.StringUtils;
 import com.easysoft.utils.lib.system.ToastUtils;
+
+import com.easysoft.widget.dialog.CustomDialog;
+import com.easysoft.widget.edittextview.BoundEditText;
 import com.easysoft.widget.imgeview.MultiShapeView;
+import com.easysoft.widget.process.ProgressHUD;
 import com.ui.common.register.check.CheckUserExitFragment;
 import com.ui.common.setting.SettingActivity;
-import com.view.dialog.CustomDialog;
-import com.view.edittextview.BoundEditText;
-import com.view.process.ProgressHUD;
-import com.view.statusview.SoftKeyBoardSatusView;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import  com.easysoft.widget.statusview.SoftKeyBoardSatusView;
 
 /**
  * 登录界面类

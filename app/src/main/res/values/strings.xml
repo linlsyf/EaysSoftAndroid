@@ -79,7 +79,6 @@
     <!-- 通讯录相关 -->
 
     <string name="no_data_show">没有数据显示</string>
-    <string name="data_loading">列表加载中…</string>
     <string name="data_loading_error">点击重新加载</string>
 
 
@@ -171,11 +170,6 @@
     <string name="yestoday">昨天</string>
     <string name="the_day_before_yestoday">前天</string>
 
-    <string name="xlistview_header_hint_normal">下拉刷新</string>
-    <string name="xlistview_header_hint_ready">松开刷新数据</string>
-    <string name="xlistview_header_hint_loading">正在加载...</string>
-    <string name="xlistview_footer_hint_normal">查看更多</string>
-    <string name="xlistview_footer_hint_ready">松开载入更多</string>
     <string name="search">搜索</string>
 
 </resources>

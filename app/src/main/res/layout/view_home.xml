@@ -6,7 +6,7 @@
     android:background="#fff"
     android:orientation="vertical"
     >
-   <com.view.search.SearchHeadView
+   <com.easysoft.widget.search.SearchHeadView
         android:id="@+id/searchView"
        android:layout_width="match_parent"
     android:layout_height="wrap_content"/>

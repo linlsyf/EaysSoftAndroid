@@ -16,13 +16,13 @@ import com.easy.recycleview.recycleview.sectionview.Section;
 import com.easysoft.costumes.R;
 import com.easysoft.utils.lib.system.FragmentHelper;
 import com.easysoft.utils.lib.system.StringUtils;
-import com.easysoft.widget.banner.BannerView;
+
+import com.easysoft.widget.search.SearchHeadView;
 import com.easysoft.widget.toolbar.NavigationBar;
 import com.easysoft.widget.toolbar.NavigationBarListener;
 import com.easysoft.widget.toolbar.TopBarBuilder;
 import com.ui.message.add.AddFragment;
 import com.ui.message.view.GoodsView;
-import com.view.search.SearchHeadView;
 
 import java.io.Serializable;
 import java.util.ArrayList;

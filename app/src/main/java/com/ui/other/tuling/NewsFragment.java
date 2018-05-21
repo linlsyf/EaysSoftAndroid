@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ListView;
 
 import com.core.CoreApplication;
 import com.core.base.BaseFragment;
@@ -17,11 +18,6 @@ import com.ui.other.tuling.adapter.NewsAdapter;
 import com.ui.other.tuling.entity.MessageEntity;
 import com.ui.other.tuling.entity.NewsEntity;
 import com.ui.other.tuling.util.DisplayUtil;
-import com.view.refreshswipemenulistview.XListView;
-import com.view.swipemenulistview.SwipeMenu;
-import com.view.swipemenulistview.SwipeMenuCreator;
-import com.view.swipemenulistview.SwipeMenuItem;
-import com.view.swipemenulistview.SwipeMenuListView;
 
 
 import java.util.List;
@@ -29,12 +25,12 @@ import java.util.List;
 /**
  * Created by sunfusheng on 2015/2/5.
  */
-public class NewsFragment extends BaseFragment implements XListView.IXListViewListener {
+public class NewsFragment extends BaseFragment  {
 
 //    @Bind(R.id.toolbar)
 //    Toolbar toolbar;
 //    @Bind(R.id.xlv_listView)
-    XListView xlvListView;
+    ListView xlvListView;
 
     private List<NewsEntity> newsList;
     private NewsAdapter newsAdapter;
@@ -79,14 +75,11 @@ public class NewsFragment extends BaseFragment implements XListView.IXListViewLi
         initXlistView();
         newsAdapter = new NewsAdapter(getActivity(), newsList);
         xlvListView.setAdapter(newsAdapter);
-        setSwipeMenuCreator();
-        initSwipeMenuItemClickListener();
+
     }
 
     private void initXlistView() {
-        xlvListView.setXListViewListener(this);
-        xlvListView.setPullRefreshEnable(true);
-        xlvListView.setPullLoadEnable(true);
+
         xlvListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -99,35 +92,7 @@ public class NewsFragment extends BaseFragment implements XListView.IXListViewLi
         });
     }
 
-    private void setSwipeMenuCreator() {
-        SwipeMenuCreator creator = new SwipeMenuCreator() {
-            @Override
-            public void create(SwipeMenu menu) {
-                SwipeMenuItem openItem = new SwipeMenuItem(CoreApplication.getAppContext());
-                openItem.setBackground(new ColorDrawable(Color.rgb(0xF9, 0x3F, 0x25)));
-                openItem.setWidth(DisplayUtil.dip2px(getActivity(), 90));
-                openItem.setTitle("删除");
-                openItem.setTitleSize(16);
-                openItem.setTitleColor(Color.WHITE);
-                menu.addMenuItem(openItem);
-            }
-        };
-        xlvListView.setMenuCreator(creator);
-    }
 
-    private void initSwipeMenuItemClickListener() {
-        xlvListView.setOnMenuItemClickListener(new SwipeMenuListView.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(int position, SwipeMenu menu, int index) {
-                switch (index) {
-                    case 0:
-                        deleteNewsListItem(position);
-                        break;
-                }
-                return true;
-            }
-        });
-    }
 
     private void deleteNewsListItem(int position) {
         NewsEntity entity = newsList.get(position);
@@ -135,26 +100,4 @@ public class NewsFragment extends BaseFragment implements XListView.IXListViewLi
         newsAdapter.notifyDataSetChanged();
     }
 
-    @Override
-    public void onRefresh() {
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                xlvListView.stopRefresh();
-                xlvListView.setRefreshTime("刚刚");
-                newsAdapter.notifyDataSetChanged();
-            }
-        }, 2000);
-    }
-
-    @Override
-    public void onLoadMore() {
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                xlvListView.stopLoadMore();
-                newsAdapter.notifyDataSetChanged();
-            }
-        }, 2000);
-    }
 }
