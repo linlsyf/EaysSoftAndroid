@@ -71,7 +71,7 @@ dependencies {
     compile 'top.zibin:Luban:1.1.3'
     implementation "com.android.support:multidex:1.0.2"
     implementation "com.github.linlsyf:EasySoftUtils:1.0.0.1"
-    implementation "com.github.linlsyf:EasyWidget:1.0.0.5"
+    implementation "com.github.linlsyf:EasyWidget:1.0.0.7"
 
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'

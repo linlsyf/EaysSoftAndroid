@@ -13,6 +13,7 @@ import android.os.Message;
 import com.business.BusinessBroadcastUtils;
 import com.core.ServerUrl;
 import com.core.base.BasicActivity;
+import com.core.base.GlobalConstants;
 import com.core.utils.SpUtils;
 import com.easysoft.costumes.R;
 import com.easysoft.utils.lib.system.StringUtils;
@@ -34,6 +35,10 @@ public class WellComeActivity extends BasicActivity    {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
         setContentView(R.layout.wellcome_ui);
+        if (GlobalConstants.getInstance().getAppType()==GlobalConstants.TYPE_SYSTEM_APP){
+			gotoMainOrloginUI(this);
+			return;
+		}
 		initUIView();
 
 		ThreadPoolUtils.execute(new Runnable() {

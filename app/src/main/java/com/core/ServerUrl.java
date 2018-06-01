@@ -43,6 +43,9 @@ public class ServerUrl {
 	public static String ADD_UserUrl="/api/v1/user/add";
 	public static String REGISTER_UserUrl="/api/v1/user/register";
 	public static String checkUserExitUrl="/api/v1/user/checkUserExit";
+    //反馈意见
+	public static String commentListUrl="/api/v1/comment/list";
+	public static String commentAddUrl="/api/v1/comment/add";
 
 
 	public static String list_server_iP="server_ip";

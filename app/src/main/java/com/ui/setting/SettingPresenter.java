@@ -9,6 +9,7 @@ import com.business.bean.ResponseMsgData;
 import com.business.login.User;
 import com.core.CoreApplication;
 import com.core.ServerUrl;
+import com.core.base.GlobalConstants;
 import com.core.utils.SpUtils;
 import com.easy.recycleview.recycleview.item.AddressItemBean;
 import com.easy.recycleview.recycleview.item.IItemView;
@@ -54,8 +55,12 @@ public class SettingPresenter   {
 		   }
 		    infoCardBean.setUserName(loginName);
 		    infoCardBean.setViewType(3);
-		    dataMaps.add(infoCardBean);
-		    
+		  if (GlobalConstants.getInstance().getAppType()==GlobalConstants.TYPE_SHOP_APP){
+			  dataMaps.add(infoCardBean);
+
+		  }
+
+
 		    AddressItemBean updateBean=new AddressItemBean();
 		    updateBean.setId(KEY_UPDATE);
 		    String  verson="检查更新";
@@ -125,7 +130,10 @@ public class SettingPresenter   {
 				  Logout();
 			  }
 		  });
-		  newSectionList.add(exitBean);
+		  if (GlobalConstants.getInstance().getAppType()==GlobalConstants.TYPE_SHOP_APP){
+			  newSectionList.add(exitBean);
+
+		  }
 
 		  newSection.setDataMaps(newSectionList);
 		  iSafeSettingView.initUI(newSection);

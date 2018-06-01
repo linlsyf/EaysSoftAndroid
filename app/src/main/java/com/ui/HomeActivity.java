@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 
 import com.business.BusinessBroadcastUtils;
 import com.core.base.BasicActivity;
+import com.core.base.GlobalConstants;
 import com.easysoft.costumes.R;
 import com.easysoft.utils.lib.system.StringUtils;
 import com.easysoft.utils.lib.system.ToastUtils;
@@ -36,11 +37,26 @@ public class HomeActivity extends BasicActivity implements IlogInView,IHomeView 
 
          tabContainerView = (TabContainerView) findViewById(R.id.tab_container);
 
-        MainViewAdapter mainViewAdapter=new MainViewAdapter(getSupportFragmentManager(),
-                new Fragment[] {new GoodsFragment(),  new ShopOrderListFragment(),new TabOtherFragment(),new SettingFragment()});
-		mainViewAdapter.setIconImageArray(new int[] {R.drawable.new_life_icon_grey, R.drawable.new_shoppingcar_icon_grey,R.drawable.new_find_icon_grey,R.drawable.new_myhome_icon_grey});
-		 mainViewAdapter.setSelectedIconImageArray(new int[] {R.drawable.new_life_icon, R.drawable.new_shoppingcar_icon,R.drawable.new_find_icon,R.drawable.new_myhome_icon});
-        mainViewAdapter.setHasMsgIndex(0);
+        MainViewAdapter mainViewAdapter=null;
+
+		if (GlobalConstants.getInstance().getAppType()==GlobalConstants.TYPE_SYSTEM_APP){
+			mainViewAdapter=new MainViewAdapter(getSupportFragmentManager(),
+					new Fragment[] {new GoodsFragment(), new TabOtherFragment(),new SettingFragment()});
+
+			mainViewAdapter.setIconImageArray(new int[] {R.drawable.new_life_icon_grey,R.drawable.new_find_icon_grey,R.drawable.new_myhome_icon_grey});
+			mainViewAdapter.setSelectedIconImageArray(new int[] {R.drawable.new_life_icon, R.drawable.new_find_icon,R.drawable.new_myhome_icon});
+			mainViewAdapter.setTabNameArray(new String[] {"首页", "资讯","设置"});
+		}else{
+			mainViewAdapter=new MainViewAdapter(getSupportFragmentManager(),
+					new Fragment[] {new GoodsFragment(),  new ShopOrderListFragment(),new TabOtherFragment(),new SettingFragment()});
+
+			mainViewAdapter.setIconImageArray(new int[] {R.drawable.new_life_icon_grey, R.drawable.new_shoppingcar_icon_grey,R.drawable.new_find_icon_grey,R.drawable.new_myhome_icon_grey});
+			mainViewAdapter.setSelectedIconImageArray(new int[] {R.drawable.new_life_icon, R.drawable.new_shoppingcar_icon,R.drawable.new_find_icon,R.drawable.new_myhome_icon});
+			mainViewAdapter.setTabNameArray(new String[] {"首页", "订单","资讯","设置"});
+
+		}
+
+         mainViewAdapter.setHasMsgIndex(0);
         tabContainerView.setAdapter(mainViewAdapter);
         tabContainerView.setOnTabSelectedListener(new OnTabSelectedListener() {
             @Override
@@ -48,14 +64,7 @@ public class HomeActivity extends BasicActivity implements IlogInView,IHomeView 
 
             }
         });
-//		TestView testView=new TestView();
-//		String name=testView.get();
-//		FragmentHelper.showFrag(this,R.id.container_framelayout,new RegisterSuccessFragment(),null);
-//		Intent dbIntent=new Intent(this, LoginActivity.class);
-//		 startActivity(dbIntent);
-//		sendCode(this);
-//		Intent intent = new Intent(this, TulingFragemnt.class);
-//		startActivity(intent);
+
 		homePresenter=new HomePresenter(this);
 	}
 
@@ -72,12 +81,16 @@ public class HomeActivity extends BasicActivity implements IlogInView,IHomeView 
 //		 if (CoreApplication.getInstance().isDubug){
 ////		      gotoMainOrloginUI(wellComeActivity);
 //		 }else
-		 if(StringUtils.isEmpty(BusinessBroadcastUtils.USER_VALUE_LOGIN_ID)){
-			 Intent  homeIntent=new Intent(this,LoginActivity.class);
-			 startActivity(homeIntent);
-		 }else if (BusinessBroadcastUtils.loginUser==null){
-           login();
-		 }
+
+		if (GlobalConstants.getInstance().getAppType()==GlobalConstants.TYPE_SHOP_APP){
+			if(StringUtils.isEmpty(BusinessBroadcastUtils.USER_VALUE_LOGIN_ID)){
+				Intent  homeIntent=new Intent(this,LoginActivity.class);
+				startActivity(homeIntent);
+			}else if (BusinessBroadcastUtils.loginUser==null){
+				login();
+			}
+		}
+
 	}
    private void login(){
 	   loginPresenter=new LoginPresenter(this);

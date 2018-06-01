@@ -29,6 +29,19 @@ public class GlobalConstants {
 	private boolean isPadDevice = false;
 	DisplayMetrics AppWindowDisplayMetrics = null;
 	String appDocumentHomePath = "", mmaServerIP = "";
+
+	public static int TYPE_SYSTEM_APP=2;
+	public static int TYPE_SHOP_APP=1;
+
+	public int getAppType() {
+		return appType;
+	}
+
+	public void setAppType(int appType) {
+		this.appType = appType;
+	}
+
+	int  appType=2;
 	int mmaServerPort = 9000;
 	// VPN
 	String mmaServerVPNIP = "114.251.218.39", mmaServerVPNNAME = "ydbg-ctg",

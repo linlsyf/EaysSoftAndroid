@@ -15,6 +15,9 @@ import com.squareup.leakcanary.LeakCanary;
 import com.tencent.bugly.crashreport.CrashReport;
 import android.support.multidex.MultiDex;
 import cn.jpush.android.api.JPushInterface;
+
+import static com.core.base.GlobalConstants.TYPE_SYSTEM_APP;
+
 /**
  * 
  * @author ldh
@@ -56,8 +59,8 @@ public class CoreApplication extends Application {
 			return;
 		}
 		LeakCanary.install(this);
-		// Normal app init code...
-	}
+		GlobalConstants.getInstance().setAppType(TYPE_SYSTEM_APP);
+ 	}
 //	/**
 //	 * 我们需要确保至少对主进程跟patch进程初始化 TinkerPatch
 //	 */
