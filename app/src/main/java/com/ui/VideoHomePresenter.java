@@ -1,0 +1,139 @@
+package com.ui.setting;
+
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.business.BusinessBroadcastUtils;
+import com.business.ServiceCallBack;
+import com.business.bean.ResponseMsg;
+import com.business.bean.ResponseMsgData;
+import com.business.login.User;
+import com.core.CoreApplication;
+import com.core.ServerUrl;
+import com.core.utils.SpUtils;
+import com.easy.recycleview.recycleview.item.AddressItemBean;
+import com.easy.recycleview.recycleview.item.IItemView;
+import com.easy.recycleview.recycleview.sectionview.Section;
+import com.easysoft.utils.lib.system.AppInfo;
+import com.easysoft.utils.lib.system.StringUtils;
+import com.ui.HttpService;
+import com.ui.car.MyCallback;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class SettingPresenter   {
+	HttpService service;
+
+	ISafeSettingView iSafeSettingView;
+	private String KEY_SETTING="setting";
+	private String KEY_INFO="info";
+	private String KEY_LOGOUT="logout";
+	private String KEY_UPDATE="update";
+	private String KEY_USER_INFO="userInfo";
+	private InfoCardBean infoCardBean;
+	private String SECTION_NEW="new";
+	private String KEY_ABOUT="about";
+
+	public SettingPresenter(ISafeSettingView iSafeSettingView) {
+    	this.iSafeSettingView=iSafeSettingView;
+		service=new HttpService();
+	}
+
+      public void init(){
+		  List<AddressItemBean> dataMaps=new ArrayList<>();
+		  List<AddressItemBean> settingMaps=new ArrayList<>();
+
+		  ArrayList  videoList= VideoUtils. getVideodData(CoreApplication.getAppContext());
+		  for (VideoItem item :videoList ) {
+			  AddressItemBean updateBean=new AddressItemBean();
+//			  updateBean.setTitle(item.get);
+
+		  }
+		  AddressItemBean updateBean=new AddressItemBean();
+		    updateBean.setId(KEY_UPDATE);
+		    String  verson="检查更新";
+		     verson=verson+"("+ AppInfo.getAppVersion(CoreApplication.getAppContext())+")";
+		    updateBean.setTitle(verson);
+		  updateBean.setOnItemListener(new IItemView.onItemClick() {
+			  @Override
+			  public void onItemClick(IItemView.ClickTypeEnum typeEnum, AddressItemBean bean) {
+				iSafeSettingView.showUpdate();
+			  }
+		  });
+		  settingMaps.add(updateBean);
+		    
+		
+    	  iSafeSettingView.initUI(settingSection);
+    	
+      }
+	  public void getLoginUserMsg(){
+		  if(StringUtils.isNotEmpty(BusinessBroadcastUtils.USER_VALUE_USER_ID)){{
+
+			   String url = ServerUrl.baseUrl+ServerUrl.Get_UserUrl;
+			  User loginUser=new User();
+			  loginUser.setId(BusinessBroadcastUtils.USER_VALUE_USER_ID);
+			  final String json= JSON.toJSONString(loginUser);
+			  url=ServerUrl.getFinalUrl(url,json);
+
+			  service.request( url , new MyCallback(new MyCallback.IResponse() {
+				  @Override
+				  public void onFailure(ServiceCallBack serviceCallBack) {
+				  }
+
+				  @Override
+				  public void onResponse(ServiceCallBack serviceCallBack) {
+					  if (serviceCallBack.isSucess()){
+						  ResponseMsg msg=   serviceCallBack.getResponseMsg();
+						  ResponseMsgData serverUserResponseMsgData= JSONObject.parseObject(msg.getMsg(), ResponseMsgData.class);
+
+						  if (StringUtils.isNotEmpty(serverUserResponseMsgData.getData().toString())){
+							  User  serverUser=JSONObject.parseObject(serverUserResponseMsgData.getData().toString(), User.class);
+
+							  infoCardBean.setId(serverUser.getId());
+							  infoCardBean.setUserName(serverUser.getName());
+							  iSafeSettingView.updateItem(infoCardBean);
+						  }
+
+
+					  }
+
+//                ilogInView.showToast("登录成功");
+				  }
+			  }));
+		  }}
+	  }
+
+
+    public void initJpush(){
+//    	JPushInterface.setAlias(CoreApplication.getAppContext(), 0, "ldh");
+//    	  JPushInterface.setAlias(CoreApplication.getAppContext(),"ldh", new TagAliasCallback() {
+//              @Override
+//              public void gotResult(int i, String s, Set<String> set) {
+//            	  ToastUtils.show(CoreApplication.getAppContext(), "设置成功");
+////                  tvAlias.setText("当前alias："+alias);
+//              }
+//
+//		
+//          });
+    }
+    public void Logout() {
+		BusinessBroadcastUtils.USER_VALUE_LOGIN_ID = "";
+		BusinessBroadcastUtils.USER_VALUE_PWD 	   = "";
+		BusinessBroadcastUtils.USER_VALUE_USER_ID  ="";
+		SpUtils.clear(iSafeSettingView.getContext(), BusinessBroadcastUtils.STRING_LOGIN_USER_ID);
+		SpUtils.clear(iSafeSettingView.getContext(), BusinessBroadcastUtils.STRING_LOGIN_USER_PWD);
+		SpUtils.clear(iSafeSettingView.getContext(), BusinessBroadcastUtils.STRING_LOGIN_ID);
+		iSafeSettingView.logOut();
+    }
+
+	public void updateUserInfo() {
+		infoCardBean.setId(BusinessBroadcastUtils.loginUser.getId());
+		String 	name=BusinessBroadcastUtils.loginUser.getName();
+		if (BusinessBroadcastUtils.loginUser.getIsAdmin().equals("1")){
+			name=name+" (管理)";
+		}
+		infoCardBean.setUserName(name);
+		iSafeSettingView.updateItem(infoCardBean);
+	}
+}
