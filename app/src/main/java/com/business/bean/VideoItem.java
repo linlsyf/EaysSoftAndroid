@@ -3,6 +3,8 @@ package com.business.bean;
 public class VideoItem {
 	private String name;
 	private String data;
+	private String thumbPath;
+
 	private long duration;
 	private long size;
 	public String getName() {
@@ -30,4 +32,11 @@ public class VideoItem {
 		this.size = size;
 	}
 
+	public String getThumbPath() {
+		return thumbPath;
+	}
+
+	public void setThumbPath(String thumbPath) {
+		this.thumbPath = thumbPath;
+	}
 }

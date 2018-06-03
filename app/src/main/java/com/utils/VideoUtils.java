@@ -1,4 +1,4 @@
-package com.example.test;
+package com.utils;
 
 import java.util.ArrayList;
 
@@ -10,11 +10,13 @@ import android.os.Handler;
 import android.os.Message;
 import android.provider.MediaStore;
 
+import com.business.bean.VideoItem;
+
 public class VideoUtils {
 	
 	static ArrayList       listItems ;
 
-	 public  static ArrayList getVideodData(final Context context) {
+	 public  static ArrayList<VideoItem> getVideodData(final Context context) {
 //	        new Thread(new Runnable() {
 //	            @Override
 //	            public void run() {
@@ -25,16 +27,18 @@ public class VideoUtils {
 	                        MediaStore.Video.Media.DATA };
 	                Cursor cursor = getContentResolver(context).query(uri, projection, null, null, null);
 	                while (cursor.moveToNext()) {
-	                    String name = cursor.getString(0);//视频的名称
-	                    long duration = cursor.getLong(1);//视频的时长
-	                    long size = cursor.getLong(2);//视频的大小
-	                    String data = cursor.getString(3);//视频sd卡下的绝对路劲
-	                    //一个视频信息对应一个对象
+	                    String name = cursor.getString(0);//锟斤拷频锟斤拷锟斤拷锟斤拷
+	                    long duration = cursor.getLong(1);//锟斤拷频锟斤拷时锟斤拷
+	                    long size = cursor.getLong(2);//锟斤拷频锟侥达拷小
+	                    String data = cursor.getString(3);//锟斤拷频sd锟斤拷锟铰的撅拷锟斤拷路锟斤拷
+
 	                    VideoItem item = new VideoItem();
 	                    item.setName(name);
 	                    item.setDuration(duration);
 	                    item.setSize(size);
 	                    item.setData(data);
+						item.setThumbPath(cursor.getString(cursor
+								.getColumnIndex(MediaStore.Video.Thumbnails.DATA)));
 
 
 	                    listItems.add(item);
