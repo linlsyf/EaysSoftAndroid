@@ -1,25 +1,27 @@
-package com.ui.other.tuling;
+package com.ui.video;
 
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.core.CoreApplication;
+import com.alibaba.fastjson.JSON;
+import com.business.ServiceCallBack;
+import com.business.bean.ResponseMsgData;
 import com.core.base.BaseFragment;
 import com.easysoft.costumes.R;
 import com.easysoft.utils.lib.system.FragmentHelper;
 import com.easysoft.widget.toolbar.NavigationBar;
 import com.easysoft.widget.toolbar.TopBarBuilder;
+import com.ui.HttpService;
+import com.ui.car.MyCallback;
 import com.ui.other.tuling.adapter.NewsAdapter;
+import com.ui.other.tuling.constant.TulingParams;
 import com.ui.other.tuling.entity.MessageEntity;
 import com.ui.other.tuling.entity.NewsEntity;
-import com.ui.other.tuling.util.DisplayUtil;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -32,7 +34,7 @@ public class NewsFragment extends BaseFragment  {
 //    @Bind(R.id.xlv_listView)
     ListView xlvListView;
 
-    private List<NewsEntity> newsList;
+    private List<NewsEntity> newsList=new ArrayList<>();
     private NewsAdapter newsAdapter;
     private NavigationBar toolbar;
 
@@ -58,12 +60,52 @@ public class NewsFragment extends BaseFragment  {
     }
 
     public void initData() {
-        MessageEntity messageEntity = (MessageEntity) getArguments().getSerializable("messageEntity");
-        if (messageEntity != null && messageEntity.getList() != null && messageEntity.getList().size() > 0) {
-            newsList = messageEntity.getList();
-        } else {
-            FragmentHelper.popBackFragment(getActivity());
+
+         if (null!=getArguments()){
+             MessageEntity messageEntity = (MessageEntity) getArguments().getSerializable("messageEntity");
+             if (messageEntity != null && messageEntity.getList() != null && messageEntity.getList().size() > 0) {
+                 newsList = messageEntity.getList();
+             }
+         }
+
+        else {
+             requestApiByRetrofit_RxJava("新闻");
+
+//            FragmentHelper.popBackFragment(getActivity());
         }
+    }
+
+    // 请求图灵API接口，获得问答信息
+    private void requestApiByRetrofit_RxJava(final String info) {
+        HttpService service=new HttpService();
+        final String url = TulingParams.TULING_URL+"?key="+TulingParams.TULING_KEY+"&info="+info;
+//        url= ServerUrl.getFinalUrl(url,json);
+
+        service.request( url , new MyCallback(new MyCallback.IResponse() {
+            @Override
+            public void onFailure(ServiceCallBack serviceCallBack) {
+            }
+
+            @Override
+            public void onResponse(ServiceCallBack serviceCallBack) {
+                if (serviceCallBack.isSucess()){
+                    ResponseMsgData data = JSON.parseObject(serviceCallBack.getResponseMsg().getData().toString(),
+                            ResponseMsgData.class);
+                    newsList =  JSON.parseArray(data.getList().toString(), NewsEntity.class) ;
+
+//                    initView();
+
+
+                    getActivity().runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            initView();
+                        }
+                    });
+                }
+
+            }
+        }).setOutside(true));
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.ui.other.tuling;
+package com.ui.video;
 
 import android.graphics.Bitmap;
 import android.os.Build;

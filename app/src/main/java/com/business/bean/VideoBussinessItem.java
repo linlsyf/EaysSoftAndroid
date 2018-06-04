@@ -1,12 +1,19 @@
 package com.business.bean;
 
-public class VideoItem {
+import android.graphics.Bitmap;
+
+import com.easy.recycleview.recycleview.item.AddressItemBean;
+
+public class VideoBussinessItem extends AddressItemBean {
 	private String name;
 	private String data;
 	private String thumbPath;
 
 	private long duration;
 	private long size;
+	private String durationString;
+	private Bitmap bitmap;
+
 	public String getName() {
 		return name;
 	}
@@ -38,5 +45,21 @@ public class VideoItem {
 
 	public void setThumbPath(String thumbPath) {
 		this.thumbPath = thumbPath;
+	}
+
+	public String getDurationString() {
+		return durationString;
+	}
+
+	public void setDurationString(String durationString) {
+		this.durationString = durationString;
+	}
+
+	public Bitmap getBitmap() {
+		return bitmap;
+	}
+
+	public void setBitmap(Bitmap bitmap) {
+		this.bitmap = bitmap;
 	}
 }

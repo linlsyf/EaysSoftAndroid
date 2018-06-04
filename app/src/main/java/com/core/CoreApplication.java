@@ -13,6 +13,8 @@ import com.easysoft.utils.lib.DebugUtlis.CrashHandler;
 import com.mob.MobSDK;
 import com.squareup.leakcanary.LeakCanary;
 import com.tencent.bugly.crashreport.CrashReport;
+
+import android.os.StrictMode;
 import android.support.multidex.MultiDex;
 import cn.jpush.android.api.JPushInterface;
 
@@ -60,7 +62,9 @@ public class CoreApplication extends Application {
 		}
 		LeakCanary.install(this);
 		GlobalConstants.getInstance().setAppType(TYPE_SYSTEM_APP);
- 	}
+		StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+		StrictMode.setVmPolicy(builder.build());
+	}
 //	/**
 //	 * 我们需要确保至少对主进程跟patch进程初始化 TinkerPatch
 //	 */

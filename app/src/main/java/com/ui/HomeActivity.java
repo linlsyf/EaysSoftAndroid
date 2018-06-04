@@ -22,6 +22,7 @@ import com.ui.login.LoginPresenter;
 import com.ui.message.GoodsFragment;
 import com.ui.other.TabOtherFragment;
 import com.ui.setting.SettingFragment;
+import com.ui.video.NewsFragment;
 import com.ui.video.VideosFragment;
 
 
@@ -41,7 +42,7 @@ public class HomeActivity extends BasicActivity implements IlogInView,IHomeView 
 
 		if (GlobalConstants.getInstance().getAppType()==GlobalConstants.TYPE_SYSTEM_APP){
 			mainViewAdapter=new MainViewAdapter(getSupportFragmentManager(),
-					new Fragment[] {new VideosFragment(), new TabOtherFragment(),new SettingFragment()});
+					new Fragment[] {new VideosFragment(), new NewsFragment(),new SettingFragment()});
 
 			mainViewAdapter.setIconImageArray(new int[] {R.drawable.new_life_icon_grey,R.drawable.new_find_icon_grey,R.drawable.new_myhome_icon_grey});
 			mainViewAdapter.setSelectedIconImageArray(new int[] {R.drawable.new_life_icon, R.drawable.new_find_icon,R.drawable.new_myhome_icon});
