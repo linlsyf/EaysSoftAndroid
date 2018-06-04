@@ -123,7 +123,7 @@ public class VideoUtils {
 		return bitmap;
 	}
 	public static Bitmap geThumbnailByMediaMetadata(String videoPath, int width, int height) {
-		String path  = Environment.getExternalStorageDirectory().getPath();
+//		String path  = Environment.getExternalStorageDirectory().getPath();
 		MediaMetadataRetriever media = new MediaMetadataRetriever();
 		media.setDataSource(videoPath);
 		Bitmap bitmap = media.getFrameAtTime();
