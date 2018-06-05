@@ -3,6 +3,7 @@ package com.utils;
 import android.graphics.Bitmap;
 
 public class VideoItem {
+	private String id;
 	private String name;
 	private String data;
 	private String thumbPath;
@@ -56,7 +57,16 @@ public class VideoItem {
 		return bitmap;
 	}
 
-	public void setBitmap(Bitmap bitmap) {
+	public VideoItem setBitmap(Bitmap bitmap) {
 		this.bitmap = bitmap;
+		return this;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 }

@@ -51,7 +51,7 @@ public class VideoHomePresenter   {
 			  updateBean.setHint(item.getDurationString());
 			  updateBean.setHintShow(true);
 			  AddressHeadImgeSettings headImgeSettings=new AddressHeadImgeSettings();
-//			  headImgeSettings.setHeadImgPath(item.getThumbPath());
+			  headImgeSettings.setHeadImgPath(item.getThumbPath());
 			  headImgeSettings.setHeadImgRadius(headImgSize);
 			  headImgeSettings.setBitmap(item.getBitmap());
               updateBean.setHeadImgeSettings(headImgeSettings);

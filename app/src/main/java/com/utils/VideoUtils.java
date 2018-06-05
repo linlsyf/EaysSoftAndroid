@@ -1,18 +1,34 @@
 package com.utils;
 
+import android.Manifest;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.media.MediaMetadataRetriever;
 import android.media.ThumbnailUtils;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
+import android.widget.Toast;
 
+import com.dyhdyh.compat.mmrc.MediaMetadataRetrieverCompat;
+
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Formatter;
 import java.util.Locale;
+
+import io.reactivex.Observable;
+import io.reactivex.ObservableEmitter;
+import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
 
 
 public class VideoUtils {
@@ -22,7 +38,7 @@ public class VideoUtils {
 	static ArrayList listItems ;
 
 
-
+	private  static MediaMetadataRetrieverCompat  mmrc = new MediaMetadataRetrieverCompat();
 	private static final String[] VIDEOTHUMBNAIL_TABLE = new String[] {
 			MediaStore.Video.Media._ID, // 0
 			MediaStore.Video.Media.DATA, // 1 from android.provider.MediaStore.Video
@@ -35,10 +51,7 @@ public class VideoUtils {
 
 
 
-
 		 Uri videoUri = MediaStore.Video.Thumbnails.getContentUri("external");
-
-
 
 
 	                Uri uri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
@@ -63,22 +76,19 @@ public class VideoUtils {
 
 						String thumbPath="";
 						item.setThumbPath(thumbPath);
-
-						 item.setBitmap(geThumbnailByMediaMetadata(data,200,100));
+						item.setBitmap(getThumbnail(data,200,100));
+//						 getImageThumbnail(data,200,100);
 
 	                    listItems.add(item);
 	                }
 
-
 	                cursor.close();
-//	                Message message = handler.obtainMessage();
-//	                int what = 1;
-//	                handler.sendEmptyMessage(what);
 
-	                 return listItems;
+
+
+		 return listItems;
 //	            }
 //	        }).start();
-
 
 	    }
 	/**
@@ -111,17 +121,7 @@ public class VideoUtils {
 	
 		return contentResolver;
 	}
-	private Bitmap getVideoThumbnail(String videoPath, int width, int height,
-                                     int kind) {
-		Bitmap bitmap = null;
-		// 获取视频的缩略图
-		// kind could be MINI_KIND or MICRO_KIND
-		bitmap = ThumbnailUtils.createVideoThumbnail(videoPath, kind);
-		bitmap = ThumbnailUtils.extractThumbnail(bitmap, width, height,
-				ThumbnailUtils.OPTIONS_RECYCLE_INPUT);
 
-		return bitmap;
-	}
 	public static Bitmap geThumbnailByMediaMetadata(String videoPath, int width, int height) {
 //		String path  = Environment.getExternalStorageDirectory().getPath();
 		MediaMetadataRetriever media = new MediaMetadataRetriever();
@@ -131,5 +131,88 @@ public class VideoUtils {
 
 		return bitmap;
 	}
+
+
+	/**
+	 * 得到本地图片文件
+	 * @param context
+	 * @return
+	 */
+	public static ArrayList<VideoItem> getAllPictures(Context context) {
+		ArrayList<VideoItem> picturemaps = new ArrayList<>();
+		VideoItem item;
+		ContentResolver cr = context.getContentResolver();
+		//先得到缩略图的URL和对应的图片id
+		Cursor cursor = cr.query(
+				MediaStore.Video.Thumbnails.EXTERNAL_CONTENT_URI,
+				new String[]{
+						MediaStore.Images.Thumbnails.IMAGE_ID,
+						MediaStore.Video.Thumbnails.DATA
+				},
+				null,
+				null,
+				null);
+		if (cursor.moveToFirst()) {
+			do {
+				 	item=new VideoItem();
+				item.setId(cursor.getInt(0)+"");
+				item.setThumbPath(cursor.getString(1));
+
+
+				picturemaps.add(item);
+			} while (cursor.moveToNext());
+			cursor.close();
+		}
+
+		return picturemaps;
+	}
+	private  static Bitmap getThumbnail(final String imagePath, int width, int height) {
+		Bitmap bitmap =null;
+				try {
+					mmrc.setMediaDataSource(imagePath);
+					//注意这里传的是微秒
+					 bitmap = mmrc.getScaledFrameAtTime(2 * 1000 * 1000, MediaMetadataRetrieverCompat.OPTION_CLOSEST,
+							100, 100);
+
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+		return bitmap;
+	}
+
+	private  static void getImageThumbnail(final String imagePath, int width, int height) {
+		Observable.create(new ObservableOnSubscribe<VideoItem>() {
+			@Override
+			public void subscribe(@NonNull ObservableEmitter<VideoItem> s) throws Exception {
+				try {
+						mmrc.setMediaDataSource(imagePath);
+						//注意这里传的是微秒
+						Bitmap bitmap = mmrc.getScaledFrameAtTime(2 * 1000 * 1000, MediaMetadataRetrieverCompat.OPTION_CLOSEST,
+								100, 100);
+						VideoItem  item=new VideoItem();
+						s.onNext(item.setBitmap(bitmap));
+
+				} catch (Exception e) {
+					s.onError(e);
+					e.printStackTrace();
+				}
+				s.onComplete();
+			}
+		}).subscribeOn(Schedulers.io())
+				.observeOn(AndroidSchedulers.mainThread())
+				.doOnNext(new Consumer<VideoItem>() {
+					@Override
+					public void accept(@NonNull VideoItem item) throws Exception {
+
+						 int size=0;
+					}
+				}).subscribe();
+        }
+//	private void checkPermission(Activity ) {
+//		if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PermissionChecker.PERMISSION_GRANTED ||
+//				ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PermissionChecker.PERMISSION_GRANTED) {
+//			ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE}, 0);
+//		}
+//	}
 }
 
