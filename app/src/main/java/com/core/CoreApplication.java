@@ -43,7 +43,6 @@ public class CoreApplication extends Application {
 	private DaoSession mDaoSession;
 
 	public boolean isDubug=false;
-//	private ApplicationLike tinkerApplicationLike;
 	@Override
 	public void onCreate() {
 		super.onCreate();
@@ -61,37 +60,12 @@ public class CoreApplication extends Application {
 			return;
 		}
 		LeakCanary.install(this);
+		GlobalConstants.getInstance().setAppType(GlobalConstants.TYPE_SHOP_APP);
 		GlobalConstants.getInstance().setAppType(TYPE_SYSTEM_APP);
 		StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
 		StrictMode.setVmPolicy(builder.build());
 	}
-//	/**
-//	 * 我们需要确保至少对主进程跟patch进程初始化 TinkerPatch
-//	 */
-//	private void initTinkerPatch() {
-//		// 我们可以从这里获得Tinker加载过程的信息
-//		if (BuildConfig.TINKER_ENABLE) {
-//			tinkerApplicationLike = TinkerPatchApplicationLike.getTinkerPatchApplicationLike();
-//			// 初始化TinkerPatch SDK
-//			TinkerPatch.init(
-//					tinkerApplicationLike
-////                new TinkerPatch.Builder(tinkerApplicationLike)
-////                    .requestLoader(new OkHttp3Loader())
-////                    .build()
-//			)
-//					.reflectPatchLibrary()
-//					.setPatchRollbackOnScreenOff(true)
-//					.setPatchRestartOnSrceenOff(true)
-//					.setFetchPatchIntervalByHours(3)
-//			;
-//			// 获取当前的补丁版本
-//			Log.d(TAG, "Current patch version is " + TinkerPatch.with().getPatchVersion());
-//
-//			// fetchPatchUpdateAndPollWithInterval 与 fetchPatchUpdate(false)
-//			// 不同的是，会通过handler的方式去轮询
-//			TinkerPatch.with().fetchPatchUpdateAndPollWithInterval();
-//		}
-//	}
+
 
 	/**
 	 * 

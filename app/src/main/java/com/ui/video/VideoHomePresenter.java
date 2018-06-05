@@ -42,6 +42,7 @@ public class VideoHomePresenter   {
 
 
 		   int headImgSize= DensityUtil.dip2px(CoreApplication.getAppContext(),80);
+		   int i=0;
 		  for (VideoItem item : videoList ) {
 			 final  VideoBussinessItem updateBean=new VideoBussinessItem();
 			  updateBean.setTitle(item.getName());
@@ -61,7 +62,14 @@ public class VideoHomePresenter   {
 					  iVideoHomeView.showItem(updateBean);
 				  }
 			  });
+              if (i!=0){
+              	AddressItemBean spliteItem=new AddressItemBean();
+              	spliteItem.setViewType(IItemView.ViewTypeEnum.SPLITE.value());
+				  settingMaps.add(spliteItem);
+			  }
+
 			  settingMaps.add(updateBean);
+			  i++;
 
 		  }
 		  settingSection.setDataMaps(settingMaps);
