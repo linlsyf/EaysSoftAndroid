@@ -61,7 +61,7 @@ public class CoreApplication extends Application {
 		}
 		LeakCanary.install(this);
 		GlobalConstants.getInstance().setAppType(GlobalConstants.TYPE_SHOP_APP);
-		GlobalConstants.getInstance().setAppType(TYPE_SYSTEM_APP);
+//		GlobalConstants.getInstance().setAppType(TYPE_SYSTEM_APP);
 		StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
 		StrictMode.setVmPolicy(builder.build());
 	}
