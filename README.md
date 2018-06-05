@@ -1,11 +1,6 @@
 # 商城客户端
 
 csdn 博客地址 https://blog.csdn.net/itcastldh/article/details/79386178
-### 项目包含网上一些其他大神的源码，后续会补全说明
-## 对应服务端 https://github.com/linlsyf/EasyShopping
-## 相关类库： 控件库 recycleview 主界面库 https://github.com/linlsyf/dynamicrecycleview
-## 相关类库： 控件库 https://github.com/linlsyf/EasyWidget
-## 相关类库： 工具类 https://github.com/linlsyf/EasySoftUtils
 
  ## 目前已实现功能
 
@@ -30,3 +25,12 @@ csdn 博客地址 https://blog.csdn.net/itcastldh/article/details/79386178
 此项目部分代码由Github 整合
 为EasyShopping Android客户端
 坚持不定期更新，应用学习最新最有效技术
+
+### 项目包含网上一些其他大神的源码，后续会补全说明
+## 对应服务端 https://github.com/linlsyf/EasyShopping
+## 相关类库： 控件库 recycleview 主界面库 https://github.com/linlsyf/dynamicrecycleview
+## 相关类库： 控件库 https://github.com/linlsyf/EasyWidget
+## 相关类库： 工具类 https://github.com/linlsyf/EasySoftUtils
+github其他用户相关
+## 缩略图片获取
+https://github.com/dengyuhan/MediaMetadataRetrieverCompat/blob/master/example/src/main/java/com/dyhdyh/compat/mmrc/example/MainActivity.java
