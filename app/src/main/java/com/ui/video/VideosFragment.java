@@ -13,6 +13,8 @@ import com.easy.recycleview.recycleview.sectionview.Section;
 import com.easysoft.costumes.R;
 import com.easysoft.widget.search.SearchHeadView;
 import com.easysoft.widget.toolbar.NavigationBar;
+import com.easysoft.widget.toolbar.NavigationBarListener;
+import com.easysoft.widget.toolbar.TopBarBuilder;
 import com.ui.message.view.GoodsView;
 import com.utils.OpenFileUtils;
 
@@ -20,7 +22,7 @@ import com.utils.OpenFileUtils;
  * 展示商品
  */
 
-public class VideosFragment extends BaseFragment implements IVideoHomeView{
+public class VideosFragment extends BaseFragment implements IVideoHomeView {
     VideoHomePresenter persenter;
     GoodsView recycleView;
     private NavigationBar toolbar;
@@ -47,73 +49,27 @@ public class VideosFragment extends BaseFragment implements IVideoHomeView{
         persenter=new VideoHomePresenter(this);
         recycleView = getViewById(R.id.goodsGridview);
         persenter.init();
-//        noticeTv = getViewById(R.id.noticeTv);
-//        toolbar=getViewById(R.id.toolbar);
-//        searchHeadView=getViewById(R.id.searchView);
-//        recycleView.requestFocus();
-//        TopBarBuilder.buildCenterTextTitle(toolbar, getActivity(), "首页", 0);
-//        if (BusinessBroadcastUtils.loginUser!=null){
-//            if (BusinessBroadcastUtils.loginUser.getIsAdmin().equals("1")){
-//                TopBarBuilder.buildOnlyText(toolbar, getActivity(), NavigationBar.Location.RIGHT_FIRST, "新加", 0);
-//            }
-//        }
-//        persenter.initTop();
-//        if (BusinessBroadcastUtils.loginUser!=null){
-//            recycleView.postDelayed(new Runnable() {
-//
-//                @Override
-//                public void run() {
-//                    persenter.list();
-//
-//                }
-//            }, 500);
-//        }
+        toolbar=getViewById(R.id.toolbar);
+        TopBarBuilder.buildCenterTextTitle(toolbar, getActivity(), "本地视频", 0);
+        TopBarBuilder.buildOnlyText(toolbar, getActivity(), NavigationBar.Location.RIGHT_FIRST, "选择", 0);
 
-//        swipeRefreshLayout = (SwipeRefreshLayout) getViewById(R.id.swipeRefreshLayout);
-//        recyclerView = (RecyclerView) getViewById(R.id.recyclerView);
-//        recycleView.getSectionAdapterHelper().initLayoutManager(new GridLayoutManager(getActivity(),3));
-//        recycleView.getSectionAdapterHelper().initLayoutManager(new StaggerGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
-        //设置瀑布流Item
-//        SpacesItemDecoration decoration = new SpacesItemDecoration(20);
-//        recycleView.getSectionAdapterHelper().addItemDecoration(decoration);
-
-//        /**
-//         * 下拉刷新
-//         * */
-//        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-//            @Override
-//            public void onRefresh() {
-//                new Handler().postDelayed(new Runnable() {
-//                    @Override
-//                    public void run() {
-////                        list.remove(sum);
-////                        swipeRefreshLayout.setRefreshing(false);
-////                        myAdapter.notifyDataSetChanged();
-//                        swipeRefreshLayout.setRefreshing(false);
-//                    }
-//                }, 2000);
-//            }
-//        });
-
-
-
-//        bannerView.setTransformAnim(true);
     }
     @Override
     public void initListener() {
-//        toolbar.setNavigationBarListener(new NavigationBarListener() {
-//
-//            @Override
-//            public void onClick(ViewGroup containView, NavigationBar.Location location) {
-//                if (location== NavigationBar.Location.RIGHT_FIRST) {
+        toolbar.setNavigationBarListener(new NavigationBarListener() {
+
+            @Override
+            public void onClick(ViewGroup containView, NavigationBar.Location location) {
+                if (location== NavigationBar.Location.RIGHT_FIRST) {
+                    persenter.setCanEdit();
 //                    Bundle bundle=new Bundle();
 ////                    bundle.putSerializable("goods", (Serializable) goods);
 //                    bundle.putSerializable("type",AddFragment.TYPE_Admin_ADD_GOODS);
 //                    FragmentHelper.showFrag(getActivity(), R.id.container_framelayout, new AddFragment(), bundle);
-//                }
-//
-//            }
-//        });
+                }
+
+            }
+        });
 //        noticeTv.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {

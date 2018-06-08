@@ -9,6 +9,7 @@ import com.easy.recycleview.recycleview.sectionview.Section;
 import com.easysoft.utils.lib.system.DensityUtil;
 import com.ui.HttpService;
 import com.ui.setting.InfoCardBean;
+import com.ui.video.IVideoHomeView;
 import com.utils.VideoItem;
 import com.utils.VideoUtils;
 
@@ -28,6 +29,7 @@ public class VideoHomePresenter   {
 	private InfoCardBean infoCardBean;
 	private String SECTION_NEW="new";
 	private String KEY_ABOUT="about";
+	private Section settingSection;
 
 	public VideoHomePresenter(IVideoHomeView iSafeSettingView) {
     	this.iVideoHomeView =iSafeSettingView;
@@ -36,7 +38,7 @@ public class VideoHomePresenter   {
 
       public void init(){
 		  List<AddressItemBean> settingMaps=new ArrayList<>();
-		  Section settingSection=new Section(KEY_SETTING);
+		   settingSection=new Section(KEY_SETTING);
 
 		  ArrayList<VideoItem>  videoList= VideoUtils. getVideodData(CoreApplication.getAppContext());
 
@@ -78,4 +80,14 @@ public class VideoHomePresenter   {
       }
 
 
+	public void setCanEdit() {
+		List<AddressItemBean>  resourceList=settingSection.getDataMaps();
+		for (AddressItemBean itemBean: resourceList ) {
+			if (itemBean.getViewType()== IItemView.ViewTypeEnum.ITEM.value()){
+				itemBean.setItemCanEdit(true);
+			}
+		}
+		iVideoHomeView.initUI(settingSection);
+
+	}
 }

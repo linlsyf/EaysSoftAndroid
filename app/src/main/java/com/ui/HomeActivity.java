@@ -22,7 +22,7 @@ import com.ui.login.LoginPresenter;
 import com.ui.message.GoodsFragment;
 import com.ui.other.TabOtherFragment;
 import com.ui.setting.SettingFragment;
-import com.ui.video.NewsFragment;
+import com.ui.other.tuling.NewsFragment;
 import com.ui.video.VideosFragment;
 
 

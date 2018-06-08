@@ -1,4 +1,4 @@
-package com.ui.video;
+package com.ui.other.tuling;
 
 import android.os.Bundle;
 import android.view.View;
