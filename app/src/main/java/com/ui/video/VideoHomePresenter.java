@@ -2,6 +2,9 @@ package com.ui.video;
 
 import com.business.bean.VideoBussinessItem;
 import com.core.CoreApplication;
+import com.core.db.greenDao.entity.Video;
+import com.core.db.greenDao.gen.UserDao;
+import com.core.db.greenDao.gen.VideoDao;
 import com.easy.recycleview.recycleview.item.AddressItemBean;
 import com.easy.recycleview.recycleview.item.IItemView;
 import com.easy.recycleview.recycleview.item.bean.AddressHeadImgeSettings;
@@ -30,6 +33,7 @@ public class VideoHomePresenter   {
 	private String SECTION_NEW="new";
 	private String KEY_ABOUT="about";
 	private Section settingSection;
+	private VideoDao mVideo;
 
 	public VideoHomePresenter(IVideoHomeView iSafeSettingView) {
     	this.iVideoHomeView =iSafeSettingView;
@@ -41,10 +45,13 @@ public class VideoHomePresenter   {
 		   settingSection=new Section(KEY_SETTING);
 
 		  ArrayList<VideoItem>  videoList= VideoUtils. getVideodData(CoreApplication.getAppContext());
+		        mVideo= CoreApplication.getInstance().getDaoSession().getVideoDao();
 
-
+//		    List<Video> videoDbList = mVideo.loadAll();
 		   int headImgSize= DensityUtil.dip2px(CoreApplication.getAppContext(),80);
 		   int i=0;
+
+		  ArrayList<Video>  videoNewList=new ArrayList<>();
 		  for (VideoItem item : videoList ) {
 			 final  VideoBussinessItem updateBean=new VideoBussinessItem();
 			  updateBean.setTitle(item.getName());
@@ -64,6 +71,11 @@ public class VideoHomePresenter   {
 					  iVideoHomeView.showItem(updateBean);
 				  }
 			  });
+
+//			 Video  dbVideo=new Video();
+//
+//			  videoNewList.add(dbVideo);
+
               if (i!=0){
               	AddressItemBean spliteItem=new AddressItemBean();
               	spliteItem.setViewType(IItemView.ViewTypeEnum.SPLITE.value());
