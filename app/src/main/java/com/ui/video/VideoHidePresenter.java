@@ -3,7 +3,6 @@ package com.ui.video;
 import com.business.bean.VideoBussinessItem;
 import com.core.CoreApplication;
 import com.core.db.greenDao.entity.Video;
-import com.core.db.greenDao.gen.UserDao;
 import com.core.db.greenDao.gen.VideoDao;
 import com.easy.recycleview.recycleview.item.AddressItemBean;
 import com.easy.recycleview.recycleview.item.IItemView;
@@ -13,7 +12,6 @@ import com.easy.recycleview.recycleview.sectionview.Section;
 import com.easysoft.utils.lib.system.DensityUtil;
 import com.ui.HttpService;
 import com.ui.setting.InfoCardBean;
-import com.ui.video.IVideoHomeView;
 import com.utils.VideoItem;
 import com.utils.VideoUtils;
 
@@ -21,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class VideoHomePresenter   {
+public class VideoHidePresenter {
 	HttpService service;
 
 	IVideoHomeView iVideoHomeView;
@@ -36,7 +34,7 @@ public class VideoHomePresenter   {
 	private Section settingSection;
 	private VideoDao mVideo;
 
-	public VideoHomePresenter(IVideoHomeView iSafeSettingView) {
+	public VideoHidePresenter(IVideoHomeView iSafeSettingView) {
     	this.iVideoHomeView =iSafeSettingView;
 		service=new HttpService();
 	}

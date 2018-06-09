@@ -22,12 +22,39 @@
         <!--android:layout_width="match_parent"-->
         <!--android:layout_height="match_parent">-->
 
-    <com.ui.message.view.GoodsView
-        android:layout_marginTop="20dp"
-        android:id="@+id/goodsGridview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        ></com.ui.message.view.GoodsView>
+    <LinearLayout           android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <com.easy.recycleview.recycleview.AddressRecycleView
+            android:layout_marginTop="20dp"
+            android:id="@+id/goodsGridview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/editLayout"
+            android:orientation="horizontal"
+            >
+         <TextView     android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:text="添加"
+             android:layout_weight="1"
+             android:id="@+id/add"
+             />
+            <TextView     android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="全选"
+                android:layout_weight="1"
+
+                android:id="@+id/selectAll"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
 
 
     <!--</android.support.v4.widget.SwipeRefreshLayout>-->

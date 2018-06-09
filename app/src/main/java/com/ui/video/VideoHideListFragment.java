@@ -14,11 +14,9 @@ import com.easy.recycleview.recycleview.AddressRecycleView;
 import com.easy.recycleview.recycleview.item.bean.SelectBean;
 import com.easy.recycleview.recycleview.sectionview.Section;
 import com.easysoft.costumes.R;
-import com.easysoft.widget.search.SearchHeadView;
 import com.easysoft.widget.toolbar.NavigationBar;
 import com.easysoft.widget.toolbar.NavigationBarListener;
 import com.easysoft.widget.toolbar.TopBarBuilder;
-import com.ui.message.view.GoodsView;
 import com.utils.OpenFileUtils;
 
 import java.util.List;
@@ -27,8 +25,8 @@ import java.util.List;
  * 展示商品
  */
 
-public class VideosFragment extends BaseFragment implements IVideoHomeView {
-    VideoHomePresenter persenter;
+public class VideoHideListFragment extends BaseFragment implements IVideoHomeView {
+    VideoHidePresenter persenter;
     AddressRecycleView recycleView;
     private NavigationBar toolbar;
     LinearLayout editLayout;
@@ -48,7 +46,7 @@ public class VideosFragment extends BaseFragment implements IVideoHomeView {
     }
     @Override
     public void initUIView() {
-        persenter=new VideoHomePresenter(this);
+        persenter=new VideoHidePresenter(this);
         recycleView = getViewById(R.id.goodsGridview);
         persenter.init();
         toolbar=getViewById(R.id.toolbar);
