@@ -68,10 +68,15 @@ public class VideosFragment extends BaseFragment implements IVideoHomeView {
             @Override
             public void onClick(ViewGroup containView, NavigationBar.Location location) {
                 if (location== NavigationBar.Location.RIGHT_FIRST) {
-                    persenter.setCanEdit();
-                    editLayout.setVisibility(View.VISIBLE);
-                    addTv.setVisibility(View.VISIBLE);
-                    selectAllTv.setVisibility(View.VISIBLE);
+                  boolean isShow=  persenter.setCanEdit();
+                   if (isShow){
+                       editLayout.setVisibility(View.VISIBLE);
+                       addTv.setVisibility(View.VISIBLE);
+                       selectAllTv.setVisibility(View.VISIBLE);
+                   }else{
+                       editLayout.setVisibility(View.GONE);
+                   }
+
 
                 }
 

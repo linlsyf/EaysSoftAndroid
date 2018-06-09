@@ -35,6 +35,7 @@ public class VideoHomePresenter   {
 	private String KEY_ABOUT="about";
 	private Section settingSection;
 	private VideoDao mVideo;
+	private boolean mIsCanSelect=false;
 
 	public VideoHomePresenter(IVideoHomeView iSafeSettingView) {
     	this.iVideoHomeView =iSafeSettingView;
@@ -66,6 +67,8 @@ public class VideoHomePresenter   {
 			  headImgeSettings.setHeadImgRadius(headImgSize);
 			  headImgeSettings.setBitmap(item.getBitmap());
               updateBean.setHeadImgeSettings(headImgeSettings);
+//			  updateBean.setShowLeftCheckBox(true);
+//			  updateBean.setLeftCheckBoxIsChecked(false);
 			  updateBean.setOnItemListener(new IItemView.onItemClick() {
 				  @Override
 				  public void onItemClick(IItemView.ClickTypeEnum typeEnum, AddressItemBean bean) {
@@ -93,16 +96,17 @@ public class VideoHomePresenter   {
       }
 
 
-	public void setCanEdit() {
+	public boolean setCanEdit() {
 		List<AddressItemBean>  resourceList=settingSection.getDataMaps();
+		mIsCanSelect=!mIsCanSelect;
 		for (AddressItemBean itemBean: resourceList ) {
 			if (itemBean.getViewType()== IItemView.ViewTypeEnum.ITEM.value()){
-				itemBean.setItemCanEdit(true);
-				itemBean.setShowLeftCheckBox(true);
+				itemBean.setItemCanEdit(mIsCanSelect);
+				itemBean.setShowLeftCheckBox(mIsCanSelect);
 			}
 		}
 		iVideoHomeView.initUI(settingSection);
-
+          return   mIsCanSelect;
 	}
 
 
