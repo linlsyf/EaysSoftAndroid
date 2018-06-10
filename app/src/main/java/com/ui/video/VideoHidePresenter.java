@@ -38,7 +38,7 @@ public class VideoHidePresenter {
 	private String KEY_ABOUT="about";
 	private Section settingSection;
 	private Map mDbFileMap=new HashMap();
-//	private VideoDB mVideo;
+	private boolean mIsCanSelect=false;
 private VideoDBDao mVideoDao;
 	private List<VideoDB> videoList;
 
@@ -94,17 +94,20 @@ private VideoDBDao mVideoDao;
       }
 
 
-	public void setCanEdit() {
+	public boolean setCanEdit() {
 		List<AddressItemBean>  resourceList=settingSection.getDataMaps();
+		mIsCanSelect=!mIsCanSelect;
 		for (AddressItemBean itemBean: resourceList ) {
 			if (itemBean.getViewType()== IItemView.ViewTypeEnum.ITEM.value()){
-				itemBean.setItemCanEdit(true);
-				itemBean.setShowLeftCheckBox(true);
+				itemBean.setItemCanEdit(mIsCanSelect);
+				itemBean.setShowLeftCheckBox(mIsCanSelect);
 				itemBean.setSelectType(settingSection.getId());
+				itemBean.setOnItemClickAble(mIsCanSelect);
+
 			}
 		}
 		iVideoHomeView.initUI(settingSection);
-
+		return   mIsCanSelect;
 	}
 
 

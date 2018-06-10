@@ -1,4 +1,4 @@
-package com.ui.video;
+package com.ui.app;
 
 import com.business.BusinessBroadcastUtils;
 import com.business.bean.SelectBindBean;
@@ -11,9 +11,10 @@ import com.easy.recycleview.recycleview.item.IItemView;
 import com.easy.recycleview.recycleview.item.bean.AddressHeadImgeSettings;
 import com.easy.recycleview.recycleview.item.bean.SelectBean;
 import com.easy.recycleview.recycleview.sectionview.Section;
+import com.easysoft.costumes.R;
 import com.easysoft.utils.lib.system.DensityUtil;
 import com.ui.HttpService;
-import com.ui.setting.InfoCardBean;
+import com.ui.video.IVideoHomeView;
 import com.utils.VideoItem;
 import com.utils.VideoUtils;
 
@@ -23,7 +24,7 @@ import java.util.List;
 import java.util.UUID;
 
 
-public class VideoHomePresenter   {
+public class AppListPresenter {
 	HttpService service;
 
 	IVideoHomeView iVideoHomeView;
@@ -32,37 +33,31 @@ public class VideoHomePresenter   {
 	private Section settingSection;
 	private VideoDBDao mVideoDao;
 	private boolean mIsCanSelect=false;
+	public static String ID_NEWS="ID_NEWS";
+	public static String ID_HIDE="ID_HIDE";
 
-	public VideoHomePresenter(IVideoHomeView iSafeSettingView) {
+	public AppListPresenter(IVideoHomeView iSafeSettingView) {
     	this.iVideoHomeView =iSafeSettingView;
 		service=new HttpService();
 		mVideoDao = CoreApplication.getInstance().getDaoSession().getVideoDBDao();
 	}
 
       public void init(){
+		  settingSection=new Section(KEY_SETTING);
+
 		  List<AddressItemBean> settingMaps=new ArrayList<>();
-		   settingSection=new Section(KEY_SETTING);
 
-		  ArrayList<VideoItem>  videoList= VideoUtils. getVideodData(CoreApplication.getAppContext());
-
-		   int headImgSize= DensityUtil.dip2px(CoreApplication.getAppContext(),80);
-		   int i=0;
-		  for (VideoItem item : videoList ) {
-		  	   String  path=item.getData();
 
 			 final  VideoBussinessItem updateBean=new VideoBussinessItem();
-			  updateBean.setTitle(item.getName());
-			  updateBean.setId(path);
-			  updateBean.setData(item.getData());
-			  updateBean.setThumbPath(item.getThumbPath());
-			  updateBean.setHint(item.getDurationString());
-			  updateBean.setHintShow(true);
-			  AddressHeadImgeSettings headImgeSettings=new AddressHeadImgeSettings();
-			  headImgeSettings.setHeadImgPath(item.getThumbPath());
-			  headImgeSettings.setHeadImgRadius(headImgSize);
-			  headImgeSettings.setBitmap(item.getBitmap());
-              updateBean.setHeadImgeSettings(headImgeSettings);
+		    updateBean.setId(ID_NEWS);
+			  updateBean.setTitle("新闻");
+		    int headImgSize= DensityUtil.dip2px(CoreApplication.getAppContext(),80);
 
+		  AddressHeadImgeSettings headImgeSettings=new AddressHeadImgeSettings();
+			  headImgeSettings.setHeadImgDrawableId(R.drawable.new_life_icon);
+			  headImgeSettings.setHeadImgRadius(headImgSize);
+              updateBean.setHeadImgeSettings(headImgeSettings);
+		  updateBean.setSpanSize(3);
 			  updateBean.setOnItemListener(new IItemView.onItemClick() {
 				  @Override
 				  public void onItemClick(IItemView.ClickTypeEnum typeEnum, AddressItemBean bean) {
@@ -70,18 +65,27 @@ public class VideoHomePresenter   {
 
 				  }
 			  });
+		  settingMaps.add(updateBean);
 
+		  final  VideoBussinessItem hideBean=new VideoBussinessItem();
+		  hideBean.setSpanSize(3);
+		  hideBean.setId(ID_HIDE);
+		  hideBean.setTitle("加密");
 
-              if (i!=0){
-              	AddressItemBean spliteItem=new AddressItemBean();
-              	spliteItem.setViewType(IItemView.ViewTypeEnum.SPLITE.value());
-				  settingMaps.add(spliteItem);
+		  AddressHeadImgeSettings hideHeadImgeSettings=new AddressHeadImgeSettings();
+		  hideHeadImgeSettings.setHeadImgDrawableId(R.drawable.new_myhome_icon);
+		  hideHeadImgeSettings.setHeadImgRadius(headImgSize);
+		  hideBean.setHeadImgeSettings(hideHeadImgeSettings);
+
+		  hideBean.setOnItemListener(new IItemView.onItemClick() {
+			  @Override
+			  public void onItemClick(IItemView.ClickTypeEnum typeEnum, AddressItemBean bean) {
+				  iVideoHomeView.showItem(hideBean);
+
 			  }
+		  });
+		  settingMaps.add(hideBean);
 
-			  settingMaps.add(updateBean);
-			  i++;
-
-		  }
 		  settingSection.setDataMaps(settingMaps);
     	  iVideoHomeView.initUI(settingSection);
     	

@@ -1,4 +1,4 @@
-package com.ui.video;
+package com.ui.app;
 
 
 import android.os.Bundle;
@@ -15,9 +15,13 @@ import com.easy.recycleview.recycleview.AddressRecycleView;
 import com.easy.recycleview.recycleview.item.bean.SelectBean;
 import com.easy.recycleview.recycleview.sectionview.Section;
 import com.easysoft.costumes.R;
+import com.easysoft.utils.lib.system.FragmentHelper;
 import com.easysoft.widget.toolbar.NavigationBar;
 import com.easysoft.widget.toolbar.NavigationBarListener;
 import com.easysoft.widget.toolbar.TopBarBuilder;
+import com.ui.other.tuling.NewsFragment;
+import com.ui.video.IVideoHomeView;
+import com.ui.video.VideoHideListFragment;
 import com.utils.OpenFileUtils;
 
 import java.util.List;
@@ -26,8 +30,8 @@ import java.util.List;
  * 展示商品
  */
 
-public class VideoHideListFragment extends BaseFragment implements IVideoHomeView {
-    VideoHidePresenter persenter;
+public class AppListFragment extends BaseFragment implements IVideoHomeView {
+    AppListPresenter persenter;
     AddressRecycleView recycleView;
     private NavigationBar toolbar;
     LinearLayout editLayout;
@@ -47,7 +51,7 @@ public class VideoHideListFragment extends BaseFragment implements IVideoHomeVie
     }
     @Override
     public void initUIView() {
-        persenter=new VideoHidePresenter(this);
+        persenter=new AppListPresenter(this);
         recycleView = getViewById(R.id.goodsGridview);
         persenter.init();
         toolbar=getViewById(R.id.toolbar);
@@ -55,9 +59,9 @@ public class VideoHideListFragment extends BaseFragment implements IVideoHomeVie
         addTv=getViewById(R.id.add);
         selectAllTv=getViewById(R.id.selectAll);
 
-
-        TopBarBuilder.buildCenterTextTitle(toolbar, getActivity(), "隐藏视频", 0);
-        TopBarBuilder.buildOnlyText(toolbar, getActivity(), NavigationBar.Location.RIGHT_FIRST, "选择", 0);
+//        recycleView.setlL
+        TopBarBuilder.buildCenterTextTitle(toolbar, getActivity(), "应用列表", 0);
+//        TopBarBuilder.buildOnlyText(toolbar, getActivity(), NavigationBar.Location.RIGHT_FIRST, "选择", 0);
 
     }
     @Override
@@ -67,9 +71,8 @@ public class VideoHideListFragment extends BaseFragment implements IVideoHomeVie
             @Override
             public void onClick(ViewGroup containView, NavigationBar.Location location) {
                 if (location== NavigationBar.Location.RIGHT_FIRST) {
-
-                   boolean isCanEidt= persenter.setCanEdit();
-                   if (isCanEidt){
+                  boolean isShow=  persenter.setCanEdit();
+                   if (isShow){
                        editLayout.setVisibility(View.VISIBLE);
                        addTv.setVisibility(View.VISIBLE);
                        selectAllTv.setVisibility(View.VISIBLE);
@@ -85,9 +88,22 @@ public class VideoHideListFragment extends BaseFragment implements IVideoHomeVie
         addTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                List<SelectBean>  selectBeanList= recycleView.getSectionAdapterHelper().getSelect(VideoHomePresenter.KEY_SETTING);
+                List<SelectBean>  selectBeanList= recycleView.getSectionAdapterHelper().getSelect(AppListPresenter.KEY_SETTING);
                 persenter.setHide(selectBeanList);
 
+            }
+        });
+        selectAllTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean isShow=  persenter.setCanEdit();
+                if (isShow){
+                    editLayout.setVisibility(View.VISIBLE);
+                    addTv.setVisibility(View.VISIBLE);
+                    selectAllTv.setVisibility(View.VISIBLE);
+                }else{
+                    editLayout.setVisibility(View.GONE);
+                }
             }
         });
 
@@ -96,7 +112,7 @@ public class VideoHideListFragment extends BaseFragment implements IVideoHomeVie
 	@Override
 	public void getBroadcastReceiverMessage(String type, Object mode) {
 
-         if(type.equals(BusinessBroadcastUtils.TYPE_REFRESH_VIDEO_HIDE)){
+         if(type.equals(BusinessBroadcastUtils.TYPE_REFRESH_VIDEO)){
            persenter.init();
         }
 //        if(type.equals(BusinessBroadcastUtils.TYPE_LOGIN_FAILS)){
@@ -126,10 +142,23 @@ public class VideoHideListFragment extends BaseFragment implements IVideoHomeVie
 
             @Override
             public void run() {
-                OpenFileUtils.openVideo(getActivity(),imgBean.getData());
+                if (imgBean.getId().equals(AppListPresenter.ID_NEWS)){
+//                    Bundle bundle=new Bundle();
+//                    bundle.putSerializable("messageEntity", entity);
+                    FragmentHelper.showFrag(getActivity(), R.id.container_framelayout, new NewsFragment(), null);
+
+                }else{
+                    FragmentHelper.showFrag(getActivity(), R.id.container_framelayout, new VideoHideListFragment(), null);
+
+                }
+
             }
         });
     }
 
 
+//    @Override
+//    public void addLayoutHelper(LayoutHelper helper,boolean isRefresh) {
+//        recycleView.addLayoutHelper(helper,isRefresh);
+//    }
 }

@@ -15,6 +15,7 @@ import com.easysoft.widget.tabview.adapter.MainViewAdapter;
 import com.easysoft.widget.tabview.listener.OnTabSelectedListener;
 import com.easysoft.widget.tabview.widget.Tab;
 import com.easysoft.widget.tabview.widget.TabContainerView;
+import com.ui.app.AppListFragment;
 import com.ui.car.ShopOrderListFragment;
 import com.ui.login.IlogInView;
 import com.ui.login.LoginActivity;
@@ -43,7 +44,7 @@ public class HomeActivity extends BasicActivity implements IlogInView,IHomeView 
 
 		if (GlobalConstants.getInstance().getAppType()==GlobalConstants.TYPE_SYSTEM_APP){
 			mainViewAdapter=new MainViewAdapter(getSupportFragmentManager(),
-					new Fragment[] {new VideosFragment(),new VideoHideListFragment(), new NewsFragment(),new SettingFragment()});
+					new Fragment[] {new VideosFragment(),new VideoHideListFragment(), new AppListFragment(),new SettingFragment()});
 
 			mainViewAdapter.setIconImageArray(new int[] {R.drawable.new_life_icon_grey, R.drawable.new_shoppingcar_icon_grey,R.drawable.new_find_icon_grey,R.drawable.new_myhome_icon_grey});
 			mainViewAdapter.setSelectedIconImageArray(new int[] {R.drawable.new_life_icon, R.drawable.new_shoppingcar_icon,R.drawable.new_find_icon,R.drawable.new_myhome_icon});

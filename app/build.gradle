@@ -60,7 +60,7 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
 
-    compile 'com.github.linlsyf:dynamicrecycleview:1.0.1.7'
+    compile 'com.github.linlsyf:dynamicrecycleview:1.0.1.8'
     compile files('libs/butterknife-7.0.1.jar')
     compile files('libs/mobAPI-2.0.0.jar')
     compile files('libs/alipaySdk-20170922.jar')

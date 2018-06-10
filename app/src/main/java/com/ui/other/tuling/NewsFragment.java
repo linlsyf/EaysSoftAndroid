@@ -37,6 +37,7 @@ public class NewsFragment extends BaseFragment  {
     private List<NewsEntity> newsList=new ArrayList<>();
     private NewsAdapter newsAdapter;
     private NavigationBar toolbar;
+    private HttpService service;
 
     @Override
     public int getLayoutResId() {
@@ -77,7 +78,7 @@ public class NewsFragment extends BaseFragment  {
 
     // 请求图灵API接口，获得问答信息
     private void requestApiByRetrofit_RxJava(final String info) {
-        HttpService service=new HttpService();
+         service=new HttpService();
         final String url = TulingParams.TULING_URL+"?key="+TulingParams.TULING_KEY+"&info="+info;
 //        url= ServerUrl.getFinalUrl(url,json);
 
@@ -93,9 +94,6 @@ public class NewsFragment extends BaseFragment  {
                             ResponseMsgData.class);
                     newsList =  JSON.parseArray(data.getList().toString(), NewsEntity.class) ;
 
-//                    initView();
-
-
                     getActivity().runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
@@ -106,6 +104,12 @@ public class NewsFragment extends BaseFragment  {
 
             }
         }).setOutside(true));
+    }
+
+    @Override
+    public void onDestroy() {
+//        service.
+        super.onDestroy();
     }
 
     @Override
