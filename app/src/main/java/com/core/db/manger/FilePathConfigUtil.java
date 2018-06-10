@@ -124,7 +124,7 @@ public class FilePathConfigUtil {
 		 Img_thumbnail(3, "Img_thumbnail"),
 		 Audio		  (4, "Audio"),
 		 FILE_RECV    (6, "FileRecv"),
-		 Video		  (8, "Video"),
+		 Video		  (8, "VideoDB"),
 		 DB			  (12,"DB"),
 		 Img_original (13,"Img"),
 		 Temp		  (0, "Temp"),

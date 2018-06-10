@@ -2,7 +2,7 @@ package com.ui.video;
 
 import com.business.bean.VideoBussinessItem;
 import com.core.CoreApplication;
-import com.core.db.greenDao.entity.Video;
+import com.core.db.greenDao.entity.VideoDB;
 import com.core.db.greenDao.gen.VideoDao;
 import com.easy.recycleview.recycleview.item.AddressItemBean;
 import com.easy.recycleview.recycleview.item.IItemView;
@@ -44,13 +44,13 @@ public class VideoHidePresenter {
 		   settingSection=new Section(KEY_SETTING);
 
 		  ArrayList<VideoItem>  videoList= VideoUtils. getVideodData(CoreApplication.getAppContext());
-		        mVideo= CoreApplication.getInstance().getDaoSession().getVideoDao();
+//		        mVideo= CoreApplication.getInstance().getDaoSession().getVideoDao();
 
-//		    List<Video> videoDbList = mVideo.loadAll();
+//		    List<VideoDB> videoDbList = mVideo.loadAll();
 		   int headImgSize= DensityUtil.dip2px(CoreApplication.getAppContext(),80);
 		   int i=0;
 
-		  ArrayList<Video>  videoNewList=new ArrayList<>();
+		  ArrayList<VideoDB>  videoNewList=new ArrayList<>();
 		  for (VideoItem item : videoList ) {
 			 final  VideoBussinessItem updateBean=new VideoBussinessItem();
 			  updateBean.setTitle(item.getName());
@@ -71,7 +71,7 @@ public class VideoHidePresenter {
 				  }
 			  });
 
-//			 Video  dbVideo=new Video();
+//			 VideoDB  dbVideo=new VideoDB();
 //
 //			  videoNewList.add(dbVideo);
 

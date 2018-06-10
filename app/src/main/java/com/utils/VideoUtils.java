@@ -41,7 +41,7 @@ public class VideoUtils {
 	private  static MediaMetadataRetrieverCompat  mmrc = new MediaMetadataRetrieverCompat();
 	private static final String[] VIDEOTHUMBNAIL_TABLE = new String[] {
 			MediaStore.Video.Media._ID, // 0
-			MediaStore.Video.Media.DATA, // 1 from android.provider.MediaStore.Video
+			MediaStore.Video.Media.DATA, // 1 from android.provider.MediaStore.VideoDB
 	};
 	 public  static ArrayList<VideoItem> getVideodData(final Context context) {
 //	        new Thread(new Runnable() {

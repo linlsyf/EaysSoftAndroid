@@ -90,6 +90,19 @@ public class VideosFragment extends BaseFragment implements IVideoHomeView {
 
             }
         });
+        selectAllTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean isShow=  persenter.setCanEdit();
+                if (isShow){
+                    editLayout.setVisibility(View.VISIBLE);
+                    addTv.setVisibility(View.VISIBLE);
+                    selectAllTv.setVisibility(View.VISIBLE);
+                }else{
+                    editLayout.setVisibility(View.GONE);
+                }
+            }
+        });
 
     }
 

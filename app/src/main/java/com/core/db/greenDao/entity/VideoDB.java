@@ -8,11 +8,12 @@ import org.greenrobot.greendao.annotation.Generated;
  * Created by lindanghong on 2018/6/8.
  */
 @Entity
-public class Video {
+public class VideoDB {
     @Id
     private String id;
     private String name;
     private String data;
+    private String oldFilePath;
     private String thumbPath;
 
     private long duration;
@@ -21,23 +22,26 @@ public class Video {
 
 
 
-    @Generated(hash = 2017673484)
-    public Video(String id, String name, String data, String thumbPath,
-            long duration, long size, String durationString) {
+
+    @Generated(hash = 1751516696)
+    public VideoDB(String id, String name, String data, String oldFilePath,
+            String thumbPath, long duration, long size, String durationString) {
         this.id = id;
         this.name = name;
         this.data = data;
+        this.oldFilePath = oldFilePath;
         this.thumbPath = thumbPath;
         this.duration = duration;
         this.size = size;
         this.durationString = durationString;
     }
 
-    @Generated(hash = 237528154)
-    public Video() {
+    @Generated(hash = 992505193)
+    public VideoDB() {
     }
 
-  
+
+
 
     public String getName() {
         return name;
@@ -93,5 +97,13 @@ public class Video {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getOldFilePath() {
+        return oldFilePath;
+    }
+
+    public void setOldFilePath(String oldFilePath) {
+        this.oldFilePath = oldFilePath;
     }
 }
