@@ -23,6 +23,7 @@ import com.ui.message.GoodsFragment;
 import com.ui.other.TabOtherFragment;
 import com.ui.setting.SettingFragment;
 import com.ui.other.tuling.NewsFragment;
+import com.ui.video.VideoHideListFragment;
 import com.ui.video.VideosFragment;
 
 
@@ -42,11 +43,11 @@ public class HomeActivity extends BasicActivity implements IlogInView,IHomeView 
 
 		if (GlobalConstants.getInstance().getAppType()==GlobalConstants.TYPE_SYSTEM_APP){
 			mainViewAdapter=new MainViewAdapter(getSupportFragmentManager(),
-					new Fragment[] {new VideosFragment(), new NewsFragment(),new SettingFragment()});
+					new Fragment[] {new VideosFragment(),new VideoHideListFragment(), new NewsFragment(),new SettingFragment()});
 
-			mainViewAdapter.setIconImageArray(new int[] {R.drawable.new_life_icon_grey,R.drawable.new_find_icon_grey,R.drawable.new_myhome_icon_grey});
-			mainViewAdapter.setSelectedIconImageArray(new int[] {R.drawable.new_life_icon, R.drawable.new_find_icon,R.drawable.new_myhome_icon});
-			mainViewAdapter.setTabNameArray(new String[] {"首页", "资讯","设置"});
+			mainViewAdapter.setIconImageArray(new int[] {R.drawable.new_life_icon_grey, R.drawable.new_shoppingcar_icon_grey,R.drawable.new_find_icon_grey,R.drawable.new_myhome_icon_grey});
+			mainViewAdapter.setSelectedIconImageArray(new int[] {R.drawable.new_life_icon, R.drawable.new_shoppingcar_icon,R.drawable.new_find_icon,R.drawable.new_myhome_icon});
+			mainViewAdapter.setTabNameArray(new String[] {"首页","应用", "资讯","设置"});
 		}else{
 			mainViewAdapter=new MainViewAdapter(getSupportFragmentManager(),
 					new Fragment[] {new GoodsFragment(),  new ShopOrderListFragment(),new TabOtherFragment(),new SettingFragment()});

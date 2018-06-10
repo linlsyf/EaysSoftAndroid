@@ -1,9 +1,11 @@
 package com.ui.video;
 
+import com.business.BusinessBroadcastUtils;
+import com.business.bean.SelectBindBean;
 import com.business.bean.VideoBussinessItem;
 import com.core.CoreApplication;
 import com.core.db.greenDao.entity.VideoDB;
-import com.core.db.greenDao.gen.VideoDao;
+import com.core.db.greenDao.gen.VideoDBDao;
 import com.easy.recycleview.recycleview.item.AddressItemBean;
 import com.easy.recycleview.recycleview.item.IItemView;
 import com.easy.recycleview.recycleview.item.bean.AddressHeadImgeSettings;
@@ -15,8 +17,11 @@ import com.ui.setting.InfoCardBean;
 import com.utils.VideoItem;
 import com.utils.VideoUtils;
 
+import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 public class VideoHidePresenter {
@@ -32,29 +37,30 @@ public class VideoHidePresenter {
 	private String SECTION_NEW="new";
 	private String KEY_ABOUT="about";
 	private Section settingSection;
-	private VideoDao mVideo;
+	private Map mDbFileMap=new HashMap();
+//	private VideoDB mVideo;
+private VideoDBDao mVideoDao;
+	private List<VideoDB> videoList;
 
 	public VideoHidePresenter(IVideoHomeView iSafeSettingView) {
     	this.iVideoHomeView =iSafeSettingView;
 		service=new HttpService();
+		mVideoDao = CoreApplication.getInstance().getDaoSession().getVideoDBDao();
 	}
 
       public void init(){
 		  List<AddressItemBean> settingMaps=new ArrayList<>();
 		   settingSection=new Section(KEY_SETTING);
 
-		  ArrayList<VideoItem>  videoList= VideoUtils. getVideodData(CoreApplication.getAppContext());
-//		        mVideo= CoreApplication.getInstance().getDaoSession().getVideoDao();
-
-//		    List<VideoDB> videoDbList = mVideo.loadAll();
 		   int headImgSize= DensityUtil.dip2px(CoreApplication.getAppContext(),80);
 		   int i=0;
-
+		  videoList  = mVideoDao.loadAll();
 		  ArrayList<VideoDB>  videoNewList=new ArrayList<>();
-		  for (VideoItem item : videoList ) {
+		  for (VideoDB item : videoList ) {
+			  mDbFileMap.put(item.getId(),item.getData());
 			 final  VideoBussinessItem updateBean=new VideoBussinessItem();
 			  updateBean.setTitle(item.getName());
-			  updateBean.setId(item.getData());
+			  updateBean.setId(item.getId());
 			  updateBean.setData(item.getData());
 			  updateBean.setThumbPath(item.getThumbPath());
 			  updateBean.setHint(item.getDurationString());
@@ -62,8 +68,8 @@ public class VideoHidePresenter {
 			  AddressHeadImgeSettings headImgeSettings=new AddressHeadImgeSettings();
 			  headImgeSettings.setHeadImgPath(item.getThumbPath());
 			  headImgeSettings.setHeadImgRadius(headImgSize);
-			  headImgeSettings.setBitmap(item.getBitmap());
-              updateBean.setHeadImgeSettings(headImgeSettings);
+//			  headImgeSettings.setBitmap(item.getBitmap());
+//              updateBean.setHeadImgeSettings(headImgeSettings);
 			  updateBean.setOnItemListener(new IItemView.onItemClick() {
 				  @Override
 				  public void onItemClick(IItemView.ClickTypeEnum typeEnum, AddressItemBean bean) {
@@ -71,9 +77,6 @@ public class VideoHidePresenter {
 				  }
 			  });
 
-//			 VideoDB  dbVideo=new VideoDB();
-//
-//			  videoNewList.add(dbVideo);
 
               if (i!=0){
               	AddressItemBean spliteItem=new AddressItemBean();
@@ -97,6 +100,7 @@ public class VideoHidePresenter {
 			if (itemBean.getViewType()== IItemView.ViewTypeEnum.ITEM.value()){
 				itemBean.setItemCanEdit(true);
 				itemBean.setShowLeftCheckBox(true);
+				itemBean.setSelectType(settingSection.getId());
 			}
 		}
 		iVideoHomeView.initUI(settingSection);
@@ -105,11 +109,25 @@ public class VideoHidePresenter {
 
 
 	public void setHide(  List<SelectBean>  selectBeanList) {
+		List<SelectBindBean>  chaneList=new ArrayList<>();
 
 		for (SelectBean itemBean:selectBeanList) {
 			String selectId=    itemBean.getId();
-         //			 renamefile
-		}
+			for (VideoDB item : videoList ) {
+				if (selectId.equals(item.getId())){
+					File oldeFile=new File((String) mDbFileMap.get(selectId));
+					File   newFile=new File(item.getOldFilePath());
+					boolean isSucess=oldeFile.renameTo(newFile);
+					if (isSucess){
+						mVideoDao.delete(item);
+					}
+				}
 
+			}
+
+
+		}
+		init();
+		BusinessBroadcastUtils.sendBroadcast(iVideoHomeView.getContext(), BusinessBroadcastUtils.TYPE_REFRESH_VIDEO, null);
 	}
 }

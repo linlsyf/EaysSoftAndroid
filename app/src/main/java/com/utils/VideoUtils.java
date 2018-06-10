@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.dyhdyh.compat.mmrc.MediaMetadataRetrieverCompat;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Formatter;
@@ -64,16 +65,16 @@ public class VideoUtils {
 	                    long duration = cursor.getLong(1);//文件时长
 	                    long size = cursor.getLong(2);//文件大小
 	                    String data = cursor.getString(3);//文件路径
-
+						File storeFile=new File(data);
+                        if (!storeFile.exists()){
+                        	continue;
+						}
 	                    VideoItem item = new VideoItem();
 	                    item.setName(name);
                        item.setDuration(duration);
 	                    item.setDurationString(stringForTime((int)duration));
 	                    item.setSize(size);
 	                    item.setData(data);
-
-//						String thumbPath=ThumbnailQuery.queryImageThumbnailByPath(context,data);
-
 						String thumbPath="";
 						item.setThumbPath(thumbPath);
 						item.setBitmap(getThumbnail(data,200,100));
@@ -214,5 +215,9 @@ public class VideoUtils {
 //			ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE}, 0);
 //		}
 //	}
+
+
+	//		  	     String type=path.substring(path.lastIndexOf(".")+1,path.length());  //获取文件后缀名
+
 }
 

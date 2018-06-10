@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.business.BusinessBroadcastUtils;
 import com.business.bean.VideoBussinessItem;
 import com.core.base.BaseFragment;
 import com.easy.recycleview.recycleview.AddressRecycleView;
@@ -109,11 +110,9 @@ public class VideosFragment extends BaseFragment implements IVideoHomeView {
 	@Override
 	public void getBroadcastReceiverMessage(String type, Object mode) {
 
-//         if(type.equals(BusinessBroadcastUtils.TYPE_LOGIN_SUCESS)){
-//           persenter.list();
-//            persenter.reInitToolBar();
-//            noticeTv.setVisibility(View.GONE);
-//        }
+         if(type.equals(BusinessBroadcastUtils.TYPE_REFRESH_VIDEO)){
+           persenter.init();
+        }
 //        if(type.equals(BusinessBroadcastUtils.TYPE_LOGIN_FAILS)){
 //
 //            noticeTv.setVisibility(View.VISIBLE);

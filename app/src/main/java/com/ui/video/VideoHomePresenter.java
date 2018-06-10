@@ -1,10 +1,11 @@
 package com.ui.video;
 
+import com.business.BusinessBroadcastUtils;
 import com.business.bean.SelectBindBean;
 import com.business.bean.VideoBussinessItem;
 import com.core.CoreApplication;
 import com.core.db.greenDao.entity.VideoDB;
-import com.core.db.greenDao.gen.VideoDao;
+import com.core.db.greenDao.gen.VideoDBDao;
 import com.easy.recycleview.recycleview.item.AddressItemBean;
 import com.easy.recycleview.recycleview.item.IItemView;
 import com.easy.recycleview.recycleview.item.bean.AddressHeadImgeSettings;
@@ -19,6 +20,7 @@ import com.utils.VideoUtils;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 
 public class VideoHomePresenter   {
@@ -34,12 +36,13 @@ public class VideoHomePresenter   {
 	private String SECTION_NEW="new";
 	private String KEY_ABOUT="about";
 	private Section settingSection;
-	private VideoDao mVideo;
+	private VideoDBDao mVideoDao;
 	private boolean mIsCanSelect=false;
 
 	public VideoHomePresenter(IVideoHomeView iSafeSettingView) {
     	this.iVideoHomeView =iSafeSettingView;
 		service=new HttpService();
+		mVideoDao = CoreApplication.getInstance().getDaoSession().getVideoDBDao();
 	}
 
       public void init(){
@@ -47,18 +50,11 @@ public class VideoHomePresenter   {
 		   settingSection=new Section(KEY_SETTING);
 
 		  ArrayList<VideoItem>  videoList= VideoUtils. getVideodData(CoreApplication.getAppContext());
-//		        mVideo= CoreApplication.getInstance().getDaoSession().getVideoDao();
+
 		   int headImgSize= DensityUtil.dip2px(CoreApplication.getAppContext(),80);
 		   int i=0;
-
-		  ArrayList<VideoDB>  videoNewList=new ArrayList<>();
 		  for (VideoItem item : videoList ) {
 		  	   String  path=item.getData();
-			  int indexHide=path.indexOf(".");
-//			   if(indexHide==0){
-//			   	continue;
-//			   }
-
 
 			 final  VideoBussinessItem updateBean=new VideoBussinessItem();
 			  updateBean.setTitle(item.getName());
@@ -131,7 +127,7 @@ public class VideoHomePresenter   {
 			File   oldeFile=new File(selectId);
 
 			String newPathName=oldeFile.getAbsolutePath().substring(0,oldeFile.getAbsolutePath().lastIndexOf("/")+1);
-			File   newFile=new File(newPathName+"."+oldeFile.getName());
+			File   newFile=new File(newPathName+"."+oldeFile.getName()+".hide");
 //			boolean isSucess=false;
 			boolean isSucess=oldeFile.renameTo(newFile);
 			if (isSucess){
@@ -149,9 +145,17 @@ public class VideoHomePresenter   {
 				if (itemSelectBean.getId().equals(oldItem.getId())){
 					isHide=true;
 					VideoDB   videoDBItem=new VideoDB();
+					videoDBItem.setName(oldItem.getTitle());
+					videoDBItem.setDurationString(oldItem.getHint());
+//					videoDBItem.set
 					videoDBItem.setOldFilePath(oldItem.getId());
 					videoDBItem.setData(itemSelectBean.getHidePath());
 					chaneDbList.add(videoDBItem);
+					UUID uuid = UUID.randomUUID();
+
+					String uniqueId = uuid.toString();
+					videoDBItem.setId(uniqueId);
+					mVideoDao.insert(videoDBItem);
 					break;
 				}
 			}
@@ -161,6 +165,8 @@ public class VideoHomePresenter   {
 
 		}
 		settingSection.setDataMaps(newList);
-           iVideoHomeView.initUI(settingSection);
+		iVideoHomeView.initUI(settingSection);
+		BusinessBroadcastUtils.sendBroadcast(iVideoHomeView.getContext(), BusinessBroadcastUtils.TYPE_REFRESH_VIDEO_HIDE, null);
+
 	}
 }

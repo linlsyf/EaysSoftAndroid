@@ -23,6 +23,8 @@ public class VideoDB {
 
 
 
+
+
     @Generated(hash = 1751516696)
     public VideoDB(String id, String name, String data, String oldFilePath,
             String thumbPath, long duration, long size, String durationString) {
@@ -39,6 +41,8 @@ public class VideoDB {
     @Generated(hash = 992505193)
     public VideoDB() {
     }
+
+
 
 
 

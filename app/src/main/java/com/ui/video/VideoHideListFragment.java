@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.business.BusinessBroadcastUtils;
 import com.business.bean.VideoBussinessItem;
 import com.core.base.BaseFragment;
 import com.easy.recycleview.recycleview.AddressRecycleView;
@@ -55,7 +56,7 @@ public class VideoHideListFragment extends BaseFragment implements IVideoHomeVie
         selectAllTv=getViewById(R.id.selectAll);
 
 
-        TopBarBuilder.buildCenterTextTitle(toolbar, getActivity(), "本地视频", 0);
+        TopBarBuilder.buildCenterTextTitle(toolbar, getActivity(), "隐藏视频", 0);
         TopBarBuilder.buildOnlyText(toolbar, getActivity(), NavigationBar.Location.RIGHT_FIRST, "选择", 0);
 
     }
@@ -89,11 +90,9 @@ public class VideoHideListFragment extends BaseFragment implements IVideoHomeVie
 	@Override
 	public void getBroadcastReceiverMessage(String type, Object mode) {
 
-//         if(type.equals(BusinessBroadcastUtils.TYPE_LOGIN_SUCESS)){
-//           persenter.list();
-//            persenter.reInitToolBar();
-//            noticeTv.setVisibility(View.GONE);
-//        }
+         if(type.equals(BusinessBroadcastUtils.TYPE_REFRESH_VIDEO_HIDE)){
+           persenter.init();
+        }
 //        if(type.equals(BusinessBroadcastUtils.TYPE_LOGIN_FAILS)){
 //
 //            noticeTv.setVisibility(View.VISIBLE);
@@ -127,8 +126,4 @@ public class VideoHideListFragment extends BaseFragment implements IVideoHomeVie
     }
 
 
-//    @Override
-//    public void addLayoutHelper(LayoutHelper helper,boolean isRefresh) {
-//        recycleView.addLayoutHelper(helper,isRefresh);
-//    }
 }

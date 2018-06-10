@@ -62,5 +62,7 @@ public class BusinessBroadcastUtils {
 	/**跳转viewpage 主界面*/
 	public static String  Type_Local_HOME_PAGE_CHANGE="Type_Local_HOME_PAGE_CHANGE";
 
-
+	/**获取订单列表成功*/
+	public static String  TYPE_REFRESH_VIDEO="TYPE_REFRESH_VIDEO";
+	public static String  TYPE_REFRESH_VIDEO_HIDE="TYPE_REFRESH_VIDEO_HIDE";
 }

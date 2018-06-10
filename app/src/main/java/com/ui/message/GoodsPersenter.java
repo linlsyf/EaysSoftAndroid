@@ -227,13 +227,6 @@ public class GoodsPersenter {
 
 				}
 			}));
-////
-//		Section nextSection=new Section(KEY_ShopOrderInfo);
-//		List<AddressItemBean> dataMaps=new ArrayList<>();
-//
-//		nextSection.setDataMaps(dataMaps);
-//		nextSection.setShowSection(false);
-//		iGoodsView.showUi(nextSection);
 
 		Map<String, String> map = new TreeMap<String, String>(
 
