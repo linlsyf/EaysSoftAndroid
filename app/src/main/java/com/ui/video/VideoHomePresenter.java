@@ -11,6 +11,7 @@ import com.easy.recycleview.recycleview.item.IItemView;
 import com.easy.recycleview.recycleview.item.bean.AddressHeadImgeSettings;
 import com.easy.recycleview.recycleview.item.bean.SelectBean;
 import com.easy.recycleview.recycleview.sectionview.Section;
+import com.easysoft.costumes.R;
 import com.easysoft.utils.lib.system.DensityUtil;
 import com.ui.HttpService;
 import com.ui.setting.InfoCardBean;
@@ -42,7 +43,7 @@ public class VideoHomePresenter   {
       public void init(){
 		  List<AddressItemBean> settingMaps=new ArrayList<>();
 		   settingSection=new Section(KEY_SETTING);
-
+          settingSection.setShowSection(false);
 		  ArrayList<VideoItem>  videoList= VideoUtils. getVideodData(CoreApplication.getAppContext());
 
 		   int headImgSize= DensityUtil.dip2px(CoreApplication.getAppContext(),80);
@@ -57,6 +58,7 @@ public class VideoHomePresenter   {
 			  updateBean.setThumbPath(item.getThumbPath());
 			  updateBean.setHint(item.getDurationString());
 			  updateBean.setHintShow(true);
+			  updateBean.setContentBgResid(R.drawable.corners_bg);
 			  AddressHeadImgeSettings headImgeSettings=new AddressHeadImgeSettings();
 			  headImgeSettings.setHeadImgPath(item.getThumbPath());
 			  headImgeSettings.setHeadImgRadius(headImgSize);
@@ -96,7 +98,7 @@ public class VideoHomePresenter   {
 				itemBean.setItemCanEdit(mIsCanSelect);
 				itemBean.setShowLeftCheckBox(mIsCanSelect);
 				itemBean.setSelectType(settingSection.getId());
-				itemBean.setOnItemClickAble(mIsCanSelect);
+				itemBean.setOnItemClickAble(!mIsCanSelect);
 			}
 		}
 		iVideoHomeView.initUI(settingSection);

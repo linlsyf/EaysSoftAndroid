@@ -123,50 +123,9 @@ public class VideoUtils {
 		return contentResolver;
 	}
 
-	public static Bitmap geThumbnailByMediaMetadata(String videoPath, int width, int height) {
-//		String path  = Environment.getExternalStorageDirectory().getPath();
-		MediaMetadataRetriever media = new MediaMetadataRetriever();
-		media.setDataSource(videoPath);
-		Bitmap bitmap = media.getFrameAtTime();
 
 
-		return bitmap;
-	}
 
-
-	/**
-	 * 得到本地图片文件
-	 * @param context
-	 * @return
-	 */
-	public static ArrayList<VideoItem> getAllPictures(Context context) {
-		ArrayList<VideoItem> picturemaps = new ArrayList<>();
-		VideoItem item;
-		ContentResolver cr = context.getContentResolver();
-		//先得到缩略图的URL和对应的图片id
-		Cursor cursor = cr.query(
-				MediaStore.Video.Thumbnails.EXTERNAL_CONTENT_URI,
-				new String[]{
-						MediaStore.Images.Thumbnails.IMAGE_ID,
-						MediaStore.Video.Thumbnails.DATA
-				},
-				null,
-				null,
-				null);
-		if (cursor.moveToFirst()) {
-			do {
-				 	item=new VideoItem();
-				item.setId(cursor.getInt(0)+"");
-				item.setThumbPath(cursor.getString(1));
-
-
-				picturemaps.add(item);
-			} while (cursor.moveToNext());
-			cursor.close();
-		}
-
-		return picturemaps;
-	}
 	private  static Bitmap getThumbnail(final String imagePath, int width, int height) {
 		Bitmap bitmap =null;
 				try {
@@ -181,34 +140,7 @@ public class VideoUtils {
 		return bitmap;
 	}
 
-	private  static void getImageThumbnail(final String imagePath, int width, int height) {
-		Observable.create(new ObservableOnSubscribe<VideoItem>() {
-			@Override
-			public void subscribe(@NonNull ObservableEmitter<VideoItem> s) throws Exception {
-				try {
-						mmrc.setMediaDataSource(imagePath);
-						//注意这里传的是微秒
-						Bitmap bitmap = mmrc.getScaledFrameAtTime(2 * 1000 * 1000, MediaMetadataRetrieverCompat.OPTION_CLOSEST,
-								100, 100);
-						VideoItem  item=new VideoItem();
-						s.onNext(item.setBitmap(bitmap));
 
-				} catch (Exception e) {
-					s.onError(e);
-					e.printStackTrace();
-				}
-				s.onComplete();
-			}
-		}).subscribeOn(Schedulers.io())
-				.observeOn(AndroidSchedulers.mainThread())
-				.doOnNext(new Consumer<VideoItem>() {
-					@Override
-					public void accept(@NonNull VideoItem item) throws Exception {
-
-						 int size=0;
-					}
-				}).subscribe();
-        }
 //	private void checkPermission(Activity ) {
 //		if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PermissionChecker.PERMISSION_GRANTED ||
 //				ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PermissionChecker.PERMISSION_GRANTED) {

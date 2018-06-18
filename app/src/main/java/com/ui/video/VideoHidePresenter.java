@@ -51,6 +51,7 @@ private VideoDBDao mVideoDao;
       public void init(){
 		  List<AddressItemBean> settingMaps=new ArrayList<>();
 		   settingSection=new Section(KEY_SETTING);
+		  settingSection.setShowSection(false);
 
 		   int headImgSize= DensityUtil.dip2px(CoreApplication.getAppContext(),80);
 		   int i=0;
@@ -102,7 +103,7 @@ private VideoDBDao mVideoDao;
 				itemBean.setItemCanEdit(mIsCanSelect);
 				itemBean.setShowLeftCheckBox(mIsCanSelect);
 				itemBean.setSelectType(settingSection.getId());
-				itemBean.setOnItemClickAble(mIsCanSelect);
+				itemBean.setOnItemClickAble(!mIsCanSelect);
 
 			}
 		}

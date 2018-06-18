@@ -58,7 +58,7 @@ public class VideoHideListFragment extends BaseFragment implements IVideoHomeVie
 
         TopBarBuilder.buildCenterTextTitle(toolbar, getActivity(), "隐藏视频", 0);
         TopBarBuilder.buildOnlyText(toolbar, getActivity(), NavigationBar.Location.RIGHT_FIRST, "选择", 0);
-
+        addTv.setText(R.string.hide);
     }
     @Override
     public void initListener() {

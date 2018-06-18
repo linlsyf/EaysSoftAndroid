@@ -1,6 +1,7 @@
 package com.ui.app;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +20,7 @@ import com.easysoft.utils.lib.system.FragmentHelper;
 import com.easysoft.widget.toolbar.NavigationBar;
 import com.easysoft.widget.toolbar.NavigationBarListener;
 import com.easysoft.widget.toolbar.TopBarBuilder;
+import com.ui.app.view.AppItemView;
 import com.ui.other.tuling.NewsFragment;
 import com.ui.video.IVideoHomeView;
 import com.ui.video.VideoHideListFragment;
@@ -59,10 +61,17 @@ public class AppListFragment extends BaseFragment implements IVideoHomeView {
         addTv=getViewById(R.id.add);
         selectAllTv=getViewById(R.id.selectAll);
 
-//        recycleView.setlL
         TopBarBuilder.buildCenterTextTitle(toolbar, getActivity(), "应用列表", 0);
-//        TopBarBuilder.buildOnlyText(toolbar, getActivity(), NavigationBar.Location.RIGHT_FIRST, "选择", 0);
-
+       recycleView.initCustomViewCallBack(new AddressRecycleView.CustomViewCallBack() {
+           @Override
+           public View getCustomView(Context context, int type) {
+               View  itemView = null;
+               if (type==3){
+                   itemView=new AppItemView(context);
+               }
+               return itemView;
+           }
+       });
     }
     @Override
     public void initListener() {

@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
+    android:background="@color/context_bg_grey"
+    android:orientation="vertical"
                 >
 
     <com.easysoft.widget.toolbar.NavigationBar
@@ -12,14 +13,13 @@
         ></com.easysoft.widget.toolbar.NavigationBar>
 
 
-    <LinearLayout           android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
+
         android:orientation="vertical"
         >
         <com.easy.recycleview.recycleview.AddressRecycleView
-            android:layout_marginTop="20dp"
             android:id="@+id/goodsGridview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -30,6 +30,7 @@
             android:layout_height="45dp"
             android:id="@+id/editLayout"
             android:orientation="horizontal"
+             android:layout_marginBottom="10dp"
             android:visibility="gone"
             >
          <TextView     android:layout_width="match_parent"

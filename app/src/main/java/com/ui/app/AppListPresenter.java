@@ -35,6 +35,7 @@ public class AppListPresenter {
 	private boolean mIsCanSelect=false;
 	public static String ID_NEWS="ID_NEWS";
 	public static String ID_HIDE="ID_HIDE";
+	public static String ID_EMPTY="ID_EMPTY";
 
 	public AppListPresenter(IVideoHomeView iSafeSettingView) {
     	this.iVideoHomeView =iSafeSettingView;
@@ -44,20 +45,20 @@ public class AppListPresenter {
 
       public void init(){
 		  settingSection=new Section(KEY_SETTING);
-
+		  settingSection.setShowSection(false);
 		  List<AddressItemBean> settingMaps=new ArrayList<>();
 
 
 			 final  VideoBussinessItem updateBean=new VideoBussinessItem();
-		    updateBean.setId(ID_NEWS);
-			  updateBean.setTitle("新闻");
-		    int headImgSize= DensityUtil.dip2px(CoreApplication.getAppContext(),80);
 
-		  AddressHeadImgeSettings headImgeSettings=new AddressHeadImgeSettings();
-			  headImgeSettings.setHeadImgDrawableId(R.drawable.new_life_icon);
-			  headImgeSettings.setHeadImgRadius(headImgSize);
-              updateBean.setHeadImgeSettings(headImgeSettings);
-		  updateBean.setSpanSize(3);
+			  updateBean.setTitle("新闻");   updateBean.setViewType(3);
+		  updateBean.setId(ID_NEWS);
+		  AddressHeadImgeSettings  imgeSettings=new AddressHeadImgeSettings();
+		  imgeSettings.setHeadImgDrawableId(R.drawable.new_life_icon);
+		  updateBean.setHeadImgeSettings(imgeSettings);
+
+
+		  updateBean.setSpanSize(2);
 			  updateBean.setOnItemListener(new IItemView.onItemClick() {
 				  @Override
 				  public void onItemClick(IItemView.ClickTypeEnum typeEnum, AddressItemBean bean) {
@@ -68,14 +69,13 @@ public class AppListPresenter {
 		  settingMaps.add(updateBean);
 
 		  final  VideoBussinessItem hideBean=new VideoBussinessItem();
-		  hideBean.setSpanSize(3);
+		  hideBean.setViewType(3);
+		  hideBean.setSpanSize(2);
 		  hideBean.setId(ID_HIDE);
 		  hideBean.setTitle("加密");
-
-		  AddressHeadImgeSettings hideHeadImgeSettings=new AddressHeadImgeSettings();
-		  hideHeadImgeSettings.setHeadImgDrawableId(R.drawable.new_myhome_icon);
-		  hideHeadImgeSettings.setHeadImgRadius(headImgSize);
-		  hideBean.setHeadImgeSettings(hideHeadImgeSettings);
+		  AddressHeadImgeSettings  imgeSettingsHide=new AddressHeadImgeSettings();
+		  imgeSettingsHide.setHeadImgDrawableId(R.drawable.new_find_icon);
+		  hideBean.setHeadImgeSettings(imgeSettingsHide);
 
 		  hideBean.setOnItemListener(new IItemView.onItemClick() {
 			  @Override
@@ -86,7 +86,20 @@ public class AppListPresenter {
 		  });
 		  settingMaps.add(hideBean);
 
+
+		  final  VideoBussinessItem emptyBean=new VideoBussinessItem();
+		  emptyBean.setViewType(3);
+		  emptyBean.setSpanSize(2);
+		  emptyBean.setId(ID_EMPTY);
+		  AddressHeadImgeSettings  imgeSettingsEmpty=new AddressHeadImgeSettings();
+		  imgeSettingsEmpty.setHeadImgDrawableId(R.drawable.transparent);
+		  emptyBean.setHeadImgeSettings(imgeSettingsEmpty);
+
+		  settingMaps.add(emptyBean);
+
 		  settingSection.setDataMaps(settingMaps);
+
+
     	  iVideoHomeView.initUI(settingSection);
     	
       }
