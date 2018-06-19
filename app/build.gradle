@@ -85,5 +85,12 @@ dependencies {
     compile 'com.github.wseemann:FFmpegMediaMetadataRetriever:1.0.14'
     compile 'io.reactivex.rxjava2:rxjava:2.1.0'
     compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    // 最基础的架构，仅提供了系统默认的图片选择器和拍照功能
+    compile 'com.github.qingmei2:rximagepicker:0.4.0'
 
+// 提供了自定义UI图片选择器的基本组件，自定义UI的需求需要添加该依赖
+    compile 'com.github.qingmei2:rximagepicker_support:0.4.0'
+
+// 如果需要额外的UI支持，请选择依赖对应的UI拓展库
+    compile 'com.github.qingmei2:rximagepicker_support_wechat:0.4.0'    // 微信图片选择器
 }
