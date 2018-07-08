@@ -38,8 +38,8 @@ public class ImageLoadUtils extends com.easysoft.utils.lib.imge.ImageUtils  impl
 
 	@Override
 	public void load(Bitmap bitmap, ImageView imageView) {
-//		 imageView.setImageBitmap(bitmap);
-		systemImageUtils.load(bitmap,imageView);
+		 imageView.setImageBitmap(bitmap);
+//		systemImageUtils.load(bitmap,imageView);
 	}
 
 	public void loadPath(final String path, final ImageView myImageView){

@@ -83,6 +83,7 @@ public class WellComeActivity extends BasicActivity    {
 	private void switchActivity(WellComeActivity wellComeActivity) {
 //		 if (CoreApplication.getInstance().isDubug){
 			 gotoMainOrloginUI(wellComeActivity);
+			 finish();
 //		 }else if(StringUtils.isNotEmpty(BusinessBroadcastUtils.USER_VALUE_LOGIN_ID)){
 //			 gotoMainOrloginUI(wellComeActivity);
 //		 }else{

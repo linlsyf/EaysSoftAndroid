@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.antfortune.freeline.FreelineCore;
 import com.core.base.GlobalConstants;
 import com.core.db.greenDao.gen.DaoMaster;
 import com.core.db.greenDao.gen.DaoSession;
@@ -11,7 +12,6 @@ import com.core.utils.ImageLoadUtils;
 import com.easy.recycleview.recycleview.RecycleViewManage;
 import com.easysoft.utils.lib.DebugUtlis.CrashHandler;
 import com.mob.MobSDK;
-import com.squareup.leakcanary.LeakCanary;
 import com.tencent.bugly.crashreport.CrashReport;
 
 import android.os.StrictMode;
@@ -48,18 +48,19 @@ public class CoreApplication extends Application {
 		super.onCreate();
 //		initTinkerPatch();
 		instance = this;
+		FreelineCore.init(this);
 		  JPushInterface.setDebugMode(true); 	// 设置开启日志,发布时请关闭日志
 	         JPushInterface.init(this);     		// 初始化 JPush
 	      // 是否为平板
 			 initGlobalConstants();
 			init();
 		RecycleViewManage.getInStance().setIloadImage(ImageLoadUtils.getInStance());
-		if (LeakCanary.isInAnalyzerProcess(this)) {
-			// This process is dedicated to LeakCanary for heap analysis.
-			// You should not init your app in this process.
-			return;
-		}
-		LeakCanary.install(this);
+//		if (LeakCanary.isInAnalyzerProcess(this)) {
+//			// This process is dedicated to LeakCanary for heap analysis.
+//			// You should not init your app in this process.
+//			return;
+//		}
+//		LeakCanary.install(this);
 //		GlobalConstants.getInstance().setAppType(GlobalConstants.TYPE_SHOP_APP);
 		GlobalConstants.getInstance().setAppType(TYPE_SYSTEM_APP);
 		StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
