@@ -26,15 +26,12 @@ import butterknife.ButterKnife;
 
 public class AppItemView extends LinearLayout implements IItemView {
     Context mContext;
-
-
     /** 用户头像 */
     @Bind(R.id.img)
     ImageView mUserImg;
     /** 用户名*/
     @Bind(R.id.nameTv)
     TextView mNameTv;
-
     public AppItemView(Context context) {
         super(context);
         initUI(context);
@@ -49,7 +46,6 @@ public class AppItemView extends LinearLayout implements IItemView {
         mContext=context;
         LayoutInflater.from(context).inflate(R.layout.view_app_item, this, true);
         ButterKnife.bind(this);
-
     }
 
     @Override

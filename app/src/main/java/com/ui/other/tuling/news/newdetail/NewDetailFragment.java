@@ -23,7 +23,6 @@ public class NewDetailFragment extends BaseFragment implements INewsDetailsView 
     private String mUrl = "";
     private WebSettings settings;
     private NavigationBar toolbar;
-    AddressRecycleView recycleView;
     NewsDetailPresenter persenter;
     @Override
     public int getLayoutResId() {
