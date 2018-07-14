@@ -21,10 +21,9 @@ import com.easysoft.widget.toolbar.NavigationBar;
 import com.easysoft.widget.toolbar.NavigationBarListener;
 import com.easysoft.widget.toolbar.TopBarBuilder;
 import com.ui.app.view.AppItemView;
-import com.ui.other.tuling.NewsFragment;
+import com.ui.other.tuling.news.NewsFragment;
 import com.ui.video.IVideoHomeView;
 import com.ui.video.VideoHideListFragment;
-import com.utils.OpenFileUtils;
 
 import java.util.List;
 

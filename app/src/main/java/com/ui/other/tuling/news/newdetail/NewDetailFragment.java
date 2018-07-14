@@ -1,8 +1,7 @@
-package com.ui.other.tuling;
+package com.ui.other.tuling.news.newdetail;
 
 import android.graphics.Bitmap;
 import android.os.Build;
-import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebResourceError;
@@ -11,54 +10,51 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-
 import com.core.base.BaseFragment;
+import com.easy.recycleview.recycleview.AddressRecycleView;
+import com.easy.recycleview.recycleview.sectionview.Section;
 import com.easysoft.costumes.R;
 import com.easysoft.widget.toolbar.NavigationBar;
 import com.easysoft.widget.toolbar.TopBarBuilder;
 
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
-
-/**
- * Created by sunfusheng on 2015/2/6.
- */
-public class NewDetailFragment extends BaseFragment {
-
-//    @Bind(R.id.toolbar)
-//    Toolbar toolbar;
-//    @Bind(R.id.webView)
+public class NewDetailFragment extends BaseFragment implements INewsDetailsView {
     WebView webView;
-
-    private NavigationBar toolbar;
-
     private String mUrl = "";
     private WebSettings settings;
+    private NavigationBar toolbar;
+    AddressRecycleView recycleView;
+    NewsDetailPresenter persenter;
     @Override
     public int getLayoutResId() {
-        return R.layout.activity_detail;
+        return R.layout.fragment_webview_common;
     }
 
     @Override
     public void initFragment() {
-
         initUIView();
         initData();
+    }
+    @Override
+    public void initUIView() {
+        webView = getViewById(R.id.webView);
+        toolbar=getViewById(R.id.toolbar);
+        TopBarBuilder.buildCenterTextTitle(toolbar, getActivity(), "新闻详情", 0);
+//        recycleView.initCustomViewCallBack(new AddressRecycleView.CustomViewCallBack() {
+//            @Override
+//            public View getCustomView(Context context, int type) {
+//                webView= null;
+//                if (type==3){
+//                    webView=new WebView(context);
+//                }
+//                return webView;
+//            }
+//        });
+        persenter=new NewsDetailPresenter(this);
+        persenter.init();
         initView();
     }
 
-    @Override
-    public void initUIView() {
-        toolbar=getViewById(R.id.toolbar);
-        webView=getViewById(R.id.webView);
-        TopBarBuilder.buildCenterTextTitle(toolbar, getActivity(), "新闻", 0);
-
-    }
-
-    public void initData() {
-        mUrl = getArguments().getString("url");
-    }
 
     @Override
     public void getBroadcastReceiverMessage(String type, Object mode) {
@@ -66,13 +62,14 @@ public class NewDetailFragment extends BaseFragment {
     }
 
     private void initView() {
+        mUrl = getArguments().getString("url");
+
         settings = webView.getSettings();
         settings.setJavaScriptEnabled(true); //如果访问的页面中有Javascript，则WebView必须设置支持Javascript
         settings.setJavaScriptCanOpenWindowsAutomatically(true);
         settings.setSupportZoom(true); //支持缩放
         settings.setBuiltInZoomControls(true); //支持手势缩放
         settings.setDisplayZoomControls(false); //是否显示缩放按钮
-
         // >= 19(SDK4.4)启动硬件加速，否则启动软件加速
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             webView.setLayerType(View.LAYER_TYPE_HARDWARE, null);
@@ -136,5 +133,17 @@ public class NewDetailFragment extends BaseFragment {
 
     }
 
+    @Override
+    public void initUI(final Section section) {
+//        getActivity().runOnUiThread(new Runnable() {
+//
+//            @Override
+//            public void run() {
+//                recycleView.updateSection(section,true);
+//                initView();
+//
+//            }
+//        });
+    }
 }
 

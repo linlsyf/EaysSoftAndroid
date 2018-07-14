@@ -10,8 +10,8 @@ import com.easysoft.costumes.R;
 import com.easysoft.utils.lib.system.FragmentHelper;
 import com.ui.other.tuling.constant.TulingParams;
 import com.ui.other.tuling.entity.MessageEntity;
-import com.ui.other.tuling.NewDetailFragment;
-import com.ui.other.tuling.NewsFragment;
+import com.ui.other.tuling.news.newdetail.NewDetailFragment;
+import com.ui.other.tuling.news.NewsFragment;
 import com.ui.other.tuling.util.SpecialViewUtil;
 import com.ui.other.tuling.util.TimeUtil;
 

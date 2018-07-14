@@ -51,15 +51,14 @@ public class VideosFragment extends BaseFragment implements IVideoHomeView {
     public void initUIView() {
         persenter=new VideoHomePresenter(this);
         recycleView = getViewById(R.id.goodsGridview);
-        persenter.init();
+        persenter.init(getActivity());
         toolbar=getViewById(R.id.toolbar);
         editLayout=getViewById(R.id.editLayout);
         addTv=getViewById(R.id.add);
         selectAllTv=getViewById(R.id.selectAll);
-
-
         TopBarBuilder.buildCenterTextTitle(toolbar, getActivity(), "本地视频", 0);
         TopBarBuilder.buildOnlyText(toolbar, getActivity(), NavigationBar.Location.RIGHT_FIRST, "选择", 0);
+        addTv.setText(R.string.hide);
 
     }
     @Override
@@ -111,7 +110,7 @@ public class VideosFragment extends BaseFragment implements IVideoHomeView {
 	public void getBroadcastReceiverMessage(String type, Object mode) {
 
          if(type.equals(BusinessBroadcastUtils.TYPE_REFRESH_VIDEO)){
-           persenter.init();
+           persenter.init(getActivity());
         }
 //        if(type.equals(BusinessBroadcastUtils.TYPE_LOGIN_FAILS)){
 //
@@ -146,8 +145,4 @@ public class VideosFragment extends BaseFragment implements IVideoHomeView {
     }
 
 
-//    @Override
-//    public void addLayoutHelper(LayoutHelper helper,boolean isRefresh) {
-//        recycleView.addLayoutHelper(helper,isRefresh);
-//    }
 }

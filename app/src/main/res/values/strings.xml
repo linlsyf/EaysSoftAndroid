@@ -172,6 +172,8 @@
 
     <string name="search">搜索</string>
     <string name="hide">隐藏</string>
+    <string name="reback">还原</string>
+    <string name="storepermitrequst">请检查是否有读取权限</string>
 
 </resources>
 
